@@ -1,0 +1,114 @@
+---
+title: "Agent Skills 100: Telling the Agent How You Work"
+---
+
+## The global CLAUDE.md
+
+Every time an agent starts a session, it reads a file called `CLAUDE.md` (or `AGENTS.md`) in the root of your repo. This is where you tell the agent *how you work* — your conventions, your shortcuts, your rules.
+
+But there's also a **global** `CLAUDE.md` that lives in your home directory (`~/.claude/CLAUDE.md`). This one applies to *every* repo you work in. It's where you define your personal workflow — the phrases you use, what they mean, and what the agent should do when it hears them.
+
+Think of it as training the agent to work the way you work.
+
+## What goes in a global CLAUDE.md
+
+Your global file teaches the agent your shorthand. Instead of explaining your workflow every session, you write it once and the agent follows it everywhere.
+
+Here's an example:
+
+````markdown
+# Workflow
+
+## "I am starting a new task"
+
+When I say this:
+
+1. Create a GitHub issue for the task
+2. Create a branch for the task
+3. Work on the branch
+
+## "Task is done" or "Let's finish up the task"
+
+When I say this:
+
+1. Open a PR
+2. Merge the PR
+3. Delete the branch
+
+Note: this workflow assumes I am working on my own and doing
+my own reviews. For collaborative work, open the PR and assign
+a reviewer instead of merging immediately.
+
+## "Get ready for clear"
+
+When I say this:
+
+1. Close any loose ends (pending edits, uncommitted changes)
+2. Review memories for outdated information and update them
+3. Update the handoff note in `notes/`
+4. Keep the handoff concise — move detailed info to separate
+   files in `notes/` if the handoff is getting long
+5. Ask me what my next task will be when I return, and put
+   that in the handoff
+
+## "Initialize this repo"
+
+When I say this:
+
+1. Add an open license if one is missing
+2. Add a reuse statement to the repo
+3. Check the README for basic reproducibility:
+   - Are there instructions to run the code?
+   - Are dependencies listed?
+   - Is there a clear entry point?
+
+## Git rules
+
+- Never use destructive git actions: no `--force` pushes,
+  no `git reset --hard`, no `git clean -f`,
+  no deleting branches that haven't been merged
+- Always create new commits rather than amending
+- Ask before any action that could lose work
+````
+
+## Why this matters
+
+Without a global `CLAUDE.md`, you have to re-explain your workflow every session. With one, you say "I'm starting a new task" and the agent knows exactly what that means — create an issue, create a branch, get to work.
+
+This turns your agent into a tool that follows *your* process, not a generic assistant you have to manage.
+
+## Setting it up
+
+Create the file:
+
+```bash
+mkdir -p ~/.claude
+nano ~/.claude/CLAUDE.md
+```
+
+Or ask your agent to create it:
+
+> Create a `~/.claude/CLAUDE.md` with my workflow preferences. I'll tell you what to put in it.
+
+Then iterate — tell the agent your conventions, let it write the file, and refine it over time.
+
+## Global vs. project CLAUDE.md
+
+| | Global (`~/.claude/CLAUDE.md`) | Project (`./CLAUDE.md`) |
+|---|---|---|
+| **Applies to** | Every repo | This repo only |
+| **Contains** | Your personal workflow and conventions | Project-specific build commands, architecture, coding style |
+| **Examples** | "Starting a new task" means create issue + branch | "Run `quarto render` to build" |
+
+Both are loaded at session start. The project file adds context specific to the codebase. The global file carries your workflow everywhere.
+
+## Start simple
+
+You don't need to write everything on day one. Start with the phrases you actually use:
+
+- What does "start a task" mean?
+- What does "done" mean?
+- What does "get ready for clear" mean?
+- What should the agent never do?
+
+Add more as you develop habits. The file grows with you.

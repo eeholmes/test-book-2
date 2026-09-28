@@ -23,6 +23,7 @@ book:
         - content/activity-repo-analysis.qmd
     - part: "Agent Skills"
       chapters:
+        - content/skills-100.qmd
         - content/skills-101.qmd
         - content/skills-102.qmd
         - content/skills-103.qmd
