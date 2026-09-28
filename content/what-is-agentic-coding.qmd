@@ -58,6 +58,18 @@ Every time you sit down with an agent, you should have a **task** in mind. A tas
 
 The key is that a task has a **scope**. "Help me with my project" is not a task. "Draft the introduction chapter" is a task. "Figure out why the PDF won't render" is a task. Even "brainstorm what sections this book should have" is a task.
 
+### Plan before you build
+
+Don't jump straight into writing code or content. Start by asking the agent to **explore** and **plan**:
+
+> Look at the current book structure and help me plan what changes we need to make. Save the plan to `notes/plan.md`.
+
+Once you have a plan, *then* start a new task to execute it. This keeps the exploration context out of your implementation session and gives you a chance to review the plan before committing to it.
+
+### Build small before building big
+
+Don't ask the agent to rewrite everything at once. Start with one chapter, one function, one section. Review it. Then do the next piece. This makes problems easier to spot, easier to fix, and cheaper to redo if the agent goes in the wrong direction.
+
 ### Keep tasks separate
 
 When you finish a task — or when you need to switch to a different task — **close the loop**. Don't just start talking about something else. The agent's context is now full of information from the previous task, which makes it slower, more expensive, and more likely to get confused.
@@ -90,18 +102,19 @@ It's tempting to keep going in one long conversation — especially if things ar
 Short, focused tasks with handoff notes between them are cheaper, more reliable, and easier to pick up later.
 :::
 
-### Don't use `/resume`
+### Start fresh instead of resuming
 
-Most tools have a way to resume the previous session (like `/resume` in Claude Code). This reloads the entire old conversation — all the context, all the cost, all the drift. It's the opposite of what you want.
+Most tools have a way to resume the previous session (like `/resume` in Claude Code). This reloads the entire old conversation — all the context, all the cost, all the drift.
 
-Instead, start fresh and point the agent at your notes:
+Resume can make sense for short interruptions — you stepped away for coffee and want to continue the same task. But for picking up work after a longer gap, or when someone else on the team is taking over, starting fresh with handoff notes is more reliable:
 
 > Read the notes in `notes/` and continue where we left off.
 
-This gives the agent exactly the context it needs and nothing it doesn't.
+This gives the agent exactly the context it needs and nothing it doesn't. And unlike a resumed session, anyone on the team can pick it up — not just the person who started it.
 
 ## What an agent is not
 
-- It's not magic — agents make mistakes, especially on complex or ambiguous tasks. Always review what they produce.
+- It's not magic — agents make mistakes, especially on complex or ambiguous tasks.
 - It's not a chatbot — keep interactions focused on tasks, not open-ended conversation.
 - It doesn't remember between sessions — that's why you use handoff notes.
+- It needs verification — see [Checking the Agent's Work](skills-103.qmd).

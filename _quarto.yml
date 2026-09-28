@@ -24,6 +24,7 @@ book:
       chapters:
         - content/skills-101.qmd
         - content/skills-102.qmd
+        - content/skills-103.qmd
     - part: "Reference"
       chapters:
         - content/tool-comparison.qmd
