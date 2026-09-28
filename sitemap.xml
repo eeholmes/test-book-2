@@ -2,38 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://nmfs-opensci.github.io/NOAA-quarto-book/index.html</loc>
-    <lastmod>2026-09-28T22:37:16.811Z</lastmod>
+    <lastmod>2026-09-28T22:54:33.545Z</lastmod>
   </url>
   <url>
     <loc>https://nmfs-opensci.github.io/NOAA-quarto-book/content/setup.html</loc>
-    <lastmod>2026-09-28T22:37:16.808Z</lastmod>
+    <lastmod>2026-09-28T22:54:33.542Z</lastmod>
   </url>
   <url>
     <loc>https://nmfs-opensci.github.io/NOAA-quarto-book/content/models-and-budget.html</loc>
-    <lastmod>2026-09-28T22:37:16.808Z</lastmod>
+    <lastmod>2026-09-28T22:54:33.542Z</lastmod>
   </url>
   <url>
     <loc>https://nmfs-opensci.github.io/NOAA-quarto-book/content/what-is-agentic-coding.html</loc>
-    <lastmod>2026-09-28T22:37:16.808Z</lastmod>
+    <lastmod>2026-09-28T22:54:33.542Z</lastmod>
   </url>
   <url>
     <loc>https://nmfs-opensci.github.io/NOAA-quarto-book/content/activity-repo-analysis.html</loc>
-    <lastmod>2026-09-28T22:37:16.807Z</lastmod>
+    <lastmod>2026-09-28T22:54:33.541Z</lastmod>
   </url>
   <url>
     <loc>https://nmfs-opensci.github.io/NOAA-quarto-book/content/skills-101.html</loc>
-    <lastmod>2026-09-28T22:37:16.808Z</lastmod>
+    <lastmod>2026-09-28T22:54:33.542Z</lastmod>
   </url>
   <url>
     <loc>https://nmfs-opensci.github.io/NOAA-quarto-book/content/skills-102.html</loc>
-    <lastmod>2026-09-28T22:37:16.808Z</lastmod>
+    <lastmod>2026-09-28T22:54:33.542Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nmfs-opensci.github.io/NOAA-quarto-book/content/skills-103.html</loc>
+    <lastmod>2026-09-28T22:54:33.542Z</lastmod>
   </url>
   <url>
     <loc>https://nmfs-opensci.github.io/NOAA-quarto-book/content/tool-comparison.html</loc>
-    <lastmod>2026-09-28T22:37:16.808Z</lastmod>
+    <lastmod>2026-09-28T22:54:33.542Z</lastmod>
   </url>
   <url>
     <loc>https://nmfs-opensci.github.io/NOAA-quarto-book/content/troubleshooting.html</loc>
-    <lastmod>2026-09-28T22:37:16.808Z</lastmod>
+    <lastmod>2026-09-28T22:54:33.542Z</lastmod>
   </url>
 </urlset>

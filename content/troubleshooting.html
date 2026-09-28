@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>9&nbsp; Troubleshooting – Agent Coders Clinic</title>
+<title>10&nbsp; Troubleshooting – Agent Coders Clinic</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -122,7 +122,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/tool-comparison.html">Reference</a></li><li class="breadcrumb-item"><a href="../content/troubleshooting.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Troubleshooting</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/tool-comparison.html">Reference</a></li><li class="breadcrumb-item"><a href="../content/troubleshooting.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Troubleshooting</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -228,6 +228,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Agent Skills 102: SKILLS.md</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/skills-103.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Agent Skills 103: Checking the Agent’s Work</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -242,13 +248,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../content/tool-comparison.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Tool Comparison</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Tool Comparison</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../content/troubleshooting.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Troubleshooting</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Troubleshooting</span></span></a>
   </div>
 </li>
       </ul>
@@ -263,34 +269,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#connection-problems" id="toc-connection-problems" class="nav-link active" data-scroll-target="#connection-problems"><span class="header-section-number">9.1</span> Connection problems</a>
+  <li><a href="#connection-problems" id="toc-connection-problems" class="nav-link active" data-scroll-target="#connection-problems"><span class="header-section-number">10.1</span> Connection problems</a>
   <ul class="collapse">
-  <li><a href="#authentication-error-or-invalid-api-key" id="toc-authentication-error-or-invalid-api-key" class="nav-link" data-scroll-target="#authentication-error-or-invalid-api-key"><span class="header-section-number">9.1.1</span> “Authentication error” or “Invalid API key”</a></li>
-  <li><a href="#connection-refused-or-timeout" id="toc-connection-refused-or-timeout" class="nav-link" data-scroll-target="#connection-refused-or-timeout"><span class="header-section-number">9.1.2</span> “Connection refused” or timeout</a></li>
-  <li><a href="#claude-code-ignores-the-gateway" id="toc-claude-code-ignores-the-gateway" class="nav-link" data-scroll-target="#claude-code-ignores-the-gateway"><span class="header-section-number">9.1.3</span> Claude Code ignores the gateway</a></li>
+  <li><a href="#authentication-error-or-invalid-api-key" id="toc-authentication-error-or-invalid-api-key" class="nav-link" data-scroll-target="#authentication-error-or-invalid-api-key"><span class="header-section-number">10.1.1</span> “Authentication error” or “Invalid API key”</a></li>
+  <li><a href="#connection-refused-or-timeout" id="toc-connection-refused-or-timeout" class="nav-link" data-scroll-target="#connection-refused-or-timeout"><span class="header-section-number">10.1.2</span> “Connection refused” or timeout</a></li>
+  <li><a href="#claude-code-ignores-the-gateway" id="toc-claude-code-ignores-the-gateway" class="nav-link" data-scroll-target="#claude-code-ignores-the-gateway"><span class="header-section-number">10.1.3</span> Claude Code ignores the gateway</a></li>
   </ul></li>
-  <li><a href="#budget-problems" id="toc-budget-problems" class="nav-link" data-scroll-target="#budget-problems"><span class="header-section-number">9.2</span> Budget problems</a>
+  <li><a href="#budget-problems" id="toc-budget-problems" class="nav-link" data-scroll-target="#budget-problems"><span class="header-section-number">10.2</span> Budget problems</a>
   <ul class="collapse">
-  <li><a href="#budget-exceeded" id="toc-budget-exceeded" class="nav-link" data-scroll-target="#budget-exceeded"><span class="header-section-number">9.2.1</span> “Budget exceeded”</a></li>
-  <li><a href="#key-expired-or-key-blocked" id="toc-key-expired-or-key-blocked" class="nav-link" data-scroll-target="#key-expired-or-key-blocked"><span class="header-section-number">9.2.2</span> “Key expired” or “Key blocked”</a></li>
-  <li><a href="#how-to-check-your-remaining-budget" id="toc-how-to-check-your-remaining-budget" class="nav-link" data-scroll-target="#how-to-check-your-remaining-budget"><span class="header-section-number">9.2.3</span> How to check your remaining budget</a></li>
+  <li><a href="#budget-exceeded" id="toc-budget-exceeded" class="nav-link" data-scroll-target="#budget-exceeded"><span class="header-section-number">10.2.1</span> “Budget exceeded”</a></li>
+  <li><a href="#key-expired-or-key-blocked" id="toc-key-expired-or-key-blocked" class="nav-link" data-scroll-target="#key-expired-or-key-blocked"><span class="header-section-number">10.2.2</span> “Key expired” or “Key blocked”</a></li>
+  <li><a href="#how-to-check-your-remaining-budget" id="toc-how-to-check-your-remaining-budget" class="nav-link" data-scroll-target="#how-to-check-your-remaining-budget"><span class="header-section-number">10.2.3</span> How to check your remaining budget</a></li>
   </ul></li>
-  <li><a href="#agent-behavior-problems" id="toc-agent-behavior-problems" class="nav-link" data-scroll-target="#agent-behavior-problems"><span class="header-section-number">9.3</span> Agent behavior problems</a>
+  <li><a href="#agent-behavior-problems" id="toc-agent-behavior-problems" class="nav-link" data-scroll-target="#agent-behavior-problems"><span class="header-section-number">10.3</span> Agent behavior problems</a>
   <ul class="collapse">
-  <li><a href="#agent-gives-generic-answers-without-reading-files" id="toc-agent-gives-generic-answers-without-reading-files" class="nav-link" data-scroll-target="#agent-gives-generic-answers-without-reading-files"><span class="header-section-number">9.3.1</span> Agent gives generic answers without reading files</a></li>
-  <li><a href="#agent-seems-confused-or-stuck" id="toc-agent-seems-confused-or-stuck" class="nav-link" data-scroll-target="#agent-seems-confused-or-stuck"><span class="header-section-number">9.3.2</span> Agent seems confused or stuck</a></li>
-  <li><a href="#agent-makes-changes-you-didnt-ask-for" id="toc-agent-makes-changes-you-didnt-ask-for" class="nav-link" data-scroll-target="#agent-makes-changes-you-didnt-ask-for"><span class="header-section-number">9.3.3</span> Agent makes changes you didn’t ask for</a></li>
+  <li><a href="#agent-gives-generic-answers-without-reading-files" id="toc-agent-gives-generic-answers-without-reading-files" class="nav-link" data-scroll-target="#agent-gives-generic-answers-without-reading-files"><span class="header-section-number">10.3.1</span> Agent gives generic answers without reading files</a></li>
+  <li><a href="#agent-seems-confused-or-stuck" id="toc-agent-seems-confused-or-stuck" class="nav-link" data-scroll-target="#agent-seems-confused-or-stuck"><span class="header-section-number">10.3.2</span> Agent seems confused or stuck</a></li>
+  <li><a href="#agent-makes-changes-you-didnt-ask-for" id="toc-agent-makes-changes-you-didnt-ask-for" class="nav-link" data-scroll-target="#agent-makes-changes-you-didnt-ask-for"><span class="header-section-number">10.3.3</span> Agent makes changes you didn’t ask for</a></li>
   </ul></li>
-  <li><a href="#environment-variables-cheat-sheet" id="toc-environment-variables-cheat-sheet" class="nav-link" data-scroll-target="#environment-variables-cheat-sheet"><span class="header-section-number">9.4</span> Environment variables cheat sheet</a></li>
+  <li><a href="#environment-variables-cheat-sheet" id="toc-environment-variables-cheat-sheet" class="nav-link" data-scroll-target="#environment-variables-cheat-sheet"><span class="header-section-number">10.4</span> Environment variables cheat sheet</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/nmfs-opensci/agent-coders-clinics/edit/main/content/troubleshooting.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nmfs-opensci/agent-coders-clinics/blob/main/content/troubleshooting.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/nmfs-opensci/agent-coders-clinics/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/tool-comparison.html">Reference</a></li><li class="breadcrumb-item"><a href="../content/troubleshooting.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Troubleshooting</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/tool-comparison.html">Reference</a></li><li class="breadcrumb-item"><a href="../content/troubleshooting.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Troubleshooting</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Troubleshooting</span></h1>
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Troubleshooting</span></h1>
 </div>
 
 
@@ -307,40 +313,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="connection-problems" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="connection-problems"><span class="header-section-number">9.1</span> Connection problems</h2>
-<section id="authentication-error-or-invalid-api-key" class="level3" data-number="9.1.1">
-<h3 data-number="9.1.1" class="anchored" data-anchor-id="authentication-error-or-invalid-api-key"><span class="header-section-number">9.1.1</span> “Authentication error” or “Invalid API key”</h3>
+<section id="connection-problems" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="connection-problems"><span class="header-section-number">10.1</span> Connection problems</h2>
+<section id="authentication-error-or-invalid-api-key" class="level3" data-number="10.1.1">
+<h3 data-number="10.1.1" class="anchored" data-anchor-id="authentication-error-or-invalid-api-key"><span class="header-section-number">10.1.1</span> “Authentication error” or “Invalid API key”</h3>
 <p>Your <code>GATEWAY_KEY</code> is wrong or not set in this terminal.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="va">$GATEWAY_KEY</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If it’s empty, set it again:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">GATEWAY_KEY</span><span class="op">=</span>sk-your-key-here</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="connection-refused-or-timeout" class="level3" data-number="9.1.2">
-<h3 data-number="9.1.2" class="anchored" data-anchor-id="connection-refused-or-timeout"><span class="header-section-number">9.1.2</span> “Connection refused” or timeout</h3>
+<section id="connection-refused-or-timeout" class="level3" data-number="10.1.2">
+<h3 data-number="10.1.2" class="anchored" data-anchor-id="connection-refused-or-timeout"><span class="header-section-number">10.1.2</span> “Connection refused” or timeout</h3>
 <p>The gateway server may be stopped. Check with the organizer.</p>
 <p>Also verify your <code>GATEWAY_URL</code> is set:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="va">$GATEWAY_URL</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="claude-code-ignores-the-gateway" class="level3" data-number="9.1.3">
-<h3 data-number="9.1.3" class="anchored" data-anchor-id="claude-code-ignores-the-gateway"><span class="header-section-number">9.1.3</span> Claude Code ignores the gateway</h3>
+<section id="claude-code-ignores-the-gateway" class="level3" data-number="10.1.3">
+<h3 data-number="10.1.3" class="anchored" data-anchor-id="claude-code-ignores-the-gateway"><span class="header-section-number">10.1.3</span> Claude Code ignores the gateway</h3>
 <p>If you have other Claude Code settings (Bedrock, Vertex, or an Anthropic API key), they can override the gateway. Clear them:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">unset</span> <span class="va">CLAUDE_CODE_USE_BEDROCK</span> <span class="va">CLAUDE_CODE_USE_VERTEX</span> <span class="va">ANTHROPIC_API_KEY</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Then set the gateway variables again and restart <code>claude</code>.</p>
 </section>
 </section>
-<section id="budget-problems" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="budget-problems"><span class="header-section-number">9.2</span> Budget problems</h2>
-<section id="budget-exceeded" class="level3" data-number="9.2.1">
-<h3 data-number="9.2.1" class="anchored" data-anchor-id="budget-exceeded"><span class="header-section-number">9.2.1</span> “Budget exceeded”</h3>
+<section id="budget-problems" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="budget-problems"><span class="header-section-number">10.2</span> Budget problems</h2>
+<section id="budget-exceeded" class="level3" data-number="10.2.1">
+<h3 data-number="10.2.1" class="anchored" data-anchor-id="budget-exceeded"><span class="header-section-number">10.2.1</span> “Budget exceeded”</h3>
 <p>Your key has hit its spending limit. Ask the organizer — they can increase it or issue a new key.</p>
 </section>
-<section id="key-expired-or-key-blocked" class="level3" data-number="9.2.2">
-<h3 data-number="9.2.2" class="anchored" data-anchor-id="key-expired-or-key-blocked"><span class="header-section-number">9.2.2</span> “Key expired” or “Key blocked”</h3>
+<section id="key-expired-or-key-blocked" class="level3" data-number="10.2.2">
+<h3 data-number="10.2.2" class="anchored" data-anchor-id="key-expired-or-key-blocked"><span class="header-section-number">10.2.2</span> “Key expired” or “Key blocked”</h3>
 <p>The key’s time limit is up, or it was switched off. Ask the organizer for a new one.</p>
 </section>
-<section id="how-to-check-your-remaining-budget" class="level3" data-number="9.2.3">
-<h3 data-number="9.2.3" class="anchored" data-anchor-id="how-to-check-your-remaining-budget"><span class="header-section-number">9.2.3</span> How to check your remaining budget</h3>
+<section id="how-to-check-your-remaining-budget" class="level3" data-number="10.2.3">
+<h3 data-number="10.2.3" class="anchored" data-anchor-id="how-to-check-your-remaining-budget"><span class="header-section-number">10.2.3</span> How to check your remaining budget</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> <span class="va">$GATEWAY_URL</span>/key/info <span class="dt">\</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">"Authorization: Bearer </span><span class="va">$GATEWAY_KEY</span><span class="st">"</span> <span class="kw">|</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">python3</span> <span class="at">-c</span> <span class="st">"</span></span>
@@ -350,27 +356,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="agent-behavior-problems" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="agent-behavior-problems"><span class="header-section-number">9.3</span> Agent behavior problems</h2>
-<section id="agent-gives-generic-answers-without-reading-files" class="level3" data-number="9.3.1">
-<h3 data-number="9.3.1" class="anchored" data-anchor-id="agent-gives-generic-answers-without-reading-files"><span class="header-section-number">9.3.1</span> Agent gives generic answers without reading files</h3>
+<section id="agent-behavior-problems" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="agent-behavior-problems"><span class="header-section-number">10.3</span> Agent behavior problems</h2>
+<section id="agent-gives-generic-answers-without-reading-files" class="level3" data-number="10.3.1">
+<h3 data-number="10.3.1" class="anchored" data-anchor-id="agent-gives-generic-answers-without-reading-files"><span class="header-section-number">10.3.1</span> Agent gives generic answers without reading files</h3>
 <p>Some models (especially open models) don’t use file-reading tools reliably. Try:</p>
 <ul>
 <li>Being explicit: “Use the read tool to look at <code>README.md</code>, then answer.”</li>
 <li>Switching to a Claude model, which handles tool use more reliably.</li>
 </ul>
 </section>
-<section id="agent-seems-confused-or-stuck" class="level3" data-number="9.3.2">
-<h3 data-number="9.3.2" class="anchored" data-anchor-id="agent-seems-confused-or-stuck"><span class="header-section-number">9.3.2</span> Agent seems confused or stuck</h3>
+<section id="agent-seems-confused-or-stuck" class="level3" data-number="10.3.2">
+<h3 data-number="10.3.2" class="anchored" data-anchor-id="agent-seems-confused-or-stuck"><span class="header-section-number">10.3.2</span> Agent seems confused or stuck</h3>
 <p>The conversation may have gotten too long. Run <code>/clear</code> and start fresh. If you have handoff notes in <code>notes/</code>, tell the agent to read those for context.</p>
 </section>
-<section id="agent-makes-changes-you-didnt-ask-for" class="level3" data-number="9.3.3">
-<h3 data-number="9.3.3" class="anchored" data-anchor-id="agent-makes-changes-you-didnt-ask-for"><span class="header-section-number">9.3.3</span> Agent makes changes you didn’t ask for</h3>
+<section id="agent-makes-changes-you-didnt-ask-for" class="level3" data-number="10.3.3">
+<h3 data-number="10.3.3" class="anchored" data-anchor-id="agent-makes-changes-you-didnt-ask-for"><span class="header-section-number">10.3.3</span> Agent makes changes you didn’t ask for</h3>
 <p>Review what the agent is doing before approving. Most tools ask permission before writing files. If it’s going off track, interrupt it and clarify what you actually want.</p>
 </section>
 </section>
-<section id="environment-variables-cheat-sheet" class="level2" data-number="9.4">
-<h2 data-number="9.4" class="anchored" data-anchor-id="environment-variables-cheat-sheet"><span class="header-section-number">9.4</span> Environment variables cheat sheet</h2>
+<section id="environment-variables-cheat-sheet" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="environment-variables-cheat-sheet"><span class="header-section-number">10.4</span> Environment variables cheat sheet</h2>
 <p>If things aren’t working, check that all the right variables are set:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"GATEWAY_URL: </span><span class="va">$GATEWAY_URL</span><span class="st">"</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"GATEWAY_KEY: </span><span class="va">$GATEWAY_KEY</span><span class="st">"</span></span>
@@ -786,7 +792,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../content/tool-comparison.html" class="pagination-link" aria-label="Tool Comparison">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Tool Comparison</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Tool Comparison</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
