@@ -36,15 +36,72 @@ There are several tools that work this way. In this clinic you can use any of th
 
 They all follow the same basic pattern: you give a prompt, the agent works through it using tools, and you review the result. The commands and interface differ, but the concept is the same.
 
-## What makes this useful for science?
+## How to work with an agent
 
-- **Exploring unfamiliar code** — point the agent at a repo and ask "what does this do?" It will actually read the files, not guess.
-- **Repetitive tasks** — reformatting data, updating documentation, running the same analysis across multiple files.
-- **Learning** — ask the agent to explain code as it works. It's like pair programming with a patient partner.
-- **Reproducibility** — the agent can check whether a project has the dependencies, data, and instructions someone else would need to reproduce it.
+An agentic tool is not a chatbot. The biggest mistake people make is treating it like one — typing free-form messages, going off on tangents, and ending up in a long rambling conversation that confuses both you and the agent.
 
-## What it's not
+Here's how to work with an agent effectively:
 
-- It's not magic — agents make mistakes, especially on complex or ambiguous tasks.
-- It's not a replacement for understanding your own code — always review what the agent produces.
-- It doesn't remember between sessions — more on that in [Agent Skills 101](skills-101.qmd).
+### Each repo is a project
+
+An agent works inside a directory. That directory is the project. Keep your agent sessions anchored to a specific repo. Don't try to work across unrelated projects in one session.
+
+### Work in tasks
+
+Every time you sit down with an agent, you should have a **task** in mind. A task can be:
+
+- Writing a chapter
+- Fixing a bug
+- Brainstorming an outline
+- Researching how something works
+- Planning a set of changes
+
+The key is that a task has a **scope**. "Help me with my project" is not a task. "Draft the introduction chapter" is a task. "Figure out why the PDF won't render" is a task. Even "brainstorm what sections this book should have" is a task.
+
+### Keep tasks separate
+
+When you finish a task — or when you need to switch to a different task — **close the loop**. Don't just start talking about something else. The agent's context is now full of information from the previous task, which makes it slower, more expensive, and more likely to get confused.
+
+Close the loop by telling the agent:
+
+> I'm about to clear. Write a handoff note to `notes/` with what we did and what's next.
+
+Then:
+
+```
+/clear
+```
+
+Start the next task fresh. The agent will read `notes/` if it needs context from earlier work.
+
+### Close the loop even mid-task
+
+You don't have to finish a task to close it. If you're halfway through and need to stop, or if the conversation is getting long — close the loop anyway. A handoff note saying "got halfway through X, next step is Y" is perfectly fine. The next session picks it up.
+
+::: {.callout-warning}
+## Don't use endless chats
+
+It's tempting to keep going in one long conversation — especially if things are flowing. Resist. Long conversations:
+
+- **Cost more** — every message resends the entire conversation
+- **Drift** — the agent loses focus as context piles up
+- **Break** — if the session dies, you lose everything
+
+Short, focused tasks with handoff notes between them are cheaper, more reliable, and easier to pick up later.
+:::
+
+### Don't use `/resume`
+
+Most tools have a way to resume the previous session (like `/resume` in Claude Code). This reloads the entire old conversation — all the context, all the cost, all the drift. It's the opposite of what you want.
+
+Instead, start fresh and point the agent at your notes:
+
+> Read the notes in `notes/` and continue where we left off.
+
+This gives the agent exactly the context it needs and nothing it doesn't.
+
+## What an agent is not
+
+- It's not magic — agents make mistakes, especially on complex or ambiguous tasks. Always review what they produce.
+- It's not a chatbot — keep interactions focused on tasks, not open-ended conversation.
+- It doesn't remember between sessions — that's why you use handoff notes.
