@@ -239,34 +239,67 @@
   {
     "objectID": "content/activity-repo-analysis.html",
     "href": "content/activity-repo-analysis.html",
-    "title": "5  Activity: Repo Reproducibility Analysis",
+    "title": "5  Activity: Edit a Quarto Book with an Agent",
     "section": "",
-    "text": "5.1 The task\nIn this group activity, you’ll point an AI coding agent at a public GitHub repository and ask it to analyze how reproducible the project is.\nThis is a great first task for an agentic tool because it’s read-only (nothing to break), it exercises the agent’s ability to explore files, and it produces something useful.",
+    "text": "5.1 Before you start\nIn this activity you’ll practice the full clear–handoff–notes workflow from Skills 101. You’ll use an AI coding agent to plan and execute edits to a real Quarto book — the same template this documentation is built on.",
     "crumbs": [
       "What Is Agentic Coding?",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Activity: Repo Reproducibility Analysis</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Activity: Edit a Quarto Book with an Agent</span>"
     ]
   },
   {
-    "objectID": "content/activity-repo-analysis.html#instructions",
-    "href": "content/activity-repo-analysis.html#instructions",
-    "title": "5  Activity: Repo Reproducibility Analysis",
-    "section": "5.2 Instructions",
-    "text": "5.2 Instructions\n\n5.2.1 1. Pick a repository\nChoose a public GitHub repo — it could be:\n\nA repo from your own work or team\nA paper’s companion repository\nAny open-source scientific project\n\nClone it into your workspace:\ngit clone https://github.com/owner/repo-name.git\ncd repo-name\n\n\n5.2.2 2. Start your agent\nLaunch your coding tool in the cloned repo directory. For example:\nclaude\n\n\n5.2.3 3. Ask it to analyze reproducibility\nTry a prompt like:\n\nAnalyze this repository for reproducibility. Check whether it has:\n\nA README with clear instructions for running the code\nDependency management (requirements.txt, environment.yml, renv.lock, etc.)\nData availability (included, linked, or instructions to obtain)\nA clear entry point (what do you run first?)\nAny hardcoded paths or system-specific assumptions\n\nSummarize what’s good and what’s missing.\n\n\n\n5.2.4 4. Follow up\nOnce the agent gives its analysis, dig deeper:\n\n“What would someone need to install to run this?”\n“Are there any files that reference paths that wouldn’t exist on another machine?”\n“Could you write a checklist of what’s needed to make this fully reproducible?”\n\n\n\n5.2.5 5. Save your findings\nAsk the agent to save its analysis:\n\nSave your reproducibility analysis to notes/reproducibility-analysis.md",
+    "objectID": "content/activity-repo-analysis.html#before-you-start",
+    "href": "content/activity-repo-analysis.html#before-you-start",
+    "title": "5  Activity: Edit a Quarto Book with an Agent",
+    "section": "",
+    "text": "5.1.1 1. Create your own copy of the template\nGo to https://github.com/nmfs-opensci/NOAA-quarto-book and click the green “Use this template” button to create a copy in your own GitHub account. Make the repo public and check the box to include all branches (so you get the gh-pages branch).\n\n\n5.1.2 2. Clone it into JupyterHub\nIn a terminal:\ncd ~\ngit clone https://github.com/YOUR-USERNAME/NOAA-quarto-book.git\ncd NOAA-quarto-book\n\n\n5.1.3 3. Start your agent\nLaunch your coding tool inside the cloned repo:\nclaude\n(Or opencode, copilot, etc. — whichever you set up.)",
     "crumbs": [
       "What Is Agentic Coding?",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Activity: Repo Reproducibility Analysis</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Activity: Edit a Quarto Book with an Agent</span>"
+    ]
+  },
+  {
+    "objectID": "content/activity-repo-analysis.html#phase-1-plan-the-edits",
+    "href": "content/activity-repo-analysis.html#phase-1-plan-the-edits",
+    "title": "5  Activity: Edit a Quarto Book with an Agent",
+    "section": "5.2 Phase 1: Plan the edits",
+    "text": "5.2 Phase 1: Plan the edits\nGoal: Have the agent explore the book and help you plan what to change. Save the plan to notes/. Then clear.\n\n5.2.1 What to do\nAsk the agent to look at the book and help you come up with a plan for turning it into something of your own — a project page, a lab notebook, workshop notes, whatever you like. For example:\n\nRead the files in this Quarto book and help me plan how to turn it into [a guide for my lab / notes for my project / a workshop site]. What chapters should I add, remove, or rename? What needs to change in _quarto.yml?\n\nWork with the agent to refine the plan. Go back and forth until you’re happy with it.\n\n\n5.2.2 Save the plan\nWhen the plan feels ready:\n\nCreate a notes/ directory and save our plan to notes/plan.md.\n\n\n\n5.2.3 Clear\nYou’ve finished phase 1. The plan is on disk. Tell the agent you’re about to clear:\n\nI’m about to clear this session. Is there anything else we should save to notes/ before I do?\n\nThen clear:\n/clear\n\n\n\n\n\n\nTip\n\n\n\nWhy clear now? The conversation has gotten long — you’ve been exploring files and discussing options. Clearing resets the context so your next requests are cheaper and more focused. The plan in notes/ has everything the agent needs to continue.",
+    "crumbs": [
+      "What Is Agentic Coding?",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Activity: Edit a Quarto Book with an Agent</span>"
+    ]
+  },
+  {
+    "objectID": "content/activity-repo-analysis.html#phase-2-execute-the-plan-draft-1",
+    "href": "content/activity-repo-analysis.html#phase-2-execute-the-plan-draft-1",
+    "title": "5  Activity: Edit a Quarto Book with an Agent",
+    "section": "5.3 Phase 2: Execute the plan (Draft 1)",
+    "text": "5.3 Phase 2: Execute the plan (Draft 1)\nGoal: Have the agent read the plan and execute it. Think about how to approach the work. Clear when done, with a handoff note.\n\n5.3.1 Pick up the plan\nStart a fresh prompt:\n\nRead notes/plan.md and the current book structure. We’re going to execute this plan to create a first draft.\n\n\n\n5.3.2 Think about how to execute\nBefore diving in, consider: should you ask the agent to do everything at once, or go step by step?\nAll at once works when:\n\nThe plan is clear and specific\nChanges are independent (renaming chapters doesn’t depend on writing content)\nYou trust the agent to make reasonable choices\n\nStep by step works better when:\n\nYou want to review as you go\nSteps depend on each other (write chapter 1 before chapter 2 references it)\nYou’re not sure how the agent will interpret something\n\nA reasonable middle ground: ask the agent to do a logical group of changes, review, then continue. For example:\n\nStart by updating _quarto.yml with the new chapter structure from the plan. Don’t write the chapter content yet — just set up the structure.\n\nThen after reviewing:\n\nNow write first drafts of the new chapters.\n\n\n\n5.3.3 Do the work\nExecute the plan however you chose. Review what the agent produces. Ask it to fix anything that’s off.\n\n\n5.3.4 Render and check\nWhen the draft is done:\n\nRender the book with quarto render and check for errors. Fix any problems.\n\n\n\n5.3.5 Clear with a handoff note\nYou’ve finished draft 1. Before clearing, have the agent write a handoff:\n\nWrite a handoff note to notes/handoff.md. Summarize what we did, what the book looks like now, and what still needs work.\n\nReview the handoff note — does it capture everything the next session would need? Then clear:\n/clear",
+    "crumbs": [
+      "What Is Agentic Coding?",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Activity: Edit a Quarto Book with an Agent</span>"
+    ]
+  },
+  {
+    "objectID": "content/activity-repo-analysis.html#phase-3-wrap-up",
+    "href": "content/activity-repo-analysis.html#phase-3-wrap-up",
+    "title": "5  Activity: Edit a Quarto Book with an Agent",
+    "section": "5.4 Phase 3: Wrap up",
+    "text": "5.4 Phase 3: Wrap up\nGoal: Practice picking up from a handoff note, then leave a final handoff for what’s next.\n\n5.4.1 Resume from the handoff\nStart a fresh prompt:\n\nRead the notes in notes/ and tell me where we are with this book.\n\nThe agent should be able to orient itself from the handoff note and tell you the current state without you having to re-explain anything.\n\n\n5.4.2 Leave a final handoff\n\nUpdate the handoff note in notes/ with what’s left to do and where to find the information needed to finish. This is the end of the clinic session.",
+    "crumbs": [
+      "What Is Agentic Coding?",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Activity: Edit a Quarto Book with an Agent</span>"
     ]
   },
   {
     "objectID": "content/activity-repo-analysis.html#discussion",
     "href": "content/activity-repo-analysis.html#discussion",
-    "title": "5  Activity: Repo Reproducibility Analysis",
-    "section": "5.3 Discussion",
-    "text": "5.3 Discussion\nAfter the activity, consider:\n\nDid the agent find things you would have missed on a quick scan?\nDid it get anything wrong?\nHow would you improve the prompt if you did this again?\n\n\n\n\n\n\n\nTip\n\n\n\nThis kind of task — read-only exploration and analysis — is one of the safest and most effective ways to use an agentic tool. The agent can read every file in a repo in seconds, something that would take a person much longer.",
+    "title": "5  Activity: Edit a Quarto Book with an Agent",
+    "section": "5.5 Discussion",
+    "text": "5.5 Discussion\nAfter the activity, think about:\n\nDid clearing and resuming work? Could the agent pick up from the handoff note without losing important context?\nHow did you break up the work? All at once vs. step by step — what worked better?\nWhat made a good handoff note? What was missing? What was unnecessary?\nHow would this workflow help in your real work? Think about projects that span multiple days or involve handoffs between people.\n\n\n\n\n\n\n\nNote\n\n\n\nThe point of this activity isn’t to produce a perfect book — it’s to practice the workflow. A messy first draft with clean handoff notes is a better outcome than a polished book with no notes.",
     "crumbs": [
       "What Is Agentic Coding?",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Activity: Repo Reproducibility Analysis</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Activity: Edit a Quarto Book with an Agent</span>"
     ]
   },
   {

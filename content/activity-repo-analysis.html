@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5&nbsp; Activity: Repo Reproducibility Analysis – Agent Coders Clinic</title>
+<title>5&nbsp; Activity: Edit a Quarto Book with an Agent – Agent Coders Clinic</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -123,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/what-is-agentic-coding.html">What Is Agentic Coding?</a></li><li class="breadcrumb-item"><a href="../content/activity-repo-analysis.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Activity: Repo Reproducibility Analysis</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/what-is-agentic-coding.html">What Is Agentic Coding?</a></li><li class="breadcrumb-item"><a href="../content/activity-repo-analysis.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Activity: Edit a Quarto Book with an Agent</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -203,7 +203,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../content/activity-repo-analysis.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Activity: Repo Reproducibility Analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Activity: Edit a Quarto Book with an Agent</span></span></a>
   </div>
 </li>
       </ul>
@@ -264,25 +264,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-task" id="toc-the-task" class="nav-link active" data-scroll-target="#the-task"><span class="header-section-number">5.1</span> The task</a></li>
-  <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions"><span class="header-section-number">5.2</span> Instructions</a>
+  <li><a href="#before-you-start" id="toc-before-you-start" class="nav-link active" data-scroll-target="#before-you-start"><span class="header-section-number">5.1</span> Before you start</a>
   <ul class="collapse">
-  <li><a href="#pick-a-repository" id="toc-pick-a-repository" class="nav-link" data-scroll-target="#pick-a-repository"><span class="header-section-number">5.2.1</span> 1. Pick a repository</a></li>
-  <li><a href="#start-your-agent" id="toc-start-your-agent" class="nav-link" data-scroll-target="#start-your-agent"><span class="header-section-number">5.2.2</span> 2. Start your agent</a></li>
-  <li><a href="#ask-it-to-analyze-reproducibility" id="toc-ask-it-to-analyze-reproducibility" class="nav-link" data-scroll-target="#ask-it-to-analyze-reproducibility"><span class="header-section-number">5.2.3</span> 3. Ask it to analyze reproducibility</a></li>
-  <li><a href="#follow-up" id="toc-follow-up" class="nav-link" data-scroll-target="#follow-up"><span class="header-section-number">5.2.4</span> 4. Follow up</a></li>
-  <li><a href="#save-your-findings" id="toc-save-your-findings" class="nav-link" data-scroll-target="#save-your-findings"><span class="header-section-number">5.2.5</span> 5. Save your findings</a></li>
+  <li><a href="#create-your-own-copy-of-the-template" id="toc-create-your-own-copy-of-the-template" class="nav-link" data-scroll-target="#create-your-own-copy-of-the-template"><span class="header-section-number">5.1.1</span> 1. Create your own copy of the template</a></li>
+  <li><a href="#clone-it-into-jupyterhub" id="toc-clone-it-into-jupyterhub" class="nav-link" data-scroll-target="#clone-it-into-jupyterhub"><span class="header-section-number">5.1.2</span> 2. Clone it into JupyterHub</a></li>
+  <li><a href="#start-your-agent" id="toc-start-your-agent" class="nav-link" data-scroll-target="#start-your-agent"><span class="header-section-number">5.1.3</span> 3. Start your agent</a></li>
   </ul></li>
-  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion"><span class="header-section-number">5.3</span> Discussion</a></li>
+  <li><a href="#phase-1-plan-the-edits" id="toc-phase-1-plan-the-edits" class="nav-link" data-scroll-target="#phase-1-plan-the-edits"><span class="header-section-number">5.2</span> Phase 1: Plan the edits</a>
+  <ul class="collapse">
+  <li><a href="#what-to-do" id="toc-what-to-do" class="nav-link" data-scroll-target="#what-to-do"><span class="header-section-number">5.2.1</span> What to do</a></li>
+  <li><a href="#save-the-plan" id="toc-save-the-plan" class="nav-link" data-scroll-target="#save-the-plan"><span class="header-section-number">5.2.2</span> Save the plan</a></li>
+  <li><a href="#clear" id="toc-clear" class="nav-link" data-scroll-target="#clear"><span class="header-section-number">5.2.3</span> Clear</a></li>
+  </ul></li>
+  <li><a href="#phase-2-execute-the-plan-draft-1" id="toc-phase-2-execute-the-plan-draft-1" class="nav-link" data-scroll-target="#phase-2-execute-the-plan-draft-1"><span class="header-section-number">5.3</span> Phase 2: Execute the plan (Draft 1)</a>
+  <ul class="collapse">
+  <li><a href="#pick-up-the-plan" id="toc-pick-up-the-plan" class="nav-link" data-scroll-target="#pick-up-the-plan"><span class="header-section-number">5.3.1</span> Pick up the plan</a></li>
+  <li><a href="#think-about-how-to-execute" id="toc-think-about-how-to-execute" class="nav-link" data-scroll-target="#think-about-how-to-execute"><span class="header-section-number">5.3.2</span> Think about how to execute</a></li>
+  <li><a href="#do-the-work" id="toc-do-the-work" class="nav-link" data-scroll-target="#do-the-work"><span class="header-section-number">5.3.3</span> Do the work</a></li>
+  <li><a href="#render-and-check" id="toc-render-and-check" class="nav-link" data-scroll-target="#render-and-check"><span class="header-section-number">5.3.4</span> Render and check</a></li>
+  <li><a href="#clear-with-a-handoff-note" id="toc-clear-with-a-handoff-note" class="nav-link" data-scroll-target="#clear-with-a-handoff-note"><span class="header-section-number">5.3.5</span> Clear with a handoff note</a></li>
+  </ul></li>
+  <li><a href="#phase-3-wrap-up" id="toc-phase-3-wrap-up" class="nav-link" data-scroll-target="#phase-3-wrap-up"><span class="header-section-number">5.4</span> Phase 3: Wrap up</a>
+  <ul class="collapse">
+  <li><a href="#resume-from-the-handoff" id="toc-resume-from-the-handoff" class="nav-link" data-scroll-target="#resume-from-the-handoff"><span class="header-section-number">5.4.1</span> Resume from the handoff</a></li>
+  <li><a href="#leave-a-final-handoff" id="toc-leave-a-final-handoff" class="nav-link" data-scroll-target="#leave-a-final-handoff"><span class="header-section-number">5.4.2</span> Leave a final handoff</a></li>
+  </ul></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion"><span class="header-section-number">5.5</span> Discussion</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/nmfs-opensci/agent-coders-clinics/edit/main/content/activity-repo-analysis.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nmfs-opensci/agent-coders-clinics/blob/main/content/activity-repo-analysis.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/nmfs-opensci/agent-coders-clinics/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/what-is-agentic-coding.html">What Is Agentic Coding?</a></li><li class="breadcrumb-item"><a href="../content/activity-repo-analysis.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Activity: Repo Reproducibility Analysis</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/what-is-agentic-coding.html">What Is Agentic Coding?</a></li><li class="breadcrumb-item"><a href="../content/activity-repo-analysis.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Activity: Edit a Quarto Book with an Agent</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Activity: Repo Reproducibility Analysis</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Activity: Edit a Quarto Book with an Agent</span></h1>
 </div>
 
 
@@ -299,70 +315,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="the-task" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="the-task"><span class="header-section-number">5.1</span> The task</h2>
-<p>In this group activity, you’ll point an AI coding agent at a public GitHub repository and ask it to analyze how reproducible the project is.</p>
-<p>This is a great first task for an agentic tool because it’s read-only (nothing to break), it exercises the agent’s ability to explore files, and it produces something useful.</p>
+<p>In this activity you’ll practice the full clear–handoff–notes workflow from <a href="../content/skills-101.html">Skills 101</a>. You’ll use an AI coding agent to plan and execute edits to a real Quarto book — the same template this documentation is built on.</p>
+<section id="before-you-start" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="before-you-start"><span class="header-section-number">5.1</span> Before you start</h2>
+<section id="create-your-own-copy-of-the-template" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="create-your-own-copy-of-the-template"><span class="header-section-number">5.1.1</span> 1. Create your own copy of the template</h3>
+<p>Go to <a href="https://github.com/nmfs-opensci/NOAA-quarto-book" class="uri">https://github.com/nmfs-opensci/NOAA-quarto-book</a> and click the green <strong>“Use this template”</strong> button to create a copy in your own GitHub account. Make the repo <strong>public</strong> and check the box to <strong>include all branches</strong> (so you get the <code>gh-pages</code> branch).</p>
 </section>
-<section id="instructions" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="instructions"><span class="header-section-number">5.2</span> Instructions</h2>
-<section id="pick-a-repository" class="level3" data-number="5.2.1">
-<h3 data-number="5.2.1" class="anchored" data-anchor-id="pick-a-repository"><span class="header-section-number">5.2.1</span> 1. Pick a repository</h3>
-<p>Choose a public GitHub repo — it could be:</p>
-<ul>
-<li>A repo from your own work or team</li>
-<li>A paper’s companion repository</li>
-<li>Any open-source scientific project</li>
-</ul>
-<p>Clone it into your workspace:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/owner/repo-name.git</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> repo-name</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="clone-it-into-jupyterhub" class="level3" data-number="5.1.2">
+<h3 data-number="5.1.2" class="anchored" data-anchor-id="clone-it-into-jupyterhub"><span class="header-section-number">5.1.2</span> 2. Clone it into JupyterHub</h3>
+<p>In a terminal:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/YOUR-USERNAME/NOAA-quarto-book.git</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> NOAA-quarto-book</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="start-your-agent" class="level3" data-number="5.2.2">
-<h3 data-number="5.2.2" class="anchored" data-anchor-id="start-your-agent"><span class="header-section-number">5.2.2</span> 2. Start your agent</h3>
-<p>Launch your coding tool in the cloned repo directory. For example:</p>
+<section id="start-your-agent" class="level3" data-number="5.1.3">
+<h3 data-number="5.1.3" class="anchored" data-anchor-id="start-your-agent"><span class="header-section-number">5.1.3</span> 3. Start your agent</h3>
+<p>Launch your coding tool inside the cloned repo:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">claude</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>(Or <code>opencode</code>, <code>copilot</code>, etc. — whichever you set up.)</p>
+<hr>
 </section>
-<section id="ask-it-to-analyze-reproducibility" class="level3" data-number="5.2.3">
-<h3 data-number="5.2.3" class="anchored" data-anchor-id="ask-it-to-analyze-reproducibility"><span class="header-section-number">5.2.3</span> 3. Ask it to analyze reproducibility</h3>
-<p>Try a prompt like:</p>
+</section>
+<section id="phase-1-plan-the-edits" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="phase-1-plan-the-edits"><span class="header-section-number">5.2</span> Phase 1: Plan the edits</h2>
+<p><strong>Goal:</strong> Have the agent explore the book and help you plan what to change. Save the plan to <code>notes/</code>. Then clear.</p>
+<section id="what-to-do" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="what-to-do"><span class="header-section-number">5.2.1</span> What to do</h3>
+<p>Ask the agent to look at the book and help you come up with a plan for turning it into something of your own — a project page, a lab notebook, workshop notes, whatever you like. For example:</p>
 <blockquote class="blockquote">
-<p>Analyze this repository for reproducibility. Check whether it has:</p>
-<ul>
-<li>A README with clear instructions for running the code</li>
-<li>Dependency management (requirements.txt, environment.yml, renv.lock, etc.)</li>
-<li>Data availability (included, linked, or instructions to obtain)</li>
-<li>A clear entry point (what do you run first?)</li>
-<li>Any hardcoded paths or system-specific assumptions</li>
-</ul>
-<p>Summarize what’s good and what’s missing.</p>
+<p>Read the files in this Quarto book and help me plan how to turn it into [a guide for my lab / notes for my project / a workshop site]. What chapters should I add, remove, or rename? What needs to change in _quarto.yml?</p>
+</blockquote>
+<p>Work with the agent to refine the plan. Go back and forth until you’re happy with it.</p>
+</section>
+<section id="save-the-plan" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="save-the-plan"><span class="header-section-number">5.2.2</span> Save the plan</h3>
+<p>When the plan feels ready:</p>
+<blockquote class="blockquote">
+<p>Create a <code>notes/</code> directory and save our plan to <code>notes/plan.md</code>.</p>
 </blockquote>
 </section>
-<section id="follow-up" class="level3" data-number="5.2.4">
-<h3 data-number="5.2.4" class="anchored" data-anchor-id="follow-up"><span class="header-section-number">5.2.4</span> 4. Follow up</h3>
-<p>Once the agent gives its analysis, dig deeper:</p>
-<ul>
-<li>“What would someone need to install to run this?”</li>
-<li>“Are there any files that reference paths that wouldn’t exist on another machine?”</li>
-<li>“Could you write a checklist of what’s needed to make this fully reproducible?”</li>
-</ul>
-</section>
-<section id="save-your-findings" class="level3" data-number="5.2.5">
-<h3 data-number="5.2.5" class="anchored" data-anchor-id="save-your-findings"><span class="header-section-number">5.2.5</span> 5. Save your findings</h3>
-<p>Ask the agent to save its analysis:</p>
+<section id="clear" class="level3" data-number="5.2.3">
+<h3 data-number="5.2.3" class="anchored" data-anchor-id="clear"><span class="header-section-number">5.2.3</span> Clear</h3>
+<p>You’ve finished phase 1. The plan is on disk. Tell the agent you’re about to clear:</p>
 <blockquote class="blockquote">
-<p>Save your reproducibility analysis to <code>notes/reproducibility-analysis.md</code></p>
+<p>I’m about to clear this session. Is there anything else we should save to notes/ before I do?</p>
 </blockquote>
-</section>
-</section>
-<section id="discussion" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="discussion"><span class="header-section-number">5.3</span> Discussion</h2>
-<p>After the activity, consider:</p>
-<ul>
-<li>Did the agent find things you would have missed on a quick scan?</li>
-<li>Did it get anything wrong?</li>
-<li>How would you improve the prompt if you did this again?</li>
-</ul>
+<p>Then clear:</p>
+<pre><code>/clear</code></pre>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -373,7 +373,107 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This kind of task — read-only exploration and analysis — is one of the safest and most effective ways to use an agentic tool. The agent can read every file in a repo in seconds, something that would take a person much longer.</p>
+<p>Why clear now? The conversation has gotten long — you’ve been exploring files and discussing options. Clearing resets the context so your next requests are cheaper and more focused. The plan in <code>notes/</code> has everything the agent needs to continue.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="phase-2-execute-the-plan-draft-1" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="phase-2-execute-the-plan-draft-1"><span class="header-section-number">5.3</span> Phase 2: Execute the plan (Draft 1)</h2>
+<p><strong>Goal:</strong> Have the agent read the plan and execute it. Think about how to approach the work. Clear when done, with a handoff note.</p>
+<section id="pick-up-the-plan" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="pick-up-the-plan"><span class="header-section-number">5.3.1</span> Pick up the plan</h3>
+<p>Start a fresh prompt:</p>
+<blockquote class="blockquote">
+<p>Read <code>notes/plan.md</code> and the current book structure. We’re going to execute this plan to create a first draft.</p>
+</blockquote>
+</section>
+<section id="think-about-how-to-execute" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="think-about-how-to-execute"><span class="header-section-number">5.3.2</span> Think about how to execute</h3>
+<p>Before diving in, consider: should you ask the agent to do everything at once, or go step by step?</p>
+<p><strong>All at once</strong> works when:</p>
+<ul>
+<li>The plan is clear and specific</li>
+<li>Changes are independent (renaming chapters doesn’t depend on writing content)</li>
+<li>You trust the agent to make reasonable choices</li>
+</ul>
+<p><strong>Step by step</strong> works better when:</p>
+<ul>
+<li>You want to review as you go</li>
+<li>Steps depend on each other (write chapter 1 before chapter 2 references it)</li>
+<li>You’re not sure how the agent will interpret something</li>
+</ul>
+<p>A reasonable middle ground: ask the agent to do a logical group of changes, review, then continue. For example:</p>
+<blockquote class="blockquote">
+<p>Start by updating <code>_quarto.yml</code> with the new chapter structure from the plan. Don’t write the chapter content yet — just set up the structure.</p>
+</blockquote>
+<p>Then after reviewing:</p>
+<blockquote class="blockquote">
+<p>Now write first drafts of the new chapters.</p>
+</blockquote>
+</section>
+<section id="do-the-work" class="level3" data-number="5.3.3">
+<h3 data-number="5.3.3" class="anchored" data-anchor-id="do-the-work"><span class="header-section-number">5.3.3</span> Do the work</h3>
+<p>Execute the plan however you chose. Review what the agent produces. Ask it to fix anything that’s off.</p>
+</section>
+<section id="render-and-check" class="level3" data-number="5.3.4">
+<h3 data-number="5.3.4" class="anchored" data-anchor-id="render-and-check"><span class="header-section-number">5.3.4</span> Render and check</h3>
+<p>When the draft is done:</p>
+<blockquote class="blockquote">
+<p>Render the book with <code>quarto render</code> and check for errors. Fix any problems.</p>
+</blockquote>
+</section>
+<section id="clear-with-a-handoff-note" class="level3" data-number="5.3.5">
+<h3 data-number="5.3.5" class="anchored" data-anchor-id="clear-with-a-handoff-note"><span class="header-section-number">5.3.5</span> Clear with a handoff note</h3>
+<p>You’ve finished draft 1. Before clearing, have the agent write a handoff:</p>
+<blockquote class="blockquote">
+<p>Write a handoff note to <code>notes/handoff.md</code>. Summarize what we did, what the book looks like now, and what still needs work.</p>
+</blockquote>
+<p>Review the handoff note — does it capture everything the next session would need? Then clear:</p>
+<pre><code>/clear</code></pre>
+<hr>
+</section>
+</section>
+<section id="phase-3-wrap-up" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="phase-3-wrap-up"><span class="header-section-number">5.4</span> Phase 3: Wrap up</h2>
+<p><strong>Goal:</strong> Practice picking up from a handoff note, then leave a final handoff for what’s next.</p>
+<section id="resume-from-the-handoff" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="resume-from-the-handoff"><span class="header-section-number">5.4.1</span> Resume from the handoff</h3>
+<p>Start a fresh prompt:</p>
+<blockquote class="blockquote">
+<p>Read the notes in <code>notes/</code> and tell me where we are with this book.</p>
+</blockquote>
+<p>The agent should be able to orient itself from the handoff note and tell you the current state without you having to re-explain anything.</p>
+</section>
+<section id="leave-a-final-handoff" class="level3" data-number="5.4.2">
+<h3 data-number="5.4.2" class="anchored" data-anchor-id="leave-a-final-handoff"><span class="header-section-number">5.4.2</span> Leave a final handoff</h3>
+<blockquote class="blockquote">
+<p>Update the handoff note in <code>notes/</code> with what’s left to do and where to find the information needed to finish. This is the end of the clinic session.</p>
+</blockquote>
+<hr>
+</section>
+</section>
+<section id="discussion" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="discussion"><span class="header-section-number">5.5</span> Discussion</h2>
+<p>After the activity, think about:</p>
+<ul>
+<li><strong>Did clearing and resuming work?</strong> Could the agent pick up from the handoff note without losing important context?</li>
+<li><strong>How did you break up the work?</strong> All at once vs.&nbsp;step by step — what worked better?</li>
+<li><strong>What made a good handoff note?</strong> What was missing? What was unnecessary?</li>
+<li><strong>How would this workflow help in your real work?</strong> Think about projects that span multiple days or involve handoffs between people.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The point of this activity isn’t to produce a perfect book — it’s to practice the workflow. A messy first draft with clean handoff notes is a better outcome than a polished book with no notes.</p>
 </div>
 </div>
 
