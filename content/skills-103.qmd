@@ -1,0 +1,87 @@
+---
+title: "Agent Skills 103: Checking the Agent's Work"
+---
+
+## The problem with "just review it"
+
+Every guide to AI coding tools says "always review what the agent produces." That's true, but it's not very helpful advice — especially when the agent is writing code you couldn't have written yourself, or making changes across many files at once.
+
+If you're a scientist learning to code with an agent, the agent may genuinely be a better coder than you are. So how do you verify work you don't fully understand?
+
+## You don't have to understand every line
+
+Verification isn't about reading every line of code and confirming it's correct. It's about checking that **the thing works the way you expect it to**. You're the domain expert — you know what the output should look like, what the data means, and what would be wrong.
+
+Good verification questions:
+
+- Does it run without errors?
+- Does the output look right to me — someone who knows this data / this domain?
+- Did it change anything I didn't ask it to change?
+- Can I explain *what* this does (even if I couldn't have written it)?
+
+## Let the agent break things for you
+
+Here's the key insight: **you don't have to be the one who finds the bugs**. You can get the agent to stress-test its own work — if you give it the right information.
+
+### Give it real data
+
+The agent probably wrote the code using example data or assumptions about your data. Give it the real thing:
+
+> Here's our actual dataset: `data/survey-2024.csv`. Run the analysis on this and show me the output. Does anything look wrong?
+
+Real data has edge cases — missing values, unexpected formats, outliers — that break fragile code.
+
+### Tell it what you know
+
+You're the domain expert. You know things the agent doesn't — what reasonable values look like, what relationships should exist in the data, what the previous version produced. Feed that knowledge in:
+
+> The count column should never be negative. Are there any negative values in the output?
+
+> Last year's report had 342 sites. If we're getting a very different number, something is probably wrong.
+
+> This function is supposed to handle both CSV and Excel files. Try it with `data/samples.xlsx` — does it work?
+
+### Ask it to write tests
+
+You don't have to write the tests yourself. But you *can* tell the agent what to test for:
+
+> Write tests that check:
+>
+> - The function handles empty input without crashing
+> - Missing values in the date column don't cause errors
+> - The output has the same number of rows as the input
+> - Column names match what downstream code expects
+
+You're providing the **domain knowledge** about what should be true. The agent provides the **testing mechanics**.
+
+### Ask it to try to break it
+
+This is one of the most useful things you can do:
+
+> Try to break this. What inputs would cause it to fail? What assumptions is it making that might not hold?
+
+Agents are good at this — they can reason about edge cases and generate adversarial inputs. Breaking things is good. Every failure reveals something that needs to be more robust.
+
+## A verification workflow
+
+A practical approach:
+
+1. **Does it run?** Ask the agent to execute it. Fix any errors.
+2. **Does it look right?** Review the output with your domain knowledge. Flag anything suspicious.
+3. **Feed it real data.** Swap in your actual files and see what happens.
+4. **Ask it to break it.** Have the agent find its own bugs.
+5. **Check the diff.** Before committing, look at what files changed. Anything unexpected?
+
+::: {.callout-tip}
+Verification works best as a **separate task**. After the agent builds something, clear the session, then start a new session focused entirely on testing and breaking what was built. A fresh session means the agent isn't biased by the decisions it made during implementation.
+:::
+
+## This is a skill you build over time
+
+Nobody gets this right immediately. The more you work with agents, the better you get at:
+
+- Knowing what questions to ask
+- Spotting when output "looks off"
+- Giving the agent the right information to test against
+
+For now, the most important habit is: **don't just accept what the agent produces**. Run it, look at it, and throw some real data at it before you call it done.
