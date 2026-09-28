@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>10&nbsp; Agent Skills 103: Checking the Agent’s Work – Agent Coders Clinic</title>
+<title>7&nbsp; Agent Skills 100: Telling the Agent How You Work – Agent Coders Clinic</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -35,8 +70,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../content/tool-comparison.html" rel="next">
-<link href="../content/skills-102.html" rel="prev">
+<link href="../content/skills-101.html" rel="next">
+<link href="../content/activity-repo-analysis.html" rel="prev">
 <link href="../assets/favicon.ico" rel="icon">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -88,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/skills-100.html">Agent Skills</a></li><li class="breadcrumb-item"><a href="../content/skills-103.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Agent Skills 103: Checking the Agent’s Work</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/skills-100.html">Agent Skills</a></li><li class="breadcrumb-item"><a href="../content/skills-100.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Agent Skills 100: Telling the Agent How You Work</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -190,7 +225,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/skills-100.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/skills-100.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Agent Skills 100: Telling the Agent How You Work</span></span></a>
   </div>
 </li>
@@ -208,7 +243,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/skills-103.html" class="sidebar-item-text sidebar-link active">
+  <a href="../content/skills-103.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Agent Skills 103: Checking the Agent’s Work</span></span></a>
   </div>
 </li>
@@ -247,26 +282,21 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-problem-with-just-review-it" id="toc-the-problem-with-just-review-it" class="nav-link active" data-scroll-target="#the-problem-with-just-review-it"><span class="header-section-number">10.1</span> The problem with “just review it”</a></li>
-  <li><a href="#you-dont-have-to-understand-every-line" id="toc-you-dont-have-to-understand-every-line" class="nav-link" data-scroll-target="#you-dont-have-to-understand-every-line"><span class="header-section-number">10.2</span> You don’t have to understand every line</a></li>
-  <li><a href="#let-the-agent-break-things-for-you" id="toc-let-the-agent-break-things-for-you" class="nav-link" data-scroll-target="#let-the-agent-break-things-for-you"><span class="header-section-number">10.3</span> Let the agent break things for you</a>
-  <ul class="collapse">
-  <li><a href="#give-it-real-data" id="toc-give-it-real-data" class="nav-link" data-scroll-target="#give-it-real-data"><span class="header-section-number">10.3.1</span> Give it real data</a></li>
-  <li><a href="#tell-it-what-you-know" id="toc-tell-it-what-you-know" class="nav-link" data-scroll-target="#tell-it-what-you-know"><span class="header-section-number">10.3.2</span> Tell it what you know</a></li>
-  <li><a href="#ask-it-to-write-tests" id="toc-ask-it-to-write-tests" class="nav-link" data-scroll-target="#ask-it-to-write-tests"><span class="header-section-number">10.3.3</span> Ask it to write tests</a></li>
-  <li><a href="#ask-it-to-try-to-break-it" id="toc-ask-it-to-try-to-break-it" class="nav-link" data-scroll-target="#ask-it-to-try-to-break-it"><span class="header-section-number">10.3.4</span> Ask it to try to break it</a></li>
-  </ul></li>
-  <li><a href="#a-verification-workflow" id="toc-a-verification-workflow" class="nav-link" data-scroll-target="#a-verification-workflow"><span class="header-section-number">10.4</span> A verification workflow</a></li>
-  <li><a href="#this-is-a-skill-you-build-over-time" id="toc-this-is-a-skill-you-build-over-time" class="nav-link" data-scroll-target="#this-is-a-skill-you-build-over-time"><span class="header-section-number">10.5</span> This is a skill you build over time</a></li>
+  <li><a href="#the-global-claude.md" id="toc-the-global-claude.md" class="nav-link active" data-scroll-target="#the-global-claude.md"><span class="header-section-number">7.1</span> The global CLAUDE.md</a></li>
+  <li><a href="#what-goes-in-a-global-claude.md" id="toc-what-goes-in-a-global-claude.md" class="nav-link" data-scroll-target="#what-goes-in-a-global-claude.md"><span class="header-section-number">7.2</span> What goes in a global CLAUDE.md</a></li>
+  <li><a href="#why-this-matters" id="toc-why-this-matters" class="nav-link" data-scroll-target="#why-this-matters"><span class="header-section-number">7.3</span> Why this matters</a></li>
+  <li><a href="#setting-it-up" id="toc-setting-it-up" class="nav-link" data-scroll-target="#setting-it-up"><span class="header-section-number">7.4</span> Setting it up</a></li>
+  <li><a href="#global-vs.-project-claude.md" id="toc-global-vs.-project-claude.md" class="nav-link" data-scroll-target="#global-vs.-project-claude.md"><span class="header-section-number">7.5</span> Global vs.&nbsp;project CLAUDE.md</a></li>
+  <li><a href="#start-simple" id="toc-start-simple" class="nav-link" data-scroll-target="#start-simple"><span class="header-section-number">7.6</span> Start simple</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/nmfs-opensci/agent-coders-clinics/edit/main/content/skills-103.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nmfs-opensci/agent-coders-clinics/blob/main/content/skills-103.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/nmfs-opensci/agent-coders-clinics/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/nmfs-opensci/agent-coders-clinics/edit/main/content/skills-100.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nmfs-opensci/agent-coders-clinics/blob/main/content/skills-100.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/nmfs-opensci/agent-coders-clinics/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/skills-100.html">Agent Skills</a></li><li class="breadcrumb-item"><a href="../content/skills-103.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Agent Skills 103: Checking the Agent’s Work</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/skills-100.html">Agent Skills</a></li><li class="breadcrumb-item"><a href="../content/skills-100.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Agent Skills 100: Telling the Agent How You Work</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Agent Skills 103: Checking the Agent’s Work</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Agent Skills 100: Telling the Agent How You Work</span></h1>
 </div>
 
 
@@ -283,102 +313,130 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="the-problem-with-just-review-it" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="the-problem-with-just-review-it"><span class="header-section-number">10.1</span> The problem with “just review it”</h2>
-<p>Every guide to AI coding tools says “always review what the agent produces.” That’s true, but it’s not very helpful advice — especially when the agent is writing code you couldn’t have written yourself, or making changes across many files at once.</p>
-<p>If you’re a scientist learning to code with an agent, the agent may genuinely be a better coder than you are. So how do you verify work you don’t fully understand?</p>
+<section id="the-global-claude.md" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="the-global-claude.md"><span class="header-section-number">7.1</span> The global CLAUDE.md</h2>
+<p>Every time an agent starts a session, it reads a file called <code>CLAUDE.md</code> (or <code>AGENTS.md</code>) in the root of your repo. This is where you tell the agent <em>how you work</em> — your conventions, your shortcuts, your rules.</p>
+<p>But there’s also a <strong>global</strong> <code>CLAUDE.md</code> that lives in your home directory (<code>~/.claude/CLAUDE.md</code>). This one applies to <em>every</em> repo you work in. It’s where you define your personal workflow — the phrases you use, what they mean, and what the agent should do when it hears them.</p>
+<p>Think of it as training the agent to work the way you work.</p>
 </section>
-<section id="you-dont-have-to-understand-every-line" class="level2" data-number="10.2">
-<h2 data-number="10.2" class="anchored" data-anchor-id="you-dont-have-to-understand-every-line"><span class="header-section-number">10.2</span> You don’t have to understand every line</h2>
-<p>Verification isn’t about reading every line of code and confirming it’s correct. It’s about checking that <strong>the thing works the way you expect it to</strong>. You’re the domain expert — you know what the output should look like, what the data means, and what would be wrong.</p>
-<p>Good verification questions:</p>
+<section id="what-goes-in-a-global-claude.md" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="what-goes-in-a-global-claude.md"><span class="header-section-number">7.2</span> What goes in a global CLAUDE.md</h2>
+<p>Your global file teaches the agent your shorthand. Instead of explaining your workflow every session, you write it once and the agent follows it everywhere.</p>
+<p>Here’s an example:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Workflow</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## "I am starting a new task"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>When I say this:</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Create a GitHub issue for the task</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Create a branch for the task</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Work on the branch</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## "Task is done" or "Let's finish up the task"</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>When I say this:</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Open a PR</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Merge the PR</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Delete the branch</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>Note: this workflow assumes I am working on my own and doing</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>my own reviews. For collaborative work, open the PR and assign</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>a reviewer instead of merging immediately.</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">## "Get ready for clear"</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>When I say this:</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Close any loose ends (pending edits, uncommitted changes)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Review memories for outdated information and update them</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Update the handoff note in <span class="in">`notes/`</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Keep the handoff concise — move detailed info to separate</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>   files in <span class="in">`notes/`</span> if the handoff is getting long</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Ask me what my next task will be when I return, and put</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>   that in the handoff</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## "Initialize this repo"</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>When I say this:</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Add an open license if one is missing</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Add a reuse statement to the repo</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Check the README for basic reproducibility:</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Are there instructions to run the code?</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Are dependencies listed?</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Is there a clear entry point?</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="fu">## Git rules</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Never use destructive git actions: no <span class="in">`--force`</span> pushes,</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>  no <span class="in">`git reset --hard`</span>, no <span class="in">`git clean -f`</span>,</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>  no deleting branches that haven't been merged</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Always create new commits rather than amending</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Ask before any action that could lose work</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="why-this-matters" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="why-this-matters"><span class="header-section-number">7.3</span> Why this matters</h2>
+<p>Without a global <code>CLAUDE.md</code>, you have to re-explain your workflow every session. With one, you say “I’m starting a new task” and the agent knows exactly what that means — create an issue, create a branch, get to work.</p>
+<p>This turns your agent into a tool that follows <em>your</em> process, not a generic assistant you have to manage.</p>
+</section>
+<section id="setting-it-up" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="setting-it-up"><span class="header-section-number">7.4</span> Setting it up</h2>
+<p>Create the file:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> ~/.claude</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> ~/.claude/CLAUDE.md</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Or ask your agent to create it:</p>
+<blockquote class="blockquote">
+<p>Create a <code>~/.claude/CLAUDE.md</code> with my workflow preferences. I’ll tell you what to put in it.</p>
+</blockquote>
+<p>Then iterate — tell the agent your conventions, let it write the file, and refine it over time.</p>
+</section>
+<section id="global-vs.-project-claude.md" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="global-vs.-project-claude.md"><span class="header-section-number">7.5</span> Global vs.&nbsp;project CLAUDE.md</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Global (<code>~/.claude/CLAUDE.md</code>)</th>
+<th>Project (<code>./CLAUDE.md</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Applies to</strong></td>
+<td>Every repo</td>
+<td>This repo only</td>
+</tr>
+<tr class="even">
+<td><strong>Contains</strong></td>
+<td>Your personal workflow and conventions</td>
+<td>Project-specific build commands, architecture, coding style</td>
+</tr>
+<tr class="odd">
+<td><strong>Examples</strong></td>
+<td>“Starting a new task” means create issue + branch</td>
+<td>“Run <code>quarto render</code> to build”</td>
+</tr>
+</tbody>
+</table>
+<p>Both are loaded at session start. The project file adds context specific to the codebase. The global file carries your workflow everywhere.</p>
+</section>
+<section id="start-simple" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="start-simple"><span class="header-section-number">7.6</span> Start simple</h2>
+<p>You don’t need to write everything on day one. Start with the phrases you actually use:</p>
 <ul>
-<li>Does it run without errors?</li>
-<li>Does the output look right to me — someone who knows this data / this domain?</li>
-<li>Did it change anything I didn’t ask it to change?</li>
-<li>Can I explain <em>what</em> this does (even if I couldn’t have written it)?</li>
+<li>What does “start a task” mean?</li>
+<li>What does “done” mean?</li>
+<li>What does “get ready for clear” mean?</li>
+<li>What should the agent never do?</li>
 </ul>
-</section>
-<section id="let-the-agent-break-things-for-you" class="level2" data-number="10.3">
-<h2 data-number="10.3" class="anchored" data-anchor-id="let-the-agent-break-things-for-you"><span class="header-section-number">10.3</span> Let the agent break things for you</h2>
-<p>Here’s the key insight: <strong>you don’t have to be the one who finds the bugs</strong>. You can get the agent to stress-test its own work — if you give it the right information.</p>
-<section id="give-it-real-data" class="level3" data-number="10.3.1">
-<h3 data-number="10.3.1" class="anchored" data-anchor-id="give-it-real-data"><span class="header-section-number">10.3.1</span> Give it real data</h3>
-<p>The agent probably wrote the code using example data or assumptions about your data. Give it the real thing:</p>
-<blockquote class="blockquote">
-<p>Here’s our actual dataset: <code>data/survey-2024.csv</code>. Run the analysis on this and show me the output. Does anything look wrong?</p>
-</blockquote>
-<p>Real data has edge cases — missing values, unexpected formats, outliers — that break fragile code.</p>
-</section>
-<section id="tell-it-what-you-know" class="level3" data-number="10.3.2">
-<h3 data-number="10.3.2" class="anchored" data-anchor-id="tell-it-what-you-know"><span class="header-section-number">10.3.2</span> Tell it what you know</h3>
-<p>You’re the domain expert. You know things the agent doesn’t — what reasonable values look like, what relationships should exist in the data, what the previous version produced. Feed that knowledge in:</p>
-<blockquote class="blockquote">
-<p>The count column should never be negative. Are there any negative values in the output?</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>Last year’s report had 342 sites. If we’re getting a very different number, something is probably wrong.</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>This function is supposed to handle both CSV and Excel files. Try it with <code>data/samples.xlsx</code> — does it work?</p>
-</blockquote>
-</section>
-<section id="ask-it-to-write-tests" class="level3" data-number="10.3.3">
-<h3 data-number="10.3.3" class="anchored" data-anchor-id="ask-it-to-write-tests"><span class="header-section-number">10.3.3</span> Ask it to write tests</h3>
-<p>You don’t have to write the tests yourself. But you <em>can</em> tell the agent what to test for:</p>
-<blockquote class="blockquote">
-<p>Write tests that check:</p>
-<ul>
-<li>The function handles empty input without crashing</li>
-<li>Missing values in the date column don’t cause errors</li>
-<li>The output has the same number of rows as the input</li>
-<li>Column names match what downstream code expects</li>
-</ul>
-</blockquote>
-<p>You’re providing the <strong>domain knowledge</strong> about what should be true. The agent provides the <strong>testing mechanics</strong>.</p>
-</section>
-<section id="ask-it-to-try-to-break-it" class="level3" data-number="10.3.4">
-<h3 data-number="10.3.4" class="anchored" data-anchor-id="ask-it-to-try-to-break-it"><span class="header-section-number">10.3.4</span> Ask it to try to break it</h3>
-<p>This is one of the most useful things you can do:</p>
-<blockquote class="blockquote">
-<p>Try to break this. What inputs would cause it to fail? What assumptions is it making that might not hold?</p>
-</blockquote>
-<p>Agents are good at this — they can reason about edge cases and generate adversarial inputs. Breaking things is good. Every failure reveals something that needs to be more robust.</p>
-</section>
-</section>
-<section id="a-verification-workflow" class="level2" data-number="10.4">
-<h2 data-number="10.4" class="anchored" data-anchor-id="a-verification-workflow"><span class="header-section-number">10.4</span> A verification workflow</h2>
-<p>A practical approach:</p>
-<ol type="1">
-<li><strong>Does it run?</strong> Ask the agent to execute it. Fix any errors.</li>
-<li><strong>Does it look right?</strong> Review the output with your domain knowledge. Flag anything suspicious.</li>
-<li><strong>Feed it real data.</strong> Swap in your actual files and see what happens.</li>
-<li><strong>Ask it to break it.</strong> Have the agent find its own bugs.</li>
-<li><strong>Check the diff.</strong> Before committing, look at what files changed. Anything unexpected?</li>
-</ol>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Verification works best as a <strong>separate task</strong>. After the agent builds something, clear the session, then start a new session focused entirely on testing and breaking what was built. A fresh session means the agent isn’t biased by the decisions it made during implementation.</p>
-</div>
-</div>
-</section>
-<section id="this-is-a-skill-you-build-over-time" class="level2" data-number="10.5">
-<h2 data-number="10.5" class="anchored" data-anchor-id="this-is-a-skill-you-build-over-time"><span class="header-section-number">10.5</span> This is a skill you build over time</h2>
-<p>Nobody gets this right immediately. The more you work with agents, the better you get at:</p>
-<ul>
-<li>Knowing what questions to ask</li>
-<li>Spotting when output “looks off”</li>
-<li>Giving the agent the right information to test against</li>
-</ul>
-<p>For now, the most important habit is: <strong>don’t just accept what the agent produces</strong>. Run it, look at it, and throw some real data at it before you call it done.</p>
+<p>Add more as you develop habits. The file grows with you.</p>
 
 
 </section>
@@ -786,13 +844,13 @@ Tip
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../content/skills-102.html" class="pagination-link" aria-label="Agent Skills 102: SKILLS.md">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Agent Skills 102: SKILLS.md</span></span>
+      <a href="../content/activity-repo-analysis.html" class="pagination-link" aria-label="Activity: Edit a Quarto Book with an Agent">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Activity: Edit a Quarto Book with an Agent</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../content/tool-comparison.html" class="pagination-link" aria-label="Tool Comparison">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Tool Comparison</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../content/skills-101.html" class="pagination-link" aria-label="Agent Skills 101: The Clear–Handoff–Notes Workflow">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Agent Skills 101: The Clear–Handoff–Notes Workflow</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -804,7 +862,7 @@ Tip
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/nmfs-opensci/agent-coders-clinics/edit/main/content/skills-103.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nmfs-opensci/agent-coders-clinics/blob/main/content/skills-103.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/nmfs-opensci/agent-coders-clinics/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/nmfs-opensci/agent-coders-clinics/edit/main/content/skills-100.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nmfs-opensci/agent-coders-clinics/blob/main/content/skills-100.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/nmfs-opensci/agent-coders-clinics/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

@@ -358,311 +358,377 @@
     ]
   },
   {
-    "objectID": "content/skills-101.html",
-    "href": "content/skills-101.html",
-    "title": "7  Agent Skills 101: The Clear–Handoff–Notes Workflow",
+    "objectID": "content/skills-100.html",
+    "href": "content/skills-100.html",
+    "title": "7  Agent Skills 100: Telling the Agent How You Work",
     "section": "",
-    "text": "7.1 The problem\nAI coding agents don’t remember anything between sessions. When you start a new session — or run /clear — the agent has no idea what you were doing five minutes ago. It starts fresh every time.\nYou might think the solution is to build up a huge memory file that the agent loads at the start of every session. But that creates its own problems: the file gets long, stale, and full of context the agent doesn’t need for the current task. It wastes budget re-reading old information.\nThere’s a simpler approach.",
+    "text": "7.1 The global CLAUDE.md\nEvery time an agent starts a session, it reads a file called CLAUDE.md (or AGENTS.md) in the root of your repo. This is where you tell the agent how you work — your conventions, your shortcuts, your rules.\nBut there’s also a global CLAUDE.md that lives in your home directory (~/.claude/CLAUDE.md). This one applies to every repo you work in. It’s where you define your personal workflow — the phrases you use, what they mean, and what the agent should do when it hears them.\nThink of it as training the agent to work the way you work.",
     "crumbs": [
       "Agent Skills",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Agent Skills 101: The Clear–Handoff–Notes Workflow</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Agent Skills 100: Telling the Agent How You Work</span>"
+    ]
+  },
+  {
+    "objectID": "content/skills-100.html#what-goes-in-a-global-claude.md",
+    "href": "content/skills-100.html#what-goes-in-a-global-claude.md",
+    "title": "7  Agent Skills 100: Telling the Agent How You Work",
+    "section": "7.2 What goes in a global CLAUDE.md",
+    "text": "7.2 What goes in a global CLAUDE.md\nYour global file teaches the agent your shorthand. Instead of explaining your workflow every session, you write it once and the agent follows it everywhere.\nHere’s an example:\n# Workflow\n\n## \"I am starting a new task\"\n\nWhen I say this:\n\n1. Create a GitHub issue for the task\n2. Create a branch for the task\n3. Work on the branch\n\n## \"Task is done\" or \"Let's finish up the task\"\n\nWhen I say this:\n\n1. Open a PR\n2. Merge the PR\n3. Delete the branch\n\nNote: this workflow assumes I am working on my own and doing\nmy own reviews. For collaborative work, open the PR and assign\na reviewer instead of merging immediately.\n\n## \"Get ready for clear\"\n\nWhen I say this:\n\n1. Close any loose ends (pending edits, uncommitted changes)\n2. Review memories for outdated information and update them\n3. Update the handoff note in `notes/`\n4. Keep the handoff concise — move detailed info to separate\n   files in `notes/` if the handoff is getting long\n5. Ask me what my next task will be when I return, and put\n   that in the handoff\n\n## \"Initialize this repo\"\n\nWhen I say this:\n\n1. Add an open license if one is missing\n2. Add a reuse statement to the repo\n3. Check the README for basic reproducibility:\n   - Are there instructions to run the code?\n   - Are dependencies listed?\n   - Is there a clear entry point?\n\n## Git rules\n\n- Never use destructive git actions: no `--force` pushes,\n  no `git reset --hard`, no `git clean -f`,\n  no deleting branches that haven't been merged\n- Always create new commits rather than amending\n- Ask before any action that could lose work",
+    "crumbs": [
+      "Agent Skills",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Agent Skills 100: Telling the Agent How You Work</span>"
+    ]
+  },
+  {
+    "objectID": "content/skills-100.html#why-this-matters",
+    "href": "content/skills-100.html#why-this-matters",
+    "title": "7  Agent Skills 100: Telling the Agent How You Work",
+    "section": "7.3 Why this matters",
+    "text": "7.3 Why this matters\nWithout a global CLAUDE.md, you have to re-explain your workflow every session. With one, you say “I’m starting a new task” and the agent knows exactly what that means — create an issue, create a branch, get to work.\nThis turns your agent into a tool that follows your process, not a generic assistant you have to manage.",
+    "crumbs": [
+      "Agent Skills",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Agent Skills 100: Telling the Agent How You Work</span>"
+    ]
+  },
+  {
+    "objectID": "content/skills-100.html#setting-it-up",
+    "href": "content/skills-100.html#setting-it-up",
+    "title": "7  Agent Skills 100: Telling the Agent How You Work",
+    "section": "7.4 Setting it up",
+    "text": "7.4 Setting it up\nCreate the file:\nmkdir -p ~/.claude\nnano ~/.claude/CLAUDE.md\nOr ask your agent to create it:\n\nCreate a ~/.claude/CLAUDE.md with my workflow preferences. I’ll tell you what to put in it.\n\nThen iterate — tell the agent your conventions, let it write the file, and refine it over time.",
+    "crumbs": [
+      "Agent Skills",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Agent Skills 100: Telling the Agent How You Work</span>"
+    ]
+  },
+  {
+    "objectID": "content/skills-100.html#global-vs.-project-claude.md",
+    "href": "content/skills-100.html#global-vs.-project-claude.md",
+    "title": "7  Agent Skills 100: Telling the Agent How You Work",
+    "section": "7.5 Global vs. project CLAUDE.md",
+    "text": "7.5 Global vs. project CLAUDE.md\n\n\n\n\n\n\n\n\n\nGlobal (~/.claude/CLAUDE.md)\nProject (./CLAUDE.md)\n\n\n\n\nApplies to\nEvery repo\nThis repo only\n\n\nContains\nYour personal workflow and conventions\nProject-specific build commands, architecture, coding style\n\n\nExamples\n“Starting a new task” means create issue + branch\n“Run quarto render to build”\n\n\n\nBoth are loaded at session start. The project file adds context specific to the codebase. The global file carries your workflow everywhere.",
+    "crumbs": [
+      "Agent Skills",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Agent Skills 100: Telling the Agent How You Work</span>"
+    ]
+  },
+  {
+    "objectID": "content/skills-100.html#start-simple",
+    "href": "content/skills-100.html#start-simple",
+    "title": "7  Agent Skills 100: Telling the Agent How You Work",
+    "section": "7.6 Start simple",
+    "text": "7.6 Start simple\nYou don’t need to write everything on day one. Start with the phrases you actually use:\n\nWhat does “start a task” mean?\nWhat does “done” mean?\nWhat does “get ready for clear” mean?\nWhat should the agent never do?\n\nAdd more as you develop habits. The file grows with you.",
+    "crumbs": [
+      "Agent Skills",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Agent Skills 100: Telling the Agent How You Work</span>"
+    ]
+  },
+  {
+    "objectID": "content/skills-101.html",
+    "href": "content/skills-101.html",
+    "title": "8  Agent Skills 101: The Clear–Handoff–Notes Workflow",
+    "section": "",
+    "text": "8.1 The problem\nAI coding agents don’t remember anything between sessions. When you start a new session — or run /clear — the agent has no idea what you were doing five minutes ago. It starts fresh every time.\nYou might think the solution is to build up a huge memory file that the agent loads at the start of every session. But that creates its own problems: the file gets long, stale, and full of context the agent doesn’t need for the current task. It wastes budget re-reading old information.\nThere’s a simpler approach.",
+    "crumbs": [
+      "Agent Skills",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Agent Skills 101: The Clear–Handoff–Notes Workflow</span>"
     ]
   },
   {
     "objectID": "content/skills-101.html#the-workflow-clear-handoff-notes",
     "href": "content/skills-101.html#the-workflow-clear-handoff-notes",
-    "title": "7  Agent Skills 101: The Clear–Handoff–Notes Workflow",
-    "section": "7.2 The workflow: clear, handoff, notes",
-    "text": "7.2 The workflow: clear, handoff, notes\nThe core habit is three steps:\n\n7.2.1 1. Work on a task\nStart your agent and give it something to do. As it works, it builds up conversation context — the files it has read, the decisions it has made, the changes it has written.\n\n\n7.2.2 2. Before you stop: handoff\nWhen you’re done with a task (or switching to something else), tell the agent:\n\nWrite a handoff note to notes/ summarizing what you did, what’s left, and any decisions you made.\n\nThe agent creates a short file — like notes/handoff-2026-09-29.md — capturing exactly what the next session needs to know.\n\n\n7.2.3 3. Clear and continue\nRun /clear (or close the session). The conversation context is gone, but the handoff note is on disk.\nNext time, start the agent and say:\n\nRead the notes in notes/ and pick up where we left off.\n\nThe agent reads the handoff, gets oriented, and continues the work.",
+    "title": "8  Agent Skills 101: The Clear–Handoff–Notes Workflow",
+    "section": "8.2 The workflow: clear, handoff, notes",
+    "text": "8.2 The workflow: clear, handoff, notes\nThe core habit is three steps:\n\n8.2.1 1. Work on a task\nStart your agent and give it something to do. As it works, it builds up conversation context — the files it has read, the decisions it has made, the changes it has written.\n\n\n8.2.2 2. Before you stop: handoff\nWhen you’re done with a task (or switching to something else), tell the agent:\n\nWrite a handoff note to notes/ summarizing what you did, what’s left, and any decisions you made.\n\nThe agent creates a short file — like notes/handoff-2026-09-29.md — capturing exactly what the next session needs to know.\n\n\n8.2.3 3. Clear and continue\nRun /clear (or close the session). The conversation context is gone, but the handoff note is on disk.\nNext time, start the agent and say:\n\nRead the notes in notes/ and pick up where we left off.\n\nThe agent reads the handoff, gets oriented, and continues the work.",
     "crumbs": [
       "Agent Skills",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Agent Skills 101: The Clear–Handoff–Notes Workflow</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Agent Skills 101: The Clear–Handoff–Notes Workflow</span>"
     ]
   },
   {
     "objectID": "content/skills-101.html#what-goes-in-a-handoff-note",
     "href": "content/skills-101.html#what-goes-in-a-handoff-note",
-    "title": "7  Agent Skills 101: The Clear–Handoff–Notes Workflow",
-    "section": "7.3 What goes in a handoff note",
-    "text": "7.3 What goes in a handoff note\nGood handoff notes are short and specific:\n\nWhat was done (in a sentence or two)\nWhat’s next (the immediate next step)\nAny decisions made that aren’t obvious from the code\nBlockers or open questions",
+    "title": "8  Agent Skills 101: The Clear–Handoff–Notes Workflow",
+    "section": "8.3 What goes in a handoff note",
+    "text": "8.3 What goes in a handoff note\nGood handoff notes are short and specific:\n\nWhat was done (in a sentence or two)\nWhat’s next (the immediate next step)\nAny decisions made that aren’t obvious from the code\nBlockers or open questions",
     "crumbs": [
       "Agent Skills",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Agent Skills 101: The Clear–Handoff–Notes Workflow</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Agent Skills 101: The Clear–Handoff–Notes Workflow</span>"
     ]
   },
   {
     "objectID": "content/skills-101.html#what-does-not-go-in-a-handoff-note",
     "href": "content/skills-101.html#what-does-not-go-in-a-handoff-note",
-    "title": "7  Agent Skills 101: The Clear–Handoff–Notes Workflow",
-    "section": "7.4 What does NOT go in a handoff note",
-    "text": "7.4 What does NOT go in a handoff note\n\nEntire file contents — the agent can read files itself\nCode dumps — the code is in the repo\nFull project history — keep it to what’s relevant right now\nAnything the agent can figure out by looking at the repo\n\n\n\n\n\n\n\nTip\n\n\n\nThink of a handoff note like a sticky note for a colleague: “I finished X, next step is Y, watch out for Z.”",
+    "title": "8  Agent Skills 101: The Clear–Handoff–Notes Workflow",
+    "section": "8.4 What does NOT go in a handoff note",
+    "text": "8.4 What does NOT go in a handoff note\n\nEntire file contents — the agent can read files itself\nCode dumps — the code is in the repo\nFull project history — keep it to what’s relevant right now\nAnything the agent can figure out by looking at the repo\n\n\n\n\n\n\n\nTip\n\n\n\nThink of a handoff note like a sticky note for a colleague: “I finished X, next step is Y, watch out for Z.”",
     "crumbs": [
       "Agent Skills",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Agent Skills 101: The Clear–Handoff–Notes Workflow</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Agent Skills 101: The Clear–Handoff–Notes Workflow</span>"
     ]
   },
   {
     "objectID": "content/skills-101.html#example",
     "href": "content/skills-101.html#example",
-    "title": "7  Agent Skills 101: The Clear–Handoff–Notes Workflow",
-    "section": "7.5 Example",
-    "text": "7.5 Example\nHere’s what a handoff note might look like:\n# Handoff — 2026-09-29\n\n## Done\n- Set up Quarto book structure for clinic docs\n- Wrote first drafts of setup and models chapters\n\n## Next\n- Write the \"What Is Agentic Coding?\" chapter\n- Review setup chapter against latest participant-quickstart.md\n\n## Decisions\n- Dropped PDF/docx output for now — HTML only until content stabilizes\n- Using parts in _quarto.yml to group chapters into sections",
+    "title": "8  Agent Skills 101: The Clear–Handoff–Notes Workflow",
+    "section": "8.5 Example",
+    "text": "8.5 Example\nHere’s what a handoff note might look like:\n# Handoff — 2026-09-29\n\n## Done\n- Set up Quarto book structure for clinic docs\n- Wrote first drafts of setup and models chapters\n\n## Next\n- Write the \"What Is Agentic Coding?\" chapter\n- Review setup chapter against latest participant-quickstart.md\n\n## Decisions\n- Dropped PDF/docx output for now — HTML only until content stabilizes\n- Using parts in _quarto.yml to group chapters into sections",
     "crumbs": [
       "Agent Skills",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Agent Skills 101: The Clear–Handoff–Notes Workflow</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Agent Skills 101: The Clear–Handoff–Notes Workflow</span>"
     ]
   },
   {
     "objectID": "content/skills-101.html#why-clear-matters",
     "href": "content/skills-101.html#why-clear-matters",
-    "title": "7  Agent Skills 101: The Clear–Handoff–Notes Workflow",
-    "section": "7.6 Why /clear matters",
-    "text": "7.6 Why /clear matters\nEvery message you send includes the entire conversation so far. As the conversation grows, each request sends more tokens and costs more. Running /clear resets this — your next request is cheap again.\nThe handoff note means you don’t lose anything important. You trade a long, expensive conversation for a short, focused one with a lightweight file to get the agent back up to speed.",
+    "title": "8  Agent Skills 101: The Clear–Handoff–Notes Workflow",
+    "section": "8.6 Why /clear matters",
+    "text": "8.6 Why /clear matters\nEvery message you send includes the entire conversation so far. As the conversation grows, each request sends more tokens and costs more. Running /clear resets this — your next request is cheap again.\nThe handoff note means you don’t lose anything important. You trade a long, expensive conversation for a short, focused one with a lightweight file to get the agent back up to speed.",
     "crumbs": [
       "Agent Skills",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Agent Skills 101: The Clear–Handoff–Notes Workflow</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Agent Skills 101: The Clear–Handoff–Notes Workflow</span>"
     ]
   },
   {
     "objectID": "content/skills-101.html#the-notes-directory",
     "href": "content/skills-101.html#the-notes-directory",
-    "title": "7  Agent Skills 101: The Clear–Handoff–Notes Workflow",
-    "section": "7.7 The notes/ directory",
-    "text": "7.7 The notes/ directory\nKeep handoff notes and working notes in a notes/ directory in your project. This keeps them separate from your actual project files and easy to find.\nSome things that work well in notes/:\n\nHandoff notes (handoff-YYYY-MM-DD.md)\nPlans and task lists for ongoing work\nAnalysis summaries from agent tasks (like the reproducibility analysis)",
+    "title": "8  Agent Skills 101: The Clear–Handoff–Notes Workflow",
+    "section": "8.7 The notes/ directory",
+    "text": "8.7 The notes/ directory\nKeep handoff notes and working notes in a notes/ directory in your project. This keeps them separate from your actual project files and easy to find.\nSome things that work well in notes/:\n\nHandoff notes (handoff-YYYY-MM-DD.md)\nPlans and task lists for ongoing work\nAnalysis summaries from agent tasks (like the reproducibility analysis)",
     "crumbs": [
       "Agent Skills",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Agent Skills 101: The Clear–Handoff–Notes Workflow</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Agent Skills 101: The Clear–Handoff–Notes Workflow</span>"
     ]
   },
   {
     "objectID": "content/skills-101.html#branches-and-prs",
     "href": "content/skills-101.html#branches-and-prs",
-    "title": "7  Agent Skills 101: The Clear–Handoff–Notes Workflow",
-    "section": "7.8 Branches and PRs",
-    "text": "7.8 Branches and PRs\nOnce you’re comfortable with clear/handoff/notes, you can add git branches and pull requests to the workflow:\n\nCreate a branch for a task\nDo the work (with clear/handoff as needed)\nOpen a PR when it’s ready\nMerge and move on\n\nThis is a natural complement — the branch keeps your changes isolated and reviewable, and the handoff notes help you (or someone else) pick up the work if it spans multiple sessions. But the clear/handoff/notes habit is the foundation. Get that down first.",
+    "title": "8  Agent Skills 101: The Clear–Handoff–Notes Workflow",
+    "section": "8.8 Branches and PRs",
+    "text": "8.8 Branches and PRs\nOnce you’re comfortable with clear/handoff/notes, you can add git branches and pull requests to the workflow:\n\nCreate a branch for a task\nDo the work (with clear/handoff as needed)\nOpen a PR when it’s ready\nMerge and move on\n\nThis is a natural complement — the branch keeps your changes isolated and reviewable, and the handoff notes help you (or someone else) pick up the work if it spans multiple sessions. But the clear/handoff/notes habit is the foundation. Get that down first.",
     "crumbs": [
       "Agent Skills",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Agent Skills 101: The Clear–Handoff–Notes Workflow</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Agent Skills 101: The Clear–Handoff–Notes Workflow</span>"
     ]
   },
   {
     "objectID": "content/skills-102.html",
     "href": "content/skills-102.html",
-    "title": "8  Agent Skills 102: SKILLS.md",
+    "title": "9  Agent Skills 102: SKILLS.md",
     "section": "",
-    "text": "8.1 What is SKILLS.md?\nA SKILLS.md file lives in your project and teaches the agent reusable tasks — things you do repeatedly that you want done the same way every time. Instead of re-explaining a process in every session, you write it once in SKILLS.md and the agent follows it.\nThink of it as a recipe book for your agent.",
+    "text": "9.1 What is SKILLS.md?\nA SKILLS.md file lives in your project and teaches the agent reusable tasks — things you do repeatedly that you want done the same way every time. Instead of re-explaining a process in every session, you write it once in SKILLS.md and the agent follows it.\nThink of it as a recipe book for your agent.",
     "crumbs": [
       "Agent Skills",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Agent Skills 102: SKILLS.md</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Agent Skills 102: SKILLS.md</span>"
     ]
   },
   {
     "objectID": "content/skills-102.html#how-it-works",
     "href": "content/skills-102.html#how-it-works",
-    "title": "8  Agent Skills 102: SKILLS.md",
-    "section": "8.2 How it works",
-    "text": "8.2 How it works\nWhen you tell an agent to use a skill, it reads SKILLS.md, finds the matching section, and follows those instructions. For example:\n\nUse the “render-check” skill to build and verify the book.\n\nThe agent looks up “render-check” in SKILLS.md and executes the steps.",
+    "title": "9  Agent Skills 102: SKILLS.md",
+    "section": "9.2 How it works",
+    "text": "9.2 How it works\nWhen you tell an agent to use a skill, it reads SKILLS.md, finds the matching section, and follows those instructions. For example:\n\nUse the “render-check” skill to build and verify the book.\n\nThe agent looks up “render-check” in SKILLS.md and executes the steps.",
     "crumbs": [
       "Agent Skills",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Agent Skills 102: SKILLS.md</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Agent Skills 102: SKILLS.md</span>"
     ]
   },
   {
     "objectID": "content/skills-102.html#writing-a-skill",
     "href": "content/skills-102.html#writing-a-skill",
-    "title": "8  Agent Skills 102: SKILLS.md",
-    "section": "8.3 Writing a skill",
-    "text": "8.3 Writing a skill\nA skill is a section in SKILLS.md with a clear name and step-by-step instructions. Keep them concrete and specific.\n\n8.3.1 Example: render-check\n## render-check\n\nRender the Quarto book and check for problems.\n\n1. Run `quarto render` in the project root\n2. Check the output for errors or warnings\n3. If there are errors, read the error message and fix the issue\n4. Re-render until it builds cleanly\n5. Report what you fixed (if anything)\n\n\n8.3.2 Example: format-bib\n## format-bib\n\nClean up the bibliography file.\n\n1. Read `content/references.bib`\n2. Check each entry for:\n   - Missing fields (author, title, year, journal/publisher)\n   - Inconsistent formatting (e.g., mixed use of curly braces)\n   - Duplicate entries (same DOI or matching author+title+year)\n3. Fix any issues found\n4. Sort entries alphabetically by citation key\n\n\n8.3.3 Example: daily-handoff\n## daily-handoff\n\nWrite an end-of-session handoff note.\n\n1. Summarize what was done in this session\n2. List what should happen next\n3. Note any decisions or blockers\n4. Save to `notes/handoff-YYYY-MM-DD.md` using today's date",
+    "title": "9  Agent Skills 102: SKILLS.md",
+    "section": "9.3 Writing a skill",
+    "text": "9.3 Writing a skill\nA skill is a section in SKILLS.md with a clear name and step-by-step instructions. Keep them concrete and specific.\n\n9.3.1 Example: render-check\n## render-check\n\nRender the Quarto book and check for problems.\n\n1. Run `quarto render` in the project root\n2. Check the output for errors or warnings\n3. If there are errors, read the error message and fix the issue\n4. Re-render until it builds cleanly\n5. Report what you fixed (if anything)\n\n\n9.3.2 Example: format-bib\n## format-bib\n\nClean up the bibliography file.\n\n1. Read `content/references.bib`\n2. Check each entry for:\n   - Missing fields (author, title, year, journal/publisher)\n   - Inconsistent formatting (e.g., mixed use of curly braces)\n   - Duplicate entries (same DOI or matching author+title+year)\n3. Fix any issues found\n4. Sort entries alphabetically by citation key\n\n\n9.3.3 Example: daily-handoff\n## daily-handoff\n\nWrite an end-of-session handoff note.\n\n1. Summarize what was done in this session\n2. List what should happen next\n3. Note any decisions or blockers\n4. Save to `notes/handoff-YYYY-MM-DD.md` using today's date",
     "crumbs": [
       "Agent Skills",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Agent Skills 102: SKILLS.md</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Agent Skills 102: SKILLS.md</span>"
     ]
   },
   {
     "objectID": "content/skills-102.html#tips-for-writing-skills",
     "href": "content/skills-102.html#tips-for-writing-skills",
-    "title": "8  Agent Skills 102: SKILLS.md",
-    "section": "8.4 Tips for writing skills",
-    "text": "8.4 Tips for writing skills\n\nBe specific. “Check for problems” is vague. “Run quarto render and check for errors” is actionable.\nUse numbered steps. The agent follows them in order.\nInclude the actual commands. Don’t make the agent guess what to run.\nKeep them short. A skill that’s a full page long is probably two skills.\nName them clearly. You’ll invoke them by name.",
+    "title": "9  Agent Skills 102: SKILLS.md",
+    "section": "9.4 Tips for writing skills",
+    "text": "9.4 Tips for writing skills\n\nBe specific. “Check for problems” is vague. “Run quarto render and check for errors” is actionable.\nUse numbered steps. The agent follows them in order.\nInclude the actual commands. Don’t make the agent guess what to run.\nKeep them short. A skill that’s a full page long is probably two skills.\nName them clearly. You’ll invoke them by name.",
     "crumbs": [
       "Agent Skills",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Agent Skills 102: SKILLS.md</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Agent Skills 102: SKILLS.md</span>"
     ]
   },
   {
     "objectID": "content/skills-102.html#where-to-put-skills.md",
     "href": "content/skills-102.html#where-to-put-skills.md",
-    "title": "8  Agent Skills 102: SKILLS.md",
-    "section": "8.5 Where to put SKILLS.md",
-    "text": "8.5 Where to put SKILLS.md\nPut it in the root of your project, next to CLAUDE.md or AGENTS.md. The agent will find it when it reads your project files.",
+    "title": "9  Agent Skills 102: SKILLS.md",
+    "section": "9.5 Where to put SKILLS.md",
+    "text": "9.5 Where to put SKILLS.md\nPut it in the root of your project, next to CLAUDE.md or AGENTS.md. The agent will find it when it reads your project files.",
     "crumbs": [
       "Agent Skills",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Agent Skills 102: SKILLS.md</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Agent Skills 102: SKILLS.md</span>"
     ]
   },
   {
     "objectID": "content/skills-102.html#skills.md-vs.-claude.md",
     "href": "content/skills-102.html#skills.md-vs.-claude.md",
-    "title": "8  Agent Skills 102: SKILLS.md",
-    "section": "8.6 SKILLS.md vs. CLAUDE.md",
-    "text": "8.6 SKILLS.md vs. CLAUDE.md\n\n\n\n\n\n\n\n\n\nCLAUDE.md\nSKILLS.md\n\n\n\n\nPurpose\nProject context and conventions\nReusable task recipes\n\n\nWhen it’s read\nAutomatically at session start\nWhen you invoke a skill\n\n\nContents\nBuild commands, architecture, coding style\nStep-by-step procedures\n\n\n\nBoth are useful. CLAUDE.md gives the agent background knowledge. SKILLS.md gives it specific procedures to follow on demand.",
+    "title": "9  Agent Skills 102: SKILLS.md",
+    "section": "9.6 SKILLS.md vs. CLAUDE.md",
+    "text": "9.6 SKILLS.md vs. CLAUDE.md\n\n\n\n\n\n\n\n\n\nCLAUDE.md\nSKILLS.md\n\n\n\n\nPurpose\nProject context and conventions\nReusable task recipes\n\n\nWhen it’s read\nAutomatically at session start\nWhen you invoke a skill\n\n\nContents\nBuild commands, architecture, coding style\nStep-by-step procedures\n\n\n\nBoth are useful. CLAUDE.md gives the agent background knowledge. SKILLS.md gives it specific procedures to follow on demand.",
     "crumbs": [
       "Agent Skills",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Agent Skills 102: SKILLS.md</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Agent Skills 102: SKILLS.md</span>"
     ]
   },
   {
     "objectID": "content/skills-103.html",
     "href": "content/skills-103.html",
-    "title": "9  Agent Skills 103: Checking the Agent’s Work",
+    "title": "10  Agent Skills 103: Checking the Agent’s Work",
     "section": "",
-    "text": "9.1 The problem with “just review it”\nEvery guide to AI coding tools says “always review what the agent produces.” That’s true, but it’s not very helpful advice — especially when the agent is writing code you couldn’t have written yourself, or making changes across many files at once.\nIf you’re a scientist learning to code with an agent, the agent may genuinely be a better coder than you are. So how do you verify work you don’t fully understand?",
+    "text": "10.1 The problem with “just review it”\nEvery guide to AI coding tools says “always review what the agent produces.” That’s true, but it’s not very helpful advice — especially when the agent is writing code you couldn’t have written yourself, or making changes across many files at once.\nIf you’re a scientist learning to code with an agent, the agent may genuinely be a better coder than you are. So how do you verify work you don’t fully understand?",
     "crumbs": [
       "Agent Skills",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Agent Skills 103: Checking the Agent's Work</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Agent Skills 103: Checking the Agent's Work</span>"
     ]
   },
   {
     "objectID": "content/skills-103.html#you-dont-have-to-understand-every-line",
     "href": "content/skills-103.html#you-dont-have-to-understand-every-line",
-    "title": "9  Agent Skills 103: Checking the Agent’s Work",
-    "section": "9.2 You don’t have to understand every line",
-    "text": "9.2 You don’t have to understand every line\nVerification isn’t about reading every line of code and confirming it’s correct. It’s about checking that the thing works the way you expect it to. You’re the domain expert — you know what the output should look like, what the data means, and what would be wrong.\nGood verification questions:\n\nDoes it run without errors?\nDoes the output look right to me — someone who knows this data / this domain?\nDid it change anything I didn’t ask it to change?\nCan I explain what this does (even if I couldn’t have written it)?",
+    "title": "10  Agent Skills 103: Checking the Agent’s Work",
+    "section": "10.2 You don’t have to understand every line",
+    "text": "10.2 You don’t have to understand every line\nVerification isn’t about reading every line of code and confirming it’s correct. It’s about checking that the thing works the way you expect it to. You’re the domain expert — you know what the output should look like, what the data means, and what would be wrong.\nGood verification questions:\n\nDoes it run without errors?\nDoes the output look right to me — someone who knows this data / this domain?\nDid it change anything I didn’t ask it to change?\nCan I explain what this does (even if I couldn’t have written it)?",
     "crumbs": [
       "Agent Skills",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Agent Skills 103: Checking the Agent's Work</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Agent Skills 103: Checking the Agent's Work</span>"
     ]
   },
   {
     "objectID": "content/skills-103.html#let-the-agent-break-things-for-you",
     "href": "content/skills-103.html#let-the-agent-break-things-for-you",
-    "title": "9  Agent Skills 103: Checking the Agent’s Work",
-    "section": "9.3 Let the agent break things for you",
-    "text": "9.3 Let the agent break things for you\nHere’s the key insight: you don’t have to be the one who finds the bugs. You can get the agent to stress-test its own work — if you give it the right information.\n\n9.3.1 Give it real data\nThe agent probably wrote the code using example data or assumptions about your data. Give it the real thing:\n\nHere’s our actual dataset: data/survey-2024.csv. Run the analysis on this and show me the output. Does anything look wrong?\n\nReal data has edge cases — missing values, unexpected formats, outliers — that break fragile code.\n\n\n9.3.2 Tell it what you know\nYou’re the domain expert. You know things the agent doesn’t — what reasonable values look like, what relationships should exist in the data, what the previous version produced. Feed that knowledge in:\n\nThe count column should never be negative. Are there any negative values in the output?\n\n\nLast year’s report had 342 sites. If we’re getting a very different number, something is probably wrong.\n\n\nThis function is supposed to handle both CSV and Excel files. Try it with data/samples.xlsx — does it work?\n\n\n\n9.3.3 Ask it to write tests\nYou don’t have to write the tests yourself. But you can tell the agent what to test for:\n\nWrite tests that check:\n\nThe function handles empty input without crashing\nMissing values in the date column don’t cause errors\nThe output has the same number of rows as the input\nColumn names match what downstream code expects\n\n\nYou’re providing the domain knowledge about what should be true. The agent provides the testing mechanics.\n\n\n9.3.4 Ask it to try to break it\nThis is one of the most useful things you can do:\n\nTry to break this. What inputs would cause it to fail? What assumptions is it making that might not hold?\n\nAgents are good at this — they can reason about edge cases and generate adversarial inputs. Breaking things is good. Every failure reveals something that needs to be more robust.",
+    "title": "10  Agent Skills 103: Checking the Agent’s Work",
+    "section": "10.3 Let the agent break things for you",
+    "text": "10.3 Let the agent break things for you\nHere’s the key insight: you don’t have to be the one who finds the bugs. You can get the agent to stress-test its own work — if you give it the right information.\n\n10.3.1 Give it real data\nThe agent probably wrote the code using example data or assumptions about your data. Give it the real thing:\n\nHere’s our actual dataset: data/survey-2024.csv. Run the analysis on this and show me the output. Does anything look wrong?\n\nReal data has edge cases — missing values, unexpected formats, outliers — that break fragile code.\n\n\n10.3.2 Tell it what you know\nYou’re the domain expert. You know things the agent doesn’t — what reasonable values look like, what relationships should exist in the data, what the previous version produced. Feed that knowledge in:\n\nThe count column should never be negative. Are there any negative values in the output?\n\n\nLast year’s report had 342 sites. If we’re getting a very different number, something is probably wrong.\n\n\nThis function is supposed to handle both CSV and Excel files. Try it with data/samples.xlsx — does it work?\n\n\n\n10.3.3 Ask it to write tests\nYou don’t have to write the tests yourself. But you can tell the agent what to test for:\n\nWrite tests that check:\n\nThe function handles empty input without crashing\nMissing values in the date column don’t cause errors\nThe output has the same number of rows as the input\nColumn names match what downstream code expects\n\n\nYou’re providing the domain knowledge about what should be true. The agent provides the testing mechanics.\n\n\n10.3.4 Ask it to try to break it\nThis is one of the most useful things you can do:\n\nTry to break this. What inputs would cause it to fail? What assumptions is it making that might not hold?\n\nAgents are good at this — they can reason about edge cases and generate adversarial inputs. Breaking things is good. Every failure reveals something that needs to be more robust.",
     "crumbs": [
       "Agent Skills",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Agent Skills 103: Checking the Agent's Work</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Agent Skills 103: Checking the Agent's Work</span>"
     ]
   },
   {
     "objectID": "content/skills-103.html#a-verification-workflow",
     "href": "content/skills-103.html#a-verification-workflow",
-    "title": "9  Agent Skills 103: Checking the Agent’s Work",
-    "section": "9.4 A verification workflow",
-    "text": "9.4 A verification workflow\nA practical approach:\n\nDoes it run? Ask the agent to execute it. Fix any errors.\nDoes it look right? Review the output with your domain knowledge. Flag anything suspicious.\nFeed it real data. Swap in your actual files and see what happens.\nAsk it to break it. Have the agent find its own bugs.\nCheck the diff. Before committing, look at what files changed. Anything unexpected?\n\n\n\n\n\n\n\nTip\n\n\n\nVerification works best as a separate task. After the agent builds something, clear the session, then start a new session focused entirely on testing and breaking what was built. A fresh session means the agent isn’t biased by the decisions it made during implementation.",
+    "title": "10  Agent Skills 103: Checking the Agent’s Work",
+    "section": "10.4 A verification workflow",
+    "text": "10.4 A verification workflow\nA practical approach:\n\nDoes it run? Ask the agent to execute it. Fix any errors.\nDoes it look right? Review the output with your domain knowledge. Flag anything suspicious.\nFeed it real data. Swap in your actual files and see what happens.\nAsk it to break it. Have the agent find its own bugs.\nCheck the diff. Before committing, look at what files changed. Anything unexpected?\n\n\n\n\n\n\n\nTip\n\n\n\nVerification works best as a separate task. After the agent builds something, clear the session, then start a new session focused entirely on testing and breaking what was built. A fresh session means the agent isn’t biased by the decisions it made during implementation.",
     "crumbs": [
       "Agent Skills",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Agent Skills 103: Checking the Agent's Work</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Agent Skills 103: Checking the Agent's Work</span>"
     ]
   },
   {
     "objectID": "content/skills-103.html#this-is-a-skill-you-build-over-time",
     "href": "content/skills-103.html#this-is-a-skill-you-build-over-time",
-    "title": "9  Agent Skills 103: Checking the Agent’s Work",
-    "section": "9.5 This is a skill you build over time",
-    "text": "9.5 This is a skill you build over time\nNobody gets this right immediately. The more you work with agents, the better you get at:\n\nKnowing what questions to ask\nSpotting when output “looks off”\nGiving the agent the right information to test against\n\nFor now, the most important habit is: don’t just accept what the agent produces. Run it, look at it, and throw some real data at it before you call it done.",
+    "title": "10  Agent Skills 103: Checking the Agent’s Work",
+    "section": "10.5 This is a skill you build over time",
+    "text": "10.5 This is a skill you build over time\nNobody gets this right immediately. The more you work with agents, the better you get at:\n\nKnowing what questions to ask\nSpotting when output “looks off”\nGiving the agent the right information to test against\n\nFor now, the most important habit is: don’t just accept what the agent produces. Run it, look at it, and throw some real data at it before you call it done.",
     "crumbs": [
       "Agent Skills",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Agent Skills 103: Checking the Agent's Work</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Agent Skills 103: Checking the Agent's Work</span>"
     ]
   },
   {
     "objectID": "content/tool-comparison.html",
     "href": "content/tool-comparison.html",
-    "title": "10  Tool Comparison",
+    "title": "11  Tool Comparison",
     "section": "",
-    "text": "10.1 Quick reference\nAll of these tools work through the clinic’s shared gateway. Pick whichever one you’re most comfortable with — or try a few.",
+    "text": "11.1 Quick reference\nAll of these tools work through the clinic’s shared gateway. Pick whichever one you’re most comfortable with — or try a few.",
     "crumbs": [
       "Reference",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Tool Comparison</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Tool Comparison</span>"
     ]
   },
   {
     "objectID": "content/tool-comparison.html#quick-reference",
     "href": "content/tool-comparison.html#quick-reference",
-    "title": "10  Tool Comparison",
+    "title": "11  Tool Comparison",
     "section": "",
     "text": "Claude Code\nOpenCode\nCopilot CLI\nGemini CLI\n\n\n\n\nStart\nclaude\nopencode\ncopilot\ngemini\n\n\nSwitch model\n/model name\n/models menu\nQuit, change env var, restart\n/model name\n\n\nCheck usage\n/usage\n—\n—\n—\n\n\nClear context\n/clear\n—\n—\n/clear\n\n\nStatus\n/status\n—\n—\n—\n\n\nBest for\nDeep coding tasks, Claude models\nTrying open models, flexible config\nQuick questions\nGoogle ecosystem",
     "crumbs": [
       "Reference",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Tool Comparison</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Tool Comparison</span>"
     ]
   },
   {
     "objectID": "content/tool-comparison.html#key-differences",
     "href": "content/tool-comparison.html#key-differences",
-    "title": "10  Tool Comparison",
-    "section": "10.2 Key differences",
-    "text": "10.2 Key differences\nClaude Code is the most full-featured for this clinic. It has built-in commands for managing context (/clear), checking status (/status, /usage), and switching models (/model). It’s designed around Claude and works well with CLAUDE.md project files.\nOpenCode is open-source and has the most flexible model configuration. It works well with both Claude and open models through the gateway. Good if you want to compare models side by side.\nGitHub Copilot CLI is straightforward to set up. To switch models you need to quit and restart with a different COPILOT_MODEL environment variable. No GitHub account needed when using the gateway.\nGemini CLI is Google’s tool. It follows the same agentic pattern. Configuration is via environment variables.",
+    "title": "11  Tool Comparison",
+    "section": "11.2 Key differences",
+    "text": "11.2 Key differences\nClaude Code is the most full-featured for this clinic. It has built-in commands for managing context (/clear), checking status (/status, /usage), and switching models (/model). It’s designed around Claude and works well with CLAUDE.md project files.\nOpenCode is open-source and has the most flexible model configuration. It works well with both Claude and open models through the gateway. Good if you want to compare models side by side.\nGitHub Copilot CLI is straightforward to set up. To switch models you need to quit and restart with a different COPILOT_MODEL environment variable. No GitHub account needed when using the gateway.\nGemini CLI is Google’s tool. It follows the same agentic pattern. Configuration is via environment variables.",
     "crumbs": [
       "Reference",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Tool Comparison</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Tool Comparison</span>"
     ]
   },
   {
     "objectID": "content/tool-comparison.html#common-commands-across-tools",
     "href": "content/tool-comparison.html#common-commands-across-tools",
-    "title": "10  Tool Comparison",
-    "section": "10.3 Common commands across tools",
-    "text": "10.3 Common commands across tools\nRegardless of which tool you use, you’ll do the same basic things:\n\nGive a prompt — type what you want the agent to do\nApprove tool use — most tools ask permission before editing files or running commands\nReview output — always check what the agent did before moving on\nEnd the session — close the tool or clear context when switching tasks",
+    "title": "11  Tool Comparison",
+    "section": "11.3 Common commands across tools",
+    "text": "11.3 Common commands across tools\nRegardless of which tool you use, you’ll do the same basic things:\n\nGive a prompt — type what you want the agent to do\nApprove tool use — most tools ask permission before editing files or running commands\nReview output — always check what the agent did before moving on\nEnd the session — close the tool or clear context when switching tasks",
     "crumbs": [
       "Reference",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Tool Comparison</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Tool Comparison</span>"
     ]
   },
   {
     "objectID": "content/troubleshooting.html",
     "href": "content/troubleshooting.html",
-    "title": "11  Troubleshooting",
+    "title": "12  Troubleshooting",
     "section": "",
-    "text": "11.1 Connection problems",
+    "text": "12.1 Connection problems",
     "crumbs": [
       "Reference",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Troubleshooting</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Troubleshooting</span>"
     ]
   },
   {
     "objectID": "content/troubleshooting.html#connection-problems",
     "href": "content/troubleshooting.html#connection-problems",
-    "title": "11  Troubleshooting",
+    "title": "12  Troubleshooting",
     "section": "",
-    "text": "11.1.1 “Authentication error” or “Invalid API key”\nYour GATEWAY_KEY is wrong or not set in this terminal.\necho $GATEWAY_KEY\nIf it’s empty, set it again:\nexport GATEWAY_KEY=sk-your-key-here\n\n\n11.1.2 “Connection refused” or timeout\nThe gateway server may be stopped. Check with the organizer.\nAlso verify your GATEWAY_URL is set:\necho $GATEWAY_URL\n\n\n11.1.3 Claude Code ignores the gateway\nIf you have other Claude Code settings (Bedrock, Vertex, or an Anthropic API key), they can override the gateway. Clear them:\nunset CLAUDE_CODE_USE_BEDROCK CLAUDE_CODE_USE_VERTEX ANTHROPIC_API_KEY\nThen set the gateway variables again and restart claude.",
+    "text": "12.1.1 “Authentication error” or “Invalid API key”\nYour GATEWAY_KEY is wrong or not set in this terminal.\necho $GATEWAY_KEY\nIf it’s empty, set it again:\nexport GATEWAY_KEY=sk-your-key-here\n\n\n12.1.2 “Connection refused” or timeout\nThe gateway server may be stopped. Check with the organizer.\nAlso verify your GATEWAY_URL is set:\necho $GATEWAY_URL\n\n\n12.1.3 Claude Code ignores the gateway\nIf you have other Claude Code settings (Bedrock, Vertex, or an Anthropic API key), they can override the gateway. Clear them:\nunset CLAUDE_CODE_USE_BEDROCK CLAUDE_CODE_USE_VERTEX ANTHROPIC_API_KEY\nThen set the gateway variables again and restart claude.",
     "crumbs": [
       "Reference",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Troubleshooting</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Troubleshooting</span>"
     ]
   },
   {
     "objectID": "content/troubleshooting.html#budget-problems",
     "href": "content/troubleshooting.html#budget-problems",
-    "title": "11  Troubleshooting",
-    "section": "11.2 Budget problems",
-    "text": "11.2 Budget problems\n\n11.2.1 “Budget exceeded”\nYour key has hit its spending limit. Ask the organizer — they can increase it or issue a new key.\n\n\n11.2.2 “Key expired” or “Key blocked”\nThe key’s time limit is up, or it was switched off. Ask the organizer for a new one.\n\n\n11.2.3 How to check your remaining budget\ncurl -s $GATEWAY_URL/key/info \\\n  -H \"Authorization: Bearer $GATEWAY_KEY\" |\n  python3 -c \"\nimport sys, json\ni = json.load(sys.stdin)['info']\nprint(f\\\"Spent \\${i['spend']:.2f} of \\${i['max_budget']:.2f}; expires {i['expires'][:10]}\\\")\n\"",
+    "title": "12  Troubleshooting",
+    "section": "12.2 Budget problems",
+    "text": "12.2 Budget problems\n\n12.2.1 “Budget exceeded”\nYour key has hit its spending limit. Ask the organizer — they can increase it or issue a new key.\n\n\n12.2.2 “Key expired” or “Key blocked”\nThe key’s time limit is up, or it was switched off. Ask the organizer for a new one.\n\n\n12.2.3 How to check your remaining budget\ncurl -s $GATEWAY_URL/key/info \\\n  -H \"Authorization: Bearer $GATEWAY_KEY\" |\n  python3 -c \"\nimport sys, json\ni = json.load(sys.stdin)['info']\nprint(f\\\"Spent \\${i['spend']:.2f} of \\${i['max_budget']:.2f}; expires {i['expires'][:10]}\\\")\n\"",
     "crumbs": [
       "Reference",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Troubleshooting</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Troubleshooting</span>"
     ]
   },
   {
     "objectID": "content/troubleshooting.html#agent-behavior-problems",
     "href": "content/troubleshooting.html#agent-behavior-problems",
-    "title": "11  Troubleshooting",
-    "section": "11.3 Agent behavior problems",
-    "text": "11.3 Agent behavior problems\n\n11.3.1 Agent gives generic answers without reading files\nSome models (especially open models) don’t use file-reading tools reliably. Try:\n\nBeing explicit: “Use the read tool to look at README.md, then answer.”\nSwitching to a Claude model, which handles tool use more reliably.\n\n\n\n11.3.2 Agent seems confused or stuck\nThe conversation may have gotten too long. Run /clear and start fresh. If you have handoff notes in notes/, tell the agent to read those for context.\n\n\n11.3.3 Agent makes changes you didn’t ask for\nReview what the agent is doing before approving. Most tools ask permission before writing files. If it’s going off track, interrupt it and clarify what you actually want.",
+    "title": "12  Troubleshooting",
+    "section": "12.3 Agent behavior problems",
+    "text": "12.3 Agent behavior problems\n\n12.3.1 Agent gives generic answers without reading files\nSome models (especially open models) don’t use file-reading tools reliably. Try:\n\nBeing explicit: “Use the read tool to look at README.md, then answer.”\nSwitching to a Claude model, which handles tool use more reliably.\n\n\n\n12.3.2 Agent seems confused or stuck\nThe conversation may have gotten too long. Run /clear and start fresh. If you have handoff notes in notes/, tell the agent to read those for context.\n\n\n12.3.3 Agent makes changes you didn’t ask for\nReview what the agent is doing before approving. Most tools ask permission before writing files. If it’s going off track, interrupt it and clarify what you actually want.",
     "crumbs": [
       "Reference",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Troubleshooting</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Troubleshooting</span>"
     ]
   },
   {
     "objectID": "content/troubleshooting.html#environment-variables-cheat-sheet",
     "href": "content/troubleshooting.html#environment-variables-cheat-sheet",
-    "title": "11  Troubleshooting",
-    "section": "11.4 Environment variables cheat sheet",
-    "text": "11.4 Environment variables cheat sheet\nIf things aren’t working, check that all the right variables are set:\necho \"GATEWAY_URL: $GATEWAY_URL\"\necho \"GATEWAY_KEY: $GATEWAY_KEY\"\necho \"ANTHROPIC_BASE_URL: $ANTHROPIC_BASE_URL\"\necho \"ANTHROPIC_AUTH_TOKEN: $ANTHROPIC_AUTH_TOKEN\"\necho \"ANTHROPIC_MODEL: $ANTHROPIC_MODEL\"\nFor Claude Code, ANTHROPIC_BASE_URL should match GATEWAY_URL and ANTHROPIC_AUTH_TOKEN should match GATEWAY_KEY.",
+    "title": "12  Troubleshooting",
+    "section": "12.4 Environment variables cheat sheet",
+    "text": "12.4 Environment variables cheat sheet\nIf things aren’t working, check that all the right variables are set:\necho \"GATEWAY_URL: $GATEWAY_URL\"\necho \"GATEWAY_KEY: $GATEWAY_KEY\"\necho \"ANTHROPIC_BASE_URL: $ANTHROPIC_BASE_URL\"\necho \"ANTHROPIC_AUTH_TOKEN: $ANTHROPIC_AUTH_TOKEN\"\necho \"ANTHROPIC_MODEL: $ANTHROPIC_MODEL\"\nFor Claude Code, ANTHROPIC_BASE_URL should match GATEWAY_URL and ANTHROPIC_AUTH_TOKEN should match GATEWAY_KEY.",
     "crumbs": [
       "Reference",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Troubleshooting</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Troubleshooting</span>"
     ]
   }
 ]
