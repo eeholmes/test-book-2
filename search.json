@@ -215,22 +215,22 @@
     ]
   },
   {
-    "objectID": "content/what-is-agentic-coding.html#what-makes-this-useful-for-science",
-    "href": "content/what-is-agentic-coding.html#what-makes-this-useful-for-science",
+    "objectID": "content/what-is-agentic-coding.html#how-to-work-with-an-agent",
+    "href": "content/what-is-agentic-coding.html#how-to-work-with-an-agent",
     "title": "4  What Is Agentic Coding?",
-    "section": "4.4 What makes this useful for science?",
-    "text": "4.4 What makes this useful for science?\n\nExploring unfamiliar code — point the agent at a repo and ask “what does this do?” It will actually read the files, not guess.\nRepetitive tasks — reformatting data, updating documentation, running the same analysis across multiple files.\nLearning — ask the agent to explain code as it works. It’s like pair programming with a patient partner.\nReproducibility — the agent can check whether a project has the dependencies, data, and instructions someone else would need to reproduce it.",
+    "section": "4.4 How to work with an agent",
+    "text": "4.4 How to work with an agent\nAn agentic tool is not a chatbot. The biggest mistake people make is treating it like one — typing free-form messages, going off on tangents, and ending up in a long rambling conversation that confuses both you and the agent.\nHere’s how to work with an agent effectively:\n\n4.4.1 Each repo is a project\nAn agent works inside a directory. That directory is the project. Keep your agent sessions anchored to a specific repo. Don’t try to work across unrelated projects in one session.\n\n\n4.4.2 Work in tasks\nEvery time you sit down with an agent, you should have a task in mind. A task can be:\n\nWriting a chapter\nFixing a bug\nBrainstorming an outline\nResearching how something works\nPlanning a set of changes\n\nThe key is that a task has a scope. “Help me with my project” is not a task. “Draft the introduction chapter” is a task. “Figure out why the PDF won’t render” is a task. Even “brainstorm what sections this book should have” is a task.\n\n\n4.4.3 Keep tasks separate\nWhen you finish a task — or when you need to switch to a different task — close the loop. Don’t just start talking about something else. The agent’s context is now full of information from the previous task, which makes it slower, more expensive, and more likely to get confused.\nClose the loop by telling the agent:\n\nI’m about to clear. Write a handoff note to notes/ with what we did and what’s next.\n\nThen:\n/clear\nStart the next task fresh. The agent will read notes/ if it needs context from earlier work.\n\n\n4.4.4 Close the loop even mid-task\nYou don’t have to finish a task to close it. If you’re halfway through and need to stop, or if the conversation is getting long — close the loop anyway. A handoff note saying “got halfway through X, next step is Y” is perfectly fine. The next session picks it up.\n\n\n\n\n\n\nWarningDon’t use endless chats\n\n\n\nIt’s tempting to keep going in one long conversation — especially if things are flowing. Resist. Long conversations:\n\nCost more — every message resends the entire conversation\nDrift — the agent loses focus as context piles up\nBreak — if the session dies, you lose everything\n\nShort, focused tasks with handoff notes between them are cheaper, more reliable, and easier to pick up later.\n\n\n\n\n4.4.5 Don’t use /resume\nMost tools have a way to resume the previous session (like /resume in Claude Code). This reloads the entire old conversation — all the context, all the cost, all the drift. It’s the opposite of what you want.\nInstead, start fresh and point the agent at your notes:\n\nRead the notes in notes/ and continue where we left off.\n\nThis gives the agent exactly the context it needs and nothing it doesn’t.",
     "crumbs": [
       "What Is Agentic Coding?",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>What Is Agentic Coding?</span>"
     ]
   },
   {
-    "objectID": "content/what-is-agentic-coding.html#what-its-not",
-    "href": "content/what-is-agentic-coding.html#what-its-not",
+    "objectID": "content/what-is-agentic-coding.html#what-an-agent-is-not",
+    "href": "content/what-is-agentic-coding.html#what-an-agent-is-not",
     "title": "4  What Is Agentic Coding?",
-    "section": "4.5 What it’s not",
-    "text": "4.5 What it’s not\n\nIt’s not magic — agents make mistakes, especially on complex or ambiguous tasks.\nIt’s not a replacement for understanding your own code — always review what the agent produces.\nIt doesn’t remember between sessions — more on that in Agent Skills 101.",
+    "section": "4.5 What an agent is not",
+    "text": "4.5 What an agent is not\n\nIt’s not magic — agents make mistakes, especially on complex or ambiguous tasks. Always review what they produce.\nIt’s not a chatbot — keep interactions focused on tasks, not open-ended conversation.\nIt doesn’t remember between sessions — that’s why you use handoff notes.",
     "crumbs": [
       "What Is Agentic Coding?",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>What Is Agentic Coding?</span>"
