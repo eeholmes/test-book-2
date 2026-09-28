@@ -1,0 +1,74 @@
+---
+title: "Activity: Repo Reproducibility Analysis"
+---
+
+## The task
+
+In this group activity, you'll point an AI coding agent at a public GitHub repository and ask it to analyze how reproducible the project is.
+
+This is a great first task for an agentic tool because it's read-only (nothing to break), it exercises the agent's ability to explore files, and it produces something useful.
+
+## Instructions
+
+### 1. Pick a repository
+
+Choose a public GitHub repo — it could be:
+
+- A repo from your own work or team
+- A paper's companion repository
+- Any open-source scientific project
+
+Clone it into your workspace:
+
+```bash
+git clone https://github.com/owner/repo-name.git
+cd repo-name
+```
+
+### 2. Start your agent
+
+Launch your coding tool in the cloned repo directory. For example:
+
+```bash
+claude
+```
+
+### 3. Ask it to analyze reproducibility
+
+Try a prompt like:
+
+> Analyze this repository for reproducibility. Check whether it has:
+>
+> - A README with clear instructions for running the code
+> - Dependency management (requirements.txt, environment.yml, renv.lock, etc.)
+> - Data availability (included, linked, or instructions to obtain)
+> - A clear entry point (what do you run first?)
+> - Any hardcoded paths or system-specific assumptions
+>
+> Summarize what's good and what's missing.
+
+### 4. Follow up
+
+Once the agent gives its analysis, dig deeper:
+
+- "What would someone need to install to run this?"
+- "Are there any files that reference paths that wouldn't exist on another machine?"
+- "Could you write a checklist of what's needed to make this fully reproducible?"
+
+### 5. Save your findings
+
+Ask the agent to save its analysis:
+
+> Save your reproducibility analysis to `notes/reproducibility-analysis.md`
+
+## Discussion
+
+After the activity, consider:
+
+- Did the agent find things you would have missed on a quick scan?
+- Did it get anything wrong?
+- How would you improve the prompt if you did this again?
+
+::: {.callout-tip}
+This kind of task — read-only exploration and analysis — is one of the safest and most effective ways to use an agentic tool. The agent can read every file in a repo in seconds, something that would take a person much longer.
+:::

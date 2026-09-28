@@ -1,0 +1,86 @@
+---
+title: "Agent Skills 102: SKILLS.md"
+---
+
+## What is SKILLS.md?
+
+A `SKILLS.md` file lives in your project and teaches the agent reusable tasks — things you do repeatedly that you want done the same way every time. Instead of re-explaining a process in every session, you write it once in `SKILLS.md` and the agent follows it.
+
+Think of it as a recipe book for your agent.
+
+## How it works
+
+When you tell an agent to use a skill, it reads `SKILLS.md`, finds the matching section, and follows those instructions. For example:
+
+> Use the "render-check" skill to build and verify the book.
+
+The agent looks up "render-check" in `SKILLS.md` and executes the steps.
+
+## Writing a skill
+
+A skill is a section in `SKILLS.md` with a clear name and step-by-step instructions. Keep them concrete and specific.
+
+### Example: render-check
+
+```markdown
+## render-check
+
+Render the Quarto book and check for problems.
+
+1. Run `quarto render` in the project root
+2. Check the output for errors or warnings
+3. If there are errors, read the error message and fix the issue
+4. Re-render until it builds cleanly
+5. Report what you fixed (if anything)
+```
+
+### Example: format-bib
+
+```markdown
+## format-bib
+
+Clean up the bibliography file.
+
+1. Read `content/references.bib`
+2. Check each entry for:
+   - Missing fields (author, title, year, journal/publisher)
+   - Inconsistent formatting (e.g., mixed use of curly braces)
+   - Duplicate entries (same DOI or matching author+title+year)
+3. Fix any issues found
+4. Sort entries alphabetically by citation key
+```
+
+### Example: daily-handoff
+
+```markdown
+## daily-handoff
+
+Write an end-of-session handoff note.
+
+1. Summarize what was done in this session
+2. List what should happen next
+3. Note any decisions or blockers
+4. Save to `notes/handoff-YYYY-MM-DD.md` using today's date
+```
+
+## Tips for writing skills
+
+- **Be specific.** "Check for problems" is vague. "Run `quarto render` and check for errors" is actionable.
+- **Use numbered steps.** The agent follows them in order.
+- **Include the actual commands.** Don't make the agent guess what to run.
+- **Keep them short.** A skill that's a full page long is probably two skills.
+- **Name them clearly.** You'll invoke them by name.
+
+## Where to put SKILLS.md
+
+Put it in the root of your project, next to `CLAUDE.md` or `AGENTS.md`. The agent will find it when it reads your project files.
+
+## SKILLS.md vs. CLAUDE.md
+
+| | CLAUDE.md | SKILLS.md |
+|---|---|---|
+| **Purpose** | Project context and conventions | Reusable task recipes |
+| **When it's read** | Automatically at session start | When you invoke a skill |
+| **Contents** | Build commands, architecture, coding style | Step-by-step procedures |
+
+Both are useful. `CLAUDE.md` gives the agent background knowledge. `SKILLS.md` gives it specific procedures to follow on demand.
