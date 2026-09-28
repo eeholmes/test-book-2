@@ -2,191 +2,524 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "NOAA quarto book",
+    "title": "Agent Coders Clinic",
     "section": "",
-    "text": "Executive Summary\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Integer commodo gravida justo consectetur condimentum. Proin eget felis non nunc tristique malesuada vel ut tortor. Vivamus lacinia aliquet lorem in congue. In hac habitasse platea dictumst. Etiam non felis iaculis, efficitur libero in, porta nunc. Sed sit amet nisi non justo scelerisque feugiat. Pellentesque porta consectetur sapien, porttitor iaculis ligula fermentum ac. Pellentesque fermentum elementum lacus non tempus. Aenean eu leo lobortis, vulputate mi at, varius sapien. In congue consectetur ultricies. Maecenas volutpat facilisis arcu, eget sodales tellus consequat nec. Integer ullamcorper ex nec leo aliquam tempus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc dui massa, facilisis at aliquet eu, malesuada vel neque. Donec fermentum elit eu tortor euismod, sed mollis lacus blandit.\nNew paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer commodo gravida justo consectetur condimentum. Proin eget felis non nunc tristique malesuada vel ut tortor. Vivamus lacinia aliquet lorem in congue. In hac habitasse platea dictumst. Etiam non felis iaculis, efficitur libero in, porta nunc. Sed sit amet nisi non justo scelerisque feugiat. Pellentesque porta consectetur sapien, porttitor iaculis ligula fermentum ac. Pellentesque fermentum elementum lacus non tempus. Aenean eu leo lobortis, vulputate mi at, varius sapien. In congue consectetur ultricies. Maecenas volutpat facilisis arcu, eget sodales tellus consequat nec. Integer ullamcorper ex nec leo aliquam tempus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc dui massa, facilisis at aliquet eu, malesuada vel neque. Donec fermentum elit eu tortor euismod, sed mollis lacus blandit.",
+    "text": "0.1 What is the Agent Coders Clinic?\nThe Agent Coders Clinic is a hands-on workshop where you’ll learn to use AI coding agents — tools that can read your files, run commands, edit code, and work through multi-step tasks on your behalf. Whether this is your first time using an AI coding tool or you’ve been experimenting on your own, this clinic will give you a practical workflow you can take back to your daily work.",
     "crumbs": [
-      "Executive Summary"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Welcome</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#what-youll-learn",
+    "href": "index.html#what-youll-learn",
+    "title": "Agent Coders Clinic",
+    "section": "0.2 What you’ll learn",
+    "text": "0.2 What you’ll learn\nBy the end of this clinic, you will:\n\nUnderstand what an agentic coding harness is and how it differs from chatbots or autocomplete\nConnect to a shared gateway that gives you access to Claude and open-source models — no accounts or subscriptions needed\nPractice a clear–handoff–notes workflow that keeps your work organized across sessions\nTry a group activity where an agent analyzes a real GitHub repository\nLearn how to write SKILLS.md files that teach an agent reusable tasks",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Welcome</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#the-environment",
+    "href": "index.html#the-environment",
+    "title": "Agent Coders Clinic",
+    "section": "0.3 The environment",
+    "text": "0.3 The environment\nEverything runs on a sandboxed JupyterHub. You have a terminal, a file browser, and your choice of coding tool. Nothing connects to private or confidential systems — this is a safe space for learning and experimenting.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Welcome</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#agenda",
+    "href": "index.html#agenda",
+    "title": "Agent Coders Clinic",
+    "section": "0.4 Agenda",
+    "text": "0.4 Agenda\n\n\n\n\n\n\n\nTime\nTopic\n\n\n\n\nFirst half\nSetup, intro to agentic coding, core workflow (clear / handoff / notes)\n\n\nSecond half\nGroup activity (repo reproducibility analysis), SKILLS.md",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Welcome</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#ready",
+    "href": "index.html#ready",
+    "title": "Agent Coders Clinic",
+    "section": "0.5 Ready?",
+    "text": "0.5 Ready?\nStart with Setup & Connection to get your tools connected.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Welcome</span>"
     ]
   },
   {
     "objectID": "content/setup.html",
     "href": "content/setup.html",
-    "title": "1  Set-up",
+    "title": "2  Setup & Connection",
     "section": "",
-    "text": "1.1 GitHub Set-up",
+    "text": "2.1 What you need\nTwo things from the organizer:\nYour key has its own spending limit and expiry date. Keep it to yourself.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Set-up</span>"
+      "Getting Started",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Setup & Connection</span>"
     ]
   },
   {
-    "objectID": "content/setup.html#github-set-up",
-    "href": "content/setup.html#github-set-up",
-    "title": "1  Set-up",
+    "objectID": "content/setup.html#what-you-need",
+    "href": "content/setup.html#what-you-need",
+    "title": "2  Setup & Connection",
     "section": "",
-    "text": "Click the green “use template” button to make a repository with this content. Make sure to make your repo public (since GitHub Pages doesn’t work on private repos unless you have a paid account) and check box to include all the branches (so that you get the gh-pages branch). \nTurn on GitHub Pages under Settings &gt; Pages . You will set pages to be made from the gh-pages branch and root directory. \nTurn on GitHub Actions under Settings &gt; Actions &gt; General \nEdit the repo description and Readme to add a link to the webpage. When you edit the description, you will see the link url in the url box or you can click on the Actions tab or the Settings &gt; Pages page to find the url.",
+    "text": "Gateway URL — the address of the shared gateway\nPersonal key — starts with sk-, sent to you privately",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Set-up</span>"
+      "Getting Started",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Setup & Connection</span>"
     ]
   },
   {
-    "objectID": "content/add-content.html",
-    "href": "content/add-content.html",
-    "title": "2  Customize",
+    "objectID": "content/setup.html#set-your-environment-variables",
+    "href": "content/setup.html#set-your-environment-variables",
+    "title": "2  Setup & Connection",
+    "section": "2.2 Set your environment variables",
+    "text": "2.2 Set your environment variables\nIn a terminal, run:\nexport GATEWAY_KEY=sk-your-key-here\nexport GATEWAY_URL=https://your-gateway-url-here\nThese last only for this terminal session. If you open a new terminal, run both lines again.",
+    "crumbs": [
+      "Getting Started",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Setup & Connection</span>"
+    ]
+  },
+  {
+    "objectID": "content/setup.html#connect-your-tool",
+    "href": "content/setup.html#connect-your-tool",
+    "title": "2  Setup & Connection",
+    "section": "2.3 Connect your tool",
+    "text": "2.3 Connect your tool\nPick the tool you want to use. You only need one.\n\n2.3.1 Claude Code\nInstall (if you don’t have it):\ncurl -fsSL https://claude.ai/install.sh | bash\nConnect to the gateway:\nexport ANTHROPIC_BASE_URL=$GATEWAY_URL\nexport ANTHROPIC_AUTH_TOKEN=$GATEWAY_KEY\nexport ANTHROPIC_MODEL=claude-haiku-4-5-20251001\nexport ANTHROPIC_DEFAULT_OPUS_MODEL=claude-opus-4-6\nexport ANTHROPIC_DEFAULT_SONNET_MODEL=claude-sonnet-4-6\nexport ANTHROPIC_DEFAULT_HAIKU_MODEL=claude-haiku-4-5-20251001\nIf you normally use Claude Code another way (Bedrock, Vertex, or an Anthropic API key), clear those settings so they don’t override the gateway:\nunset CLAUDE_CODE_USE_BEDROCK CLAUDE_CODE_USE_VERTEX ANTHROPIC_API_KEY\nStart with claude. Type /status to confirm the gateway URL. /model switches models.\n\n\n2.3.2 OpenCode\nInstall (if you don’t have it):\nnpm install -g opencode-ai\nWrite the config file (this replaces any existing ~/.config/opencode/opencode.json — save a copy first if you have one):\nmkdir -p ~/.config/opencode\ncat &gt; ~/.config/opencode/opencode.json &lt;&lt;EOF\n{\n  \"\\$schema\": \"https://opencode.ai/config.json\",\n  \"model\": \"gateway/claude-haiku-4-5-20251001\",\n  \"small_model\": \"gateway/claude-haiku-4-5-20251001\",\n  \"provider\": {\n    \"gateway\": {\n      \"npm\": \"@ai-sdk/openai-compatible\",\n      \"name\": \"Workshop gateway\",\n      \"options\": {\n        \"baseURL\": \"$GATEWAY_URL/v1\",\n        \"apiKey\": \"{env:GATEWAY_KEY}\"\n      },\n      \"models\": {\n        \"claude-haiku-4-5-20251001\": {},\n        \"claude-sonnet-4-6\": {},\n        \"claude-opus-4-6\": {},\n        \"qwen3-coder-480b\": {},\n        \"qwen3-coder-30b\": {},\n        \"devstral-2\": {},\n        \"kimi-k2.5\": {},\n        \"glm-5\": {},\n        \"minimax-m2.5\": {},\n        \"deepseek-v3.2\": {},\n        \"gpt-oss-120b\": {}\n      }\n    }\n  }\n}\nEOF\nStart with opencode. The gateway models are under “Workshop gateway” in /models.\n\n\n2.3.3 GitHub Copilot CLI\nInstall (if you don’t have it):\ncurl -fsSL https://gh.io/copilot-install | bash\nConnect to the gateway:\nexport COPILOT_PROVIDER_TYPE=openai\nexport COPILOT_PROVIDER_BASE_URL=$GATEWAY_URL/v1\nexport COPILOT_PROVIDER_API_KEY=$GATEWAY_KEY\nexport COPILOT_MODEL=claude-haiku-4-5-20251001\nStart with copilot. To switch models, quit, change COPILOT_MODEL, and restart.",
+    "crumbs": [
+      "Getting Started",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Setup & Connection</span>"
+    ]
+  },
+  {
+    "objectID": "content/setup.html#verify-it-works",
+    "href": "content/setup.html#verify-it-works",
+    "title": "2  Setup & Connection",
+    "section": "2.4 Verify it works",
+    "text": "2.4 Verify it works\nOnce your tool is running, try a simple prompt:\n\nWhat directory am I in? List the files here.\n\nIf the agent reads your filesystem and responds, you’re connected.",
+    "crumbs": [
+      "Getting Started",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Setup & Connection</span>"
+    ]
+  },
+  {
+    "objectID": "content/models-and-budget.html",
+    "href": "content/models-and-budget.html",
+    "title": "3  Models & Budget",
     "section": "",
-    "text": "2.1 Edit and add your pages\nEdit the qmd or md files in the content folder. qmd files can include code (R, Python, Julia) and lots of Quarto markdown bells and whistles (like call-outs, cross-references, auto-citations and much more).\nEach page should start with\nand the first header will be the 2nd level, so ##. Note, there are situations where you leave off\nand start the qmd file with a level header #, but if using the default title yaml (in the --- fence) is a good habit since it makes it easy for Quarto convert your qmd file to other formats (like into a presentation).",
+    "text": "3.1 Available models\nThe gateway gives you access to Claude models and several open-source models. The default is Claude Haiku 4.5 — fast, capable for most coding tasks, and the most budget-friendly Claude option.",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Customize</span>"
+      "Getting Started",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Models & Budget</span>"
     ]
   },
   {
-    "objectID": "content/add-content.html#edit-and-add-your-pages",
-    "href": "content/add-content.html#edit-and-add-your-pages",
-    "title": "2  Customize",
+    "objectID": "content/models-and-budget.html#available-models",
+    "href": "content/models-and-budget.html#available-models",
+    "title": "3  Models & Budget",
     "section": "",
-    "text": "---\ntitle: your title\n---\n\n---\ntitle: your title\n---",
+    "text": "Name\nModel\nRelative cost\n\n\n\n\nclaude-haiku-4-5-20251001\nClaude Haiku 4.5 (default)\n1x\n\n\nclaude-sonnet-4-6\nClaude Sonnet 4.6\n~3x Haiku\n\n\nclaude-opus-4-6\nClaude Opus 4.6 (strongest)\n~5x Haiku\n\n\nqwen3-coder-480b\nQwen3 Coder 480B\n~0.45x Haiku\n\n\nqwen3-coder-30b\nQwen3 Coder 30B (small, fast)\n~0.15x Haiku\n\n\ndevstral-2\nMistral Devstral 2\n~0.4x Haiku\n\n\nkimi-k2.5\nKimi K2.5\n~0.6x Haiku\n\n\nglm-5\nGLM 5\n~1x Haiku\n\n\nminimax-m2.5\nMiniMax M2.5\n~0.3x Haiku\n\n\ndeepseek-v3.2\nDeepSeek V3.2\n~0.6x Haiku\n\n\ngpt-oss-120b\nOpenAI GPT-OSS 120B\n~0.15x Haiku",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Customize</span>"
+      "Getting Started",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Models & Budget</span>"
     ]
   },
   {
-    "objectID": "content/add-content.html#add-your-pages-the-project",
-    "href": "content/add-content.html#add-your-pages-the-project",
-    "title": "2  Customize",
-    "section": "2.2 Add your pages the project",
-    "text": "2.2 Add your pages the project\n\nAdd the files to _quarto.yml",
+    "objectID": "content/models-and-budget.html#when-to-switch-models",
+    "href": "content/models-and-budget.html#when-to-switch-models",
+    "title": "3  Models & Budget",
+    "section": "3.2 When to switch models",
+    "text": "3.2 When to switch models\n\nHaiku — your everyday model. Use it for most tasks.\nSonnet or Opus — reach for these when Haiku struggles: complex reasoning, large refactors, subtle bugs. Switch back when you’re done.\nOpen models — interesting to try, but they use file-reading and editing tools less reliably than Claude. If one answers without looking at your files, ask it explicitly (e.g., “use the read tool on notes.txt”).",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Customize</span>"
+      "Getting Started",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Models & Budget</span>"
     ]
   },
   {
-    "objectID": "content/customizing.html",
-    "href": "content/customizing.html",
-    "title": "3  Customization",
+    "objectID": "content/models-and-budget.html#switching-models",
+    "href": "content/models-and-budget.html#switching-models",
+    "title": "3  Models & Budget",
+    "section": "3.3 Switching models",
+    "text": "3.3 Switching models\n\nClaude Code: /model claude-sonnet-4-6 (or any model name from the table)\nOpenCode: /models, then select from the list\nCopilot CLI: quit, change COPILOT_MODEL, restart",
+    "crumbs": [
+      "Getting Started",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Models & Budget</span>"
+    ]
+  },
+  {
+    "objectID": "content/models-and-budget.html#checking-your-budget",
+    "href": "content/models-and-budget.html#checking-your-budget",
+    "title": "3  Models & Budget",
+    "section": "3.4 Checking your budget",
+    "text": "3.4 Checking your budget\nRun this in a terminal (with GATEWAY_URL and GATEWAY_KEY set):\ncurl -s $GATEWAY_URL/key/info \\\n  -H \"Authorization: Bearer $GATEWAY_KEY\" |\n  python3 -c \"\nimport sys, json\ni = json.load(sys.stdin)['info']\nprint(f\\\"Spent \\${i['spend']:.2f} of \\${i['max_budget']:.2f}; expires {i['expires'][:10]}\\\")\n\"\nSpending shows up about a minute after each request.",
+    "crumbs": [
+      "Getting Started",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Models & Budget</span>"
+    ]
+  },
+  {
+    "objectID": "content/models-and-budget.html#making-your-budget-last",
+    "href": "content/models-and-budget.html#making-your-budget-last",
+    "title": "3  Models & Budget",
+    "section": "3.5 Making your budget last",
+    "text": "3.5 Making your budget last\n\nStay on Haiku for routine tasks. It’s the best cost-to-capability ratio.\nSwitch to Sonnet/Opus only when you need to, then switch back.\nUse /clear between tasks — this resets the conversation, which means the agent sends less context with each request and each request costs less.\nThe gateway caches repeated context for Claude models, so later requests in a session cost less than the first one.\n\n\n\n\n\n\n\nTip\n\n\n\nRunning /usage in Claude Code shows what the current session has spent.",
+    "crumbs": [
+      "Getting Started",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Models & Budget</span>"
+    ]
+  },
+  {
+    "objectID": "content/what-is-agentic-coding.html",
+    "href": "content/what-is-agentic-coding.html",
+    "title": "4  What Is Agentic Coding?",
     "section": "",
-    "text": "3.1 Quarto documentation\nQuarto allow many bells and whistles to make nice output. Read the documentation here Quarto documentation.",
+    "text": "4.1 The idea\nYou’ve probably used AI chat — you type a question, you get an answer. Maybe you’ve used autocomplete in an editor, where an AI suggests the next few characters as you type.\nAn agentic coding tool is different. It’s a program — sometimes called an agentic harness — that gives an AI model access to your actual development environment: your files, your terminal, and your git repository. Instead of just answering questions, it can:",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Customization</span>"
+      "What Is Agentic Coding?",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>What Is Agentic Coding?</span>"
     ]
   },
   {
-    "objectID": "content/customizing.html#examples",
-    "href": "content/customizing.html#examples",
-    "title": "3  Customization",
-    "section": "3.2 Examples",
-    "text": "3.2 Examples\nLooking at other people’s Quarto code is a great way to figure out how to do stuff. Most will have a link to a GitHub repo where you can see the raw code. Look for a link to edit page or see source code. This will usually be on the right. Or look for the GitHub icon somewhere.\n\nQuarto gallery\nnmfs-openscapes\nFaye lab manual\nquarto-titlepages Note the link to edit is broken. Go to repo and look in documentation directory.",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Customization</span>"
-    ]
-  },
-  {
-    "objectID": "content/rendering.html",
-    "href": "content/rendering.html",
-    "title": "4  Rendering",
+    "objectID": "content/what-is-agentic-coding.html#the-idea",
+    "href": "content/what-is-agentic-coding.html#the-idea",
+    "title": "4  What Is Agentic Coding?",
     "section": "",
-    "text": "4.1 Step 1. Make sure you have a recent RStudio\nHave you updated RStudio since about August 2022? No? Then update to a newer version of RStudio. In general, you want to keep RStudio updated and it is required to have a recent version to use Quarto.",
+    "text": "Read your files to understand your project\nSearch across your codebase for patterns or definitions\nEdit files directly\nRun commands in your terminal (with your permission)\nIterate — check its own work, fix mistakes, and keep going",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Rendering</span>"
+      "What Is Agentic Coding?",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>What Is Agentic Coding?</span>"
     ]
   },
   {
-    "objectID": "content/rendering.html#step-2.-clone-and-create-rstudio-project",
-    "href": "content/rendering.html#step-2.-clone-and-create-rstudio-project",
-    "title": "4  Rendering",
-    "section": "4.2 Step 2. Clone and create RStudio project",
-    "text": "4.2 Step 2. Clone and create RStudio project\nFirst, clone the repo onto your local computer. How? You can click File &gt; New Project and then select “Version Control”. Paste in the url of the repository. That will clone the repo on to your local computer. When you make changes, you will need to push those up.",
+    "objectID": "content/what-is-agentic-coding.html#the-agent-loop",
+    "href": "content/what-is-agentic-coding.html#the-agent-loop",
+    "title": "4  What Is Agentic Coding?",
+    "section": "4.2 The agent loop",
+    "text": "4.2 The agent loop\nWhen you give an agentic tool a task, it doesn’t just generate text. It runs a loop:\n\nThink about what to do next\nAct — read a file, run a command, make an edit\nObserve the result\nRepeat until the task is done (or it gets stuck and asks you)\n\nThis is why they’re called “agentic” — the model is acting on your behalf, making decisions about what tools to use and in what order.",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Rendering</span>"
+      "What Is Agentic Coding?",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>What Is Agentic Coding?</span>"
     ]
   },
   {
-    "objectID": "content/rendering.html#step-3.-render-within-rstudio",
-    "href": "content/rendering.html#step-3.-render-within-rstudio",
-    "title": "4  Rendering",
-    "section": "4.3 Step 3. Render within RStudio",
-    "text": "4.3 Step 3. Render within RStudio\nRStudio will recognize that this is a Quarto project by the presence of the _quarto.yml file and will see the “Build” tab. Click the “Render website” button to render to the _site folder.\nPreviewing: You can either click index.html in the _site folder and specify “preview in browser” or set up RStudio to preview to the viewer panel. To do the latter, go to Tools &gt; Global Options &gt; R Markdown. Then select “Show output preview in: Viewer panel”.",
+    "objectID": "content/what-is-agentic-coding.html#examples-of-agentic-harnesses",
+    "href": "content/what-is-agentic-coding.html#examples-of-agentic-harnesses",
+    "title": "4  What Is Agentic Coding?",
+    "section": "4.3 Examples of agentic harnesses",
+    "text": "4.3 Examples of agentic harnesses\nThere are several tools that work this way. In this clinic you can use any of them through the shared gateway:\n\nClaude Code — Anthropic’s CLI tool, built for Claude\nOpenCode — open-source, works with Claude and open models\nGitHub Copilot CLI — GitHub’s coding tool\nGemini CLI — Google’s coding tool\n\nThey all follow the same basic pattern: you give a prompt, the agent works through it using tools, and you review the result. The commands and interface differ, but the concept is the same.",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Rendering</span>"
+      "What Is Agentic Coding?",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>What Is Agentic Coding?</span>"
     ]
   },
   {
-    "objectID": "content/figures_and_tables.html",
-    "href": "content/figures_and_tables.html",
-    "title": "5  Figures and Tables",
+    "objectID": "content/what-is-agentic-coding.html#what-makes-this-useful-for-science",
+    "href": "content/what-is-agentic-coding.html#what-makes-this-useful-for-science",
+    "title": "4  What Is Agentic Coding?",
+    "section": "4.4 What makes this useful for science?",
+    "text": "4.4 What makes this useful for science?\n\nExploring unfamiliar code — point the agent at a repo and ask “what does this do?” It will actually read the files, not guess.\nRepetitive tasks — reformatting data, updating documentation, running the same analysis across multiple files.\nLearning — ask the agent to explain code as it works. It’s like pair programming with a patient partner.\nReproducibility — the agent can check whether a project has the dependencies, data, and instructions someone else would need to reproduce it.",
+    "crumbs": [
+      "What Is Agentic Coding?",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>What Is Agentic Coding?</span>"
+    ]
+  },
+  {
+    "objectID": "content/what-is-agentic-coding.html#what-its-not",
+    "href": "content/what-is-agentic-coding.html#what-its-not",
+    "title": "4  What Is Agentic Coding?",
+    "section": "4.5 What it’s not",
+    "text": "4.5 What it’s not\n\nIt’s not magic — agents make mistakes, especially on complex or ambiguous tasks.\nIt’s not a replacement for understanding your own code — always review what the agent produces.\nIt doesn’t remember between sessions — more on that in Agent Skills 101.",
+    "crumbs": [
+      "What Is Agentic Coding?",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>What Is Agentic Coding?</span>"
+    ]
+  },
+  {
+    "objectID": "content/activity-repo-analysis.html",
+    "href": "content/activity-repo-analysis.html",
+    "title": "5  Activity: Repo Reproducibility Analysis",
     "section": "",
-    "text": "5.1 Code\nYou can embed an R code chunk like this:\nsummary(cars)\n\n     speed           dist       \n Min.   : 4.0   Min.   :  2.00  \n 1st Qu.:12.0   1st Qu.: 26.00  \n Median :15.0   Median : 36.00  \n Mean   :15.4   Mean   : 42.98  \n 3rd Qu.:19.0   3rd Qu.: 56.00  \n Max.   :25.0   Max.   :120.00",
+    "text": "5.1 The task\nIn this group activity, you’ll point an AI coding agent at a public GitHub repository and ask it to analyze how reproducible the project is.\nThis is a great first task for an agentic tool because it’s read-only (nothing to break), it exercises the agent’s ability to explore files, and it produces something useful.",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Figures and Tables</span>"
+      "What Is Agentic Coding?",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Activity: Repo Reproducibility Analysis</span>"
     ]
   },
   {
-    "objectID": "content/figures_and_tables.html#including-plots",
-    "href": "content/figures_and_tables.html#including-plots",
-    "title": "5  Figures and Tables",
-    "section": "5.2 Including Plots",
-    "text": "5.2 Including Plots\nYou can also embed plots and reference them, like so Figure 5.1.\n\n\n\n\n\n\n\n\nFigure 5.1: Plot of pressure\n\n\n\n\n\nNote that the echo = FALSE parameter was added to the code chunk to prevent printing of the R code that generated the plot.",
+    "objectID": "content/activity-repo-analysis.html#instructions",
+    "href": "content/activity-repo-analysis.html#instructions",
+    "title": "5  Activity: Repo Reproducibility Analysis",
+    "section": "5.2 Instructions",
+    "text": "5.2 Instructions\n\n5.2.1 1. Pick a repository\nChoose a public GitHub repo — it could be:\n\nA repo from your own work or team\nA paper’s companion repository\nAny open-source scientific project\n\nClone it into your workspace:\ngit clone https://github.com/owner/repo-name.git\ncd repo-name\n\n\n5.2.2 2. Start your agent\nLaunch your coding tool in the cloned repo directory. For example:\nclaude\n\n\n5.2.3 3. Ask it to analyze reproducibility\nTry a prompt like:\n\nAnalyze this repository for reproducibility. Check whether it has:\n\nA README with clear instructions for running the code\nDependency management (requirements.txt, environment.yml, renv.lock, etc.)\nData availability (included, linked, or instructions to obtain)\nA clear entry point (what do you run first?)\nAny hardcoded paths or system-specific assumptions\n\nSummarize what’s good and what’s missing.\n\n\n\n5.2.4 4. Follow up\nOnce the agent gives its analysis, dig deeper:\n\n“What would someone need to install to run this?”\n“Are there any files that reference paths that wouldn’t exist on another machine?”\n“Could you write a checklist of what’s needed to make this fully reproducible?”\n\n\n\n5.2.5 5. Save your findings\nAsk the agent to save its analysis:\n\nSave your reproducibility analysis to notes/reproducibility-analysis.md",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Figures and Tables</span>"
+      "What Is Agentic Coding?",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Activity: Repo Reproducibility Analysis</span>"
     ]
   },
   {
-    "objectID": "content/figures_and_tables.html#including-tables",
-    "href": "content/figures_and_tables.html#including-tables",
-    "title": "5  Figures and Tables",
-    "section": "5.3 Including Tables",
-    "text": "5.3 Including Tables\nYou can also embed tables and reference them with Table 5.1.\n\nlibrary(knitr)\nkable(head(iris))\n\n\n\nTable 5.1: Iris Data\n\n\n\n\n\n\nSepal.Length\nSepal.Width\nPetal.Length\nPetal.Width\nSpecies\n\n\n\n\n5.1\n3.5\n1.4\n0.2\nsetosa\n\n\n4.9\n3.0\n1.4\n0.2\nsetosa\n\n\n4.7\n3.2\n1.3\n0.2\nsetosa\n\n\n4.6\n3.1\n1.5\n0.2\nsetosa\n\n\n5.0\n3.6\n1.4\n0.2\nsetosa\n\n\n5.4\n3.9\n1.7\n0.4\nsetosa",
+    "objectID": "content/activity-repo-analysis.html#discussion",
+    "href": "content/activity-repo-analysis.html#discussion",
+    "title": "5  Activity: Repo Reproducibility Analysis",
+    "section": "5.3 Discussion",
+    "text": "5.3 Discussion\nAfter the activity, consider:\n\nDid the agent find things you would have missed on a quick scan?\nDid it get anything wrong?\nHow would you improve the prompt if you did this again?\n\n\n\n\n\n\n\nTip\n\n\n\nThis kind of task — read-only exploration and analysis — is one of the safest and most effective ways to use an agentic tool. The agent can read every file in a repo in seconds, something that would take a person much longer.",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Figures and Tables</span>"
+      "What Is Agentic Coding?",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Activity: Repo Reproducibility Analysis</span>"
     ]
   },
   {
-    "objectID": "content/code.html",
-    "href": "content/code.html",
-    "title": "6  Rendering with Code",
+    "objectID": "content/skills-101.html",
+    "href": "content/skills-101.html",
+    "title": "6  Agent Skills 101: The Clear–Handoff–Notes Workflow",
     "section": "",
-    "text": "6.1 Modify the GitHub Action\nYou will need to change the GitHub Action in .github/workflows to install these and any needed packages in order for GitHub to be able to render your webpage. The GitHub Action install R since I used that in code.qmd. If you use Python or Julia instead, then you will need to update the GitHub Action to install those.\nIf getting the GitHub Action to work is too much hassle (and that definitely happens), you can alway render locally and publish to the gh-pages branch. If you do this, make sure to delete or rename the GitHub Action to something like\nso GitHub does not keep trying to run it. Nothing bad will happen if you don’t do this, but if you are not using the action (because it keeps failing), then you don’t need GitHub to run it.",
+    "text": "6.1 The problem\nAI coding agents don’t remember anything between sessions. When you start a new session — or run /clear — the agent has no idea what you were doing five minutes ago. It starts fresh every time.\nYou might think the solution is to build up a huge memory file that the agent loads at the start of every session. But that creates its own problems: the file gets long, stale, and full of context the agent doesn’t need for the current task. It wastes budget re-reading old information.\nThere’s a simpler approach.",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Rendering with Code</span>"
+      "Agent Skills",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Agent Skills 101: The Clear–Handoff–Notes Workflow</span>"
     ]
   },
   {
-    "objectID": "content/code.html#modify-the-github-action",
-    "href": "content/code.html#modify-the-github-action",
-    "title": "6  Rendering with Code",
+    "objectID": "content/skills-101.html#the-workflow-clear-handoff-notes",
+    "href": "content/skills-101.html#the-workflow-clear-handoff-notes",
+    "title": "6  Agent Skills 101: The Clear–Handoff–Notes Workflow",
+    "section": "6.2 The workflow: clear, handoff, notes",
+    "text": "6.2 The workflow: clear, handoff, notes\nThe core habit is three steps:\n\n6.2.1 1. Work on a task\nStart your agent and give it something to do. As it works, it builds up conversation context — the files it has read, the decisions it has made, the changes it has written.\n\n\n6.2.2 2. Before you stop: handoff\nWhen you’re done with a task (or switching to something else), tell the agent:\n\nWrite a handoff note to notes/ summarizing what you did, what’s left, and any decisions you made.\n\nThe agent creates a short file — like notes/handoff-2026-09-29.md — capturing exactly what the next session needs to know.\n\n\n6.2.3 3. Clear and continue\nRun /clear (or close the session). The conversation context is gone, but the handoff note is on disk.\nNext time, start the agent and say:\n\nRead the notes in notes/ and pick up where we left off.\n\nThe agent reads the handoff, gets oriented, and continues the work.",
+    "crumbs": [
+      "Agent Skills",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Agent Skills 101: The Clear–Handoff–Notes Workflow</span>"
+    ]
+  },
+  {
+    "objectID": "content/skills-101.html#what-goes-in-a-handoff-note",
+    "href": "content/skills-101.html#what-goes-in-a-handoff-note",
+    "title": "6  Agent Skills 101: The Clear–Handoff–Notes Workflow",
+    "section": "6.3 What goes in a handoff note",
+    "text": "6.3 What goes in a handoff note\nGood handoff notes are short and specific:\n\nWhat was done (in a sentence or two)\nWhat’s next (the immediate next step)\nAny decisions made that aren’t obvious from the code\nBlockers or open questions",
+    "crumbs": [
+      "Agent Skills",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Agent Skills 101: The Clear–Handoff–Notes Workflow</span>"
+    ]
+  },
+  {
+    "objectID": "content/skills-101.html#what-does-not-go-in-a-handoff-note",
+    "href": "content/skills-101.html#what-does-not-go-in-a-handoff-note",
+    "title": "6  Agent Skills 101: The Clear–Handoff–Notes Workflow",
+    "section": "6.4 What does NOT go in a handoff note",
+    "text": "6.4 What does NOT go in a handoff note\n\nEntire file contents — the agent can read files itself\nCode dumps — the code is in the repo\nFull project history — keep it to what’s relevant right now\nAnything the agent can figure out by looking at the repo\n\n\n\n\n\n\n\nTip\n\n\n\nThink of a handoff note like a sticky note for a colleague: “I finished X, next step is Y, watch out for Z.”",
+    "crumbs": [
+      "Agent Skills",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Agent Skills 101: The Clear–Handoff–Notes Workflow</span>"
+    ]
+  },
+  {
+    "objectID": "content/skills-101.html#example",
+    "href": "content/skills-101.html#example",
+    "title": "6  Agent Skills 101: The Clear–Handoff–Notes Workflow",
+    "section": "6.5 Example",
+    "text": "6.5 Example\nHere’s what a handoff note might look like:\n# Handoff — 2026-09-29\n\n## Done\n- Set up Quarto book structure for clinic docs\n- Wrote first drafts of setup and models chapters\n\n## Next\n- Write the \"What Is Agentic Coding?\" chapter\n- Review setup chapter against latest participant-quickstart.md\n\n## Decisions\n- Dropped PDF/docx output for now — HTML only until content stabilizes\n- Using parts in _quarto.yml to group chapters into sections",
+    "crumbs": [
+      "Agent Skills",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Agent Skills 101: The Clear–Handoff–Notes Workflow</span>"
+    ]
+  },
+  {
+    "objectID": "content/skills-101.html#why-clear-matters",
+    "href": "content/skills-101.html#why-clear-matters",
+    "title": "6  Agent Skills 101: The Clear–Handoff–Notes Workflow",
+    "section": "6.6 Why /clear matters",
+    "text": "6.6 Why /clear matters\nEvery message you send includes the entire conversation so far. As the conversation grows, each request sends more tokens and costs more. Running /clear resets this — your next request is cheap again.\nThe handoff note means you don’t lose anything important. You trade a long, expensive conversation for a short, focused one with a lightweight file to get the agent back up to speed.",
+    "crumbs": [
+      "Agent Skills",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Agent Skills 101: The Clear–Handoff–Notes Workflow</span>"
+    ]
+  },
+  {
+    "objectID": "content/skills-101.html#the-notes-directory",
+    "href": "content/skills-101.html#the-notes-directory",
+    "title": "6  Agent Skills 101: The Clear–Handoff–Notes Workflow",
+    "section": "6.7 The notes/ directory",
+    "text": "6.7 The notes/ directory\nKeep handoff notes and working notes in a notes/ directory in your project. This keeps them separate from your actual project files and easy to find.\nSome things that work well in notes/:\n\nHandoff notes (handoff-YYYY-MM-DD.md)\nPlans and task lists for ongoing work\nAnalysis summaries from agent tasks (like the reproducibility analysis)",
+    "crumbs": [
+      "Agent Skills",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Agent Skills 101: The Clear–Handoff–Notes Workflow</span>"
+    ]
+  },
+  {
+    "objectID": "content/skills-101.html#branches-and-prs",
+    "href": "content/skills-101.html#branches-and-prs",
+    "title": "6  Agent Skills 101: The Clear–Handoff–Notes Workflow",
+    "section": "6.8 Branches and PRs",
+    "text": "6.8 Branches and PRs\nOnce you’re comfortable with clear/handoff/notes, you can add git branches and pull requests to the workflow:\n\nCreate a branch for a task\nDo the work (with clear/handoff as needed)\nOpen a PR when it’s ready\nMerge and move on\n\nThis is a natural complement — the branch keeps your changes isolated and reviewable, and the handoff notes help you (or someone else) pick up the work if it spans multiple sessions. But the clear/handoff/notes habit is the foundation. Get that down first.",
+    "crumbs": [
+      "Agent Skills",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Agent Skills 101: The Clear–Handoff–Notes Workflow</span>"
+    ]
+  },
+  {
+    "objectID": "content/skills-102.html",
+    "href": "content/skills-102.html",
+    "title": "7  Agent Skills 102: SKILLS.md",
     "section": "",
-    "text": "render-and-publish.old_yml",
+    "text": "7.1 What is SKILLS.md?\nA SKILLS.md file lives in your project and teaches the agent reusable tasks — things you do repeatedly that you want done the same way every time. Instead of re-explaining a process in every session, you write it once in SKILLS.md and the agent follows it.\nThink of it as a recipe book for your agent.",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Rendering with Code</span>"
+      "Agent Skills",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Agent Skills 102: SKILLS.md</span>"
     ]
   },
   {
-    "objectID": "content/code.html#render-locally-and-publish-to-gh-pages-branch",
-    "href": "content/code.html#render-locally-and-publish-to-gh-pages-branch",
-    "title": "6  Rendering with Code",
-    "section": "6.2 Render locally and publish to gh-pages branch",
-    "text": "6.2 Render locally and publish to gh-pages branch\nTo render locally and push up to the gh-pages branch, open a terminal window and then cd to the directory with the Quarto project. Type this in the terminal:\nquarto render gh-pages",
+    "objectID": "content/skills-102.html#how-it-works",
+    "href": "content/skills-102.html#how-it-works",
+    "title": "7  Agent Skills 102: SKILLS.md",
+    "section": "7.2 How it works",
+    "text": "7.2 How it works\nWhen you tell an agent to use a skill, it reads SKILLS.md, finds the matching section, and follows those instructions. For example:\n\nUse the “render-check” skill to build and verify the book.\n\nThe agent looks up “render-check” in SKILLS.md and executes the steps.",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Rendering with Code</span>"
+      "Agent Skills",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Agent Skills 102: SKILLS.md</span>"
     ]
   },
   {
-    "objectID": "content/adding-refs.html",
-    "href": "content/adding-refs.html",
-    "title": "7  References",
+    "objectID": "content/skills-102.html#writing-a-skill",
+    "href": "content/skills-102.html#writing-a-skill",
+    "title": "7  Agent Skills 102: SKILLS.md",
+    "section": "7.3 Writing a skill",
+    "text": "7.3 Writing a skill\nA skill is a section in SKILLS.md with a clear name and step-by-step instructions. Keep them concrete and specific.\n\n7.3.1 Example: render-check\n## render-check\n\nRender the Quarto book and check for problems.\n\n1. Run `quarto render` in the project root\n2. Check the output for errors or warnings\n3. If there are errors, read the error message and fix the issue\n4. Re-render until it builds cleanly\n5. Report what you fixed (if anything)\n\n\n7.3.2 Example: format-bib\n## format-bib\n\nClean up the bibliography file.\n\n1. Read `content/references.bib`\n2. Check each entry for:\n   - Missing fields (author, title, year, journal/publisher)\n   - Inconsistent formatting (e.g., mixed use of curly braces)\n   - Duplicate entries (same DOI or matching author+title+year)\n3. Fix any issues found\n4. Sort entries alphabetically by citation key\n\n\n7.3.3 Example: daily-handoff\n## daily-handoff\n\nWrite an end-of-session handoff note.\n\n1. Summarize what was done in this session\n2. List what should happen next\n3. Note any decisions or blockers\n4. Save to `notes/handoff-YYYY-MM-DD.md` using today's date",
+    "crumbs": [
+      "Agent Skills",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Agent Skills 102: SKILLS.md</span>"
+    ]
+  },
+  {
+    "objectID": "content/skills-102.html#tips-for-writing-skills",
+    "href": "content/skills-102.html#tips-for-writing-skills",
+    "title": "7  Agent Skills 102: SKILLS.md",
+    "section": "7.4 Tips for writing skills",
+    "text": "7.4 Tips for writing skills\n\nBe specific. “Check for problems” is vague. “Run quarto render and check for errors” is actionable.\nUse numbered steps. The agent follows them in order.\nInclude the actual commands. Don’t make the agent guess what to run.\nKeep them short. A skill that’s a full page long is probably two skills.\nName them clearly. You’ll invoke them by name.",
+    "crumbs": [
+      "Agent Skills",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Agent Skills 102: SKILLS.md</span>"
+    ]
+  },
+  {
+    "objectID": "content/skills-102.html#where-to-put-skills.md",
+    "href": "content/skills-102.html#where-to-put-skills.md",
+    "title": "7  Agent Skills 102: SKILLS.md",
+    "section": "7.5 Where to put SKILLS.md",
+    "text": "7.5 Where to put SKILLS.md\nPut it in the root of your project, next to CLAUDE.md or AGENTS.md. The agent will find it when it reads your project files.",
+    "crumbs": [
+      "Agent Skills",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Agent Skills 102: SKILLS.md</span>"
+    ]
+  },
+  {
+    "objectID": "content/skills-102.html#skills.md-vs.-claude.md",
+    "href": "content/skills-102.html#skills.md-vs.-claude.md",
+    "title": "7  Agent Skills 102: SKILLS.md",
+    "section": "7.6 SKILLS.md vs. CLAUDE.md",
+    "text": "7.6 SKILLS.md vs. CLAUDE.md\n\n\n\n\n\n\n\n\n\nCLAUDE.md\nSKILLS.md\n\n\n\n\nPurpose\nProject context and conventions\nReusable task recipes\n\n\nWhen it’s read\nAutomatically at session start\nWhen you invoke a skill\n\n\nContents\nBuild commands, architecture, coding style\nStep-by-step procedures\n\n\n\nBoth are useful. CLAUDE.md gives the agent background knowledge. SKILLS.md gives it specific procedures to follow on demand.",
+    "crumbs": [
+      "Agent Skills",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Agent Skills 102: SKILLS.md</span>"
+    ]
+  },
+  {
+    "objectID": "content/tool-comparison.html",
+    "href": "content/tool-comparison.html",
+    "title": "8  Tool Comparison",
     "section": "",
-    "text": "Quarto has powerful references functionality. You can easily insert citations from Zotero libraries that you maintain in the cloud (on Zotero). This allows the whole team to update the library and you can sync up to that library. Read about this on the Quarto documentation on citations. Google youtube videos on this also to see it in action.\nAdd a .bib file in to your project or add a linked Zotero library via RStudio in Visual mode with Tools &gt; Project Options… &gt; R Markdown &gt; select custom libraries from the Zotero dropdown.\nThe you can type @ and you will see a dropdown of the references in your libraries. You can then select the ones to add. If you don’t see the one you need, you can paste in the DOI and it will be added to your references file (with all the info). The references will be added to your references section of your book automatically.\nSee the references.qmd file for how to include the references.\n\n@ansley1981 will produce Ansley and Davis (1981)\n[@ansley1981] will produce (Ansley and Davis 1981).\n\n\n\n\n\nAnsley, H. L. H., and C. D. Davis. 1981. “Migration and Standing Stock of Fishes Associated with Artificial and Natural Reefs on Georgia’s Outer Continental Shelf.” Brunswick, Georgia, USA.",
+    "text": "8.1 Quick reference\nAll of these tools work through the clinic’s shared gateway. Pick whichever one you’re most comfortable with — or try a few.",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>References</span>"
+      "Reference",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Tool Comparison</span>"
     ]
   },
   {
-    "objectID": "content/references.html",
-    "href": "content/references.html",
-    "title": "References",
+    "objectID": "content/tool-comparison.html#quick-reference",
+    "href": "content/tool-comparison.html#quick-reference",
+    "title": "8  Tool Comparison",
     "section": "",
-    "text": "Ansley, H. L. H., and C. D. Davis. 1981. “Migration and Standing\nStock of Fishes Associated with Artificial and Natural Reefs on\nGeorgia’s Outer Continental Shelf.” Brunswick,\nGeorgia, USA.",
+    "text": "Claude Code\nOpenCode\nCopilot CLI\nGemini CLI\n\n\n\n\nStart\nclaude\nopencode\ncopilot\ngemini\n\n\nSwitch model\n/model name\n/models menu\nQuit, change env var, restart\n/model name\n\n\nCheck usage\n/usage\n—\n—\n—\n\n\nClear context\n/clear\n—\n—\n/clear\n\n\nStatus\n/status\n—\n—\n—\n\n\nBest for\nDeep coding tasks, Claude models\nTrying open models, flexible config\nQuick questions\nGoogle ecosystem",
     "crumbs": [
-      "References"
+      "Reference",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Tool Comparison</span>"
+    ]
+  },
+  {
+    "objectID": "content/tool-comparison.html#key-differences",
+    "href": "content/tool-comparison.html#key-differences",
+    "title": "8  Tool Comparison",
+    "section": "8.2 Key differences",
+    "text": "8.2 Key differences\nClaude Code is the most full-featured for this clinic. It has built-in commands for managing context (/clear), checking status (/status, /usage), and switching models (/model). It’s designed around Claude and works well with CLAUDE.md project files.\nOpenCode is open-source and has the most flexible model configuration. It works well with both Claude and open models through the gateway. Good if you want to compare models side by side.\nGitHub Copilot CLI is straightforward to set up. To switch models you need to quit and restart with a different COPILOT_MODEL environment variable. No GitHub account needed when using the gateway.\nGemini CLI is Google’s tool. It follows the same agentic pattern. Configuration is via environment variables.",
+    "crumbs": [
+      "Reference",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Tool Comparison</span>"
+    ]
+  },
+  {
+    "objectID": "content/tool-comparison.html#common-commands-across-tools",
+    "href": "content/tool-comparison.html#common-commands-across-tools",
+    "title": "8  Tool Comparison",
+    "section": "8.3 Common commands across tools",
+    "text": "8.3 Common commands across tools\nRegardless of which tool you use, you’ll do the same basic things:\n\nGive a prompt — type what you want the agent to do\nApprove tool use — most tools ask permission before editing files or running commands\nReview output — always check what the agent did before moving on\nEnd the session — close the tool or clear context when switching tasks",
+    "crumbs": [
+      "Reference",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Tool Comparison</span>"
+    ]
+  },
+  {
+    "objectID": "content/troubleshooting.html",
+    "href": "content/troubleshooting.html",
+    "title": "9  Troubleshooting",
+    "section": "",
+    "text": "9.1 Connection problems",
+    "crumbs": [
+      "Reference",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Troubleshooting</span>"
+    ]
+  },
+  {
+    "objectID": "content/troubleshooting.html#connection-problems",
+    "href": "content/troubleshooting.html#connection-problems",
+    "title": "9  Troubleshooting",
+    "section": "",
+    "text": "9.1.1 “Authentication error” or “Invalid API key”\nYour GATEWAY_KEY is wrong or not set in this terminal.\necho $GATEWAY_KEY\nIf it’s empty, set it again:\nexport GATEWAY_KEY=sk-your-key-here\n\n\n9.1.2 “Connection refused” or timeout\nThe gateway server may be stopped. Check with the organizer.\nAlso verify your GATEWAY_URL is set:\necho $GATEWAY_URL\n\n\n9.1.3 Claude Code ignores the gateway\nIf you have other Claude Code settings (Bedrock, Vertex, or an Anthropic API key), they can override the gateway. Clear them:\nunset CLAUDE_CODE_USE_BEDROCK CLAUDE_CODE_USE_VERTEX ANTHROPIC_API_KEY\nThen set the gateway variables again and restart claude.",
+    "crumbs": [
+      "Reference",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Troubleshooting</span>"
+    ]
+  },
+  {
+    "objectID": "content/troubleshooting.html#budget-problems",
+    "href": "content/troubleshooting.html#budget-problems",
+    "title": "9  Troubleshooting",
+    "section": "9.2 Budget problems",
+    "text": "9.2 Budget problems\n\n9.2.1 “Budget exceeded”\nYour key has hit its spending limit. Ask the organizer — they can increase it or issue a new key.\n\n\n9.2.2 “Key expired” or “Key blocked”\nThe key’s time limit is up, or it was switched off. Ask the organizer for a new one.\n\n\n9.2.3 How to check your remaining budget\ncurl -s $GATEWAY_URL/key/info \\\n  -H \"Authorization: Bearer $GATEWAY_KEY\" |\n  python3 -c \"\nimport sys, json\ni = json.load(sys.stdin)['info']\nprint(f\\\"Spent \\${i['spend']:.2f} of \\${i['max_budget']:.2f}; expires {i['expires'][:10]}\\\")\n\"",
+    "crumbs": [
+      "Reference",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Troubleshooting</span>"
+    ]
+  },
+  {
+    "objectID": "content/troubleshooting.html#agent-behavior-problems",
+    "href": "content/troubleshooting.html#agent-behavior-problems",
+    "title": "9  Troubleshooting",
+    "section": "9.3 Agent behavior problems",
+    "text": "9.3 Agent behavior problems\n\n9.3.1 Agent gives generic answers without reading files\nSome models (especially open models) don’t use file-reading tools reliably. Try:\n\nBeing explicit: “Use the read tool to look at README.md, then answer.”\nSwitching to a Claude model, which handles tool use more reliably.\n\n\n\n9.3.2 Agent seems confused or stuck\nThe conversation may have gotten too long. Run /clear and start fresh. If you have handoff notes in notes/, tell the agent to read those for context.\n\n\n9.3.3 Agent makes changes you didn’t ask for\nReview what the agent is doing before approving. Most tools ask permission before writing files. If it’s going off track, interrupt it and clarify what you actually want.",
+    "crumbs": [
+      "Reference",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Troubleshooting</span>"
+    ]
+  },
+  {
+    "objectID": "content/troubleshooting.html#environment-variables-cheat-sheet",
+    "href": "content/troubleshooting.html#environment-variables-cheat-sheet",
+    "title": "9  Troubleshooting",
+    "section": "9.4 Environment variables cheat sheet",
+    "text": "9.4 Environment variables cheat sheet\nIf things aren’t working, check that all the right variables are set:\necho \"GATEWAY_URL: $GATEWAY_URL\"\necho \"GATEWAY_KEY: $GATEWAY_KEY\"\necho \"ANTHROPIC_BASE_URL: $ANTHROPIC_BASE_URL\"\necho \"ANTHROPIC_AUTH_TOKEN: $ANTHROPIC_AUTH_TOKEN\"\necho \"ANTHROPIC_MODEL: $ANTHROPIC_MODEL\"\nFor Claude Code, ANTHROPIC_BASE_URL should match GATEWAY_URL and ANTHROPIC_AUTH_TOKEN should match GATEWAY_KEY.",
+    "crumbs": [
+      "Reference",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Troubleshooting</span>"
     ]
   }
 ]
