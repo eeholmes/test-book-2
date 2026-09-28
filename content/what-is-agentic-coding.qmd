@@ -1,0 +1,50 @@
+---
+title: What Is Agentic Coding?
+---
+
+## The idea
+
+You've probably used AI chat — you type a question, you get an answer. Maybe you've used autocomplete in an editor, where an AI suggests the next few characters as you type.
+
+An **agentic coding tool** is different. It's a program — sometimes called an **agentic harness** — that gives an AI model access to your actual development environment: your files, your terminal, and your git repository. Instead of just answering questions, it can:
+
+- **Read** your files to understand your project
+- **Search** across your codebase for patterns or definitions
+- **Edit** files directly
+- **Run** commands in your terminal (with your permission)
+- **Iterate** — check its own work, fix mistakes, and keep going
+
+## The agent loop
+
+When you give an agentic tool a task, it doesn't just generate text. It runs a loop:
+
+1. **Think** about what to do next
+2. **Act** — read a file, run a command, make an edit
+3. **Observe** the result
+4. **Repeat** until the task is done (or it gets stuck and asks you)
+
+This is why they're called "agentic" — the model is acting on your behalf, making decisions about what tools to use and in what order.
+
+## Examples of agentic harnesses
+
+There are several tools that work this way. In this clinic you can use any of them through the shared gateway:
+
+- **Claude Code** — Anthropic's CLI tool, built for Claude
+- **OpenCode** — open-source, works with Claude and open models
+- **GitHub Copilot CLI** — GitHub's coding tool
+- **Gemini CLI** — Google's coding tool
+
+They all follow the same basic pattern: you give a prompt, the agent works through it using tools, and you review the result. The commands and interface differ, but the concept is the same.
+
+## What makes this useful for science?
+
+- **Exploring unfamiliar code** — point the agent at a repo and ask "what does this do?" It will actually read the files, not guess.
+- **Repetitive tasks** — reformatting data, updating documentation, running the same analysis across multiple files.
+- **Learning** — ask the agent to explain code as it works. It's like pair programming with a patient partner.
+- **Reproducibility** — the agent can check whether a project has the dependencies, data, and instructions someone else would need to reproduce it.
+
+## What it's not
+
+- It's not magic — agents make mistakes, especially on complex or ambiguous tasks.
+- It's not a replacement for understanding your own code — always review what the agent produces.
+- It doesn't remember between sessions — more on that in [Agent Skills 101](skills-101.qmd).

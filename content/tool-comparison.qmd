@@ -1,0 +1,35 @@
+---
+title: Tool Comparison
+---
+
+## Quick reference
+
+All of these tools work through the clinic's shared gateway. Pick whichever one you're most comfortable with — or try a few.
+
+| | Claude Code | OpenCode | Copilot CLI | Gemini CLI |
+|---|---|---|---|---|
+| **Start** | `claude` | `opencode` | `copilot` | `gemini` |
+| **Switch model** | `/model name` | `/models` menu | Quit, change env var, restart | `/model name` |
+| **Check usage** | `/usage` | — | — | — |
+| **Clear context** | `/clear` | — | — | `/clear` |
+| **Status** | `/status` | — | — | — |
+| **Best for** | Deep coding tasks, Claude models | Trying open models, flexible config | Quick questions | Google ecosystem |
+
+## Key differences
+
+**Claude Code** is the most full-featured for this clinic. It has built-in commands for managing context (`/clear`), checking status (`/status`, `/usage`), and switching models (`/model`). It's designed around Claude and works well with `CLAUDE.md` project files.
+
+**OpenCode** is open-source and has the most flexible model configuration. It works well with both Claude and open models through the gateway. Good if you want to compare models side by side.
+
+**GitHub Copilot CLI** is straightforward to set up. To switch models you need to quit and restart with a different `COPILOT_MODEL` environment variable. No GitHub account needed when using the gateway.
+
+**Gemini CLI** is Google's tool. It follows the same agentic pattern. Configuration is via environment variables.
+
+## Common commands across tools
+
+Regardless of which tool you use, you'll do the same basic things:
+
+- **Give a prompt** — type what you want the agent to do
+- **Approve tool use** — most tools ask permission before editing files or running commands
+- **Review output** — always check what the agent did before moving on
+- **End the session** — close the tool or clear context when switching tasks

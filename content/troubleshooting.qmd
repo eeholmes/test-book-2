@@ -1,0 +1,92 @@
+---
+title: Troubleshooting
+---
+
+## Connection problems
+
+### "Authentication error" or "Invalid API key"
+
+Your `GATEWAY_KEY` is wrong or not set in this terminal.
+
+```bash
+echo $GATEWAY_KEY
+```
+
+If it's empty, set it again:
+
+```bash
+export GATEWAY_KEY=sk-your-key-here
+```
+
+### "Connection refused" or timeout
+
+The gateway server may be stopped. Check with the organizer.
+
+Also verify your `GATEWAY_URL` is set:
+
+```bash
+echo $GATEWAY_URL
+```
+
+### Claude Code ignores the gateway
+
+If you have other Claude Code settings (Bedrock, Vertex, or an Anthropic API key), they can override the gateway. Clear them:
+
+```bash
+unset CLAUDE_CODE_USE_BEDROCK CLAUDE_CODE_USE_VERTEX ANTHROPIC_API_KEY
+```
+
+Then set the gateway variables again and restart `claude`.
+
+## Budget problems
+
+### "Budget exceeded"
+
+Your key has hit its spending limit. Ask the organizer — they can increase it or issue a new key.
+
+### "Key expired" or "Key blocked"
+
+The key's time limit is up, or it was switched off. Ask the organizer for a new one.
+
+### How to check your remaining budget
+
+```bash
+curl -s $GATEWAY_URL/key/info \
+  -H "Authorization: Bearer $GATEWAY_KEY" |
+  python3 -c "
+import sys, json
+i = json.load(sys.stdin)['info']
+print(f\"Spent \${i['spend']:.2f} of \${i['max_budget']:.2f}; expires {i['expires'][:10]}\")
+"
+```
+
+## Agent behavior problems
+
+### Agent gives generic answers without reading files
+
+Some models (especially open models) don't use file-reading tools reliably. Try:
+
+- Being explicit: "Use the read tool to look at `README.md`, then answer."
+- Switching to a Claude model, which handles tool use more reliably.
+
+### Agent seems confused or stuck
+
+The conversation may have gotten too long. Run `/clear` and start fresh. If you have handoff notes in `notes/`, tell the agent to read those for context.
+
+### Agent makes changes you didn't ask for
+
+Review what the agent is doing before approving. Most tools ask permission before writing files. If it's going off track, interrupt it and clarify what you actually want.
+
+## Environment variables cheat sheet
+
+If things aren't working, check that all the right variables are set:
+
+```bash
+echo "GATEWAY_URL: $GATEWAY_URL"
+echo "GATEWAY_KEY: $GATEWAY_KEY"
+echo "ANTHROPIC_BASE_URL: $ANTHROPIC_BASE_URL"
+echo "ANTHROPIC_AUTH_TOKEN: $ANTHROPIC_AUTH_TOKEN"
+echo "ANTHROPIC_MODEL: $ANTHROPIC_MODEL"
+```
+
+For Claude Code, `ANTHROPIC_BASE_URL` should match `GATEWAY_URL` and `ANTHROPIC_AUTH_TOKEN` should match `GATEWAY_KEY`.

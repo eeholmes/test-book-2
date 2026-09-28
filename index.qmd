@@ -1,9 +1,32 @@
-# Executive Summary {.unnumbered}
+---
+title: Welcome
+---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer commodo gravida justo consectetur condimentum. Proin eget felis non nunc tristique malesuada vel ut tortor. Vivamus lacinia aliquet lorem in congue. In hac habitasse platea dictumst. Etiam non felis iaculis, efficitur libero in, porta nunc. Sed sit amet nisi non justo scelerisque feugiat. Pellentesque porta consectetur sapien, porttitor iaculis ligula fermentum ac. Pellentesque fermentum elementum lacus non tempus. Aenean eu leo lobortis, vulputate mi at, varius sapien. In congue consectetur ultricies. Maecenas volutpat facilisis arcu, eget sodales tellus consequat nec. Integer ullamcorper ex nec leo aliquam tempus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc dui massa, facilisis at aliquet eu, malesuada vel neque. Donec fermentum elit eu tortor euismod, sed mollis lacus blandit.
+## What is the Agent Coders Clinic?
 
-New paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer commodo gravida justo consectetur condimentum. Proin eget felis non nunc tristique malesuada vel ut tortor. Vivamus lacinia aliquet lorem in congue. In hac habitasse platea dictumst. Etiam non felis iaculis, efficitur libero in, porta nunc. Sed sit amet nisi non justo scelerisque feugiat. Pellentesque porta consectetur sapien, porttitor iaculis ligula fermentum ac. Pellentesque fermentum elementum lacus non tempus. Aenean eu leo lobortis, vulputate mi at, varius sapien. In congue consectetur ultricies. Maecenas volutpat facilisis arcu, eget sodales tellus consequat nec. Integer ullamcorper ex nec leo aliquam tempus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc dui massa, facilisis at aliquet eu, malesuada vel neque. Donec fermentum elit eu tortor euismod, sed mollis lacus blandit.
+The Agent Coders Clinic is a hands-on workshop where you'll learn to use AI coding agents — tools that can read your files, run commands, edit code, and work through multi-step tasks on your behalf. Whether this is your first time using an AI coding tool or you've been experimenting on your own, this clinic will give you a practical workflow you can take back to your daily work.
 
-```{=openxml}
-<w:p><w:r><w:br w:type="page"/></w:r></w:p>
-```
+## What you'll learn
+
+By the end of this clinic, you will:
+
+- Understand what an **agentic coding harness** is and how it differs from chatbots or autocomplete
+- Connect to a shared gateway that gives you access to Claude and open-source models — no accounts or subscriptions needed
+- Practice a **clear–handoff–notes workflow** that keeps your work organized across sessions
+- Try a group activity where an agent analyzes a real GitHub repository
+- Learn how to write **SKILLS.md** files that teach an agent reusable tasks
+
+## The environment
+
+Everything runs on a **sandboxed JupyterHub**. You have a terminal, a file browser, and your choice of coding tool. Nothing connects to private or confidential systems — this is a safe space for learning and experimenting.
+
+## Agenda
+
+| Time | Topic |
+|---|---|
+| **First half** | Setup, intro to agentic coding, core workflow (clear / handoff / notes) |
+| **Second half** | Group activity (repo reproducibility analysis), SKILLS.md |
+
+## Ready?
+
+Start with [Setup & Connection](content/setup.qmd) to get your tools connected.
