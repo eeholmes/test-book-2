@@ -362,40 +362,29 @@
     "href": "content/skills-100.html",
     "title": "7  Agent Skills 100: Telling the Agent How You Work",
     "section": "",
-    "text": "7.1 The global CLAUDE.md\nEvery time an agent starts a session, it reads a file called CLAUDE.md (or AGENTS.md) in the root of your repo. This is where you tell the agent how you work — your conventions, your shortcuts, your rules.\nBut there’s also a global CLAUDE.md that lives in your home directory (~/.claude/CLAUDE.md). This one applies to every repo you work in. It’s where you define your personal workflow — the phrases you use, what they mean, and what the agent should do when it hears them.\nThink of it as training the agent to work the way you work.",
+    "text": "7.1 The global CLAUDE.md\nEvery time an agent starts a session, it reads a file called CLAUDE.md (or AGENTS.md) in the root of your repo. This is where you tell the agent about this project — how to build it, what the architecture looks like.\nBut there’s also a global CLAUDE.md that lives in your home directory (~/.claude/CLAUDE.md). This one applies to every repo you work in. It’s where you define your personal workflow — the phrases you use, what they mean, and what the agent should do when it hears them.\nThink of it as training the agent to work the way you work.",
     "crumbs": [
       "Agent Skills",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Agent Skills 100: Telling the Agent How You Work</span>"
     ]
   },
   {
-    "objectID": "content/skills-100.html#what-goes-in-a-global-claude.md",
-    "href": "content/skills-100.html#what-goes-in-a-global-claude.md",
+    "objectID": "content/skills-100.html#set-it-up-with-a-prompt",
+    "href": "content/skills-100.html#set-it-up-with-a-prompt",
     "title": "7  Agent Skills 100: Telling the Agent How You Work",
-    "section": "7.2 What goes in a global CLAUDE.md",
-    "text": "7.2 What goes in a global CLAUDE.md\nYour global file teaches the agent your shorthand. Instead of explaining your workflow every session, you write it once and the agent follows it everywhere.\nHere’s an example:\n# Workflow\n\n## \"I am starting a new task\"\n\nWhen I say this:\n\n1. Create a GitHub issue for the task\n2. Create a branch for the task\n3. Work on the branch\n\n## \"Task is done\" or \"Let's finish up the task\"\n\nWhen I say this:\n\n1. Open a PR\n2. Merge the PR\n3. Delete the branch\n\nNote: this workflow assumes I am working on my own and doing\nmy own reviews. For collaborative work, open the PR and assign\na reviewer instead of merging immediately.\n\n## \"Get ready for clear\"\n\nWhen I say this:\n\n1. Close any loose ends (pending edits, uncommitted changes)\n2. Review memories for outdated information and update them\n3. Update the handoff note in `notes/`\n4. Keep the handoff concise — move detailed info to separate\n   files in `notes/` if the handoff is getting long\n5. Ask me what my next task will be when I return, and put\n   that in the handoff\n\n## \"Initialize this repo\"\n\nWhen I say this:\n\n1. Add an open license if one is missing\n2. Add a reuse statement to the repo\n3. Check the README for basic reproducibility:\n   - Are there instructions to run the code?\n   - Are dependencies listed?\n   - Is there a clear entry point?\n\n## Git rules\n\n- Never use destructive git actions: no `--force` pushes,\n  no `git reset --hard`, no `git clean -f`,\n  no deleting branches that haven't been merged\n- Always create new commits rather than amending\n- Ask before any action that could lose work",
+    "section": "7.2 Set it up with a prompt",
+    "text": "7.2 Set it up with a prompt\nYou don’t need to write the file by hand. Start your agent and give it this prompt:\n\n\n\n\n\n\nNoteCopy-paste this prompt into your agent\n\n\n\n\nCreate ~/.claude/CLAUDE.md with my workflow preferences. Here is how I work:\n“I am starting a new task” means:\n\nCreate a GitHub issue for the task\nCreate a branch for the task\nWork on the branch\n\n“Task is done” or “Let’s finish up the task” means:\n\nOpen a PR\nMerge the PR\nDelete the branch\n\nNote: this assumes I’m working on my own. For collaborative work, I’ll open the PR and assign a reviewer instead of merging.\n“Get ready for clear” means:\n\nClose any loose ends (pending edits, uncommitted changes)\nReview memories for outdated information and update them\nUpdate the handoff note in notes/\nKeep the handoff concise — move detailed info to separate files in notes/ if it’s getting long\nAsk me what my next task will be when I return and put that in the handoff\n\n“Initialize this repo” means:\n\nAdd an open license if one is missing\nAdd a reuse statement to the repo\nCheck the README for basic reproducibility (instructions to run, dependencies listed, clear entry point)\n\nGit rules:\n\nNever use destructive git actions: no --force pushes, no git reset --hard, no git clean -f, no deleting branches that haven’t been merged\nAlways create new commits rather than amending\nAsk before any action that could lose work\n\n\n\n\nThe agent will create the file for you. Review it, tweak anything you want, and you’re done.\nOver time, add more shortcuts as you develop habits. The file grows with you.",
     "crumbs": [
       "Agent Skills",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Agent Skills 100: Telling the Agent How You Work</span>"
     ]
   },
   {
-    "objectID": "content/skills-100.html#why-this-matters",
-    "href": "content/skills-100.html#why-this-matters",
+    "objectID": "content/skills-100.html#where-does-it-live",
+    "href": "content/skills-100.html#where-does-it-live",
     "title": "7  Agent Skills 100: Telling the Agent How You Work",
-    "section": "7.3 Why this matters",
-    "text": "7.3 Why this matters\nWithout a global CLAUDE.md, you have to re-explain your workflow every session. With one, you say “I’m starting a new task” and the agent knows exactly what that means — create an issue, create a branch, get to work.\nThis turns your agent into a tool that follows your process, not a generic assistant you have to manage.",
-    "crumbs": [
-      "Agent Skills",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Agent Skills 100: Telling the Agent How You Work</span>"
-    ]
-  },
-  {
-    "objectID": "content/skills-100.html#setting-it-up",
-    "href": "content/skills-100.html#setting-it-up",
-    "title": "7  Agent Skills 100: Telling the Agent How You Work",
-    "section": "7.4 Setting it up",
-    "text": "7.4 Setting it up\nCreate the file:\nmkdir -p ~/.claude\nnano ~/.claude/CLAUDE.md\nOr ask your agent to create it:\n\nCreate a ~/.claude/CLAUDE.md with my workflow preferences. I’ll tell you what to put in it.\n\nThen iterate — tell the agent your conventions, let it write the file, and refine it over time.",
+    "section": "7.3 Where does it live?",
+    "text": "7.3 Where does it live?\nThe global CLAUDE.md lives at ~/.claude/CLAUDE.md — in your home directory. But “home directory” means different things depending on where you’re working.\n\n7.3.1 On JupyterHub (this clinic)\nYour home directory is /home/jovyan. The file goes at:\n/home/jovyan/.claude/CLAUDE.md\nThis persists across sessions on the same JupyterHub, but it will be lost if the hub is rebuilt. That’s ok for learning. If you like what you’ve set up, save a copy somewhere permanent (see below).\n\n\n7.3.2 On a VM that gets torn down\nCloud VMs (like those from AWS, GCP, or Azure) often get rebuilt. Your ~/.claude/CLAUDE.md will disappear when that happens.\nKeep a backup. The simplest approach: keep a copy in a repo you use across environments. When you spin up a new VM, copy it into place:\nmkdir -p ~/.claude\ncp my-repo/dotfiles/CLAUDE.md ~/.claude/CLAUDE.md\nOr add it to your dotfiles if you manage those.\n\n\n7.3.3 On your personal computer\nThis is the most stable home. The file stays put until you change it:\n\nmacOS / Linux: ~/.claude/CLAUDE.md\nWindows (WSL): ~/.claude/CLAUDE.md inside your WSL home\n\nThis is where your global CLAUDE.md will eventually live long-term.\n\n\n7.3.4 The portable approach\nIf you work across multiple machines, keep your global CLAUDE.md in a small repo (or a gist) and copy it to each new environment. Some people keep a dotfiles repo for exactly this purpose.\nThe key habit: when you change your global CLAUDE.md, update the backup too.",
     "crumbs": [
       "Agent Skills",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Agent Skills 100: Telling the Agent How You Work</span>"
@@ -405,19 +394,19 @@
     "objectID": "content/skills-100.html#global-vs.-project-claude.md",
     "href": "content/skills-100.html#global-vs.-project-claude.md",
     "title": "7  Agent Skills 100: Telling the Agent How You Work",
-    "section": "7.5 Global vs. project CLAUDE.md",
-    "text": "7.5 Global vs. project CLAUDE.md\n\n\n\n\n\n\n\n\n\nGlobal (~/.claude/CLAUDE.md)\nProject (./CLAUDE.md)\n\n\n\n\nApplies to\nEvery repo\nThis repo only\n\n\nContains\nYour personal workflow and conventions\nProject-specific build commands, architecture, coding style\n\n\nExamples\n“Starting a new task” means create issue + branch\n“Run quarto render to build”\n\n\n\nBoth are loaded at session start. The project file adds context specific to the codebase. The global file carries your workflow everywhere.",
+    "section": "7.4 Global vs. project CLAUDE.md",
+    "text": "7.4 Global vs. project CLAUDE.md\n\n\n\n\n\n\n\n\n\nGlobal (~/.claude/CLAUDE.md)\nProject (./CLAUDE.md)\n\n\n\n\nApplies to\nEvery repo\nThis repo only\n\n\nContains\nYour personal workflow and conventions\nProject-specific build commands, architecture, coding style\n\n\nExamples\n“Starting a new task” means create issue + branch\n“Run quarto render to build”\n\n\nPersists\nTied to the machine / home directory\nCommitted to the repo, travels with it\n\n\n\nBoth are loaded at session start. The project file adds context specific to the codebase. The global file carries your workflow everywhere.",
     "crumbs": [
       "Agent Skills",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Agent Skills 100: Telling the Agent How You Work</span>"
     ]
   },
   {
-    "objectID": "content/skills-100.html#start-simple",
-    "href": "content/skills-100.html#start-simple",
+    "objectID": "content/skills-100.html#customize-it",
+    "href": "content/skills-100.html#customize-it",
     "title": "7  Agent Skills 100: Telling the Agent How You Work",
-    "section": "7.6 Start simple",
-    "text": "7.6 Start simple\nYou don’t need to write everything on day one. Start with the phrases you actually use:\n\nWhat does “start a task” mean?\nWhat does “done” mean?\nWhat does “get ready for clear” mean?\nWhat should the agent never do?\n\nAdd more as you develop habits. The file grows with you.",
+    "section": "7.5 Customize it",
+    "text": "7.5 Customize it\nThe prompt above is a starting point. Here are some things you might add over time:\n\nCode style preferences — “Use snake_case for Python, camelCase for JavaScript”\nCommit message format — “Start commit messages with a verb: Add, Fix, Update, Remove”\nLanguage — “I work primarily in R and Python”\nReview habits — “Always show me a diff summary before committing”\n\nStart simple. Add more when you find yourself repeating the same instruction across sessions.",
     "crumbs": [
       "Agent Skills",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Agent Skills 100: Telling the Agent How You Work</span>"

@@ -283,11 +283,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#the-global-claude.md" id="toc-the-global-claude.md" class="nav-link active" data-scroll-target="#the-global-claude.md"><span class="header-section-number">7.1</span> The global CLAUDE.md</a></li>
-  <li><a href="#what-goes-in-a-global-claude.md" id="toc-what-goes-in-a-global-claude.md" class="nav-link" data-scroll-target="#what-goes-in-a-global-claude.md"><span class="header-section-number">7.2</span> What goes in a global CLAUDE.md</a></li>
-  <li><a href="#why-this-matters" id="toc-why-this-matters" class="nav-link" data-scroll-target="#why-this-matters"><span class="header-section-number">7.3</span> Why this matters</a></li>
-  <li><a href="#setting-it-up" id="toc-setting-it-up" class="nav-link" data-scroll-target="#setting-it-up"><span class="header-section-number">7.4</span> Setting it up</a></li>
-  <li><a href="#global-vs.-project-claude.md" id="toc-global-vs.-project-claude.md" class="nav-link" data-scroll-target="#global-vs.-project-claude.md"><span class="header-section-number">7.5</span> Global vs.&nbsp;project CLAUDE.md</a></li>
-  <li><a href="#start-simple" id="toc-start-simple" class="nav-link" data-scroll-target="#start-simple"><span class="header-section-number">7.6</span> Start simple</a></li>
+  <li><a href="#set-it-up-with-a-prompt" id="toc-set-it-up-with-a-prompt" class="nav-link" data-scroll-target="#set-it-up-with-a-prompt"><span class="header-section-number">7.2</span> Set it up with a prompt</a></li>
+  <li><a href="#where-does-it-live" id="toc-where-does-it-live" class="nav-link" data-scroll-target="#where-does-it-live"><span class="header-section-number">7.3</span> Where does it live?</a>
+  <ul class="collapse">
+  <li><a href="#on-jupyterhub-this-clinic" id="toc-on-jupyterhub-this-clinic" class="nav-link" data-scroll-target="#on-jupyterhub-this-clinic"><span class="header-section-number">7.3.1</span> On JupyterHub (this clinic)</a></li>
+  <li><a href="#on-a-vm-that-gets-torn-down" id="toc-on-a-vm-that-gets-torn-down" class="nav-link" data-scroll-target="#on-a-vm-that-gets-torn-down"><span class="header-section-number">7.3.2</span> On a VM that gets torn down</a></li>
+  <li><a href="#on-your-personal-computer" id="toc-on-your-personal-computer" class="nav-link" data-scroll-target="#on-your-personal-computer"><span class="header-section-number">7.3.3</span> On your personal computer</a></li>
+  <li><a href="#the-portable-approach" id="toc-the-portable-approach" class="nav-link" data-scroll-target="#the-portable-approach"><span class="header-section-number">7.3.4</span> The portable approach</a></li>
+  </ul></li>
+  <li><a href="#global-vs.-project-claude.md" id="toc-global-vs.-project-claude.md" class="nav-link" data-scroll-target="#global-vs.-project-claude.md"><span class="header-section-number">7.4</span> Global vs.&nbsp;project CLAUDE.md</a></li>
+  <li><a href="#customize-it" id="toc-customize-it" class="nav-link" data-scroll-target="#customize-it"><span class="header-section-number">7.5</span> Customize it</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/nmfs-opensci/agent-coders-clinics/edit/main/content/skills-100.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nmfs-opensci/agent-coders-clinics/blob/main/content/skills-100.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/nmfs-opensci/agent-coders-clinics/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -315,85 +320,98 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="the-global-claude.md" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="the-global-claude.md"><span class="header-section-number">7.1</span> The global CLAUDE.md</h2>
-<p>Every time an agent starts a session, it reads a file called <code>CLAUDE.md</code> (or <code>AGENTS.md</code>) in the root of your repo. This is where you tell the agent <em>how you work</em> — your conventions, your shortcuts, your rules.</p>
+<p>Every time an agent starts a session, it reads a file called <code>CLAUDE.md</code> (or <code>AGENTS.md</code>) in the root of your repo. This is where you tell the agent about <em>this project</em> — how to build it, what the architecture looks like.</p>
 <p>But there’s also a <strong>global</strong> <code>CLAUDE.md</code> that lives in your home directory (<code>~/.claude/CLAUDE.md</code>). This one applies to <em>every</em> repo you work in. It’s where you define your personal workflow — the phrases you use, what they mean, and what the agent should do when it hears them.</p>
 <p>Think of it as training the agent to work the way you work.</p>
 </section>
-<section id="what-goes-in-a-global-claude.md" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="what-goes-in-a-global-claude.md"><span class="header-section-number">7.2</span> What goes in a global CLAUDE.md</h2>
-<p>Your global file teaches the agent your shorthand. Instead of explaining your workflow every session, you write it once and the agent follows it everywhere.</p>
-<p>Here’s an example:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Workflow</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## "I am starting a new task"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>When I say this:</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Create a GitHub issue for the task</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Create a branch for the task</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Work on the branch</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## "Task is done" or "Let's finish up the task"</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>When I say this:</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Open a PR</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Merge the PR</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Delete the branch</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>Note: this workflow assumes I am working on my own and doing</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>my own reviews. For collaborative work, open the PR and assign</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>a reviewer instead of merging immediately.</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">## "Get ready for clear"</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>When I say this:</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Close any loose ends (pending edits, uncommitted changes)</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Review memories for outdated information and update them</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Update the handoff note in <span class="in">`notes/`</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Keep the handoff concise — move detailed info to separate</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>   files in <span class="in">`notes/`</span> if the handoff is getting long</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Ask me what my next task will be when I return, and put</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>   that in the handoff</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## "Initialize this repo"</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>When I say this:</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Add an open license if one is missing</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Add a reuse statement to the repo</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Check the README for basic reproducibility:</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Are there instructions to run the code?</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Are dependencies listed?</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Is there a clear entry point?</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="fu">## Git rules</span></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Never use destructive git actions: no <span class="in">`--force`</span> pushes,</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>  no <span class="in">`git reset --hard`</span>, no <span class="in">`git clean -f`</span>,</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>  no deleting branches that haven't been merged</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Always create new commits rather than amending</span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Ask before any action that could lose work</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="why-this-matters" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="why-this-matters"><span class="header-section-number">7.3</span> Why this matters</h2>
-<p>Without a global <code>CLAUDE.md</code>, you have to re-explain your workflow every session. With one, you say “I’m starting a new task” and the agent knows exactly what that means — create an issue, create a branch, get to work.</p>
-<p>This turns your agent into a tool that follows <em>your</em> process, not a generic assistant you have to manage.</p>
-</section>
-<section id="setting-it-up" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="setting-it-up"><span class="header-section-number">7.4</span> Setting it up</h2>
-<p>Create the file:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> ~/.claude</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> ~/.claude/CLAUDE.md</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Or ask your agent to create it:</p>
+<section id="set-it-up-with-a-prompt" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="set-it-up-with-a-prompt"><span class="header-section-number">7.2</span> Set it up with a prompt</h2>
+<p>You don’t need to write the file by hand. Start your agent and give it this prompt:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Copy-paste this prompt into your agent
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <blockquote class="blockquote">
-<p>Create a <code>~/.claude/CLAUDE.md</code> with my workflow preferences. I’ll tell you what to put in it.</p>
+<p>Create <code>~/.claude/CLAUDE.md</code> with my workflow preferences. Here is how I work:</p>
+<p><strong>“I am starting a new task”</strong> means:</p>
+<ol type="1">
+<li>Create a GitHub issue for the task</li>
+<li>Create a branch for the task</li>
+<li>Work on the branch</li>
+</ol>
+<p><strong>“Task is done”</strong> or <strong>“Let’s finish up the task”</strong> means:</p>
+<ol type="1">
+<li>Open a PR</li>
+<li>Merge the PR</li>
+<li>Delete the branch</li>
+</ol>
+<p>Note: this assumes I’m working on my own. For collaborative work, I’ll open the PR and assign a reviewer instead of merging.</p>
+<p><strong>“Get ready for clear”</strong> means:</p>
+<ol type="1">
+<li>Close any loose ends (pending edits, uncommitted changes)</li>
+<li>Review memories for outdated information and update them</li>
+<li>Update the handoff note in <code>notes/</code></li>
+<li>Keep the handoff concise — move detailed info to separate files in <code>notes/</code> if it’s getting long</li>
+<li>Ask me what my next task will be when I return and put that in the handoff</li>
+</ol>
+<p><strong>“Initialize this repo”</strong> means:</p>
+<ol type="1">
+<li>Add an open license if one is missing</li>
+<li>Add a reuse statement to the repo</li>
+<li>Check the README for basic reproducibility (instructions to run, dependencies listed, clear entry point)</li>
+</ol>
+<p><strong>Git rules:</strong></p>
+<ul>
+<li>Never use destructive git actions: no <code>--force</code> pushes, no <code>git reset --hard</code>, no <code>git clean -f</code>, no deleting branches that haven’t been merged</li>
+<li>Always create new commits rather than amending</li>
+<li>Ask before any action that could lose work</li>
+</ul>
 </blockquote>
-<p>Then iterate — tell the agent your conventions, let it write the file, and refine it over time.</p>
+</div>
+</div>
+<p>The agent will create the file for you. Review it, tweak anything you want, and you’re done.</p>
+<p>Over time, add more shortcuts as you develop habits. The file grows with you.</p>
 </section>
-<section id="global-vs.-project-claude.md" class="level2" data-number="7.5">
-<h2 data-number="7.5" class="anchored" data-anchor-id="global-vs.-project-claude.md"><span class="header-section-number">7.5</span> Global vs.&nbsp;project CLAUDE.md</h2>
+<section id="where-does-it-live" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="where-does-it-live"><span class="header-section-number">7.3</span> Where does it live?</h2>
+<p>The global <code>CLAUDE.md</code> lives at <code>~/.claude/CLAUDE.md</code> — in your home directory. But “home directory” means different things depending on where you’re working.</p>
+<section id="on-jupyterhub-this-clinic" class="level3" data-number="7.3.1">
+<h3 data-number="7.3.1" class="anchored" data-anchor-id="on-jupyterhub-this-clinic"><span class="header-section-number">7.3.1</span> On JupyterHub (this clinic)</h3>
+<p>Your home directory is <code>/home/jovyan</code>. The file goes at:</p>
+<pre><code>/home/jovyan/.claude/CLAUDE.md</code></pre>
+<p>This persists across sessions on the same JupyterHub, but <strong>it will be lost if the hub is rebuilt</strong>. That’s ok for learning. If you like what you’ve set up, save a copy somewhere permanent (see below).</p>
+</section>
+<section id="on-a-vm-that-gets-torn-down" class="level3" data-number="7.3.2">
+<h3 data-number="7.3.2" class="anchored" data-anchor-id="on-a-vm-that-gets-torn-down"><span class="header-section-number">7.3.2</span> On a VM that gets torn down</h3>
+<p>Cloud VMs (like those from AWS, GCP, or Azure) often get rebuilt. Your <code>~/.claude/CLAUDE.md</code> will disappear when that happens.</p>
+<p><strong>Keep a backup.</strong> The simplest approach: keep a copy in a repo you use across environments. When you spin up a new VM, copy it into place:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> ~/.claude</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> my-repo/dotfiles/CLAUDE.md ~/.claude/CLAUDE.md</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Or add it to your dotfiles if you manage those.</p>
+</section>
+<section id="on-your-personal-computer" class="level3" data-number="7.3.3">
+<h3 data-number="7.3.3" class="anchored" data-anchor-id="on-your-personal-computer"><span class="header-section-number">7.3.3</span> On your personal computer</h3>
+<p>This is the most stable home. The file stays put until you change it:</p>
+<ul>
+<li><strong>macOS / Linux:</strong> <code>~/.claude/CLAUDE.md</code></li>
+<li><strong>Windows (WSL):</strong> <code>~/.claude/CLAUDE.md</code> inside your WSL home</li>
+</ul>
+<p>This is where your global <code>CLAUDE.md</code> will eventually live long-term.</p>
+</section>
+<section id="the-portable-approach" class="level3" data-number="7.3.4">
+<h3 data-number="7.3.4" class="anchored" data-anchor-id="the-portable-approach"><span class="header-section-number">7.3.4</span> The portable approach</h3>
+<p>If you work across multiple machines, keep your global <code>CLAUDE.md</code> in a small repo (or a gist) and copy it to each new environment. Some people keep a <code>dotfiles</code> repo for exactly this purpose.</p>
+<p>The key habit: <strong>when you change your global CLAUDE.md, update the backup too.</strong></p>
+</section>
+</section>
+<section id="global-vs.-project-claude.md" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="global-vs.-project-claude.md"><span class="header-section-number">7.4</span> Global vs.&nbsp;project CLAUDE.md</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -423,20 +441,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>“Starting a new task” means create issue + branch</td>
 <td>“Run <code>quarto render</code> to build”</td>
 </tr>
+<tr class="even">
+<td><strong>Persists</strong></td>
+<td>Tied to the machine / home directory</td>
+<td>Committed to the repo, travels with it</td>
+</tr>
 </tbody>
 </table>
 <p>Both are loaded at session start. The project file adds context specific to the codebase. The global file carries your workflow everywhere.</p>
 </section>
-<section id="start-simple" class="level2" data-number="7.6">
-<h2 data-number="7.6" class="anchored" data-anchor-id="start-simple"><span class="header-section-number">7.6</span> Start simple</h2>
-<p>You don’t need to write everything on day one. Start with the phrases you actually use:</p>
+<section id="customize-it" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="customize-it"><span class="header-section-number">7.5</span> Customize it</h2>
+<p>The prompt above is a starting point. Here are some things you might add over time:</p>
 <ul>
-<li>What does “start a task” mean?</li>
-<li>What does “done” mean?</li>
-<li>What does “get ready for clear” mean?</li>
-<li>What should the agent never do?</li>
+<li><strong>Code style preferences</strong> — “Use snake_case for Python, camelCase for JavaScript”</li>
+<li><strong>Commit message format</strong> — “Start commit messages with a verb: Add, Fix, Update, Remove”</li>
+<li><strong>Language</strong> — “I work primarily in R and Python”</li>
+<li><strong>Review habits</strong> — “Always show me a diff summary before committing”</li>
 </ul>
-<p>Add more as you develop habits. The file grows with you.</p>
+<p>Start simple. Add more when you find yourself repeating the same instruction across sessions.</p>
 
 
 </section>
