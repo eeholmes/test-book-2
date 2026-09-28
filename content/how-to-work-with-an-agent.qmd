@@ -1,0 +1,78 @@
+---
+title: How to Work with an Agent
+---
+
+An agentic tool is **not a chatbot**. The biggest mistake people make is treating it like one — free-form messages, tangents, and endless conversations that confuse both you and the agent.
+
+The discipline is simple: **one task, one session, one handoff**.
+
+## The workflow
+
+```{mermaid}
+%%| fig-width: 6
+flowchart TD
+    A["🎯 Pick a task"] --> B["🔍 Plan first"]
+    B --> C["🔨 Build small"]
+    C --> D{"Done or\nswitching?"}
+    D -- Yes --> E["📝 Handoff note\nto notes/"]
+    E --> F["/clear"]
+    F --> A
+    D -- "No, keep going" --> C
+```
+
+That's the whole thing. Let's walk through each step.
+
+## Pick a task
+
+Every session starts with a **task** — something with a clear scope.
+
+| Good tasks | Not tasks |
+|---|---|
+| "Draft the introduction chapter" | "Help me with my project" |
+| "Figure out why the PDF won't render" | "Let's work on stuff" |
+| "Brainstorm what sections this book needs" | "Tell me about Quarto" |
+| "Write tests for the data-loading function" | "Make everything better" |
+
+A task can be planning, research, brainstorming, or building. The point is that it has a boundary.
+
+## Plan first, build small
+
+Two rules that save time and money:
+
+**Plan before you build.** Start by asking the agent to explore and make a plan. Save the plan to `notes/`. Then clear and start a fresh session to execute. Exploration context clutters implementation.
+
+**Build small before building big.** One chapter, one function, one section at a time. Review it, then continue. Small pieces are easier to check and cheaper to redo.
+
+## Close the loop
+
+When you're done with a task — or switching to a different one — or the conversation is just getting long — **close it**:
+
+1. Tell the agent: *"I'm about to clear. Write a handoff note to `notes/` with what we did and what's next."*
+2. Run `/clear`
+3. Start the next task fresh
+
+The handoff note is a short file — what was done, what's next, any decisions made. Not a transcript, not a code dump. A sticky note for the next session.
+
+**You don't have to finish to close.** "Got halfway through X, next step is Y" is a perfectly good handoff. The next session picks it up.
+
+## Why this matters
+
+::: {.callout-warning}
+## Long conversations cost you three ways
+
+1. **Money** — every message resends the entire conversation history
+2. **Quality** — the agent drifts and loses focus as context piles up
+3. **Risk** — if the session dies, you lose everything since the last handoff
+
+Short, focused tasks with handoff notes between them are cheaper, more reliable, and easier to pick up later — by you or by someone else on your team.
+:::
+
+## What about `/resume`?
+
+Most tools can resume the previous session. This works for short interruptions — you stepped away for coffee and want to continue the same task.
+
+But for picking up work after a longer gap, or when someone else is taking over, start fresh:
+
+> Read the notes in `notes/` and continue where we left off.
+
+This gives the agent exactly the context it needs and nothing it doesn't. And anyone on the team can pick it up — not just the person who started it.

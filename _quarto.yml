@@ -19,6 +19,7 @@ book:
     - part: "What Is Agentic Coding?"
       chapters:
         - content/what-is-agentic-coding.qmd
+        - content/how-to-work-with-an-agent.qmd
         - content/activity-repo-analysis.qmd
     - part: "Agent Skills"
       chapters:
