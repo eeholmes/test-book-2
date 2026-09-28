@@ -1,74 +1,158 @@
 ---
-title: "Activity: Repo Reproducibility Analysis"
+title: "Activity: Edit a Quarto Book with an Agent"
 ---
 
-## The task
+In this activity you'll practice the full clear–handoff–notes workflow from [Skills 101](skills-101.qmd). You'll use an AI coding agent to plan and execute edits to a real Quarto book — the same template this documentation is built on.
 
-In this group activity, you'll point an AI coding agent at a public GitHub repository and ask it to analyze how reproducible the project is.
+## Before you start
 
-This is a great first task for an agentic tool because it's read-only (nothing to break), it exercises the agent's ability to explore files, and it produces something useful.
+### 1. Create your own copy of the template
 
-## Instructions
+Go to <https://github.com/nmfs-opensci/NOAA-quarto-book> and click the green **"Use this template"** button to create a copy in your own GitHub account. Make the repo **public** and check the box to **include all branches** (so you get the `gh-pages` branch).
 
-### 1. Pick a repository
+### 2. Clone it into JupyterHub
 
-Choose a public GitHub repo — it could be:
-
-- A repo from your own work or team
-- A paper's companion repository
-- Any open-source scientific project
-
-Clone it into your workspace:
+In a terminal:
 
 ```bash
-git clone https://github.com/owner/repo-name.git
-cd repo-name
+cd ~
+git clone https://github.com/YOUR-USERNAME/NOAA-quarto-book.git
+cd NOAA-quarto-book
 ```
 
-### 2. Start your agent
+### 3. Start your agent
 
-Launch your coding tool in the cloned repo directory. For example:
+Launch your coding tool inside the cloned repo:
 
 ```bash
 claude
 ```
 
-### 3. Ask it to analyze reproducibility
+(Or `opencode`, `copilot`, etc. — whichever you set up.)
 
-Try a prompt like:
+---
 
-> Analyze this repository for reproducibility. Check whether it has:
->
-> - A README with clear instructions for running the code
-> - Dependency management (requirements.txt, environment.yml, renv.lock, etc.)
-> - Data availability (included, linked, or instructions to obtain)
-> - A clear entry point (what do you run first?)
-> - Any hardcoded paths or system-specific assumptions
->
-> Summarize what's good and what's missing.
+## Phase 1: Plan the edits
 
-### 4. Follow up
+**Goal:** Have the agent explore the book and help you plan what to change. Save the plan to `notes/`. Then clear.
 
-Once the agent gives its analysis, dig deeper:
+### What to do
 
-- "What would someone need to install to run this?"
-- "Are there any files that reference paths that wouldn't exist on another machine?"
-- "Could you write a checklist of what's needed to make this fully reproducible?"
+Ask the agent to look at the book and help you come up with a plan for turning it into something of your own — a project page, a lab notebook, workshop notes, whatever you like. For example:
 
-### 5. Save your findings
+> Read the files in this Quarto book and help me plan how to turn it into [a guide for my lab / notes for my project / a workshop site]. What chapters should I add, remove, or rename? What needs to change in _quarto.yml?
 
-Ask the agent to save its analysis:
+Work with the agent to refine the plan. Go back and forth until you're happy with it.
 
-> Save your reproducibility analysis to `notes/reproducibility-analysis.md`
+### Save the plan
+
+When the plan feels ready:
+
+> Create a `notes/` directory and save our plan to `notes/plan.md`.
+
+### Clear
+
+You've finished phase 1. The plan is on disk. Tell the agent you're about to clear:
+
+> I'm about to clear this session. Is there anything else we should save to notes/ before I do?
+
+Then clear:
+
+```
+/clear
+```
+
+::: {.callout-tip}
+Why clear now? The conversation has gotten long — you've been exploring files and discussing options. Clearing resets the context so your next requests are cheaper and more focused. The plan in `notes/` has everything the agent needs to continue.
+:::
+
+---
+
+## Phase 2: Execute the plan (Draft 1)
+
+**Goal:** Have the agent read the plan and execute it. Think about how to approach the work. Clear when done, with a handoff note.
+
+### Pick up the plan
+
+Start a fresh prompt:
+
+> Read `notes/plan.md` and the current book structure. We're going to execute this plan to create a first draft.
+
+### Think about how to execute
+
+Before diving in, consider: should you ask the agent to do everything at once, or go step by step?
+
+**All at once** works when:
+
+- The plan is clear and specific
+- Changes are independent (renaming chapters doesn't depend on writing content)
+- You trust the agent to make reasonable choices
+
+**Step by step** works better when:
+
+- You want to review as you go
+- Steps depend on each other (write chapter 1 before chapter 2 references it)
+- You're not sure how the agent will interpret something
+
+A reasonable middle ground: ask the agent to do a logical group of changes, review, then continue. For example:
+
+> Start by updating `_quarto.yml` with the new chapter structure from the plan. Don't write the chapter content yet — just set up the structure.
+
+Then after reviewing:
+
+> Now write first drafts of the new chapters.
+
+### Do the work
+
+Execute the plan however you chose. Review what the agent produces. Ask it to fix anything that's off.
+
+### Render and check
+
+When the draft is done:
+
+> Render the book with `quarto render` and check for errors. Fix any problems.
+
+### Clear with a handoff note
+
+You've finished draft 1. Before clearing, have the agent write a handoff:
+
+> Write a handoff note to `notes/handoff.md`. Summarize what we did, what the book looks like now, and what still needs work.
+
+Review the handoff note — does it capture everything the next session would need? Then clear:
+
+```
+/clear
+```
+
+---
+
+## Phase 3: Wrap up
+
+**Goal:** Practice picking up from a handoff note, then leave a final handoff for what's next.
+
+### Resume from the handoff
+
+Start a fresh prompt:
+
+> Read the notes in `notes/` and tell me where we are with this book.
+
+The agent should be able to orient itself from the handoff note and tell you the current state without you having to re-explain anything.
+
+### Leave a final handoff
+
+> Update the handoff note in `notes/` with what's left to do and where to find the information needed to finish. This is the end of the clinic session.
+
+---
 
 ## Discussion
 
-After the activity, consider:
+After the activity, think about:
 
-- Did the agent find things you would have missed on a quick scan?
-- Did it get anything wrong?
-- How would you improve the prompt if you did this again?
+- **Did clearing and resuming work?** Could the agent pick up from the handoff note without losing important context?
+- **How did you break up the work?** All at once vs. step by step — what worked better?
+- **What made a good handoff note?** What was missing? What was unnecessary?
+- **How would this workflow help in your real work?** Think about projects that span multiple days or involve handoffs between people.
 
-::: {.callout-tip}
-This kind of task — read-only exploration and analysis — is one of the safest and most effective ways to use an agentic tool. The agent can read every file in a repo in seconds, something that would take a person much longer.
+::: {.callout-note}
+The point of this activity isn't to produce a perfect book — it's to practice the workflow. A messy first draft with clean handoff notes is a better outcome than a polished book with no notes.
 :::
