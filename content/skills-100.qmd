@@ -4,93 +4,102 @@ title: "Agent Skills 100: Telling the Agent How You Work"
 
 ## The global CLAUDE.md
 
-Every time an agent starts a session, it reads a file called `CLAUDE.md` (or `AGENTS.md`) in the root of your repo. This is where you tell the agent *how you work* — your conventions, your shortcuts, your rules.
+Every time an agent starts a session, it reads a file called `CLAUDE.md` (or `AGENTS.md`) in the root of your repo. This is where you tell the agent about *this project* — how to build it, what the architecture looks like.
 
 But there's also a **global** `CLAUDE.md` that lives in your home directory (`~/.claude/CLAUDE.md`). This one applies to *every* repo you work in. It's where you define your personal workflow — the phrases you use, what they mean, and what the agent should do when it hears them.
 
 Think of it as training the agent to work the way you work.
 
-## What goes in a global CLAUDE.md
+## Set it up with a prompt
 
-Your global file teaches the agent your shorthand. Instead of explaining your workflow every session, you write it once and the agent follows it everywhere.
+You don't need to write the file by hand. Start your agent and give it this prompt:
 
-Here's an example:
+::: {.callout-note}
+## Copy-paste this prompt into your agent
 
-````markdown
-# Workflow
+> Create `~/.claude/CLAUDE.md` with my workflow preferences.
+> Here is how I work:
+>
+> **"I am starting a new task"** means:
+>
+> 1. Create a GitHub issue for the task
+> 2. Create a branch for the task
+> 3. Work on the branch
+>
+> **"Task is done"** or **"Let's finish up the task"** means:
+>
+> 1. Open a PR
+> 2. Merge the PR
+> 3. Delete the branch
+>
+> Note: this assumes I'm working on my own. For collaborative work, I'll open the PR and assign a reviewer instead of merging.
+>
+> **"Get ready for clear"** means:
+>
+> 1. Close any loose ends (pending edits, uncommitted changes)
+> 2. Review memories for outdated information and update them
+> 3. Update the handoff note in `notes/`
+> 4. Keep the handoff concise — move detailed info to separate files in `notes/` if it's getting long
+> 5. Ask me what my next task will be when I return and put that in the handoff
+>
+> **"Initialize this repo"** means:
+>
+> 1. Add an open license if one is missing
+> 2. Add a reuse statement to the repo
+> 3. Check the README for basic reproducibility (instructions to run, dependencies listed, clear entry point)
+>
+> **Git rules:**
+>
+> - Never use destructive git actions: no `--force` pushes, no `git reset --hard`, no `git clean -f`, no deleting branches that haven't been merged
+> - Always create new commits rather than amending
+> - Ask before any action that could lose work
+:::
 
-## "I am starting a new task"
+The agent will create the file for you. Review it, tweak anything you want, and you're done.
 
-When I say this:
+Over time, add more shortcuts as you develop habits. The file grows with you.
 
-1. Create a GitHub issue for the task
-2. Create a branch for the task
-3. Work on the branch
+## Where does it live?
 
-## "Task is done" or "Let's finish up the task"
+The global `CLAUDE.md` lives at `~/.claude/CLAUDE.md` — in your home directory. But "home directory" means different things depending on where you're working.
 
-When I say this:
+### On JupyterHub (this clinic)
 
-1. Open a PR
-2. Merge the PR
-3. Delete the branch
+Your home directory is `/home/jovyan`. The file goes at:
 
-Note: this workflow assumes I am working on my own and doing
-my own reviews. For collaborative work, open the PR and assign
-a reviewer instead of merging immediately.
+```
+/home/jovyan/.claude/CLAUDE.md
+```
 
-## "Get ready for clear"
+This persists across sessions on the same JupyterHub, but **it will be lost if the hub is rebuilt**. That's ok for learning. If you like what you've set up, save a copy somewhere permanent (see below).
 
-When I say this:
+### On a VM that gets torn down
 
-1. Close any loose ends (pending edits, uncommitted changes)
-2. Review memories for outdated information and update them
-3. Update the handoff note in `notes/`
-4. Keep the handoff concise — move detailed info to separate
-   files in `notes/` if the handoff is getting long
-5. Ask me what my next task will be when I return, and put
-   that in the handoff
+Cloud VMs (like those from AWS, GCP, or Azure) often get rebuilt. Your `~/.claude/CLAUDE.md` will disappear when that happens.
 
-## "Initialize this repo"
-
-When I say this:
-
-1. Add an open license if one is missing
-2. Add a reuse statement to the repo
-3. Check the README for basic reproducibility:
-   - Are there instructions to run the code?
-   - Are dependencies listed?
-   - Is there a clear entry point?
-
-## Git rules
-
-- Never use destructive git actions: no `--force` pushes,
-  no `git reset --hard`, no `git clean -f`,
-  no deleting branches that haven't been merged
-- Always create new commits rather than amending
-- Ask before any action that could lose work
-````
-
-## Why this matters
-
-Without a global `CLAUDE.md`, you have to re-explain your workflow every session. With one, you say "I'm starting a new task" and the agent knows exactly what that means — create an issue, create a branch, get to work.
-
-This turns your agent into a tool that follows *your* process, not a generic assistant you have to manage.
-
-## Setting it up
-
-Create the file:
+**Keep a backup.** The simplest approach: keep a copy in a repo you use across environments. When you spin up a new VM, copy it into place:
 
 ```bash
 mkdir -p ~/.claude
-nano ~/.claude/CLAUDE.md
+cp my-repo/dotfiles/CLAUDE.md ~/.claude/CLAUDE.md
 ```
 
-Or ask your agent to create it:
+Or add it to your dotfiles if you manage those.
 
-> Create a `~/.claude/CLAUDE.md` with my workflow preferences. I'll tell you what to put in it.
+### On your personal computer
 
-Then iterate — tell the agent your conventions, let it write the file, and refine it over time.
+This is the most stable home. The file stays put until you change it:
+
+- **macOS / Linux:** `~/.claude/CLAUDE.md`
+- **Windows (WSL):** `~/.claude/CLAUDE.md` inside your WSL home
+
+This is where your global `CLAUDE.md` will eventually live long-term.
+
+### The portable approach
+
+If you work across multiple machines, keep your global `CLAUDE.md` in a small repo (or a gist) and copy it to each new environment. Some people keep a `dotfiles` repo for exactly this purpose.
+
+The key habit: **when you change your global CLAUDE.md, update the backup too.**
 
 ## Global vs. project CLAUDE.md
 
@@ -99,16 +108,17 @@ Then iterate — tell the agent your conventions, let it write the file, and ref
 | **Applies to** | Every repo | This repo only |
 | **Contains** | Your personal workflow and conventions | Project-specific build commands, architecture, coding style |
 | **Examples** | "Starting a new task" means create issue + branch | "Run `quarto render` to build" |
+| **Persists** | Tied to the machine / home directory | Committed to the repo, travels with it |
 
 Both are loaded at session start. The project file adds context specific to the codebase. The global file carries your workflow everywhere.
 
-## Start simple
+## Customize it
 
-You don't need to write everything on day one. Start with the phrases you actually use:
+The prompt above is a starting point. Here are some things you might add over time:
 
-- What does "start a task" mean?
-- What does "done" mean?
-- What does "get ready for clear" mean?
-- What should the agent never do?
+- **Code style preferences** — "Use snake_case for Python, camelCase for JavaScript"
+- **Commit message format** — "Start commit messages with a verb: Add, Fix, Update, Remove"
+- **Language** — "I work primarily in R and Python"
+- **Review habits** — "Always show me a diff summary before committing"
 
-Add more as you develop habits. The file grows with you.
+Start simple. Add more when you find yourself repeating the same instruction across sessions.
