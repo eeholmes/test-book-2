@@ -11,7 +11,7 @@ The Agent Coders Clinic is a hands-on workshop where you'll learn to use AI codi
 By the end of this clinic, you will:
 
 - Understand what an **agentic coding harness** is and how it differs from chatbots or autocomplete
-- Connect to a shared gateway that gives you access to Claude and open-source models — no accounts or subscriptions needed
+- Get Claude Code running on the JupyterHub through a shared workshop gateway — no AI account or subscription needed
 - Practice a **clear–handoff–notes workflow** that keeps your work organized across sessions
 - Try a group activity where an agent analyzes a real GitHub repository
 - Learn how to write **SKILLS.md** files that teach an agent reusable tasks
@@ -29,4 +29,4 @@ Everything runs on a **sandboxed JupyterHub**. You have a terminal, a file brows
 
 ## Ready?
 
-Start with [Setup & Connection](content/setup.qmd) to get your tools connected.
+Start with [Setup](content/setup.qmd): log in to the hub, get your workshop key, and start Claude Code in your own copy of a practice repository.
