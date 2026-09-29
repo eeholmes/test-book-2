@@ -2,41 +2,48 @@
 title: Troubleshooting
 ---
 
-## Connection problems
+## Setup problems
 
-### "Authentication error" or "Invalid API key"
+### `claude-agent-coders: command not found`
 
-Your `GATEWAY_KEY` is wrong or not set in this terminal.
-
-```bash
-echo $GATEWAY_KEY
-```
-
-If it's empty, set it again:
+The short name works only in terminals opened *after* you first ran the script. Open a new terminal, or use the full path:
 
 ```bash
-export GATEWAY_KEY=sk-your-key-here
+~/shared/workshop/claude-agent-coders
 ```
 
-### "Connection refused" or timeout
+### "That workshop code is not right"
 
-The gateway server may be stopped. Check with the organizer.
+Check the code with your organizer and try again.
 
-Also verify your `GATEWAY_URL` is set:
+### "That key was not accepted"
+
+Paste the whole key, starting with `sk-`. If it still fails, ask your organizer.
+
+### "A key for ... was already issued"
+
+You, or someone using your name, already signed up. Ask your organizer.
+
+### "All workshop keys are handed out", "sign-up is closed" or "has ended"
+
+Ask your organizer.
+
+### "not set up yet" or "Could not reach the workshop gateway"
+
+The gateway is not running. Ask your organizer.
+
+### I have a key from an earlier workshop
+
+Forget the old key, then start again and enter the new code:
 
 ```bash
-echo $GATEWAY_URL
+claude-agent-coders --reset
+claude-agent-coders
 ```
 
-### Claude Code ignores the gateway
+### `gh auth login` or `gh repo create` fails
 
-If you have other Claude Code settings (Bedrock, Vertex, or an Anthropic API key), they can override the gateway. Clear them:
-
-```bash
-unset CLAUDE_CODE_USE_BEDROCK CLAUDE_CODE_USE_VERTEX ANTHROPIC_API_KEY
-```
-
-Then set the gateway variables again and restart `claude`.
+Run `gh auth status` to see whether you are logged in. If not, run `gh auth login` again and choose **GitHub.com**, **HTTPS**, **Yes** (authenticate Git), and **Login with a web browser**. If `gh repo create` says the name already exists, pick a different repository name.
 
 ## Budget problems
 
@@ -51,14 +58,10 @@ The key's time limit is up, or it was switched off. Ask the organizer for a new 
 ### How to check your remaining budget
 
 ```bash
-curl -s $GATEWAY_URL/key/info \
-  -H "Authorization: Bearer $GATEWAY_KEY" |
-  python3 -c "
-import sys, json
-i = json.load(sys.stdin)['info']
-print(f\"Spent \${i['spend']:.2f} of \${i['max_budget']:.2f}; expires {i['expires'][:10]}\")
-"
+claude-agent-coders --budget
 ```
+
+Spending shows up about a minute after each request.
 
 ## Agent behavior problems
 
@@ -77,16 +80,6 @@ The conversation may have gotten too long. Run `/clear` and start fresh. If you 
 
 Review what the agent is doing before approving. Most tools ask permission before writing files. If it's going off track, interrupt it and clarify what you actually want.
 
-## Environment variables cheat sheet
+### Agent is working in the wrong folder
 
-If things aren't working, check that all the right variables are set:
-
-```bash
-echo "GATEWAY_URL: $GATEWAY_URL"
-echo "GATEWAY_KEY: $GATEWAY_KEY"
-echo "ANTHROPIC_BASE_URL: $ANTHROPIC_BASE_URL"
-echo "ANTHROPIC_AUTH_TOKEN: $ANTHROPIC_AUTH_TOKEN"
-echo "ANTHROPIC_MODEL: $ANTHROPIC_MODEL"
-```
-
-For Claude Code, `ANTHROPIC_BASE_URL` should match `GATEWAY_URL` and `ANTHROPIC_AUTH_TOKEN` should match `GATEWAY_KEY`.
+Claude Code works in the folder you start it from. Quit (`/exit`), `cd` into your repository, and start `claude-agent-coders` again.
