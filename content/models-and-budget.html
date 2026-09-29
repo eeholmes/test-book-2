@@ -174,7 +174,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../content/setup.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Setup &amp; Connection</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Setup</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -342,7 +342,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td><code>qwen3-coder-480b</code></td>
 <td>Qwen3 Coder 480B</td>
-<td>~0.45x Haiku</td>
+<td>~0.4x Haiku</td>
 </tr>
 <tr class="odd">
 <td><code>qwen3-coder-30b</code></td>
@@ -352,29 +352,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td><code>devstral-2</code></td>
 <td>Mistral Devstral 2</td>
-<td>~0.4x Haiku</td>
+<td>~0.35x Haiku</td>
 </tr>
 <tr class="odd">
 <td><code>kimi-k2.5</code></td>
 <td>Kimi K2.5</td>
-<td>~0.6x Haiku</td>
+<td>~0.55x Haiku</td>
 </tr>
 <tr class="even">
 <td><code>glm-5</code></td>
 <td>GLM 5</td>
-<td>~1x Haiku</td>
+<td>~0.9x Haiku</td>
 </tr>
 <tr class="odd">
 <td><code>minimax-m2.5</code></td>
 <td>MiniMax M2.5</td>
-<td>~0.3x Haiku</td>
+<td>~0.25x Haiku</td>
 </tr>
 <tr class="even">
-<td><code>deepseek-v3.2</code></td>
-<td>DeepSeek V3.2</td>
-<td>~0.6x Haiku</td>
-</tr>
-<tr class="odd">
 <td><code>gpt-oss-120b</code></td>
 <td>OpenAI GPT-OSS 120B</td>
 <td>~0.15x Haiku</td>
@@ -392,23 +387,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="switching-models" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="switching-models"><span class="header-section-number">3.3</span> Switching models</h2>
-<ul>
-<li><strong>Claude Code:</strong> <code>/model claude-sonnet-4-6</code> (or any model name from the table)</li>
-<li><strong>OpenCode:</strong> <code>/models</code>, then select from the list</li>
-<li><strong>Copilot CLI:</strong> quit, change <code>COPILOT_MODEL</code>, restart</li>
-</ul>
+<p>Inside Claude Code, type <code>/model</code> followed by a name from the table, for example <code>/model claude-sonnet-4-6</code>.</p>
 </section>
 <section id="checking-your-budget" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="checking-your-budget"><span class="header-section-number">3.4</span> Checking your budget</h2>
-<p>Run this in a terminal (with <code>GATEWAY_URL</code> and <code>GATEWAY_KEY</code> set):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> <span class="va">$GATEWAY_URL</span>/key/info <span class="dt">\</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">"Authorization: Bearer </span><span class="va">$GATEWAY_KEY</span><span class="st">"</span> <span class="kw">|</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">python3</span> <span class="at">-c</span> <span class="st">"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="st">import sys, json</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="st">i = json.load(sys.stdin)['info']</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="st">print(f</span><span class="dt">\"</span><span class="st">Spent </span><span class="dt">\$</span><span class="st">{i['spend']:.2f} of </span><span class="dt">\$</span><span class="st">{i['max_budget']:.2f}; expires {i['expires'][:10]}</span><span class="dt">\"</span><span class="st">)</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Spending shows up about a minute after each request.</p>
+<p>In any terminal on the hub:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">claude-agent-coders</span> <span class="at">--budget</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>It shows what you have spent, your budget, and when your key expires. Spending shows up about a minute after each request.</p>
 </section>
 <section id="making-your-budget-last" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="making-your-budget-last"><span class="header-section-number">3.5</span> Making your budget last</h2>
@@ -838,8 +823,8 @@ Tip
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../content/setup.html" class="pagination-link" aria-label="Setup &amp; Connection">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Setup &amp; Connection</span></span>
+      <a href="../content/setup.html" class="pagination-link" aria-label="Setup">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Setup</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

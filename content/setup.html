@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; Setup &amp; Connection – Agent Coders Clinic</title>
+<title>2&nbsp; Setup – Agent Coders Clinic</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -123,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/setup.html">Getting Started</a></li><li class="breadcrumb-item"><a href="../content/setup.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Setup &amp; Connection</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/setup.html">Getting Started</a></li><li class="breadcrumb-item"><a href="../content/setup.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Setup</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -174,7 +174,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../content/setup.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Setup &amp; Connection</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Setup</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -282,24 +282,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#what-you-need" id="toc-what-you-need" class="nav-link active" data-scroll-target="#what-you-need"><span class="header-section-number">2.1</span> What you need</a></li>
-  <li><a href="#set-your-environment-variables" id="toc-set-your-environment-variables" class="nav-link" data-scroll-target="#set-your-environment-variables"><span class="header-section-number">2.2</span> Set your environment variables</a></li>
-  <li><a href="#connect-your-tool" id="toc-connect-your-tool" class="nav-link" data-scroll-target="#connect-your-tool"><span class="header-section-number">2.3</span> Connect your tool</a>
-  <ul class="collapse">
-  <li><a href="#claude-code" id="toc-claude-code" class="nav-link" data-scroll-target="#claude-code"><span class="header-section-number">2.3.1</span> Claude Code</a></li>
-  <li><a href="#opencode" id="toc-opencode" class="nav-link" data-scroll-target="#opencode"><span class="header-section-number">2.3.2</span> OpenCode</a></li>
-  <li><a href="#github-copilot-cli" id="toc-github-copilot-cli" class="nav-link" data-scroll-target="#github-copilot-cli"><span class="header-section-number">2.3.3</span> GitHub Copilot CLI</a></li>
-  </ul></li>
-  <li><a href="#verify-it-works" id="toc-verify-it-works" class="nav-link" data-scroll-target="#verify-it-works"><span class="header-section-number">2.4</span> Verify it works</a></li>
+  <li><a href="#log-in-to-github" id="toc-log-in-to-github" class="nav-link active" data-scroll-target="#log-in-to-github"><span class="header-section-number">2.1</span> 1. Log in to GitHub</a></li>
+  <li><a href="#go-to-the-hub" id="toc-go-to-the-hub" class="nav-link" data-scroll-target="#go-to-the-hub"><span class="header-section-number">2.2</span> 2. Go to the hub</a></li>
+  <li><a href="#start-a-server-with-4-gb" id="toc-start-a-server-with-4-gb" class="nav-link" data-scroll-target="#start-a-server-with-4-gb"><span class="header-section-number">2.3</span> 3. Start a server with 4 GB</a></li>
+  <li><a href="#open-a-terminal" id="toc-open-a-terminal" class="nav-link" data-scroll-target="#open-a-terminal"><span class="header-section-number">2.4</span> 4. Open a terminal</a></li>
+  <li><a href="#run-the-workshop-script" id="toc-run-the-workshop-script" class="nav-link" data-scroll-target="#run-the-workshop-script"><span class="header-section-number">2.5</span> 5. Run the workshop script</a></li>
+  <li><a href="#log-in-to-github-from-the-terminal" id="toc-log-in-to-github-from-the-terminal" class="nav-link" data-scroll-target="#log-in-to-github-from-the-terminal"><span class="header-section-number">2.6</span> 6. Log in to GitHub from the terminal</a></li>
+  <li><a href="#make-your-own-copy-of-the-practice-repository" id="toc-make-your-own-copy-of-the-practice-repository" class="nav-link" data-scroll-target="#make-your-own-copy-of-the-practice-repository"><span class="header-section-number">2.7</span> 7. Make your own copy of the practice repository</a></li>
+  <li><a href="#start-claude-code-in-your-repository" id="toc-start-claude-code-in-your-repository" class="nav-link" data-scroll-target="#start-claude-code-in-your-repository"><span class="header-section-number">2.8</span> 8. Start Claude Code in your repository</a></li>
+  <li><a href="#good-to-know" id="toc-good-to-know" class="nav-link" data-scroll-target="#good-to-know"><span class="header-section-number">2.9</span> Good to know</a></li>
+  <li><a href="#if-something-goes-wrong" id="toc-if-something-goes-wrong" class="nav-link" data-scroll-target="#if-something-goes-wrong"><span class="header-section-number">2.10</span> If something goes wrong</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/nmfs-opensci/agent-coders-clinics/edit/main/content/setup.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nmfs-opensci/agent-coders-clinics/blob/main/content/setup.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/nmfs-opensci/agent-coders-clinics/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/setup.html">Getting Started</a></li><li class="breadcrumb-item"><a href="../content/setup.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Setup &amp; Connection</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/setup.html">Getting Started</a></li><li class="breadcrumb-item"><a href="../content/setup.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Setup</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Setup &amp; Connection</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Setup</span></h1>
 </div>
 
 
@@ -316,97 +317,80 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="what-you-need" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="what-you-need"><span class="header-section-number">2.1</span> What you need</h2>
-<p>Two things from the organizer:</p>
-<ol type="1">
-<li><strong>Gateway URL</strong> — the address of the shared gateway</li>
-<li><strong>Personal key</strong> — starts with <code>sk-</code>, sent to you privately</li>
-</ol>
-<p>Your key has its own spending limit and expiry date. Keep it to yourself.</p>
+<p>Everything in this clinic runs on the NMFS Openscapes JupyterHub. You do not need an AI account, an API key, or anything installed on your own computer. You need a GitHub account.</p>
+<section id="log-in-to-github" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="log-in-to-github"><span class="header-section-number">2.1</span> 1. Log in to GitHub</h2>
+<p>In your browser, log in to <a href="https://github.com">github.com</a>. The hub uses your GitHub account to let you in.</p>
 </section>
-<section id="set-your-environment-variables" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="set-your-environment-variables"><span class="header-section-number">2.2</span> Set your environment variables</h2>
-<p>In a terminal, run:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">GATEWAY_KEY</span><span class="op">=</span>sk-your-key-here</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">GATEWAY_URL</span><span class="op">=</span>https://your-gateway-url-here</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>These last only for this terminal session. If you open a new terminal, run both lines again.</p>
+<section id="go-to-the-hub" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="go-to-the-hub"><span class="header-section-number">2.2</span> 2. Go to the hub</h2>
+<p>Open <a href="https://nmfs-openscapes.2i2c.cloud/" class="uri">https://nmfs-openscapes.2i2c.cloud/</a> and sign in with GitHub.</p>
 </section>
-<section id="connect-your-tool" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="connect-your-tool"><span class="header-section-number">2.3</span> Connect your tool</h2>
-<p>Pick the tool you want to use. You only need one.</p>
-<section id="claude-code" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="claude-code"><span class="header-section-number">2.3.1</span> Claude Code</h3>
-<p>Install (if you don’t have it):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-fsSL</span> https://claude.ai/install.sh <span class="kw">|</span> <span class="fu">bash</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Connect to the gateway:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">ANTHROPIC_BASE_URL</span><span class="op">=</span><span class="va">$GATEWAY_URL</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">ANTHROPIC_AUTH_TOKEN</span><span class="op">=</span><span class="va">$GATEWAY_KEY</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">ANTHROPIC_MODEL</span><span class="op">=</span>claude-haiku-4-5-20251001</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">ANTHROPIC_DEFAULT_OPUS_MODEL</span><span class="op">=</span>claude-opus-4-6</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">ANTHROPIC_DEFAULT_SONNET_MODEL</span><span class="op">=</span>claude-sonnet-4-6</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">ANTHROPIC_DEFAULT_HAIKU_MODEL</span><span class="op">=</span>claude-haiku-4-5-20251001</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>If you normally use Claude Code another way (Bedrock, Vertex, or an Anthropic API key), clear those settings so they don’t override the gateway:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">unset</span> <span class="va">CLAUDE_CODE_USE_BEDROCK</span> <span class="va">CLAUDE_CODE_USE_VERTEX</span> <span class="va">ANTHROPIC_API_KEY</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Start with <code>claude</code>. Type <code>/status</code> to confirm the gateway URL. <code>/model</code> switches models.</p>
+<section id="start-a-server-with-4-gb" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="start-a-server-with-4-gb"><span class="header-section-number">2.3</span> 3. Start a server with 4 GB</h2>
+<p>On the server options page, choose the <strong>4 GB</strong> size and click <strong>Start</strong>. It can take a minute or two to start.</p>
 </section>
-<section id="opencode" class="level3" data-number="2.3.2">
-<h3 data-number="2.3.2" class="anchored" data-anchor-id="opencode"><span class="header-section-number">2.3.2</span> OpenCode</h3>
-<p>Install (if you don’t have it):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install <span class="at">-g</span> opencode-ai</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Write the config file (this replaces any existing <code>~/.config/opencode/opencode.json</code> — save a copy first if you have one):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> ~/.config/opencode</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="op">&gt;</span> ~/.config/opencode/opencode.json <span class="op">&lt;&lt;EOF</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="st">{</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="st">  "</span><span class="dt">\$</span><span class="st">schema": "https://opencode.ai/config.json",</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="st">  "model": "gateway/claude-haiku-4-5-20251001",</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="st">  "small_model": "gateway/claude-haiku-4-5-20251001",</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="st">  "provider": {</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="st">    "gateway": {</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="st">      "npm": "@ai-sdk/openai-compatible",</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="st">      "name": "Workshop gateway",</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="st">      "options": {</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="st">        "baseURL": "</span><span class="va">$GATEWAY_URL</span><span class="st">/v1",</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="st">        "apiKey": "{env:GATEWAY_KEY}"</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="st">      },</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="st">      "models": {</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="st">        "claude-haiku-4-5-20251001": {},</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="st">        "claude-sonnet-4-6": {},</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="st">        "claude-opus-4-6": {},</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="st">        "qwen3-coder-480b": {},</span></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="st">        "qwen3-coder-30b": {},</span></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="st">        "devstral-2": {},</span></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="st">        "kimi-k2.5": {},</span></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="st">        "glm-5": {},</span></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="st">        "minimax-m2.5": {},</span></span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="st">        "deepseek-v3.2": {},</span></span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="st">        "gpt-oss-120b": {}</span></span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="st">      }</span></span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="st">    }</span></span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="st">  }</span></span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="st">}</span></span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a><span class="op">EOF</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Start with <code>opencode</code>. The gateway models are under “Workshop gateway” in <code>/models</code>.</p>
+<section id="open-a-terminal" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="open-a-terminal"><span class="header-section-number">2.4</span> 4. Open a terminal</h2>
+<p>In JupyterLab: <strong>File → New → Terminal</strong>.</p>
 </section>
-<section id="github-copilot-cli" class="level3" data-number="2.3.3">
-<h3 data-number="2.3.3" class="anchored" data-anchor-id="github-copilot-cli"><span class="header-section-number">2.3.3</span> GitHub Copilot CLI</h3>
-<p>Install (if you don’t have it):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-fsSL</span> https://gh.io/copilot-install <span class="kw">|</span> <span class="fu">bash</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Connect to the gateway:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">COPILOT_PROVIDER_TYPE</span><span class="op">=</span>openai</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">COPILOT_PROVIDER_BASE_URL</span><span class="op">=</span><span class="va">$GATEWAY_URL</span>/v1</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">COPILOT_PROVIDER_API_KEY</span><span class="op">=</span><span class="va">$GATEWAY_KEY</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">COPILOT_MODEL</span><span class="op">=</span>claude-haiku-4-5-20251001</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Start with <code>copilot</code>. To switch models, quit, change <code>COPILOT_MODEL</code>, and restart.</p>
+<section id="run-the-workshop-script" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="run-the-workshop-script"><span class="header-section-number">2.5</span> 5. Run the workshop script</h2>
+<p>In the terminal, run:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">~/shared/workshop/claude-agent-coders</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>When it asks, type the <strong>workshop code</strong> your organizer gives you (or paste the key starting with <code>sk-</code> if you were given one). The script gets you a personal key, shows your budget and when it expires, installs Claude Code, and starts it.</p>
+<p>The first start asks a few setup questions. Pick a theme. When it asks whether to <strong>trust this folder</strong>, say <strong>no</strong>. It is asking about your home directory, and you do not want the agent working across everything in it. This step is only to get Claude Code installed and your key saved. If Claude Code starts anyway, type <code>/exit</code> to close it.</p>
 </section>
+<section id="log-in-to-github-from-the-terminal" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="log-in-to-github-from-the-terminal"><span class="header-section-number">2.6</span> 6. Log in to GitHub from the terminal</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> auth login</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Answer the prompts:</p>
+<ul>
+<li><strong>Where do you use GitHub?</strong> GitHub.com</li>
+<li><strong>Preferred protocol for Git operations?</strong> HTTPS</li>
+<li><strong>Authenticate Git with your GitHub credentials?</strong> Yes</li>
+<li><strong>How would you like to authenticate?</strong> Login with a web browser</li>
+</ul>
+<p>It prints a one-time code. Copy it, open the link it shows, paste the code, and approve. When the terminal says you are logged in, you are done.</p>
 </section>
-<section id="verify-it-works" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="verify-it-works"><span class="header-section-number">2.4</span> Verify it works</h2>
-<p>Once your tool is running, try a simple prompt:</p>
+<section id="make-your-own-copy-of-the-practice-repository" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="make-your-own-copy-of-the-practice-repository"><span class="header-section-number">2.7</span> 7. Make your own copy of the practice repository</h2>
+<p>Create a repository in your own GitHub account from the <a href="https://github.com/nmfs-opensci/NOAA-quarto-book">NOAA Quarto book template</a>, and clone it to the hub:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo create my-quarto-book <span class="at">--template</span> nmfs-opensci/NOAA-quarto-book <span class="at">--public</span> <span class="at">--clone</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>You can use any name in place of <code>my-quarto-book</code>. You now have <code>~/my-quarto-book</code> on the hub and a matching repository on your GitHub.</p>
+</section>
+<section id="start-claude-code-in-your-repository" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="start-claude-code-in-your-repository"><span class="header-section-number">2.8</span> 8. Start Claude Code in your repository</h2>
+<p>Open a <strong>new</strong> terminal (the short command does not work in the terminal you used for step 5), then:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/my-quarto-book</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">claude-agent-coders</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This time, say <strong>yes</strong> to trusting the folder: this is the repository you want the agent to work in.</p>
+<p>Try a first prompt:</p>
 <blockquote class="blockquote">
-<p>What directory am I in? List the files here.</p>
+<p>What is this repository? List the main files and what they do.</p>
 </blockquote>
-<p>If the agent reads your filesystem and responds, you’re connected.</p>
+<p>If the agent reads your files and answers, you are set up.</p>
+</section>
+<section id="good-to-know" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="good-to-know"><span class="header-section-number">2.9</span> Good to know</h2>
+<ul>
+<li><strong>Check your spending:</strong> <code>claude-agent-coders --budget</code> shows what you have spent, your budget, and when your key expires. Spending shows up about a minute after you use Claude.</li>
+<li><strong>Switch models</strong> inside Claude Code with <code>/model</code>, for example <code>/model claude-sonnet-4-6</code>. The default, Claude Haiku 4.5, is the cheapest.</li>
+<li><strong>Your own Claude account is untouched.</strong> <code>claude-agent-coders</code> keeps its settings in <code>~/.config/claude-agent-coders/claude</code>, separate from <code>~/.claude</code>.</li>
+<li><strong>The full path always works:</strong> if <code>claude-agent-coders</code> is not found, use <code>~/shared/workshop/claude-agent-coders</code>.</li>
+</ul>
+</section>
+<section id="if-something-goes-wrong" class="level2" data-number="2.10">
+<h2 data-number="2.10" class="anchored" data-anchor-id="if-something-goes-wrong"><span class="header-section-number">2.10</span> If something goes wrong</h2>
+<ul>
+<li><strong>“That workshop code is not right”</strong>: check the code and try again.</li>
+<li><strong>“That key was not accepted”</strong>: paste the whole key, starting with <code>sk-</code>. If it still fails, ask your organizer.</li>
+<li><strong>“A key for … was already issued”</strong>: you, or someone using your name, already signed up. Ask your organizer.</li>
+<li><strong>“All workshop keys are handed out”</strong>, <strong>“sign-up is closed”</strong> or <strong>“has ended”</strong>: ask your organizer.</li>
+<li><strong>“not set up yet”</strong> or <strong>“Could not reach the workshop gateway”</strong>: the gateway is not running. Ask your organizer.</li>
+<li><strong>A key from an earlier workshop</strong>: run <code>claude-agent-coders --reset</code>, then <code>claude-agent-coders</code> and enter the new code.</li>
+</ul>
 
 
 </section>
