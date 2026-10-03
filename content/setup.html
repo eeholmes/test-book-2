@@ -356,7 +356,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <ul>
 <li><strong>Claude Code budget:</strong> <code>claude-agent-coders --budget</code> shows what you have spent, your budget, and when your key expires. Spending shows up about a minute after you use Claude.</li>
-<li><strong>Switch models:</strong> Use <code>/model</code>, for example <code>/model claude-sonnet-4-6</code>. The default, Claude Haiku 4.5, is the cheapest.</li>
+<li><strong>Switch models:</strong> Use <code>/model</code>, for example <code>/model claude-opus-4-6</code> for a hard problem. The default is Claude Sonnet 4.6; see <a href="../content/models-and-budget.html">Models &amp; Budget</a>.</li>
 <li><strong>Full path:</strong> If <code>claude-agent-coders</code> is not found, use <code>~/shared/workshop/claude-agent-coders</code>.</li>
 <li><strong>Your settings are preserved:</strong> <code>claude-agent-coders</code> preserves your personal configurations.</li>
 </ul>
@@ -385,13 +385,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><code>claude-agent-coders</code> adds no guard of its own. Claude Code’s <strong>permission mode</strong> protects you. The current mode is shown below the prompt box, and <strong>Shift+Tab</strong> switches between modes.</p>
 <ul>
 <li><strong>Auto mode:</strong> before each action runs, a second model checks it. Routine work runs without asking. Risky actions are blocked, such as force pushes, <code>git reset --hard</code>, deleting files that were already there, downloading and running scripts, and merging a pull request you have not approved. Auto mode does allow pushing to <code>main</code>, so start each task on a branch.</li>
-<li><strong>Manual mode</strong> (the default when auto mode is not available): Claude Code asks before every command and every file edit. Read each one before you approve it. Answering “don’t ask again” for a command means it will not ask about that command again.</li>
+<li><strong>Manual mode</strong>: Claude Code asks before every command and every file edit. Read each one before you approve it. Answering “don’t ask again” for a command means it will not ask about that command again.</li>
 </ul>
-<p>Auto mode needs a <strong>Sonnet or Opus</strong> model. It does not work with the default model, Claude Haiku 4.5. To use it:</p>
-<ol type="1">
-<li>Switch model: <code>/model claude-sonnet-4-6</code>. Sonnet costs more than Haiku; see <a href="../content/models-and-budget.html">Models &amp; Budget</a>.</li>
-<li>Press <strong>Shift+Tab</strong> until the mode shows <strong>auto</strong>.</li>
-</ol>
+<p><code>claude-agent-coders</code> starts in <strong>auto mode</strong>, on the default model, Claude Sonnet 4.6. Auto mode needs a <strong>Sonnet or Opus</strong> model; it is not available with Claude Haiku 4.5. If the mode below the prompt box is not <strong>auto</strong>, switch back with <code>/model claude-sonnet-4-6</code> and press <strong>Shift+Tab</strong> until it shows <strong>auto</strong>.</p>
 </div>
 <div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
 <p><code>agy-agent-coders</code> installs a guard that checks every shell command the agent runs. It watches only the agent. You can still run any of these commands yourself in a terminal.</p>

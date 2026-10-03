@@ -302,7 +302,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="available-models" class="level2">
 <h2 class="anchored" data-anchor-id="available-models">Available models</h2>
-<p>The gateway gives you access to Claude models and several open-source models. The default is <strong>Claude Haiku 4.5</strong> — fast, capable for most coding tasks, and the most budget-friendly Claude option.</p>
+<p>The gateway gives you access to Claude models and several open-source models. The default is <strong>Claude Sonnet 4.6</strong> — strong at coding, and the model Claude Code’s auto mode needs (see <a href="../content/setup.html#guardrails">Guardrails</a>). <strong>Claude Haiku 4.5</strong> costs about a third as much.</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -313,54 +313,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>claude-haiku-4-5-20251001</code></td>
-<td>Claude Haiku 4.5 (default)</td>
+<td><code>claude-sonnet-4-6</code></td>
+<td>Claude Sonnet 4.6 (default)</td>
 <td>1x</td>
 </tr>
 <tr class="even">
-<td><code>claude-sonnet-4-6</code></td>
-<td>Claude Sonnet 4.6</td>
-<td>~3x Haiku</td>
+<td><code>claude-haiku-4-5-20251001</code></td>
+<td>Claude Haiku 4.5</td>
+<td>~0.33x Sonnet</td>
 </tr>
 <tr class="odd">
 <td><code>claude-opus-4-6</code></td>
 <td>Claude Opus 4.6 (strongest)</td>
-<td>~5x Haiku</td>
+<td>~1.7x Sonnet</td>
 </tr>
 <tr class="even">
 <td><code>qwen3-coder-480b</code></td>
 <td>Qwen3 Coder 480B</td>
-<td>~0.4x Haiku</td>
+<td>~0.14x Sonnet</td>
 </tr>
 <tr class="odd">
 <td><code>qwen3-coder-30b</code></td>
 <td>Qwen3 Coder 30B (small, fast)</td>
-<td>~0.15x Haiku</td>
+<td>~0.05x Sonnet</td>
 </tr>
 <tr class="even">
 <td><code>devstral-2</code></td>
 <td>Mistral Devstral 2</td>
-<td>~0.35x Haiku</td>
+<td>~0.12x Sonnet</td>
 </tr>
 <tr class="odd">
 <td><code>kimi-k2.5</code></td>
 <td>Kimi K2.5</td>
-<td>~0.55x Haiku</td>
+<td>~0.18x Sonnet</td>
 </tr>
 <tr class="even">
 <td><code>glm-5</code></td>
 <td>GLM 5</td>
-<td>~0.9x Haiku</td>
+<td>~0.3x Sonnet</td>
 </tr>
 <tr class="odd">
 <td><code>minimax-m2.5</code></td>
 <td>MiniMax M2.5</td>
-<td>~0.25x Haiku</td>
+<td>~0.09x Sonnet</td>
 </tr>
 <tr class="even">
 <td><code>gpt-oss-120b</code></td>
 <td>OpenAI GPT-OSS 120B</td>
-<td>~0.15x Haiku</td>
+<td>~0.05x Sonnet</td>
 </tr>
 </tbody>
 </table>
@@ -368,14 +368,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="when-to-switch-models" class="level2">
 <h2 class="anchored" data-anchor-id="when-to-switch-models">When to switch models</h2>
 <ul>
-<li><strong>Haiku</strong> — your everyday model. Use it for most tasks.</li>
-<li><strong>Sonnet or Opus</strong> — reach for these when Haiku struggles: complex reasoning, large refactors, subtle bugs. Switch back when you’re done.</li>
+<li><strong>Sonnet</strong> — your everyday model, and the default. Use it for most tasks.</li>
+<li><strong>Opus</strong> — reach for it when Sonnet struggles: complex reasoning, large refactors, subtle bugs. Switch back when you’re done.</li>
+<li><strong>Haiku</strong> — cheaper, for simple, well-defined work. Auto mode is not available with Haiku, so expect Claude Code to ask before actions.</li>
 <li><strong>Open models</strong> — interesting to try, but they use file-reading and editing tools less reliably than Claude. If one answers without looking at your files, ask it explicitly (e.g., “use the read tool on notes.txt”).</li>
 </ul>
 </section>
 <section id="switching-models" class="level2">
 <h2 class="anchored" data-anchor-id="switching-models">Switching models</h2>
-<p>Inside Claude Code, type <code>/model</code> followed by a name from the table, for example <code>/model claude-sonnet-4-6</code>.</p>
+<p>Inside Claude Code, type <code>/model</code> followed by a name from the table, for example <code>/model claude-opus-4-6</code>.</p>
 </section>
 <section id="checking-your-budget" class="level2">
 <h2 class="anchored" data-anchor-id="checking-your-budget">Checking your budget</h2>
@@ -386,8 +387,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="making-your-budget-last" class="level2">
 <h2 class="anchored" data-anchor-id="making-your-budget-last">Making your budget last</h2>
 <ul>
-<li><strong>Stay on Haiku</strong> for routine tasks. It’s the best cost-to-capability ratio.</li>
-<li><strong>Switch to Sonnet/Opus only when you need to</strong>, then switch back.</li>
+<li><strong>Stay on Sonnet</strong> for routine tasks; it is the default for a reason.</li>
+<li><strong>Switch to Opus only when you need to</strong>, then switch back.</li>
 <li><strong>Use <code>/clear</code> between tasks</strong> — this resets the conversation, which means the agent sends less context with each request and each request costs less.</li>
 <li>The gateway caches repeated context for Claude models, so later requests in a session cost less than the first one.</li>
 </ul>
