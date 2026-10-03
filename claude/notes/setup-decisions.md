@@ -49,3 +49,10 @@ Why and what's deliberate:
 - **Why approvals still appear:** Unlisted commands (copying, moving, deleting files with `rm`, `pip`, or chained commands with an unlisted segment) intentionally prompt for confirmation.
 - **Hub constraints:** `agy --sandbox` fails because hub containers do not allow nested unprivileged user namespaces. Non-interactive `agy -p` stops at the first command needing confirmation.
 
+## Setup and Activity 1 reorganization (Issue #13)
+
+- **Setup page streamlined:** Repository creation and first agent launch were moved out of `setup.qmd` into Activity 1 (`content/activity-repo-analysis.qmd`) where participants actually work on their practice repository.
+- **Tabset consistency:** In `setup.qmd`, the tool-specific setup step, "Good to know", and "If something goes wrong" all use panel tabsets separating Claude Code from Antigravity.
+- **Activity 1 startup:** In `content/activity-repo-analysis.qmd`, participants create their repository from the template using `gh repo create my-quarto-book --template nmfs-opensci/NOAA-quarto-book --public --clone` and launch their chosen agent with tabbed instructions for `claude-agent-coders` vs `agy-agent-coders`.
+
+
