@@ -1,6 +1,12 @@
 # Handoff — 2026-10-03
 
-## Latest (2026-10-03): GitHub access choice in Activity 1 (Issue #10, PR #16, merged)
+## Latest (2026-10-03): Guardrails section & Skills 100 for both tools (PR #18, merged)
+
+- Setup has a **Guardrails** section (Claude Code / Antigravity tabs); Activity, Troubleshooting and Tool Comparison link to it. It describes the guard added to `agy-agent-coders` in nmfs-opensci/agent-coders-clinics#15 (blocks pushes to `main` and repo deletion; asks before merge, branch delete, issue close, PRs into others' repos). `claude-agent-coders` has no guard: Claude Code's auto mode (Sonnet/Opus only) or manual mode is the protection.
+- Skills 100's prompt now works in Claude Code and Antigravity (it tells the agent which global file to use), asks before merging and deleting branches, and never commits on `main`. "Where does it live?" was cut to a table on purpose: Eli does not want learners taught the paths.
+- Facts found by running, and why: `claude/notes/setup-decisions.md`, section "Guardrails and Skills 100 in both tools".
+
+## Earlier (2026-10-03): GitHub access choice in Activity 1 (Issue #10, PR #16, merged)
 
 - Activity 1's GitHub step is now a tabset: **Token for one repository** (default; fine-grained PAT pasted into `gh auth login`, repo created on the website first) or **Full access** (browser `gh auth login`, with a warning). The issue's `GH_TOKEN`-per-terminal flow was dropped as too much hassle; see notes. Setup no longer runs `gh auth login`; Troubleshooting has matching tabs.
 - Merged without the real-token tests. Issue #10 is still open for them (the PR said "Addresses", not "Closes").
