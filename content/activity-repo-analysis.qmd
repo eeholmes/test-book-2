@@ -162,7 +162,7 @@ If the agent reads your files and answers, you are set up.
 
 - **Everyday commands run automatically:** `agy-agent-coders` pre-approves everyday tasks—inspecting files (`ls`, `cat`, `grep`, etc.), creating directories (`mkdir`, `touch`), R, Quarto, Python, and read-only git/GitHub actions—so they run without asking. It also automatically accepts edits to files inside your project repository.
 - **Unlisted commands ask for approval:** Anything not on the team's auto-approved list (copying, moving, or deleting files, `pip`, or running other software) will prompt for your confirmation before running. This is normal and expected.
-- **Safety guards:** The launcher blocks destructive actions like `git reset --hard`, force pushes (`git push --force`), `git clean -f`, and recursive deletions (`rm -r`) outside your project directory. If the agent tries to run one of these, it will be blocked with a message starting with `agent-coders guard:`.
+- **Safety guards:** The launcher blocks destructive actions like `git reset --hard`, force pushes (`git push --force`), `git clean -f`, recursive deletions (`rm -r`) outside your project directory, pushing to `main`, and deleting a repository. Merging a pull request, deleting a branch, and closing an issue make the agent stop and ask you first. Messages from the guard start with `agent-coders guard:`. See [Guardrails](setup.qmd#guardrails).
 
 :::
 

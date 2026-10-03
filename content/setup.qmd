@@ -85,6 +85,48 @@ You connect the hub to GitHub in [Activity 1](activity-repo-analysis.qmd). There
 
 :::
 
+## Guardrails
+
+Once you connect GitHub in Activity 1, the agent can do on GitHub whatever your login allows. The two launchers protect you in different ways.
+
+::: {.panel-tabset}
+
+### Claude Code
+
+`claude-agent-coders` adds no guard of its own. Claude Code's **permission mode** protects you. The current mode is shown below the prompt box, and **Shift+Tab** switches between modes.
+
+- **Auto mode:** before each action runs, a second model checks it. Routine work runs without asking. Risky actions are blocked, such as force pushes, `git reset --hard`, deleting files that were already there, downloading and running scripts, and merging a pull request you have not approved. Auto mode does allow pushing to `main`, so start each task on a branch.
+- **Manual mode** (the default when auto mode is not available): Claude Code asks before every command and every file edit. Read each one before you approve it. Answering "don't ask again" for a command means it will not ask about that command again.
+
+Auto mode needs a **Sonnet or Opus** model. It does not work with the default model, Claude Haiku 4.5. To use it:
+
+1. Switch model: `/model claude-sonnet-4-6`. Sonnet costs more than Haiku; see [Models & Budget](models-and-budget.qmd).
+2. Press **Shift+Tab** until the mode shows **auto**.
+
+### Antigravity
+
+`agy-agent-coders` installs a guard that checks every shell command the agent runs. It watches only the agent. You can still run any of these commands yourself in a terminal.
+
+**Always blocked:**
+
+- `git reset --hard`, `git clean -f`, and force pushes (`--force-with-lease` is allowed)
+- `rm -r` outside the folder you started the agent in
+- Pushing to `main` (or `master`). The agent works on a branch and opens a pull request instead.
+- Deleting a GitHub repository. You do that yourself.
+
+**Stops and asks you first:**
+
+- Merging a pull request
+- Deleting a branch
+- Closing an issue
+- Opening a pull request in a repository you do not own
+
+For these, the agent should tell you what it is about to do and ask. Once you say yes, it runs the command again. For merging and closing issues, Antigravity then shows its own approval prompt too.
+
+These match the workflow in this clinic: one branch per task, a pull request, and you decide when it is merged.
+
+:::
+
 ## If something goes wrong
 
 ::: {.panel-tabset}
@@ -102,7 +144,7 @@ You connect the hub to GitHub in [Activity 1](activity-repo-analysis.qmd). There
 ### Antigravity
 
 - **`agy-agent-coders: command not found`**: Open a new terminal (new terminals load the updated `PATH` with `~/.local/bin`), or run the full path `~/shared/agent-coders/agy-agent-coders`.
-- **"agent-coders guard: ..."**: The safety guard prevented a destructive command (such as `git reset --hard` or `rm -r` outside the project folder). This is expected protection; tell the agent to use non-destructive alternatives like `git stash` or a soft reset.
+- **"agent-coders guard: ..."**: The safety guard stopped a command (see [Guardrails](#guardrails)). For a blocked one, such as `git reset --hard` or a push to `main`, tell the agent to use a safe alternative: `git stash`, a soft reset, or a branch and a pull request. If it says **"needs the user to say yes first"**, the agent should ask you before trying again.
 - **Commands asking for confirmation**: Prompts to approve actions like `pip`, `cp`, `mv`, or `rm` are expected behavior for commands not on the everyday whitelist. Review the proposed command and approve it if appropriate.
 - **Google Cloud project prompt**: Make sure you paste the exact Google Cloud project code provided in your clinic materials or Jira ticket.
 

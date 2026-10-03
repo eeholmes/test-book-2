@@ -2,22 +2,23 @@
 title: "Agent Skills 100: Telling the Agent How You Work"
 ---
 
-## The global CLAUDE.md
+## Your global instructions file
 
-Every time an agent starts a session, it reads a file called `CLAUDE.md` (or `AGENTS.md`) in the root of your repo. This is where you tell the agent about *this project* — how to build it, what the architecture looks like.
+Every time an agent starts a session, it reads an instructions file in the root of your repo: `CLAUDE.md` for Claude Code, `AGENTS.md` for Antigravity. This is where you tell the agent about *this project* — how to build it, what the architecture looks like.
 
-But there's also a **global** `CLAUDE.md` that lives in your home directory (`~/.claude/CLAUDE.md`). This one applies to *every* repo you work in. It's where you define your personal workflow — the phrases you use, what they mean, and what the agent should do when it hears them.
+There's also a **global** instructions file in your home directory. It applies to *every* repo you work in. It's where you define your personal workflow — the phrases you use, what they mean, and what the agent should do when it hears them.
 
 Think of it as training the agent to work the way you work.
 
 ## Set it up with a prompt
 
-You don't need to write the file by hand. Start your agent and give it this prompt:
+You don't need to write the file by hand, or even know where it goes. Start your agent and give it this prompt. It works in Claude Code and Antigravity: the agent works out which file it reads.
 
 ::: {.callout-note}
 ## Copy-paste this prompt into your agent
 
-> Create `~/.claude/CLAUDE.md` with my workflow preferences.
+> Create my global instructions file, the one you read in every project, with my workflow preferences. If you are Claude Code, it is `$CLAUDE_CONFIG_DIR/CLAUDE.md` when `CLAUDE_CONFIG_DIR` is set, and `~/.claude/CLAUDE.md` otherwise. If you are Antigravity, it is `~/.gemini/config/AGENTS.md`. Tell me the path you used.
+>
 > Here is how I work:
 >
 > **"I am starting a new task"** means:
@@ -28,15 +29,16 @@ You don't need to write the file by hand. Start your agent and give it this prom
 >
 > **"Task is done"** or **"Let's finish up the task"** means:
 >
-> 1. Open a PR
-> 2. Merge the PR
-> 3. Delete the branch
+> 1. Commit the work on the task's branch, push the branch, and open a PR
+> 2. Tell me what the PR changes and ask me before merging it
+> 3. Merge the PR once I say yes
+> 4. Ask me before deleting the branch
 >
 > Note: this assumes I'm working on my own. For collaborative work, I'll open the PR and assign a reviewer instead of merging.
 >
 > **"Get ready for clear"** means:
 >
-> 1. Close any loose ends (pending edits, uncommitted changes)
+> 1. Close any loose ends (pending edits, uncommitted changes). Commit on the task's branch, never on `main`; if we are on `main`, ask me what to do
 > 2. Review memories for outdated information and update them
 > 3. Update the handoff note in `notes/`
 > 4. Keep the handoff concise — move detailed info to separate files in `notes/` if it's getting long
@@ -50,6 +52,7 @@ You don't need to write the file by hand. Start your agent and give it this prom
 >
 > **Git rules:**
 >
+> - Never push to `main`. Work on a branch and open a PR
 > - Never use destructive git actions: no `--force` pushes, no `git reset --hard`, no `git clean -f`, no deleting branches that haven't been merged
 > - Always create new commits rather than amending
 > - Ask before any action that could lose work
@@ -59,58 +62,25 @@ The agent will create the file for you. Review it, tweak anything you want, and 
 
 Over time, add more shortcuts as you develop habits. The file grows with you.
 
-## Where does it live?
+::: {.callout-tip}
+## Expect it to stop and ask
 
-The global `CLAUDE.md` lives at `~/.claude/CLAUDE.md` — in your home directory. But "home directory" means different things depending on where you're working.
+When you say "Task is done", the agent opens the PR and then stops to ask before merging and before deleting the branch. That is on purpose: you decide when work goes into `main`. With Antigravity, the [guardrails](setup.qmd#guardrails) enforce this even if the instructions are missing, and Antigravity may show its own approval prompt after you say yes. If you start working without "I am starting a new task", the agent is on `main` and cannot push there. Ask it to move the work to a new branch.
+:::
 
-### On JupyterHub (this clinic)
+## Global vs. project instructions
 
-Your home directory is `/home/jovyan`. The file goes at:
-
-```
-/home/jovyan/.claude/CLAUDE.md
-```
-
-This persists across sessions on the same JupyterHub, but **it will be lost if the hub is rebuilt**. That's ok for learning. If you like what you've set up, save a copy somewhere permanent (see below).
-
-### On a VM that gets torn down
-
-Cloud VMs (like those from AWS, GCP, or Azure) often get rebuilt. Your `~/.claude/CLAUDE.md` will disappear when that happens.
-
-**Keep a backup.** The simplest approach: keep a copy in a repo you use across environments. When you spin up a new VM, copy it into place:
-
-```bash
-mkdir -p ~/.claude
-cp my-repo/dotfiles/CLAUDE.md ~/.claude/CLAUDE.md
-```
-
-Or add it to your dotfiles if you manage those.
-
-### On your personal computer
-
-This is the most stable home. The file stays put until you change it:
-
-- **macOS / Linux:** `~/.claude/CLAUDE.md`
-- **Windows (WSL):** `~/.claude/CLAUDE.md` inside your WSL home
-
-This is where your global `CLAUDE.md` will eventually live long-term.
-
-### The portable approach
-
-If you work across multiple machines, keep your global `CLAUDE.md` in a small repo (or a gist) and copy it to each new environment. Some people keep a `dotfiles` repo for exactly this purpose.
-
-The key habit: **when you change your global CLAUDE.md, update the backup too.**
-
-## Global vs. project CLAUDE.md
-
-| | Global (`~/.claude/CLAUDE.md`) | Project (`./CLAUDE.md`) |
+| | Global | Project (`CLAUDE.md` or `AGENTS.md`) |
 |---|---|---|
+| **Where** | Your home directory; the agent knows the exact place | The root of your repo |
 | **Applies to** | Every repo | This repo only |
 | **Contains** | Your personal workflow and conventions | Project-specific build commands, architecture, coding style |
 | **Examples** | "Starting a new task" means create issue + branch | "Run `quarto render` to build" |
-| **Persists** | Tied to the machine / home directory | Committed to the repo, travels with it |
+| **Persists** | Tied to the machine | Committed to the repo, travels with it |
 
 Both are loaded at session start. The project file adds context specific to the codebase. The global file carries your workflow everywhere.
+
+Because the global file stays on the machine, it is lost if the hub is rebuilt. If you like what you set up, ask the agent where it is and keep a copy.
 
 ## Customize it
 
