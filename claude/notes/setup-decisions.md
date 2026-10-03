@@ -53,7 +53,7 @@ Why and what's deliberate:
 
 - **Setup page streamlined:** Repository creation and first agent launch were moved out of `setup.qmd` into Activity 1 (`content/activity-repo-analysis.qmd`) where participants actually work on their practice repository.
 - **Tabset consistency:** In `setup.qmd`, the tool-specific setup step, "Good to know", and "If something goes wrong" all use panel tabsets separating Claude Code from Antigravity.
-- **Activity 1 startup:** In `content/activity-repo-analysis.qmd`, participants create their repository from the template using `gh repo create my-quarto-book --template nmfs-opensci/NOAA-quarto-book --public --clone` and launch their chosen agent with tabbed instructions for `claude-agent-coders` vs `agy-agent-coders`.
+- **Activity 1 startup:** In `content/activity-repo-analysis.qmd`, participants create their repository from the template using `gh repo create my-quarto-book --template nmfs-opensci/NOAA-quarto-book --public --clone` and launch their chosen agent with tabbed instructions for `claude-agent-coders` vs `agy-agent-coders`. (Issue #10 moved `gh repo create` into the `gh auth login` tab; see below.)
 
 
 
