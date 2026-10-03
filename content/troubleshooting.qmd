@@ -13,7 +13,10 @@ The short command names work only in terminals opened *after* you first ran the 
 
 ### "agent-coders guard: ..."
 
-The safety guard installed by `agy-agent-coders` blocked a destructive command, such as `git reset --hard`, `git push --force` (without lease), `git clean -f`, or `rm -r` on a path outside your project repository. This is intentional to prevent accidental work loss. Tell the agent to use a non-destructive alternative (for example, `git stash` or a soft reset).
+The safety guard installed by `agy-agent-coders` stopped a command. See [Guardrails](setup.qmd#guardrails) for the full list.
+
+- **Blocked** (`git reset --hard`, `git push --force` without lease, `git clean -f`, `rm -r` outside your project, pushing to `main`, deleting a repository): this is intentional. Tell the agent to use a safe alternative, such as `git stash`, a soft reset, or a branch and a pull request. If you really want one of these, run it yourself in a terminal.
+- **"needs the user to say yes first"** (merging a pull request, deleting a branch, closing an issue, a pull request into someone else's repository): the agent should tell you what it wants to do and ask. If you agree, say so, and it will run the command again.
 
 ### Antigravity prompts for approval on everyday commands
 
