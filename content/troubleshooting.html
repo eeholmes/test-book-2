@@ -281,7 +281,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#all-workshop-keys-are-handed-out-sign-up-is-closed-or-has-ended" id="toc-all-workshop-keys-are-handed-out-sign-up-is-closed-or-has-ended" class="nav-link" data-scroll-target="#all-workshop-keys-are-handed-out-sign-up-is-closed-or-has-ended">“All workshop keys are handed out”, “sign-up is closed” or “has ended”</a></li>
   <li><a href="#not-set-up-yet-or-could-not-reach-the-workshop-gateway" id="toc-not-set-up-yet-or-could-not-reach-the-workshop-gateway" class="nav-link" data-scroll-target="#not-set-up-yet-or-could-not-reach-the-workshop-gateway">“not set up yet” or “Could not reach the workshop gateway”</a></li>
   <li><a href="#i-have-a-key-from-an-earlier-workshop" id="toc-i-have-a-key-from-an-earlier-workshop" class="nav-link" data-scroll-target="#i-have-a-key-from-an-earlier-workshop">I have a key from an earlier workshop</a></li>
-  <li><a href="#gh-auth-login-or-gh-repo-create-fails" id="toc-gh-auth-login-or-gh-repo-create-fails" class="nav-link" data-scroll-target="#gh-auth-login-or-gh-repo-create-fails"><code>gh auth login</code> or <code>gh repo create</code> fails</a></li>
+  <li><a href="#github-refuses-a-push-or-gh-command" id="toc-github-refuses-a-push-or-gh-command" class="nav-link" data-scroll-target="#github-refuses-a-push-or-gh-command">GitHub refuses a push or <code>gh</code> command</a></li>
   <li><a href="#sandbox-fails-with-agy---sandbox" id="toc-sandbox-fails-with-agy---sandbox" class="nav-link" data-scroll-target="#sandbox-fails-with-agy---sandbox">Sandbox fails with <code>agy --sandbox</code></a></li>
   <li><a href="#non-interactive-agy--p-exits-early" id="toc-non-interactive-agy--p-exits-early" class="nav-link" data-scroll-target="#non-interactive-agy--p-exits-early">Non-interactive <code>agy -p</code> exits early</a></li>
   </ul></li>
@@ -374,9 +374,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">claude-agent-coders</span> <span class="at">--reset</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">claude-agent-coders</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="gh-auth-login-or-gh-repo-create-fails" class="level3">
-<h3 class="anchored" data-anchor-id="gh-auth-login-or-gh-repo-create-fails"><code>gh auth login</code> or <code>gh repo create</code> fails</h3>
+<section id="github-refuses-a-push-or-gh-command" class="level3">
+<h3 class="anchored" data-anchor-id="github-refuses-a-push-or-gh-command">GitHub refuses a push or <code>gh</code> command</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Token for one repository</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Full access</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Check these before widening the token:</p>
+<ol type="1">
+<li><strong>Are you logged in with the token?</strong> Run <code>gh auth status</code>. If you are not logged in, or it shows a browser login, run <code>gh auth login</code> again and choose <strong>Paste an authentication token</strong>.</li>
+<li><strong>Is the remote HTTPS?</strong> Run <code>git remote -v</code>. If it starts with <code>git@github.com:</code>, switch it: <code>git remote set-url origin https://github.com/YOUR-USERNAME/my-quarto-book.git</code>.</li>
+<li><strong>Is this repository on the token?</strong> At <a href="https://github.com/settings/personal-access-tokens" class="uri">https://github.com/settings/personal-access-tokens</a>, open the token and check that the repository is in its selected repositories, and that Contents (and Pull requests or Issues, if that is what failed) are <strong>Read and write</strong>.</li>
+<li><strong>Has the token expired?</strong> Make a new one with the same settings and log in with it again.</li>
+</ol>
+<p><code>gh repo create</code> does not work with this token, because it cannot create repositories. Create new repositories on GitHub’s website.</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <p>Run <code>gh auth status</code> to see whether you are logged in. If not, run <code>gh auth login</code> again and choose <strong>GitHub.com</strong>, <strong>HTTPS</strong>, <strong>Yes</strong> (authenticate Git), and <strong>Login with a web browser</strong>. If <code>gh repo create</code> says the name already exists, pick a different repository name.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="sandbox-fails-with-agy---sandbox" class="level3">
 <h3 class="anchored" data-anchor-id="sandbox-fails-with-agy---sandbox">Sandbox fails with <code>agy --sandbox</code></h3>
