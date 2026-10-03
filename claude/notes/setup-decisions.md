@@ -110,11 +110,17 @@ credential for private work-organization repos.
   `default` with Haiku 4.5 (the launcher's default model) and in `auto` with Sonnet 4.6.
   Tested on a personal Anthropic account, not through the gateway. Per the Claude Code
   docs, auto mode allows pushing to `main`, so the page says to start tasks on a branch.
+- **Since 2026-10-03 the launcher starts in auto mode on Sonnet** (agent-coders-gateway#8).
+  Through the gateway with a test key: init showed `model=claude-sonnet-4-6
+  permissionMode=auto`, and Bash ran unprompted. Whether switching to Haiku mid-session
+  drops auto mode was not tested, so the pages say only that auto mode is not available
+  with Haiku.
 - **The agy guard's "ask" is a stop-and-ask the agent honours.** agy hooks can only deny;
   the agent reruns with `USER_CONFIRMED=1` after the person says yes. The participant
   page leaves that prefix out on purpose. For `gh pr merge` and `gh issue close`, which
   are not on the team allow list, agy's own approval prompt follows as well.
 - **Skills 100 "Task is done"** asks before merging and before deleting the branch, to
   match the guard and the clinic's branch → PR → review → merge workflow.
-- **Not done:** walking the Skills 100 prompt end to end as a participant, and auto mode
-  through the gateway.
+- **Not done:** walking the Skills 100 prompt end to end as a participant, and seeing auto
+  mode's classifier block a risky action through the gateway (a test was refused by the
+  model itself first).

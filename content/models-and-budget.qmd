@@ -4,30 +4,31 @@ title: Models & Budget
 
 ## Available models
 
-The gateway gives you access to Claude models and several open-source models. The default is **Claude Haiku 4.5** — fast, capable for most coding tasks, and the most budget-friendly Claude option.
+The gateway gives you access to Claude models and several open-source models. The default is **Claude Sonnet 4.6** — strong at coding, and the model Claude Code's auto mode needs (see [Guardrails](setup.qmd#guardrails)). **Claude Haiku 4.5** costs about a third as much.
 
 | Name | Model | Relative cost |
 |---|---|---|
-| `claude-haiku-4-5-20251001` | Claude Haiku 4.5 (default) | 1x |
-| `claude-sonnet-4-6` | Claude Sonnet 4.6 | ~3x Haiku |
-| `claude-opus-4-6` | Claude Opus 4.6 (strongest) | ~5x Haiku |
-| `qwen3-coder-480b` | Qwen3 Coder 480B | ~0.4x Haiku |
-| `qwen3-coder-30b` | Qwen3 Coder 30B (small, fast) | ~0.15x Haiku |
-| `devstral-2` | Mistral Devstral 2 | ~0.35x Haiku |
-| `kimi-k2.5` | Kimi K2.5 | ~0.55x Haiku |
-| `glm-5` | GLM 5 | ~0.9x Haiku |
-| `minimax-m2.5` | MiniMax M2.5 | ~0.25x Haiku |
-| `gpt-oss-120b` | OpenAI GPT-OSS 120B | ~0.15x Haiku |
+| `claude-sonnet-4-6` | Claude Sonnet 4.6 (default) | 1x |
+| `claude-haiku-4-5-20251001` | Claude Haiku 4.5 | ~0.33x Sonnet |
+| `claude-opus-4-6` | Claude Opus 4.6 (strongest) | ~1.7x Sonnet |
+| `qwen3-coder-480b` | Qwen3 Coder 480B | ~0.14x Sonnet |
+| `qwen3-coder-30b` | Qwen3 Coder 30B (small, fast) | ~0.05x Sonnet |
+| `devstral-2` | Mistral Devstral 2 | ~0.12x Sonnet |
+| `kimi-k2.5` | Kimi K2.5 | ~0.18x Sonnet |
+| `glm-5` | GLM 5 | ~0.3x Sonnet |
+| `minimax-m2.5` | MiniMax M2.5 | ~0.09x Sonnet |
+| `gpt-oss-120b` | OpenAI GPT-OSS 120B | ~0.05x Sonnet |
 
 ## When to switch models
 
-- **Haiku** — your everyday model. Use it for most tasks.
-- **Sonnet or Opus** — reach for these when Haiku struggles: complex reasoning, large refactors, subtle bugs. Switch back when you're done.
+- **Sonnet** — your everyday model, and the default. Use it for most tasks.
+- **Opus** — reach for it when Sonnet struggles: complex reasoning, large refactors, subtle bugs. Switch back when you're done.
+- **Haiku** — cheaper, for simple, well-defined work. Auto mode is not available with Haiku, so expect Claude Code to ask before actions.
 - **Open models** — interesting to try, but they use file-reading and editing tools less reliably than Claude. If one answers without looking at your files, ask it explicitly (e.g., "use the read tool on notes.txt").
 
 ## Switching models
 
-Inside Claude Code, type `/model` followed by a name from the table, for example `/model claude-sonnet-4-6`.
+Inside Claude Code, type `/model` followed by a name from the table, for example `/model claude-opus-4-6`.
 
 ## Checking your budget
 
@@ -41,8 +42,8 @@ It shows what you have spent, your budget, and when your key expires. Spending s
 
 ## Making your budget last
 
-- **Stay on Haiku** for routine tasks. It's the best cost-to-capability ratio.
-- **Switch to Sonnet/Opus only when you need to**, then switch back.
+- **Stay on Sonnet** for routine tasks; it is the default for a reason.
+- **Switch to Opus only when you need to**, then switch back.
 - **Use `/clear` between tasks** — this resets the conversation, which means the agent sends less context with each request and each request costs less.
 - The gateway caches repeated context for Claude models, so later requests in a session cost less than the first one.
 
