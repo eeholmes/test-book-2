@@ -69,7 +69,7 @@ You connect the hub to GitHub in [Activity 1](activity-repo-analysis.qmd). There
 ### Claude Code
 
 - **Claude Code budget:** `claude-agent-coders --budget` shows what you have spent, your budget, and when your key expires. Spending shows up about a minute after you use Claude.
-- **Switch models:** Use `/model`, for example `/model claude-sonnet-4-6`. The default, Claude Haiku 4.5, is the cheapest.
+- **Switch models:** Use `/model`, for example `/model claude-opus-4-6` for a hard problem. The default is Claude Sonnet 4.6; see [Models & Budget](models-and-budget.qmd).
 - **Full path:** If `claude-agent-coders` is not found, use `~/shared/workshop/claude-agent-coders`.
 - **Your settings are preserved:** `claude-agent-coders` preserves your personal configurations.
 
@@ -96,12 +96,9 @@ Once you connect GitHub in Activity 1, the agent can do on GitHub whatever your 
 `claude-agent-coders` adds no guard of its own. Claude Code's **permission mode** protects you. The current mode is shown below the prompt box, and **Shift+Tab** switches between modes.
 
 - **Auto mode:** before each action runs, a second model checks it. Routine work runs without asking. Risky actions are blocked, such as force pushes, `git reset --hard`, deleting files that were already there, downloading and running scripts, and merging a pull request you have not approved. Auto mode does allow pushing to `main`, so start each task on a branch.
-- **Manual mode** (the default when auto mode is not available): Claude Code asks before every command and every file edit. Read each one before you approve it. Answering "don't ask again" for a command means it will not ask about that command again.
+- **Manual mode**: Claude Code asks before every command and every file edit. Read each one before you approve it. Answering "don't ask again" for a command means it will not ask about that command again.
 
-Auto mode needs a **Sonnet or Opus** model. It does not work with the default model, Claude Haiku 4.5. To use it:
-
-1. Switch model: `/model claude-sonnet-4-6`. Sonnet costs more than Haiku; see [Models & Budget](models-and-budget.qmd).
-2. Press **Shift+Tab** until the mode shows **auto**.
+`claude-agent-coders` starts in **auto mode**, on the default model, Claude Sonnet 4.6. Auto mode needs a **Sonnet or Opus** model; it is not available with Claude Haiku 4.5. If the mode below the prompt box is not **auto**, switch back with `/model claude-sonnet-4-6` and press **Shift+Tab** until it shows **auto**.
 
 ### Antigravity
 
