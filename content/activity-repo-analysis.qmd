@@ -6,31 +6,63 @@ In this activity you'll practice the full clear–handoff–notes workflow from 
 
 ## Before you start
 
-### 1. Create your own copy of the template
+### 1. Make your own copy of the practice repository
 
-Go to <https://github.com/nmfs-opensci/NOAA-quarto-book> and click the green **"Use this template"** button to create a copy in your own GitHub account. Make the repo **public** and check the box to **include all branches** (so you get the `gh-pages` branch).
-
-### 2. Clone it into JupyterHub
-
-In a terminal:
+Create a repository in your own GitHub account from the [NOAA Quarto book template](https://github.com/nmfs-opensci/NOAA-quarto-book), and clone it to the hub:
 
 ```bash
 cd ~
-git clone https://github.com/YOUR-USERNAME/NOAA-quarto-book.git
-cd NOAA-quarto-book
+gh repo create my-quarto-book --template nmfs-opensci/NOAA-quarto-book --public --clone
 ```
 
-### 3. Start your agent
+You can use any name in place of `my-quarto-book`. You now have `~/my-quarto-book` on the hub and a matching repository on your GitHub.
 
-Launch your coding tool inside the cloned repo:
+### 2. Start your agent in your repository
+
+Open a **new** terminal, navigate to your repository, and start your agent:
+
+::: {.panel-tabset}
+
+### Claude Code
 
 ```bash
+cd ~/my-quarto-book
 claude-agent-coders
-# or for Antigravity:
+```
+
+This time, say **yes** to trusting the folder: this is the repository you want the agent to work in.
+
+Try a first prompt:
+
+> What is this repository? List the main files and what they do.
+
+If the agent reads your files and answers, you are set up.
+
+### Antigravity
+
+```bash
+cd ~/my-quarto-book
 agy-agent-coders
 ```
 
-(Or `claude`, `agy`, etc. depending on your tool.)
+::: {.callout-important}
+Always start `agy-agent-coders` from inside your project folder (`cd ~/my-quarto-book` first). The folder you start it in is what Antigravity treats as the project boundary, and what the safety guard protects around.
+:::
+
+Try a first prompt:
+
+> What is this repository? List the main files and what they do.
+
+If the agent reads your files and answers, you are set up.
+
+**What to expect while working:**
+
+- **Everyday commands run automatically:** `agy-agent-coders` pre-approves everyday tasks—inspecting files (`ls`, `cat`, `grep`, etc.), creating directories (`mkdir`, `touch`), R, Quarto, Python, and read-only git/GitHub actions—so they run without asking. It also automatically accepts edits to files inside your project repository.
+- **Unlisted commands ask for approval:** Anything not on the team's auto-approved list (copying, moving, or deleting files, `pip`, or running other software) will prompt for your confirmation before running. This is normal and expected.
+- **Safety guards:** The launcher blocks destructive actions like `git reset --hard`, force pushes (`git push --force`), `git clean -f`, and recursive deletions (`rm -r`) outside your project directory. If the agent tries to run one of these, it will be blocked with a message starting with `agent-coders guard:`.
+
+:::
+
 
 
 ---

@@ -59,6 +59,7 @@ format:
     theme: [cosmo, assets/theme.scss]
     toc: true
     toc-depth: 3
+    number-sections: false
 
 filters:
   - assets/include-files.lua
