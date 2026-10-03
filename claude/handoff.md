@@ -42,6 +42,7 @@ First draft of the Agent Coders Clinic participant guide — a Quarto book with 
 - **`claude/notes/plan.md`** is now outdated — reflects the original plan, not the current state
 - **Walk the Setup steps on a fresh hub account** — not done yet; `/model` with an open model through Claude Code also untested
 - **Tool Comparison** still describes manual OpenCode/Copilot setup; fine as reference, but the hub path is Claude Code only
+- **Antigravity instructions (issue #12)** — not started. The team starts agy with the hub launcher `~/shared/agent-coders/agy-agent-coders` (source: agent-coders-clinics `hub/agy-agent-coders`); the issue's comment has what it does and what to tell people
 
 ## Source material
 
