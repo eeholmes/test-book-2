@@ -11,7 +11,7 @@ In this activity you'll practice the full clear–handoff–notes workflow from 
 Use your existing GitHub account. You do not need a separate account or approval from your organization. Choose how much of your GitHub the agent can reach:
 
 - **Token for one repository:** the agent can only push to your practice repository. Use this if your GitHub account can see private work repositories, or you are not sure.
-- **`gh auth login`:** the agent can do anything on GitHub that you can, in every repository your account can reach, including private repositories in your work organizations.
+- **Full access:** you log in with your browser, and the agent can do anything on GitHub that you can, in every repository your account can reach, including private repositories in your work organizations.
 
 ::: {.panel-tabset}
 
@@ -44,56 +44,47 @@ Leave every other permission at **No access**. (**Metadata: Read-only** is added
 
 Click **Generate token** and copy it. GitHub shows it only once.
 
-#### Give the token to your terminal
+#### Log in to GitHub with the token
 
-Open a terminal (**File → New → Terminal**). If you ran `gh auth login` on this hub before, log out first, or the agent can still use that login. If it says you are not logged in, that is fine:
-
-```bash
-gh auth logout --hostname github.com
-```
-
-Then run:
+Open a terminal (**File → New → Terminal**) and run:
 
 ```bash
-read -rsp "Paste training GitHub token: " GH_TOKEN
-printf '\n'
-export GH_TOKEN
-gh auth setup-git --hostname github.com
+gh auth login
 ```
 
-Paste the token at the prompt and press Enter. Nothing appears while you paste; that is on purpose, and it keeps the token out of your shell history.
+Answer the prompts:
 
-Check that it worked:
+- **Where do you use GitHub?** GitHub.com
+- **Preferred protocol for Git operations?** HTTPS
+- **Authenticate Git with your GitHub credentials?** Yes
+- **How would you like to authenticate?** **Paste an authentication token**
 
-```bash
-gh repo view YOUR-USERNAME/my-quarto-book
-```
+Paste the token and press Enter. It may mention required scopes; you can ignore that for a fine-grained token. `gh` saves the token on the hub, so every terminal, and your agent, uses it until it expires. If you logged in with your browser on this hub before, this replaces that login.
 
 #### Clone your repository
 
-In the **same** terminal, clone with the HTTPS address (replace `YOUR-USERNAME`):
+Clone with the HTTPS address (replace `YOUR-USERNAME`):
 
 ```bash
 cd ~
 git clone https://github.com/YOUR-USERNAME/my-quarto-book.git
 ```
 
-You now have `~/my-quarto-book` on the hub. Keep this terminal open: you start your agent from it in the next step.
+You now have `~/my-quarto-book` on the hub.
 
-::: {.callout-important}
-## Keeping the token narrow
+::: {.callout-tip}
+## Working with the token
 
-- **A new terminal does not have the token.** Repeat **Give the token to your terminal** in each new terminal, then start your agent from that terminal.
-- **Do not save the token anywhere**: not in a notebook, a file in the repository, or `~/.bashrc`. Make a new one if you lose it.
-- **Do not run `gh auth login`**, even if the agent suggests it.
-- **Use HTTPS remotes** (`https://github.com/...`), not SSH (`git@github.com:...`).
 - **A new repository is not covered automatically.** To use the agent on another repository, create it on GitHub's website, then add it to the token's selected repositories at <https://github.com/settings/personal-access-tokens>.
-- **If GitHub refuses something, do not widen the token** to all repositories or to more permissions. See [Troubleshooting](troubleshooting.qmd#github-refuses-a-push-or-gh-command).
+- **Use HTTPS remotes** (`https://github.com/...`), not SSH (`git@github.com:...`).
+- **If GitHub refuses something**, check the token's repositories and permissions before widening it. See [Troubleshooting](troubleshooting.qmd#github-refuses-a-push-or-gh-command).
+- **Logging in with the browser** (the **Full access** tab) replaces the token with full access.
 
 Public repositories are still readable to the agent. The token keeps it away from private repositories and limits where it can write.
 :::
 
-### `gh auth login`
+### Full access
+
 
 ::: {.callout-warning}
 With this option the agent can read, change and delete anything you can on GitHub, including private repositories in your work organizations. Use it only if you are comfortable with that.
@@ -131,7 +122,7 @@ You can use any name in place of `my-quarto-book`. You now have `~/my-quarto-boo
 
 ### 2. Start your agent in your repository
 
-Go to your repository and start your agent. **If you used a token**, do this in the same terminal where you set `GH_TOKEN`; the agent only gets the token if you start it from there. With `gh auth login`, any terminal works.
+Open a **new** terminal, go to your repository, and start your agent:
 
 ::: {.panel-tabset}
 

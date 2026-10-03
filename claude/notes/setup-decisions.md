@@ -76,19 +76,22 @@ credential for private work-organization repos.
   repo is created on the website ("Use this template") *before* the token;
   `gh repo create` cannot be used there — a selected-repositories token cannot
   create repos. The `gh auth login` tab keeps `gh repo create --template --clone`.
-- **Logging out matters**, not just skipping login: a stored OAuth token in
-  `~/.config/gh/hosts.yml` stays readable to the agent even when `GH_TOKEN` is set.
-  `gh auth logout` refuses while `GH_TOKEN` is set (checked), hence
-  `env -u GH_TOKEN gh auth logout ...` in Troubleshooting.
+- **Token is stored by `gh`, not passed via `GH_TOKEN` (deliberately departs from
+  issue #10).** The issue's flow (`read -rsp` → `export GH_TOKEN`, re-done in every
+  terminal, never saved) was dropped: Eli said it was excessive for a learning
+  activity and that the hassle would push everyone to browser `gh auth login`.
+  Instead the token tab runs interactive `gh auth login` → "Paste an
+  authentication token" (masked input). `gh` saves it in `~/.config/gh/hosts.yml`
+  (plain text on the hub, like a browser login), so every terminal and agent
+  works, and it replaces any earlier browser login for that account, so no
+  logout step is needed. `gh auth login --help` warns fine-grained tokens via
+  login "may cause confusing behaviour" with other resources and favours
+  `GH_TOKEN`; that confusion (e.g. `gh repo create` failing) is the intended
+  restriction, and Troubleshooting says so.
 - **Permissions:** Contents, Pull requests and Issues all read/write, because
   Skills 100's CLAUDE.md prompt has the agent create issues, open and merge PRs,
   and delete branches. Issue #10 said grant PR/Issues only if exercises use them;
   they do.
-- **Launchers, not plain `claude`:** issue #10's snippet ends with `claude`; the
-  guide uses `claude-agent-coders` / `agy-agent-coders`. Both `exec` the CLI, so
-  `GH_TOKEN` is inherited. The agent must start in the same terminal.
-- **Checked in a clean HOME:** `gh auth setup-git` works with only `GH_TOKEN`
-  (no stored login) and the git credential helper hands git that token; it also
-  writes an empty `helper =` that overrides other helpers for github.com.
-  **Not yet checked with a real token:** clone/push, PR/issue creation, and that
+- **Not yet checked with a real token:** login via pasted fine-grained token
+  (whether gh's scope check complains), clone/push, PR/issue creation, and that
   a private org repo is refused.

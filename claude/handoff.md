@@ -2,7 +2,7 @@
 
 ## In review (2026-10-03): GitHub access choice in Activity 1 (Issue #10, PR #16, open)
 
-- Activity 1's GitHub step is now a tabset: **Token for one repository** (default; fine-grained PAT, `GH_TOKEN`, repo created on the website first) or **`gh auth login`** (full access, with a warning). Setup no longer runs `gh auth login`; Troubleshooting has matching tabs.
+- Activity 1's GitHub step is now a tabset: **Token for one repository** (default; fine-grained PAT pasted into `gh auth login`, repo created on the website first) or **Full access** (browser `gh auth login`, with a warning). The issue's `GH_TOKEN`-per-terminal flow was dropped as too much hassle; see notes. Setup no longer runs `gh auth login`; Troubleshooting has matching tabs.
 - PR #16 is waiting for Eli to test and merge. It says "Addresses #10", so the issue stays open until then.
 - Still needs a real token: clone/push, PR/issue creation, confirming a private org repo is refused. Issue #10's last validation line is cut off ("Ensure the guide states…").
 - Why (including why `gh-scoped-creds` was ruled out): `claude/notes/setup-decisions.md`, section "GitHub access via fine-grained token".

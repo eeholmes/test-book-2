@@ -60,7 +60,7 @@ Once authentication completes and you see the agent prompt, type `/exit` to clos
 
 ## GitHub access comes later
 
-You connect the hub to GitHub in [Activity 1](activity-repo-analysis.qmd). There you choose between a token that only works on your practice repository, or `gh auth login`, which lets the agent do anything on GitHub that you can. Use your existing GitHub account. You do not need a separate account or approval from your organization.
+You connect the hub to GitHub in [Activity 1](activity-repo-analysis.qmd). There you choose between a token that only works on your practice repository, or full access, which lets the agent do anything on GitHub that you can. Use your existing GitHub account. You do not need a separate account or approval from your organization.
 
 ## Good to know
 
