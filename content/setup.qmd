@@ -75,31 +75,48 @@ It prints a one-time code. Copy it, open the link it shows, paste the code, and 
 
 ## Good to know
 
+::: {.panel-tabset}
+
+### Claude Code
+
 - **Claude Code budget:** `claude-agent-coders --budget` shows what you have spent, your budget, and when your key expires. Spending shows up about a minute after you use Claude.
-- **Switch models in Claude Code:** Use `/model`, for example `/model claude-sonnet-4-6`. The default, Claude Haiku 4.5, is the cheapest.
-- **Check Antigravity settings:** Run `agy-agent-coders --check` in a terminal to see the auto-approved commands and edit mode configured for your account.
+- **Switch models:** Use `/model`, for example `/model claude-sonnet-4-6`. The default, Claude Haiku 4.5, is the cheapest.
+- **Full path:** If `claude-agent-coders` is not found, use `~/shared/workshop/claude-agent-coders`.
+- **Your settings are preserved:** `claude-agent-coders` preserves your personal configurations.
+
+### Antigravity
+
 - **Always use the team launcher:** Start Antigravity with `agy-agent-coders`, not plain `agy`. Plain `agy` asks for permission before every single shell command out of the box; `agy-agent-coders` adds everyday commands to your settings and guards against destructive actions.
+- **Check settings:** Run `agy-agent-coders --check` in a terminal to see the auto-approved commands and edit mode configured for your account.
 - **Do not use `agy --sandbox` on the hub:** The hub's container security does not support container sandboxing.
 - **Interactive vs non-interactive (`agy -p`):** Non-interactive mode (`agy -p "..."`) stops the whole task at the first command requiring approval, so stick to the interactive terminal session during clinic exercises.
 - **Chained commands:** Permission rules match whole words from the start of a command; each segment of a chained command (like `cmd1 && cmd2` or `cmd1 | cmd2`) must match on its own. Chained commands that include unapproved segments will ask for approval.
-- **Your personal configurations are preserved:** Both `claude-agent-coders` and `agy-agent-coders` preserve your personal settings and existing configurations.
-- **The full paths always work:** If `claude-agent-coders` is not found, use `~/shared/workshop/claude-agent-coders`. If `agy-agent-coders` is not found, use `~/shared/agent-coders/agy-agent-coders`.
+- **Full path:** If `agy-agent-coders` is not found, use `~/shared/agent-coders/agy-agent-coders`.
+- **Your settings are preserved:** `agy-agent-coders` preserves your personal settings and existing configurations.
+
+:::
 
 ## If something goes wrong
 
-### Claude Code issues
+::: {.panel-tabset}
 
-- **"That workshop code is not right"**: check the code and try again.
-- **"That key was not accepted"**: paste the whole key, starting with `sk-`. If it still fails, ask your organizer.
-- **"A key for ... was already issued"**: you, or someone using your name, already signed up. Ask your organizer.
-- **"All workshop keys are handed out"**, **"sign-up is closed"** or **"has ended"**: ask your organizer.
-- **"not set up yet"** or **"Could not reach the workshop gateway"**: the gateway is not running. Ask your organizer.
-- **A key from an earlier workshop**: run `claude-agent-coders --reset`, then `claude-agent-coders` and enter the new code.
+### Claude Code
 
-### Antigravity issues
+- **`claude-agent-coders: command not found`**: Open a new terminal (new terminals load the updated `PATH` with `~/.local/bin`), or run the full path `~/shared/workshop/claude-agent-coders`.
+- **"That workshop code is not right"**: Check the code and try again.
+- **"That key was not accepted"**: Paste the whole key, starting with `sk-`. If it still fails, ask your organizer.
+- **"A key for ... was already issued"**: You, or someone using your name, already signed up. Ask your organizer.
+- **"All workshop keys are handed out"**, **"sign-up is closed"** or **"has ended"**: Ask your organizer.
+- **"not set up yet"** or **"Could not reach the workshop gateway"**: The gateway is not running. Ask your organizer.
+- **A key from an earlier workshop**: Run `claude-agent-coders --reset`, then `claude-agent-coders` and enter the new code.
+
+### Antigravity
 
 - **`agy-agent-coders: command not found`**: Open a new terminal (new terminals load the updated `PATH` with `~/.local/bin`), or run the full path `~/shared/agent-coders/agy-agent-coders`.
 - **"agent-coders guard: ..."**: The safety guard prevented a destructive command (such as `git reset --hard` or `rm -r` outside the project folder). This is expected protection; tell the agent to use non-destructive alternatives like `git stash` or a soft reset.
 - **Commands asking for confirmation**: Prompts to approve actions like `pip`, `cp`, `mv`, or `rm` are expected behavior for commands not on the everyday whitelist. Review the proposed command and approve it if appropriate.
 - **Google Cloud project prompt**: Make sure you paste the exact Google Cloud project code provided in your clinic materials or Jira ticket.
+
+:::
+
 

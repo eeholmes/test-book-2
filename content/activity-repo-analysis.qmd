@@ -19,7 +19,7 @@ You can use any name in place of `my-quarto-book`. You now have `~/my-quarto-boo
 
 ### 2. Start your agent in your repository
 
-Open a **new** terminal (the short command names do not work in the terminal you used for setup), navigate to your repository, and start your agent:
+Open a **new** terminal, navigate to your repository, and start your agent:
 
 ::: {.panel-tabset}
 
