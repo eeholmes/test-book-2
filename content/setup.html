@@ -274,6 +274,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#once-on-the-hub-run-the-setup-script." id="toc-once-on-the-hub-run-the-setup-script." class="nav-link" data-scroll-target="#once-on-the-hub-run-the-setup-script.">Once on the hub, run the setup script.</a></li>
   <li><a href="#github-access-comes-later" id="toc-github-access-comes-later" class="nav-link" data-scroll-target="#github-access-comes-later">GitHub access comes later</a></li>
   <li><a href="#good-to-know" id="toc-good-to-know" class="nav-link" data-scroll-target="#good-to-know">Good to know</a></li>
+  <li><a href="#guardrails" id="toc-guardrails" class="nav-link" data-scroll-target="#guardrails">Guardrails</a></li>
   <li><a href="#if-something-goes-wrong" id="toc-if-something-goes-wrong" class="nav-link" data-scroll-target="#if-something-goes-wrong">If something goes wrong</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/nmfs-opensci/agent-coders-clinics/edit/main/content/setup.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nmfs-opensci/agent-coders-clinics/blob/main/content/setup.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/nmfs-opensci/agent-coders-clinics/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -374,12 +375,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="if-something-goes-wrong" class="level2">
-<h2 class="anchored" data-anchor-id="if-something-goes-wrong">If something goes wrong</h2>
+<section id="guardrails" class="level2">
+<h2 class="anchored" data-anchor-id="guardrails">Guardrails</h2>
+<p>Once you connect GitHub in Activity 1, the agent can do on GitHub whatever your login allows. The two launchers protect you in different ways.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">Claude Code</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">Antigravity</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p><code>claude-agent-coders</code> adds no guard of its own. Claude Code’s <strong>permission mode</strong> protects you. The current mode is shown below the prompt box, and <strong>Shift+Tab</strong> switches between modes.</p>
+<ul>
+<li><strong>Auto mode:</strong> before each action runs, a second model checks it. Routine work runs without asking. Risky actions are blocked, such as force pushes, <code>git reset --hard</code>, deleting files that were already there, downloading and running scripts, and merging a pull request you have not approved. Auto mode does allow pushing to <code>main</code>, so start each task on a branch.</li>
+<li><strong>Manual mode</strong> (the default when auto mode is not available): Claude Code asks before every command and every file edit. Read each one before you approve it. Answering “don’t ask again” for a command means it will not ask about that command again.</li>
+</ul>
+<p>Auto mode needs a <strong>Sonnet or Opus</strong> model. It does not work with the default model, Claude Haiku 4.5. To use it:</p>
+<ol type="1">
+<li>Switch model: <code>/model claude-sonnet-4-6</code>. Sonnet costs more than Haiku; see <a href="../content/models-and-budget.html">Models &amp; Budget</a>.</li>
+<li>Press <strong>Shift+Tab</strong> until the mode shows <strong>auto</strong>.</li>
+</ol>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<p><code>agy-agent-coders</code> installs a guard that checks every shell command the agent runs. It watches only the agent. You can still run any of these commands yourself in a terminal.</p>
+<p><strong>Always blocked:</strong></p>
+<ul>
+<li><code>git reset --hard</code>, <code>git clean -f</code>, and force pushes (<code>--force-with-lease</code> is allowed)</li>
+<li><code>rm -r</code> outside the folder you started the agent in</li>
+<li>Pushing to <code>main</code> (or <code>master</code>). The agent works on a branch and opens a pull request instead.</li>
+<li>Deleting a GitHub repository. You do that yourself.</li>
+</ul>
+<p><strong>Stops and asks you first:</strong></p>
+<ul>
+<li>Merging a pull request</li>
+<li>Deleting a branch</li>
+<li>Closing an issue</li>
+<li>Opening a pull request in a repository you do not own</li>
+</ul>
+<p>For these, the agent should tell you what it is about to do and ask. Once you say yes, it runs the command again. For merging and closing issues, Antigravity then shows its own approval prompt too.</p>
+<p>These match the workflow in this clinic: one branch per task, a pull request, and you decide when it is merged.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="if-something-goes-wrong" class="level2">
+<h2 class="anchored" data-anchor-id="if-something-goes-wrong">If something goes wrong</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true" href="">Claude Code</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false" href="">Antigravity</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
 <ul>
 <li><strong><code>claude-agent-coders: command not found</code></strong>: Open a new terminal (new terminals load the updated <code>PATH</code> with <code>~/.local/bin</code>), or run the full path <code>~/shared/workshop/claude-agent-coders</code>.</li>
 <li><strong>“That workshop code is not right”</strong>: Check the code and try again.</li>
@@ -390,10 +431,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>A key from an earlier workshop</strong>: Run <code>claude-agent-coders --reset</code>, then <code>claude-agent-coders</code> and enter the new code.</li>
 </ul>
 </div>
-<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
 <ul>
 <li><strong><code>agy-agent-coders: command not found</code></strong>: Open a new terminal (new terminals load the updated <code>PATH</code> with <code>~/.local/bin</code>), or run the full path <code>~/shared/agent-coders/agy-agent-coders</code>.</li>
-<li><strong>“agent-coders guard: …”</strong>: The safety guard prevented a destructive command (such as <code>git reset --hard</code> or <code>rm -r</code> outside the project folder). This is expected protection; tell the agent to use non-destructive alternatives like <code>git stash</code> or a soft reset.</li>
+<li><strong>“agent-coders guard: …”</strong>: The safety guard stopped a command (see <a href="#guardrails">Guardrails</a>). For a blocked one, such as <code>git reset --hard</code> or a push to <code>main</code>, tell the agent to use a safe alternative: <code>git stash</code>, a soft reset, or a branch and a pull request. If it says <strong>“needs the user to say yes first”</strong>, the agent should ask you before trying again.</li>
 <li><strong>Commands asking for confirmation</strong>: Prompts to approve actions like <code>pip</code>, <code>cp</code>, <code>mv</code>, or <code>rm</code> are expected behavior for commands not on the everyday whitelist. Review the proposed command and approve it if appropriate.</li>
 <li><strong>Google Cloud project prompt</strong>: Make sure you paste the exact Google Cloud project code provided in your clinic materials or Jira ticket.</li>
 </ul>

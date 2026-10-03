@@ -482,7 +482,7 @@ Important
 <ul>
 <li><strong>Everyday commands run automatically:</strong> <code>agy-agent-coders</code> pre-approves everyday tasks—inspecting files (<code>ls</code>, <code>cat</code>, <code>grep</code>, etc.), creating directories (<code>mkdir</code>, <code>touch</code>), R, Quarto, Python, and read-only git/GitHub actions—so they run without asking. It also automatically accepts edits to files inside your project repository.</li>
 <li><strong>Unlisted commands ask for approval:</strong> Anything not on the team’s auto-approved list (copying, moving, or deleting files, <code>pip</code>, or running other software) will prompt for your confirmation before running. This is normal and expected.</li>
-<li><strong>Safety guards:</strong> The launcher blocks destructive actions like <code>git reset --hard</code>, force pushes (<code>git push --force</code>), <code>git clean -f</code>, and recursive deletions (<code>rm -r</code>) outside your project directory. If the agent tries to run one of these, it will be blocked with a message starting with <code>agent-coders guard:</code>.</li>
+<li><strong>Safety guards:</strong> The launcher blocks destructive actions like <code>git reset --hard</code>, force pushes (<code>git push --force</code>), <code>git clean -f</code>, recursive deletions (<code>rm -r</code>) outside your project directory, pushing to <code>main</code>, and deleting a repository. Merging a pull request, deleting a branch, and closing an issue make the agent stop and ask you first. Messages from the guard start with <code>agent-coders guard:</code>. See <a href="../content/setup.html#guardrails">Guardrails</a>.</li>
 </ul>
 </div>
 </div>

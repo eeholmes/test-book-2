@@ -335,7 +335,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="agent-coders-guard" class="level3">
 <h3 class="anchored" data-anchor-id="agent-coders-guard">“agent-coders guard: …”</h3>
-<p>The safety guard installed by <code>agy-agent-coders</code> blocked a destructive command, such as <code>git reset --hard</code>, <code>git push --force</code> (without lease), <code>git clean -f</code>, or <code>rm -r</code> on a path outside your project repository. This is intentional to prevent accidental work loss. Tell the agent to use a non-destructive alternative (for example, <code>git stash</code> or a soft reset).</p>
+<p>The safety guard installed by <code>agy-agent-coders</code> stopped a command. See <a href="../content/setup.html#guardrails">Guardrails</a> for the full list.</p>
+<ul>
+<li><strong>Blocked</strong> (<code>git reset --hard</code>, <code>git push --force</code> without lease, <code>git clean -f</code>, <code>rm -r</code> outside your project, pushing to <code>main</code>, deleting a repository): this is intentional. Tell the agent to use a safe alternative, such as <code>git stash</code>, a soft reset, or a branch and a pull request. If you really want one of these, run it yourself in a terminal.</li>
+<li><strong>“needs the user to say yes first”</strong> (merging a pull request, deleting a branch, closing an issue, a pull request into someone else’s repository): the agent should tell you what it wants to do and ask. If you agree, say so, and it will run the command again.</li>
+</ul>
 </section>
 <section id="antigravity-prompts-for-approval-on-everyday-commands" class="level3">
 <h3 class="anchored" data-anchor-id="antigravity-prompts-for-approval-on-everyday-commands">Antigravity prompts for approval on everyday commands</h3>

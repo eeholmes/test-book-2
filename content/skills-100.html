@@ -26,41 +26,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -270,16 +235,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-global-claude.md" id="toc-the-global-claude.md" class="nav-link active" data-scroll-target="#the-global-claude.md">The global CLAUDE.md</a></li>
+  <li><a href="#your-global-instructions-file" id="toc-your-global-instructions-file" class="nav-link active" data-scroll-target="#your-global-instructions-file">Your global instructions file</a></li>
   <li><a href="#set-it-up-with-a-prompt" id="toc-set-it-up-with-a-prompt" class="nav-link" data-scroll-target="#set-it-up-with-a-prompt">Set it up with a prompt</a></li>
-  <li><a href="#where-does-it-live" id="toc-where-does-it-live" class="nav-link" data-scroll-target="#where-does-it-live">Where does it live?</a>
-  <ul class="collapse">
-  <li><a href="#on-jupyterhub-this-clinic" id="toc-on-jupyterhub-this-clinic" class="nav-link" data-scroll-target="#on-jupyterhub-this-clinic">On JupyterHub (this clinic)</a></li>
-  <li><a href="#on-a-vm-that-gets-torn-down" id="toc-on-a-vm-that-gets-torn-down" class="nav-link" data-scroll-target="#on-a-vm-that-gets-torn-down">On a VM that gets torn down</a></li>
-  <li><a href="#on-your-personal-computer" id="toc-on-your-personal-computer" class="nav-link" data-scroll-target="#on-your-personal-computer">On your personal computer</a></li>
-  <li><a href="#the-portable-approach" id="toc-the-portable-approach" class="nav-link" data-scroll-target="#the-portable-approach">The portable approach</a></li>
-  </ul></li>
-  <li><a href="#global-vs.-project-claude.md" id="toc-global-vs.-project-claude.md" class="nav-link" data-scroll-target="#global-vs.-project-claude.md">Global vs.&nbsp;project CLAUDE.md</a></li>
+  <li><a href="#global-vs.-project-instructions" id="toc-global-vs.-project-instructions" class="nav-link" data-scroll-target="#global-vs.-project-instructions">Global vs.&nbsp;project instructions</a></li>
   <li><a href="#customize-it" id="toc-customize-it" class="nav-link" data-scroll-target="#customize-it">Customize it</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/nmfs-opensci/agent-coders-clinics/edit/main/content/skills-100.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nmfs-opensci/agent-coders-clinics/blob/main/content/skills-100.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/nmfs-opensci/agent-coders-clinics/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -306,15 +264,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="the-global-claude.md" class="level2">
-<h2 class="anchored" data-anchor-id="the-global-claude.md">The global CLAUDE.md</h2>
-<p>Every time an agent starts a session, it reads a file called <code>CLAUDE.md</code> (or <code>AGENTS.md</code>) in the root of your repo. This is where you tell the agent about <em>this project</em> — how to build it, what the architecture looks like.</p>
-<p>But there’s also a <strong>global</strong> <code>CLAUDE.md</code> that lives in your home directory (<code>~/.claude/CLAUDE.md</code>). This one applies to <em>every</em> repo you work in. It’s where you define your personal workflow — the phrases you use, what they mean, and what the agent should do when it hears them.</p>
+<section id="your-global-instructions-file" class="level2">
+<h2 class="anchored" data-anchor-id="your-global-instructions-file">Your global instructions file</h2>
+<p>Every time an agent starts a session, it reads an instructions file in the root of your repo: <code>CLAUDE.md</code> for Claude Code, <code>AGENTS.md</code> for Antigravity. This is where you tell the agent about <em>this project</em> — how to build it, what the architecture looks like.</p>
+<p>There’s also a <strong>global</strong> instructions file in your home directory. It applies to <em>every</em> repo you work in. It’s where you define your personal workflow — the phrases you use, what they mean, and what the agent should do when it hears them.</p>
 <p>Think of it as training the agent to work the way you work.</p>
 </section>
 <section id="set-it-up-with-a-prompt" class="level2">
 <h2 class="anchored" data-anchor-id="set-it-up-with-a-prompt">Set it up with a prompt</h2>
-<p>You don’t need to write the file by hand. Start your agent and give it this prompt:</p>
+<p>You don’t need to write the file by hand, or even know where it goes. Start your agent and give it this prompt. It works in Claude Code and Antigravity: the agent works out which file it reads.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -326,7 +284,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="callout-body-container callout-body">
 <blockquote class="blockquote">
-<p>Create <code>~/.claude/CLAUDE.md</code> with my workflow preferences. Here is how I work:</p>
+<p>Create my global instructions file, the one you read in every project, with my workflow preferences. If you are Claude Code, it is <code>$CLAUDE_CONFIG_DIR/CLAUDE.md</code> when <code>CLAUDE_CONFIG_DIR</code> is set, and <code>~/.claude/CLAUDE.md</code> otherwise. If you are Antigravity, it is <code>~/.gemini/config/AGENTS.md</code>. Tell me the path you used.</p>
+<p>Here is how I work:</p>
 <p><strong>“I am starting a new task”</strong> means:</p>
 <ol type="1">
 <li>Create a GitHub issue for the task</li>
@@ -335,14 +294,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <p><strong>“Task is done”</strong> or <strong>“Let’s finish up the task”</strong> means:</p>
 <ol type="1">
-<li>Open a PR</li>
-<li>Merge the PR</li>
-<li>Delete the branch</li>
+<li>Commit the work on the task’s branch, push the branch, and open a PR</li>
+<li>Tell me what the PR changes and ask me before merging it</li>
+<li>Merge the PR once I say yes</li>
+<li>Ask me before deleting the branch</li>
 </ol>
 <p>Note: this assumes I’m working on my own. For collaborative work, I’ll open the PR and assign a reviewer instead of merging.</p>
 <p><strong>“Get ready for clear”</strong> means:</p>
 <ol type="1">
-<li>Close any loose ends (pending edits, uncommitted changes)</li>
+<li>Close any loose ends (pending edits, uncommitted changes). Commit on the task’s branch, never on <code>main</code>; if we are on <code>main</code>, ask me what to do</li>
 <li>Review memories for outdated information and update them</li>
 <li>Update the handoff note in <code>notes/</code></li>
 <li>Keep the handoff concise — move detailed info to separate files in <code>notes/</code> if it’s getting long</li>
@@ -356,6 +316,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <p><strong>Git rules:</strong></p>
 <ul>
+<li>Never push to <code>main</code>. Work on a branch and open a PR</li>
 <li>Never use destructive git actions: no <code>--force</code> pushes, no <code>git reset --hard</code>, no <code>git clean -f</code>, no deleting branches that haven’t been merged</li>
 <li>Always create new commits rather than amending</li>
 <li>Ask before any action that could lose work</li>
@@ -365,41 +326,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>The agent will create the file for you. Review it, tweak anything you want, and you’re done.</p>
 <p>Over time, add more shortcuts as you develop habits. The file grows with you.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Expect it to stop and ask
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When you say “Task is done”, the agent opens the PR and then stops to ask before merging and before deleting the branch. That is on purpose: you decide when work goes into <code>main</code>. With Antigravity, the <a href="../content/setup.html#guardrails">guardrails</a> enforce this even if the instructions are missing, and Antigravity may show its own approval prompt after you say yes. If you start working without “I am starting a new task”, the agent is on <code>main</code> and cannot push there. Ask it to move the work to a new branch.</p>
+</div>
+</div>
 </section>
-<section id="where-does-it-live" class="level2">
-<h2 class="anchored" data-anchor-id="where-does-it-live">Where does it live?</h2>
-<p>The global <code>CLAUDE.md</code> lives at <code>~/.claude/CLAUDE.md</code> — in your home directory. But “home directory” means different things depending on where you’re working.</p>
-<section id="on-jupyterhub-this-clinic" class="level3">
-<h3 class="anchored" data-anchor-id="on-jupyterhub-this-clinic">On JupyterHub (this clinic)</h3>
-<p>Your home directory is <code>/home/jovyan</code>. The file goes at:</p>
-<pre><code>/home/jovyan/.claude/CLAUDE.md</code></pre>
-<p>This persists across sessions on the same JupyterHub, but <strong>it will be lost if the hub is rebuilt</strong>. That’s ok for learning. If you like what you’ve set up, save a copy somewhere permanent (see below).</p>
-</section>
-<section id="on-a-vm-that-gets-torn-down" class="level3">
-<h3 class="anchored" data-anchor-id="on-a-vm-that-gets-torn-down">On a VM that gets torn down</h3>
-<p>Cloud VMs (like those from AWS, GCP, or Azure) often get rebuilt. Your <code>~/.claude/CLAUDE.md</code> will disappear when that happens.</p>
-<p><strong>Keep a backup.</strong> The simplest approach: keep a copy in a repo you use across environments. When you spin up a new VM, copy it into place:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> ~/.claude</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> my-repo/dotfiles/CLAUDE.md ~/.claude/CLAUDE.md</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Or add it to your dotfiles if you manage those.</p>
-</section>
-<section id="on-your-personal-computer" class="level3">
-<h3 class="anchored" data-anchor-id="on-your-personal-computer">On your personal computer</h3>
-<p>This is the most stable home. The file stays put until you change it:</p>
-<ul>
-<li><strong>macOS / Linux:</strong> <code>~/.claude/CLAUDE.md</code></li>
-<li><strong>Windows (WSL):</strong> <code>~/.claude/CLAUDE.md</code> inside your WSL home</li>
-</ul>
-<p>This is where your global <code>CLAUDE.md</code> will eventually live long-term.</p>
-</section>
-<section id="the-portable-approach" class="level3">
-<h3 class="anchored" data-anchor-id="the-portable-approach">The portable approach</h3>
-<p>If you work across multiple machines, keep your global <code>CLAUDE.md</code> in a small repo (or a gist) and copy it to each new environment. Some people keep a <code>dotfiles</code> repo for exactly this purpose.</p>
-<p>The key habit: <strong>when you change your global CLAUDE.md, update the backup too.</strong></p>
-</section>
-</section>
-<section id="global-vs.-project-claude.md" class="level2">
-<h2 class="anchored" data-anchor-id="global-vs.-project-claude.md">Global vs.&nbsp;project CLAUDE.md</h2>
+<section id="global-vs.-project-instructions" class="level2">
+<h2 class="anchored" data-anchor-id="global-vs.-project-instructions">Global vs.&nbsp;project instructions</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -409,34 +351,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <thead>
 <tr class="header">
 <th></th>
-<th>Global (<code>~/.claude/CLAUDE.md</code>)</th>
-<th>Project (<code>./CLAUDE.md</code>)</th>
+<th>Global</th>
+<th>Project (<code>CLAUDE.md</code> or <code>AGENTS.md</code>)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
+<td><strong>Where</strong></td>
+<td>Your home directory; the agent knows the exact place</td>
+<td>The root of your repo</td>
+</tr>
+<tr class="even">
 <td><strong>Applies to</strong></td>
 <td>Every repo</td>
 <td>This repo only</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><strong>Contains</strong></td>
 <td>Your personal workflow and conventions</td>
 <td>Project-specific build commands, architecture, coding style</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><strong>Examples</strong></td>
 <td>“Starting a new task” means create issue + branch</td>
 <td>“Run <code>quarto render</code> to build”</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><strong>Persists</strong></td>
-<td>Tied to the machine / home directory</td>
+<td>Tied to the machine</td>
 <td>Committed to the repo, travels with it</td>
 </tr>
 </tbody>
 </table>
 <p>Both are loaded at session start. The project file adds context specific to the codebase. The global file carries your workflow everywhere.</p>
+<p>Because the global file stays on the machine, it is lost if the hub is rebuilt. If you like what you set up, ask the agent where it is and keep a copy.</p>
 </section>
 <section id="customize-it" class="level2">
 <h2 class="anchored" data-anchor-id="customize-it">Customize it</h2>
