@@ -277,7 +277,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="quick-reference" class="level2" data-number="11.1">
 <h2 data-number="11.1" class="anchored" data-anchor-id="quick-reference"><span class="header-section-number">11.1</span> Quick reference</h2>
-<p>All of these tools work through the clinic’s shared gateway. Pick whichever one you’re most comfortable with — or try a few.</p>
+<p>On the JupyterHub, the clinic provides pre-configured launchers for <strong>Claude Code</strong> (via the clinic’s LiteLLM Bedrock gateway) and <strong>Antigravity</strong> (via Google Cloud). Other tools remain available for reference if running in your own environment.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 20%">
@@ -290,72 +290,79 @@ ul.task-list li input[type="checkbox"] {
 <tr class="header">
 <th></th>
 <th>Claude Code</th>
+<th>Antigravity (<code>agy</code>)</th>
 <th>OpenCode</th>
 <th>Copilot CLI</th>
-<th>Gemini CLI</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Start</strong></td>
+<td><strong>Hub launcher</strong></td>
+<td><code>claude-agent-coders</code></td>
+<td><code>agy-agent-coders</code></td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td><strong>Direct start</strong></td>
 <td><code>claude</code></td>
+<td><code>agy</code></td>
 <td><code>opencode</code></td>
 <td><code>copilot</code></td>
-<td><code>gemini</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Credentials</strong></td>
+<td>Workshop code / LiteLLM key</td>
+<td>Google Cloud project code</td>
+<td>Gateway key</td>
+<td>GitHub / Gateway</td>
 </tr>
 <tr class="even">
 <td><strong>Switch model</strong></td>
 <td><code>/model name</code></td>
+<td>Settings / CLI args</td>
 <td><code>/models</code> menu</td>
-<td>Quit, change env var, restart</td>
-<td><code>/model name</code></td>
+<td>Env var restart</td>
 </tr>
 <tr class="odd">
-<td><strong>Check usage</strong></td>
-<td><code>/usage</code></td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
-</tr>
-<tr class="even">
 <td><strong>Clear context</strong></td>
 <td><code>/clear</code></td>
-<td>—</td>
-<td>—</td>
 <td><code>/clear</code></td>
-</tr>
-<tr class="odd">
-<td><strong>Status</strong></td>
-<td><code>/status</code></td>
-<td>—</td>
 <td>—</td>
 <td>—</td>
 </tr>
 <tr class="even">
+<td><strong>Instructions file</strong></td>
+<td><code>CLAUDE.md</code> or <code>AGENTS.md</code></td>
+<td><code>AGENTS.md</code></td>
+<td>Config</td>
+<td>System prompt</td>
+</tr>
+<tr class="odd">
 <td><strong>Best for</strong></td>
-<td>Deep coding tasks, Claude models</td>
-<td>Trying open models, flexible config</td>
-<td>Quick questions</td>
-<td>Google ecosystem</td>
+<td>Claude models, deep reasoning</td>
+<td>Gemini models, Google ecosystem</td>
+<td>Open models</td>
+<td>Quick suggestions</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="key-differences" class="level2" data-number="11.2">
 <h2 data-number="11.2" class="anchored" data-anchor-id="key-differences"><span class="header-section-number">11.2</span> Key differences</h2>
-<p><strong>Claude Code</strong> is the most full-featured for this clinic. It has built-in commands for managing context (<code>/clear</code>), checking status (<code>/status</code>, <code>/usage</code>), and switching models (<code>/model</code>). It’s designed around Claude and works well with <code>CLAUDE.md</code> project files.</p>
-<p><strong>OpenCode</strong> is open-source and has the most flexible model configuration. It works well with both Claude and open models through the gateway. Good if you want to compare models side by side.</p>
-<p><strong>GitHub Copilot CLI</strong> is straightforward to set up. To switch models you need to quit and restart with a different <code>COPILOT_MODEL</code> environment variable. No GitHub account needed when using the gateway.</p>
-<p><strong>Gemini CLI</strong> is Google’s tool. It follows the same agentic pattern. Configuration is via environment variables.</p>
+<p><strong>Claude Code</strong> connects to the clinic’s LiteLLM gateway on Amazon Bedrock. It has built-in commands for managing context (<code>/clear</code>), checking status and spending (<code>/status</code>, <code>/usage</code>, <code>claude-agent-coders --budget</code>), and switching models (<code>/model</code>). It reads <code>CLAUDE.md</code> or <code>@AGENTS.md</code> in the project root.</p>
+<p><strong>Antigravity (<code>agy</code>)</strong> is Google’s agentic coding CLI powered by Gemini models. On the hub, the <code>agy-agent-coders</code> launcher installs <code>agy</code>, pre-approves everyday tasks (Quarto, R, Python, git, file inspections) so they run without interruption, and sets a safety guard to prevent destructive commands (<code>git reset --hard</code>, force push, <code>rm -r</code> outside project). It reads <code>AGENTS.md</code> in the project root.</p>
+<p><strong>OpenCode</strong> is open-source and has flexible model configuration, connecting to open models through gateways.</p>
+<p><strong>GitHub Copilot CLI</strong> is focused on command-line suggestions and interactive coding assistance through GitHub Copilot.</p>
 </section>
 <section id="common-commands-across-tools" class="level2" data-number="11.3">
 <h2 data-number="11.3" class="anchored" data-anchor-id="common-commands-across-tools"><span class="header-section-number">11.3</span> Common commands across tools</h2>
 <p>Regardless of which tool you use, you’ll do the same basic things:</p>
 <ul>
 <li><strong>Give a prompt</strong> — type what you want the agent to do</li>
-<li><strong>Approve tool use</strong> — most tools ask permission before editing files or running commands</li>
+<li><strong>Approve tool use</strong> — agents ask permission before running unapproved commands or modifying sensitive files</li>
 <li><strong>Review output</strong> — always check what the agent did before moving on</li>
-<li><strong>End the session</strong> — close the tool or clear context when switching tasks</li>
+<li><strong>End the session or reset</strong> — close the tool or clear context (<code>/clear</code>) when switching tasks</li>
 </ul>
 
 

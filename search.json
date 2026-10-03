@@ -54,84 +54,40 @@
     "href": "content/setup.html",
     "title": "2  Setup",
     "section": "",
-    "text": "2.1 1. Log in to GitHub\nEverything in this clinic runs on the NMFS Openscapes JupyterHub. You do not need an AI account, an API key, or anything installed on your own computer. You need a GitHub account.\nIn your browser, log in to github.com. The hub uses your GitHub account to let you in.",
+    "text": "2.1 Get on the JupyterHub\nEverything in this clinic runs on the NMFS Openscapes JupyterHub. You do not need anything installed on your own computer. You need a GitHub account.",
     "crumbs": [
       "Getting Started",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Setup</span>"
     ]
   },
   {
-    "objectID": "content/setup.html#go-to-the-hub",
-    "href": "content/setup.html#go-to-the-hub",
+    "objectID": "content/setup.html#get-on-the-jupyterhub",
+    "href": "content/setup.html#get-on-the-jupyterhub",
     "title": "2  Setup",
-    "section": "2.2 2. Go to the hub",
-    "text": "2.2 2. Go to the hub\nOpen https://nmfs-openscapes.2i2c.cloud/ and sign in with GitHub.",
+    "section": "",
+    "text": "Log in to GitHub. The hub uses your GitHub account to let you in.\nOpen https://nmfs-openscapes.2i2c.cloud/ . You should see the start a server page.\nYou can accept the default image. Choose the 4 GB size and click Start. It can take a minute or two to start.",
     "crumbs": [
       "Getting Started",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Setup</span>"
     ]
   },
   {
-    "objectID": "content/setup.html#start-a-server-with-4-gb",
-    "href": "content/setup.html#start-a-server-with-4-gb",
+    "objectID": "content/setup.html#once-on-the-hub-run-the-setup-script.",
+    "href": "content/setup.html#once-on-the-hub-run-the-setup-script.",
     "title": "2  Setup",
-    "section": "2.3 3. Start a server with 4 GB",
-    "text": "2.3 3. Start a server with 4 GB\nOn the server options page, choose the 4 GB size and click Start. It can take a minute or two to start.",
+    "section": "2.2 Once on the hub, run the setup script.",
+    "text": "2.2 Once on the hub, run the setup script.\n\nIn JupyterLab: File → New → Terminal.\nRun the workshop setup script in the terminal.\n\nChoose the tool you are using for the clinic:\n\nClaude CodeAntigravity\n\n\nIn the terminal, run:\n~/shared/workshop/claude-agent-coders\nWhen it asks, type the workshop code your organizer gives you (or paste the key starting with sk- if you were given one). The script gets you a personal key, shows your budget and when it expires, installs Claude Code, and starts it.\nThe first start asks a few setup questions. Pick a theme. When it asks whether to trust this folder, say no. It is asking about your home directory, and you do not want the agent working across everything in it. This step is only to get Claude Code installed and your key saved. If Claude Code starts anyway, type /exit to close it.\n\n\nIn the terminal, run the team launcher:\n~/shared/agent-coders/agy-agent-coders\nThe launcher checks for the Antigravity CLI (agy), installs it automatically if missing, sets up your terminal PATH, adds auto-approved everyday commands to your settings, and configures safety guards.\nOn your first run, it will walk you through sign-in:\n\nWhen prompted with “Select login method”, choose/accept “Continue with Google Cloud”.\nLook for the link in the terminal: click “click to authenticate” (or copy and paste the URL into your browser).\nSign in with your Google account, click through the authorization prompts, and copy the authorization code.\nReturn to the terminal and paste the code.\nWhen prompted for your Google Cloud project code, paste the project code provided to you (from Jira or your organizer).\nWhen prompted with “Accept License”, accept the ‘Agent Platform’.\n\nOnce authentication completes and you see the agent prompt, type /exit to close it so you can complete the repository setup steps below.",
     "crumbs": [
       "Getting Started",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Setup</span>"
     ]
   },
   {
-    "objectID": "content/setup.html#open-a-terminal",
-    "href": "content/setup.html#open-a-terminal",
+    "objectID": "content/setup.html#authenticate-to-github-in-the-jupyterhub",
+    "href": "content/setup.html#authenticate-to-github-in-the-jupyterhub",
     "title": "2  Setup",
-    "section": "2.4 4. Open a terminal",
-    "text": "2.4 4. Open a terminal\nIn JupyterLab: File → New → Terminal.",
-    "crumbs": [
-      "Getting Started",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Setup</span>"
-    ]
-  },
-  {
-    "objectID": "content/setup.html#run-the-workshop-script",
-    "href": "content/setup.html#run-the-workshop-script",
-    "title": "2  Setup",
-    "section": "2.5 5. Run the workshop script",
-    "text": "2.5 5. Run the workshop script\nIn the terminal, run:\n~/shared/workshop/claude-agent-coders\nWhen it asks, type the workshop code your organizer gives you (or paste the key starting with sk- if you were given one). The script gets you a personal key, shows your budget and when it expires, installs Claude Code, and starts it.\nThe first start asks a few setup questions. Pick a theme. When it asks whether to trust this folder, say no. It is asking about your home directory, and you do not want the agent working across everything in it. This step is only to get Claude Code installed and your key saved. If Claude Code starts anyway, type /exit to close it.",
-    "crumbs": [
-      "Getting Started",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Setup</span>"
-    ]
-  },
-  {
-    "objectID": "content/setup.html#log-in-to-github-from-the-terminal",
-    "href": "content/setup.html#log-in-to-github-from-the-terminal",
-    "title": "2  Setup",
-    "section": "2.6 6. Log in to GitHub from the terminal",
-    "text": "2.6 6. Log in to GitHub from the terminal\ngh auth login\nAnswer the prompts:\n\nWhere do you use GitHub? GitHub.com\nPreferred protocol for Git operations? HTTPS\nAuthenticate Git with your GitHub credentials? Yes\nHow would you like to authenticate? Login with a web browser\n\nIt prints a one-time code. Copy it, open the link it shows, paste the code, and approve. When the terminal says you are logged in, you are done.",
-    "crumbs": [
-      "Getting Started",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Setup</span>"
-    ]
-  },
-  {
-    "objectID": "content/setup.html#make-your-own-copy-of-the-practice-repository",
-    "href": "content/setup.html#make-your-own-copy-of-the-practice-repository",
-    "title": "2  Setup",
-    "section": "2.7 7. Make your own copy of the practice repository",
-    "text": "2.7 7. Make your own copy of the practice repository\nCreate a repository in your own GitHub account from the NOAA Quarto book template, and clone it to the hub:\ncd ~\ngh repo create my-quarto-book --template nmfs-opensci/NOAA-quarto-book --public --clone\nYou can use any name in place of my-quarto-book. You now have ~/my-quarto-book on the hub and a matching repository on your GitHub.",
-    "crumbs": [
-      "Getting Started",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Setup</span>"
-    ]
-  },
-  {
-    "objectID": "content/setup.html#start-claude-code-in-your-repository",
-    "href": "content/setup.html#start-claude-code-in-your-repository",
-    "title": "2  Setup",
-    "section": "2.8 8. Start Claude Code in your repository",
-    "text": "2.8 8. Start Claude Code in your repository\nOpen a new terminal (the short command does not work in the terminal you used for step 5), then:\ncd ~/my-quarto-book\nclaude-agent-coders\nThis time, say yes to trusting the folder: this is the repository you want the agent to work in.\nTry a first prompt:\n\nWhat is this repository? List the main files and what they do.\n\nIf the agent reads your files and answers, you are set up.",
+    "section": "2.3 Authenticate to GitHub in the JupyterHub",
+    "text": "2.3 Authenticate to GitHub in the JupyterHub\ngh auth login\nAnswer the prompts:\n\nWhere do you use GitHub? GitHub.com\nPreferred protocol for Git operations? HTTPS\nAuthenticate Git with your GitHub credentials? Yes\nHow would you like to authenticate? Login with a web browser\n\nIt prints a one-time code. Copy it, open the link it shows, paste the code, and approve. When the terminal says you are logged in, you are done.",
     "crumbs": [
       "Getting Started",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Setup</span>"
@@ -141,8 +97,8 @@
     "objectID": "content/setup.html#good-to-know",
     "href": "content/setup.html#good-to-know",
     "title": "2  Setup",
-    "section": "2.9 Good to know",
-    "text": "2.9 Good to know\n\nCheck your spending: claude-agent-coders --budget shows what you have spent, your budget, and when your key expires. Spending shows up about a minute after you use Claude.\nSwitch models inside Claude Code with /model, for example /model claude-sonnet-4-6. The default, Claude Haiku 4.5, is the cheapest.\nYour own Claude account is untouched. claude-agent-coders keeps its settings in ~/.config/claude-agent-coders/claude, separate from ~/.claude.\nThe full path always works: if claude-agent-coders is not found, use ~/shared/workshop/claude-agent-coders.",
+    "section": "2.4 Good to know",
+    "text": "2.4 Good to know\n\nClaude Code budget: claude-agent-coders --budget shows what you have spent, your budget, and when your key expires. Spending shows up about a minute after you use Claude.\nSwitch models in Claude Code: Use /model, for example /model claude-sonnet-4-6. The default, Claude Haiku 4.5, is the cheapest.\nCheck Antigravity settings: Run agy-agent-coders --check in a terminal to see the auto-approved commands and edit mode configured for your account.\nAlways use the team launcher: Start Antigravity with agy-agent-coders, not plain agy. Plain agy asks for permission before every single shell command out of the box; agy-agent-coders adds everyday commands to your settings and guards against destructive actions.\nDo not use agy --sandbox on the hub: The hub’s container security does not support container sandboxing.\nInteractive vs non-interactive (agy -p): Non-interactive mode (agy -p \"...\") stops the whole task at the first command requiring approval, so stick to the interactive terminal session during clinic exercises.\nChained commands: Permission rules match whole words from the start of a command; each segment of a chained command (like cmd1 && cmd2 or cmd1 | cmd2) must match on its own. Chained commands that include unapproved segments will ask for approval.\nYour personal configurations are preserved: Both claude-agent-coders and agy-agent-coders preserve your personal settings and existing configurations.\nThe full paths always work: If claude-agent-coders is not found, use ~/shared/workshop/claude-agent-coders. If agy-agent-coders is not found, use ~/shared/agent-coders/agy-agent-coders.",
     "crumbs": [
       "Getting Started",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Setup</span>"
@@ -152,8 +108,8 @@
     "objectID": "content/setup.html#if-something-goes-wrong",
     "href": "content/setup.html#if-something-goes-wrong",
     "title": "2  Setup",
-    "section": "2.10 If something goes wrong",
-    "text": "2.10 If something goes wrong\n\n“That workshop code is not right”: check the code and try again.\n“That key was not accepted”: paste the whole key, starting with sk-. If it still fails, ask your organizer.\n“A key for … was already issued”: you, or someone using your name, already signed up. Ask your organizer.\n“All workshop keys are handed out”, “sign-up is closed” or “has ended”: ask your organizer.\n“not set up yet” or “Could not reach the workshop gateway”: the gateway is not running. Ask your organizer.\nA key from an earlier workshop: run claude-agent-coders --reset, then claude-agent-coders and enter the new code.",
+    "section": "2.5 If something goes wrong",
+    "text": "2.5 If something goes wrong\n\n2.5.1 Claude Code issues\n\n“That workshop code is not right”: check the code and try again.\n“That key was not accepted”: paste the whole key, starting with sk-. If it still fails, ask your organizer.\n“A key for … was already issued”: you, or someone using your name, already signed up. Ask your organizer.\n“All workshop keys are handed out”, “sign-up is closed” or “has ended”: ask your organizer.\n“not set up yet” or “Could not reach the workshop gateway”: the gateway is not running. Ask your organizer.\nA key from an earlier workshop: run claude-agent-coders --reset, then claude-agent-coders and enter the new code.\n\n\n\n2.5.2 Antigravity issues\n\nagy-agent-coders: command not found: Open a new terminal (new terminals load the updated PATH with ~/.local/bin), or run the full path ~/shared/agent-coders/agy-agent-coders.\n“agent-coders guard: …”: The safety guard prevented a destructive command (such as git reset --hard or rm -r outside the project folder). This is expected protection; tell the agent to use non-destructive alternatives like git stash or a soft reset.\nCommands asking for confirmation: Prompts to approve actions like pip, cp, mv, or rm are expected behavior for commands not on the everyday whitelist. Review the proposed command and approve it if appropriate.\nGoogle Cloud project prompt: Make sure you paste the exact Google Cloud project code provided in your clinic materials or Jira ticket.",
     "crumbs": [
       "Getting Started",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Setup</span>"
@@ -362,7 +318,7 @@
     "href": "content/activity-repo-analysis.html#before-you-start",
     "title": "6  Activity: Edit a Quarto Book with an Agent",
     "section": "",
-    "text": "6.1.1 1. Create your own copy of the template\nGo to https://github.com/nmfs-opensci/NOAA-quarto-book and click the green “Use this template” button to create a copy in your own GitHub account. Make the repo public and check the box to include all branches (so you get the gh-pages branch).\n\n\n6.1.2 2. Clone it into JupyterHub\nIn a terminal:\ncd ~\ngit clone https://github.com/YOUR-USERNAME/NOAA-quarto-book.git\ncd NOAA-quarto-book\n\n\n6.1.3 3. Start your agent\nLaunch your coding tool inside the cloned repo:\nclaude\n(Or opencode, copilot, etc. — whichever you set up.)",
+    "text": "6.1.1 1. Create your own copy of the template\nGo to https://github.com/nmfs-opensci/NOAA-quarto-book and click the green “Use this template” button to create a copy in your own GitHub account. Make the repo public and check the box to include all branches (so you get the gh-pages branch).\n\n\n6.1.2 2. Clone it into JupyterHub\nIn a terminal:\ncd ~\ngit clone https://github.com/YOUR-USERNAME/NOAA-quarto-book.git\ncd NOAA-quarto-book\n\n\n6.1.3 3. Start your agent\nLaunch your coding tool inside the cloned repo:\nclaude-agent-coders\n# or for Antigravity:\nagy-agent-coders\n(Or claude, agy, etc. depending on your tool.)",
     "crumbs": [
       "What Is Agentic Coding?",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Activity: Edit a Quarto Book with an Agent</span>"
@@ -681,7 +637,7 @@
     "href": "content/tool-comparison.html",
     "title": "11  Tool Comparison",
     "section": "",
-    "text": "11.1 Quick reference\nAll of these tools work through the clinic’s shared gateway. Pick whichever one you’re most comfortable with — or try a few.",
+    "text": "11.1 Quick reference\nOn the JupyterHub, the clinic provides pre-configured launchers for Claude Code (via the clinic’s LiteLLM Bedrock gateway) and Antigravity (via Google Cloud). Other tools remain available for reference if running in your own environment.",
     "crumbs": [
       "Reference",
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Tool Comparison</span>"
@@ -692,7 +648,7 @@
     "href": "content/tool-comparison.html#quick-reference",
     "title": "11  Tool Comparison",
     "section": "",
-    "text": "Claude Code\nOpenCode\nCopilot CLI\nGemini CLI\n\n\n\n\nStart\nclaude\nopencode\ncopilot\ngemini\n\n\nSwitch model\n/model name\n/models menu\nQuit, change env var, restart\n/model name\n\n\nCheck usage\n/usage\n—\n—\n—\n\n\nClear context\n/clear\n—\n—\n/clear\n\n\nStatus\n/status\n—\n—\n—\n\n\nBest for\nDeep coding tasks, Claude models\nTrying open models, flexible config\nQuick questions\nGoogle ecosystem",
+    "text": "Claude Code\nAntigravity (agy)\nOpenCode\nCopilot CLI\n\n\n\n\nHub launcher\nclaude-agent-coders\nagy-agent-coders\n—\n—\n\n\nDirect start\nclaude\nagy\nopencode\ncopilot\n\n\nCredentials\nWorkshop code / LiteLLM key\nGoogle Cloud project code\nGateway key\nGitHub / Gateway\n\n\nSwitch model\n/model name\nSettings / CLI args\n/models menu\nEnv var restart\n\n\nClear context\n/clear\n/clear\n—\n—\n\n\nInstructions file\nCLAUDE.md or AGENTS.md\nAGENTS.md\nConfig\nSystem prompt\n\n\nBest for\nClaude models, deep reasoning\nGemini models, Google ecosystem\nOpen models\nQuick suggestions",
     "crumbs": [
       "Reference",
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Tool Comparison</span>"
@@ -703,7 +659,7 @@
     "href": "content/tool-comparison.html#key-differences",
     "title": "11  Tool Comparison",
     "section": "11.2 Key differences",
-    "text": "11.2 Key differences\nClaude Code is the most full-featured for this clinic. It has built-in commands for managing context (/clear), checking status (/status, /usage), and switching models (/model). It’s designed around Claude and works well with CLAUDE.md project files.\nOpenCode is open-source and has the most flexible model configuration. It works well with both Claude and open models through the gateway. Good if you want to compare models side by side.\nGitHub Copilot CLI is straightforward to set up. To switch models you need to quit and restart with a different COPILOT_MODEL environment variable. No GitHub account needed when using the gateway.\nGemini CLI is Google’s tool. It follows the same agentic pattern. Configuration is via environment variables.",
+    "text": "11.2 Key differences\nClaude Code connects to the clinic’s LiteLLM gateway on Amazon Bedrock. It has built-in commands for managing context (/clear), checking status and spending (/status, /usage, claude-agent-coders --budget), and switching models (/model). It reads CLAUDE.md or @AGENTS.md in the project root.\nAntigravity (agy) is Google’s agentic coding CLI powered by Gemini models. On the hub, the agy-agent-coders launcher installs agy, pre-approves everyday tasks (Quarto, R, Python, git, file inspections) so they run without interruption, and sets a safety guard to prevent destructive commands (git reset --hard, force push, rm -r outside project). It reads AGENTS.md in the project root.\nOpenCode is open-source and has flexible model configuration, connecting to open models through gateways.\nGitHub Copilot CLI is focused on command-line suggestions and interactive coding assistance through GitHub Copilot.",
     "crumbs": [
       "Reference",
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Tool Comparison</span>"
@@ -714,7 +670,7 @@
     "href": "content/tool-comparison.html#common-commands-across-tools",
     "title": "11  Tool Comparison",
     "section": "11.3 Common commands across tools",
-    "text": "11.3 Common commands across tools\nRegardless of which tool you use, you’ll do the same basic things:\n\nGive a prompt — type what you want the agent to do\nApprove tool use — most tools ask permission before editing files or running commands\nReview output — always check what the agent did before moving on\nEnd the session — close the tool or clear context when switching tasks",
+    "text": "11.3 Common commands across tools\nRegardless of which tool you use, you’ll do the same basic things:\n\nGive a prompt — type what you want the agent to do\nApprove tool use — agents ask permission before running unapproved commands or modifying sensitive files\nReview output — always check what the agent did before moving on\nEnd the session or reset — close the tool or clear context (/clear) when switching tasks",
     "crumbs": [
       "Reference",
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Tool Comparison</span>"
@@ -736,7 +692,7 @@
     "href": "content/troubleshooting.html#setup-problems",
     "title": "12  Troubleshooting",
     "section": "",
-    "text": "12.1.1 claude-agent-coders: command not found\nThe short name works only in terminals opened after you first ran the script. Open a new terminal, or use the full path:\n~/shared/workshop/claude-agent-coders\n\n\n12.1.2 “That workshop code is not right”\nCheck the code with your organizer and try again.\n\n\n12.1.3 “That key was not accepted”\nPaste the whole key, starting with sk-. If it still fails, ask your organizer.\n\n\n12.1.4 “A key for … was already issued”\nYou, or someone using your name, already signed up. Ask your organizer.\n\n\n12.1.5 “All workshop keys are handed out”, “sign-up is closed” or “has ended”\nAsk your organizer.\n\n\n12.1.6 “not set up yet” or “Could not reach the workshop gateway”\nThe gateway is not running. Ask your organizer.\n\n\n12.1.7 I have a key from an earlier workshop\nForget the old key, then start again and enter the new code:\nclaude-agent-coders --reset\nclaude-agent-coders\n\n\n12.1.8 gh auth login or gh repo create fails\nRun gh auth status to see whether you are logged in. If not, run gh auth login again and choose GitHub.com, HTTPS, Yes (authenticate Git), and Login with a web browser. If gh repo create says the name already exists, pick a different repository name.",
+    "text": "12.1.1 claude-agent-coders: command not found or agy-agent-coders: command not found\nThe short command names work only in terminals opened after you first ran the launcher script (the scripts add ~/.local/bin to your PATH). Open a new terminal, or use the full paths:\n\nClaude Code: ~/shared/workshop/claude-agent-coders\nAntigravity: ~/shared/agent-coders/agy-agent-coders\n\n\n\n12.1.2 “agent-coders guard: …”\nThe safety guard installed by agy-agent-coders blocked a destructive command, such as git reset --hard, git push --force (without lease), git clean -f, or rm -r on a path outside your project repository. This is intentional to prevent accidental work loss. Tell the agent to use a non-destructive alternative (for example, git stash or a soft reset).\n\n\n12.1.3 Antigravity prompts for approval on everyday commands\nIf Antigravity prompts you to approve simple commands like ls or quarto, you may have started plain agy instead of the team launcher. Quit and restart with:\nagy-agent-coders\nYou can check what commands are currently allowed to run without asking by running:\nagy-agent-coders --check\n\n\n12.1.4 Antigravity prompts for approval on pip, cp, or rm\nThis is normal and expected. The team launcher whitelists safe, everyday commands (quarto, R, python3, git, directory listing, etc.), but intentionally leaves package installations (pip), file copies, and deletions to require explicit user approval. Review the proposed command and approve it if appropriate.\n\n\n12.1.5 “That workshop code is not right”\nCheck the code with your organizer and try again.\n\n\n12.1.6 “That key was not accepted”\nPaste the whole key, starting with sk-. If it still fails, ask your organizer.\n\n\n12.1.7 “A key for … was already issued”\nYou, or someone using your name, already signed up. Ask your organizer.\n\n\n12.1.8 “All workshop keys are handed out”, “sign-up is closed” or “has ended”\nAsk your organizer.\n\n\n12.1.9 “not set up yet” or “Could not reach the workshop gateway”\nThe gateway is not running. Ask your organizer.\n\n\n12.1.10 I have a key from an earlier workshop\nForget the old key, then start again and enter the new code:\nclaude-agent-coders --reset\nclaude-agent-coders\n\n\n12.1.11 gh auth login or gh repo create fails\nRun gh auth status to see whether you are logged in. If not, run gh auth login again and choose GitHub.com, HTTPS, Yes (authenticate Git), and Login with a web browser. If gh repo create says the name already exists, pick a different repository name.\n\n\n12.1.12 Sandbox fails with agy --sandbox\nDo not use --sandbox. The JupyterHub container environment does not support nested container namespaces.\n\n\n12.1.13 Non-interactive agy -p exits early\nagy -p \"...\" stops immediately at the first command that requires confirmation. For clinic exercises, use interactive mode (agy-agent-coders) instead.",
     "crumbs": [
       "Reference",
       "<span class='chapter-number'>12</span>  <span class='chapter-title'>Troubleshooting</span>"
@@ -758,7 +714,7 @@
     "href": "content/troubleshooting.html#agent-behavior-problems",
     "title": "12  Troubleshooting",
     "section": "12.3 Agent behavior problems",
-    "text": "12.3 Agent behavior problems\n\n12.3.1 Agent gives generic answers without reading files\nSome models (especially open models) don’t use file-reading tools reliably. Try:\n\nBeing explicit: “Use the read tool to look at README.md, then answer.”\nSwitching to a Claude model, which handles tool use more reliably.\n\n\n\n12.3.2 Agent seems confused or stuck\nThe conversation may have gotten too long. Run /clear and start fresh. If you have handoff notes in notes/, tell the agent to read those for context.\n\n\n12.3.3 Agent makes changes you didn’t ask for\nReview what the agent is doing before approving. Most tools ask permission before writing files. If it’s going off track, interrupt it and clarify what you actually want.\n\n\n12.3.4 Agent is working in the wrong folder\nClaude Code works in the folder you start it from. Quit (/exit), cd into your repository, and start claude-agent-coders again.",
+    "text": "12.3 Agent behavior problems\n\n12.3.1 Agent gives generic answers without reading files\nSome models (especially open models) don’t use file-reading tools reliably. Try:\n\nBeing explicit: “Use the read tool to look at README.md, then answer.”\nSwitching to a Claude model, which handles tool use more reliably.\n\n\n\n12.3.2 Agent seems confused or stuck\nThe conversation may have gotten too long. Run /clear and start fresh. If you have handoff notes in notes/, tell the agent to read those for context.\n\n\n12.3.3 Agent makes changes you didn’t ask for\nReview what the agent is doing before approving. Most tools ask permission before writing files. If it’s going off track, interrupt it and clarify what you actually want.\n\n\n12.3.4 Agent is working in the wrong folder\nAgents work in the folder you start them from. For Antigravity, this folder also defines the boundary that the safety guard protects. Quit (/exit), cd into your repository, and launch the agent again.",
     "crumbs": [
       "Reference",
       "<span class='chapter-number'>12</span>  <span class='chapter-title'>Troubleshooting</span>"

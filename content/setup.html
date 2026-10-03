@@ -282,16 +282,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#log-in-to-github" id="toc-log-in-to-github" class="nav-link active" data-scroll-target="#log-in-to-github"><span class="header-section-number">2.1</span> 1. Log in to GitHub</a></li>
-  <li><a href="#go-to-the-hub" id="toc-go-to-the-hub" class="nav-link" data-scroll-target="#go-to-the-hub"><span class="header-section-number">2.2</span> 2. Go to the hub</a></li>
-  <li><a href="#start-a-server-with-4-gb" id="toc-start-a-server-with-4-gb" class="nav-link" data-scroll-target="#start-a-server-with-4-gb"><span class="header-section-number">2.3</span> 3. Start a server with 4 GB</a></li>
-  <li><a href="#open-a-terminal" id="toc-open-a-terminal" class="nav-link" data-scroll-target="#open-a-terminal"><span class="header-section-number">2.4</span> 4. Open a terminal</a></li>
-  <li><a href="#run-the-workshop-script" id="toc-run-the-workshop-script" class="nav-link" data-scroll-target="#run-the-workshop-script"><span class="header-section-number">2.5</span> 5. Run the workshop script</a></li>
-  <li><a href="#log-in-to-github-from-the-terminal" id="toc-log-in-to-github-from-the-terminal" class="nav-link" data-scroll-target="#log-in-to-github-from-the-terminal"><span class="header-section-number">2.6</span> 6. Log in to GitHub from the terminal</a></li>
-  <li><a href="#make-your-own-copy-of-the-practice-repository" id="toc-make-your-own-copy-of-the-practice-repository" class="nav-link" data-scroll-target="#make-your-own-copy-of-the-practice-repository"><span class="header-section-number">2.7</span> 7. Make your own copy of the practice repository</a></li>
-  <li><a href="#start-claude-code-in-your-repository" id="toc-start-claude-code-in-your-repository" class="nav-link" data-scroll-target="#start-claude-code-in-your-repository"><span class="header-section-number">2.8</span> 8. Start Claude Code in your repository</a></li>
-  <li><a href="#good-to-know" id="toc-good-to-know" class="nav-link" data-scroll-target="#good-to-know"><span class="header-section-number">2.9</span> Good to know</a></li>
-  <li><a href="#if-something-goes-wrong" id="toc-if-something-goes-wrong" class="nav-link" data-scroll-target="#if-something-goes-wrong"><span class="header-section-number">2.10</span> If something goes wrong</a></li>
+  <li><a href="#get-on-the-jupyterhub" id="toc-get-on-the-jupyterhub" class="nav-link active" data-scroll-target="#get-on-the-jupyterhub"><span class="header-section-number">2.1</span> Get on the JupyterHub</a></li>
+  <li><a href="#once-on-the-hub-run-the-setup-script." id="toc-once-on-the-hub-run-the-setup-script." class="nav-link" data-scroll-target="#once-on-the-hub-run-the-setup-script."><span class="header-section-number">2.2</span> Once on the hub, run the setup script.</a></li>
+  <li><a href="#authenticate-to-github-in-the-jupyterhub" id="toc-authenticate-to-github-in-the-jupyterhub" class="nav-link" data-scroll-target="#authenticate-to-github-in-the-jupyterhub"><span class="header-section-number">2.3</span> Authenticate to GitHub in the JupyterHub</a></li>
+  <li><a href="#good-to-know" id="toc-good-to-know" class="nav-link" data-scroll-target="#good-to-know"><span class="header-section-number">2.4</span> Good to know</a></li>
+  <li><a href="#if-something-goes-wrong" id="toc-if-something-goes-wrong" class="nav-link" data-scroll-target="#if-something-goes-wrong"><span class="header-section-number">2.5</span> If something goes wrong</a>
+  <ul class="collapse">
+  <li><a href="#claude-code-issues" id="toc-claude-code-issues" class="nav-link" data-scroll-target="#claude-code-issues"><span class="header-section-number">2.5.1</span> Claude Code issues</a></li>
+  <li><a href="#antigravity-issues" id="toc-antigravity-issues" class="nav-link" data-scroll-target="#antigravity-issues"><span class="header-section-number">2.5.2</span> Antigravity issues</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/nmfs-opensci/agent-coders-clinics/edit/main/content/setup.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nmfs-opensci/agent-coders-clinics/blob/main/content/setup.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/nmfs-opensci/agent-coders-clinics/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -317,33 +316,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Everything in this clinic runs on the NMFS Openscapes JupyterHub. You do not need an AI account, an API key, or anything installed on your own computer. You need a GitHub account.</p>
-<section id="log-in-to-github" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="log-in-to-github"><span class="header-section-number">2.1</span> 1. Log in to GitHub</h2>
-<p>In your browser, log in to <a href="https://github.com">github.com</a>. The hub uses your GitHub account to let you in.</p>
+<p>Everything in this clinic runs on the NMFS Openscapes JupyterHub. You do not need anything installed on your own computer. You need a GitHub account.</p>
+<section id="get-on-the-jupyterhub" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="get-on-the-jupyterhub"><span class="header-section-number">2.1</span> Get on the JupyterHub</h2>
+<ol type="1">
+<li><p>Log in to GitHub. The hub uses your GitHub account to let you in.</p></li>
+<li><p>Open <a href="https://nmfs-openscapes.2i2c.cloud/" class="uri">https://nmfs-openscapes.2i2c.cloud/</a> . You should see the start a server page.</p></li>
+<li><p>You can accept the default image. Choose the <strong>4 GB</strong> size and click <strong>Start</strong>. It can take a minute or two to start.</p></li>
+</ol>
 </section>
-<section id="go-to-the-hub" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="go-to-the-hub"><span class="header-section-number">2.2</span> 2. Go to the hub</h2>
-<p>Open <a href="https://nmfs-openscapes.2i2c.cloud/" class="uri">https://nmfs-openscapes.2i2c.cloud/</a> and sign in with GitHub.</p>
-</section>
-<section id="start-a-server-with-4-gb" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="start-a-server-with-4-gb"><span class="header-section-number">2.3</span> 3. Start a server with 4 GB</h2>
-<p>On the server options page, choose the <strong>4 GB</strong> size and click <strong>Start</strong>. It can take a minute or two to start.</p>
-</section>
-<section id="open-a-terminal" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="open-a-terminal"><span class="header-section-number">2.4</span> 4. Open a terminal</h2>
-<p>In JupyterLab: <strong>File → New → Terminal</strong>.</p>
-</section>
-<section id="run-the-workshop-script" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="run-the-workshop-script"><span class="header-section-number">2.5</span> 5. Run the workshop script</h2>
+<section id="once-on-the-hub-run-the-setup-script." class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="once-on-the-hub-run-the-setup-script."><span class="header-section-number">2.2</span> Once on the hub, run the setup script.</h2>
+<ol type="1">
+<li><p>In JupyterLab: <strong>File → New → Terminal</strong>.</p></li>
+<li><p>Run the workshop setup script in the terminal.</p></li>
+</ol>
+<p>Choose the tool you are using for the clinic:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Claude Code</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Antigravity</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <p>In the terminal, run:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">~/shared/workshop/claude-agent-coders</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>When it asks, type the <strong>workshop code</strong> your organizer gives you (or paste the key starting with <code>sk-</code> if you were given one). The script gets you a personal key, shows your budget and when it expires, installs Claude Code, and starts it.</p>
 <p>The first start asks a few setup questions. Pick a theme. When it asks whether to <strong>trust this folder</strong>, say <strong>no</strong>. It is asking about your home directory, and you do not want the agent working across everything in it. This step is only to get Claude Code installed and your key saved. If Claude Code starts anyway, type <code>/exit</code> to close it.</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>In the terminal, run the team launcher:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">~/shared/agent-coders/agy-agent-coders</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The launcher checks for the Antigravity CLI (<code>agy</code>), installs it automatically if missing, sets up your terminal <code>PATH</code>, adds auto-approved everyday commands to your settings, and configures safety guards.</p>
+<p>On your first run, it will walk you through sign-in:</p>
+<ol type="1">
+<li>When prompted with <strong>“Select login method”</strong>, choose/accept <strong>“Continue with Google Cloud”</strong>.</li>
+<li>Look for the link in the terminal: click <strong>“click to authenticate”</strong> (or copy and paste the URL into your browser).</li>
+<li>Sign in with your Google account, click through the authorization prompts, and copy the authorization code.</li>
+<li>Return to the terminal and paste the code.</li>
+<li>When prompted for your <strong>Google Cloud project code</strong>, paste the project code provided to you (from Jira or your organizer).</li>
+<li>When prompted with <strong>“Accept License”</strong>, accept the <strong>‘Agent Platform’</strong>.</li>
+</ol>
+<p>Once authentication completes and you see the agent prompt, type <code>/exit</code> to close it so you can complete the repository setup steps below.</p>
+</div>
+</div>
+</div>
 </section>
-<section id="log-in-to-github-from-the-terminal" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="log-in-to-github-from-the-terminal"><span class="header-section-number">2.6</span> 6. Log in to GitHub from the terminal</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> auth login</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="authenticate-to-github-in-the-jupyterhub" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="authenticate-to-github-in-the-jupyterhub"><span class="header-section-number">2.3</span> Authenticate to GitHub in the JupyterHub</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> auth login</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Answer the prompts:</p>
 <ul>
 <li><strong>Where do you use GitHub?</strong> GitHub.com</li>
@@ -353,36 +371,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>It prints a one-time code. Copy it, open the link it shows, paste the code, and approve. When the terminal says you are logged in, you are done.</p>
 </section>
-<section id="make-your-own-copy-of-the-practice-repository" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="make-your-own-copy-of-the-practice-repository"><span class="header-section-number">2.7</span> 7. Make your own copy of the practice repository</h2>
-<p>Create a repository in your own GitHub account from the <a href="https://github.com/nmfs-opensci/NOAA-quarto-book">NOAA Quarto book template</a>, and clone it to the hub:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo create my-quarto-book <span class="at">--template</span> nmfs-opensci/NOAA-quarto-book <span class="at">--public</span> <span class="at">--clone</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>You can use any name in place of <code>my-quarto-book</code>. You now have <code>~/my-quarto-book</code> on the hub and a matching repository on your GitHub.</p>
-</section>
-<section id="start-claude-code-in-your-repository" class="level2" data-number="2.8">
-<h2 data-number="2.8" class="anchored" data-anchor-id="start-claude-code-in-your-repository"><span class="header-section-number">2.8</span> 8. Start Claude Code in your repository</h2>
-<p>Open a <strong>new</strong> terminal (the short command does not work in the terminal you used for step 5), then:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/my-quarto-book</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">claude-agent-coders</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This time, say <strong>yes</strong> to trusting the folder: this is the repository you want the agent to work in.</p>
-<p>Try a first prompt:</p>
-<blockquote class="blockquote">
-<p>What is this repository? List the main files and what they do.</p>
-</blockquote>
-<p>If the agent reads your files and answers, you are set up.</p>
-</section>
-<section id="good-to-know" class="level2" data-number="2.9">
-<h2 data-number="2.9" class="anchored" data-anchor-id="good-to-know"><span class="header-section-number">2.9</span> Good to know</h2>
+<section id="good-to-know" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="good-to-know"><span class="header-section-number">2.4</span> Good to know</h2>
 <ul>
-<li><strong>Check your spending:</strong> <code>claude-agent-coders --budget</code> shows what you have spent, your budget, and when your key expires. Spending shows up about a minute after you use Claude.</li>
-<li><strong>Switch models</strong> inside Claude Code with <code>/model</code>, for example <code>/model claude-sonnet-4-6</code>. The default, Claude Haiku 4.5, is the cheapest.</li>
-<li><strong>Your own Claude account is untouched.</strong> <code>claude-agent-coders</code> keeps its settings in <code>~/.config/claude-agent-coders/claude</code>, separate from <code>~/.claude</code>.</li>
-<li><strong>The full path always works:</strong> if <code>claude-agent-coders</code> is not found, use <code>~/shared/workshop/claude-agent-coders</code>.</li>
+<li><strong>Claude Code budget:</strong> <code>claude-agent-coders --budget</code> shows what you have spent, your budget, and when your key expires. Spending shows up about a minute after you use Claude.</li>
+<li><strong>Switch models in Claude Code:</strong> Use <code>/model</code>, for example <code>/model claude-sonnet-4-6</code>. The default, Claude Haiku 4.5, is the cheapest.</li>
+<li><strong>Check Antigravity settings:</strong> Run <code>agy-agent-coders --check</code> in a terminal to see the auto-approved commands and edit mode configured for your account.</li>
+<li><strong>Always use the team launcher:</strong> Start Antigravity with <code>agy-agent-coders</code>, not plain <code>agy</code>. Plain <code>agy</code> asks for permission before every single shell command out of the box; <code>agy-agent-coders</code> adds everyday commands to your settings and guards against destructive actions.</li>
+<li><strong>Do not use <code>agy --sandbox</code> on the hub:</strong> The hub’s container security does not support container sandboxing.</li>
+<li><strong>Interactive vs non-interactive (<code>agy -p</code>):</strong> Non-interactive mode (<code>agy -p "..."</code>) stops the whole task at the first command requiring approval, so stick to the interactive terminal session during clinic exercises.</li>
+<li><strong>Chained commands:</strong> Permission rules match whole words from the start of a command; each segment of a chained command (like <code>cmd1 &amp;&amp; cmd2</code> or <code>cmd1 | cmd2</code>) must match on its own. Chained commands that include unapproved segments will ask for approval.</li>
+<li><strong>Your personal configurations are preserved:</strong> Both <code>claude-agent-coders</code> and <code>agy-agent-coders</code> preserve your personal settings and existing configurations.</li>
+<li><strong>The full paths always work:</strong> If <code>claude-agent-coders</code> is not found, use <code>~/shared/workshop/claude-agent-coders</code>. If <code>agy-agent-coders</code> is not found, use <code>~/shared/agent-coders/agy-agent-coders</code>.</li>
 </ul>
 </section>
-<section id="if-something-goes-wrong" class="level2" data-number="2.10">
-<h2 data-number="2.10" class="anchored" data-anchor-id="if-something-goes-wrong"><span class="header-section-number">2.10</span> If something goes wrong</h2>
+<section id="if-something-goes-wrong" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="if-something-goes-wrong"><span class="header-section-number">2.5</span> If something goes wrong</h2>
+<section id="claude-code-issues" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="claude-code-issues"><span class="header-section-number">2.5.1</span> Claude Code issues</h3>
 <ul>
 <li><strong>“That workshop code is not right”</strong>: check the code and try again.</li>
 <li><strong>“That key was not accepted”</strong>: paste the whole key, starting with <code>sk-</code>. If it still fails, ask your organizer.</li>
@@ -391,8 +397,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>“not set up yet”</strong> or <strong>“Could not reach the workshop gateway”</strong>: the gateway is not running. Ask your organizer.</li>
 <li><strong>A key from an earlier workshop</strong>: run <code>claude-agent-coders --reset</code>, then <code>claude-agent-coders</code> and enter the new code.</li>
 </ul>
+</section>
+<section id="antigravity-issues" class="level3" data-number="2.5.2">
+<h3 data-number="2.5.2" class="anchored" data-anchor-id="antigravity-issues"><span class="header-section-number">2.5.2</span> Antigravity issues</h3>
+<ul>
+<li><strong><code>agy-agent-coders: command not found</code></strong>: Open a new terminal (new terminals load the updated <code>PATH</code> with <code>~/.local/bin</code>), or run the full path <code>~/shared/agent-coders/agy-agent-coders</code>.</li>
+<li><strong>“agent-coders guard: …”</strong>: The safety guard prevented a destructive command (such as <code>git reset --hard</code> or <code>rm -r</code> outside the project folder). This is expected protection; tell the agent to use non-destructive alternatives like <code>git stash</code> or a soft reset.</li>
+<li><strong>Commands asking for confirmation</strong>: Prompts to approve actions like <code>pip</code>, <code>cp</code>, <code>mv</code>, or <code>rm</code> are expected behavior for commands not on the everyday whitelist. Review the proposed command and approve it if appropriate.</li>
+<li><strong>Google Cloud project prompt</strong>: Make sure you paste the exact Google Cloud project code provided in your clinic materials or Jira ticket.</li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
