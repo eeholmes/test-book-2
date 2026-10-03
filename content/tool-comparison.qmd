@@ -4,32 +4,35 @@ title: Tool Comparison
 
 ## Quick reference
 
-All of these tools work through the clinic's shared gateway. Pick whichever one you're most comfortable with — or try a few.
+On the JupyterHub, the clinic provides pre-configured launchers for **Claude Code** (via the clinic's LiteLLM Bedrock gateway) and **Antigravity** (via Google Cloud). Other tools remain available for reference if running in your own environment.
 
-| | Claude Code | OpenCode | Copilot CLI | Gemini CLI |
+
+| | Claude Code | Antigravity (`agy`) | OpenCode | Copilot CLI |
 |---|---|---|---|---|
-| **Start** | `claude` | `opencode` | `copilot` | `gemini` |
-| **Switch model** | `/model name` | `/models` menu | Quit, change env var, restart | `/model name` |
-| **Check usage** | `/usage` | — | — | — |
-| **Clear context** | `/clear` | — | — | `/clear` |
-| **Status** | `/status` | — | — | — |
-| **Best for** | Deep coding tasks, Claude models | Trying open models, flexible config | Quick questions | Google ecosystem |
+| **Hub launcher** | `claude-agent-coders` | `agy-agent-coders` | — | — |
+| **Direct start** | `claude` | `agy` | `opencode` | `copilot` |
+| **Credentials** | Workshop code / LiteLLM key | Google Cloud project code | Gateway key | GitHub / Gateway |
+| **Switch model** | `/model name` | Settings / CLI args | `/models` menu | Env var restart |
+| **Clear context** | `/clear` | `/clear` | — | — |
+| **Instructions file** | `CLAUDE.md` or `AGENTS.md` | `AGENTS.md` | Config | System prompt |
+| **Best for** | Claude models, deep reasoning | Gemini models, Google ecosystem | Open models | Quick suggestions |
 
 ## Key differences
 
-**Claude Code** is the most full-featured for this clinic. It has built-in commands for managing context (`/clear`), checking status (`/status`, `/usage`), and switching models (`/model`). It's designed around Claude and works well with `CLAUDE.md` project files.
+**Claude Code** connects to the clinic's LiteLLM gateway on Amazon Bedrock. It has built-in commands for managing context (`/clear`), checking status and spending (`/status`, `/usage`, `claude-agent-coders --budget`), and switching models (`/model`). It reads `CLAUDE.md` or `@AGENTS.md` in the project root.
 
-**OpenCode** is open-source and has the most flexible model configuration. It works well with both Claude and open models through the gateway. Good if you want to compare models side by side.
+**Antigravity (`agy`)** is Google's agentic coding CLI powered by Gemini models. On the hub, the `agy-agent-coders` launcher installs `agy`, pre-approves everyday tasks (Quarto, R, Python, git, file inspections) so they run without interruption, and sets a safety guard to prevent destructive commands (`git reset --hard`, force push, `rm -r` outside project). It reads `AGENTS.md` in the project root.
 
-**GitHub Copilot CLI** is straightforward to set up. To switch models you need to quit and restart with a different `COPILOT_MODEL` environment variable. No GitHub account needed when using the gateway.
+**OpenCode** is open-source and has flexible model configuration, connecting to open models through gateways.
 
-**Gemini CLI** is Google's tool. It follows the same agentic pattern. Configuration is via environment variables.
+**GitHub Copilot CLI** is focused on command-line suggestions and interactive coding assistance through GitHub Copilot.
 
 ## Common commands across tools
 
 Regardless of which tool you use, you'll do the same basic things:
 
 - **Give a prompt** — type what you want the agent to do
-- **Approve tool use** — most tools ask permission before editing files or running commands
+- **Approve tool use** — agents ask permission before running unapproved commands or modifying sensitive files
 - **Review output** — always check what the agent did before moving on
-- **End the session** — close the tool or clear context when switching tasks
+- **End the session or reset** — close the tool or clear context (`/clear`) when switching tasks
+

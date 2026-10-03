@@ -4,13 +4,34 @@ title: Troubleshooting
 
 ## Setup problems
 
-### `claude-agent-coders: command not found`
+### `claude-agent-coders: command not found` or `agy-agent-coders: command not found`
 
-The short name works only in terminals opened *after* you first ran the script. Open a new terminal, or use the full path:
+The short command names work only in terminals opened *after* you first ran the launcher script (the scripts add `~/.local/bin` to your `PATH`). Open a new terminal, or use the full paths:
+
+- Claude Code: `~/shared/workshop/claude-agent-coders`
+- Antigravity: `~/shared/agent-coders/agy-agent-coders`
+
+### "agent-coders guard: ..."
+
+The safety guard installed by `agy-agent-coders` blocked a destructive command, such as `git reset --hard`, `git push --force` (without lease), `git clean -f`, or `rm -r` on a path outside your project repository. This is intentional to prevent accidental work loss. Tell the agent to use a non-destructive alternative (for example, `git stash` or a soft reset).
+
+### Antigravity prompts for approval on everyday commands
+
+If Antigravity prompts you to approve simple commands like `ls` or `quarto`, you may have started plain `agy` instead of the team launcher. Quit and restart with:
 
 ```bash
-~/shared/workshop/claude-agent-coders
+agy-agent-coders
 ```
+
+You can check what commands are currently allowed to run without asking by running:
+
+```bash
+agy-agent-coders --check
+```
+
+### Antigravity prompts for approval on `pip`, `cp`, or `rm`
+
+This is normal and expected. The team launcher whitelists safe, everyday commands (`quarto`, `R`, `python3`, `git`, directory listing, etc.), but intentionally leaves package installations (`pip`), file copies, and deletions to require explicit user approval. Review the proposed command and approve it if appropriate.
 
 ### "That workshop code is not right"
 
@@ -44,6 +65,14 @@ claude-agent-coders
 ### `gh auth login` or `gh repo create` fails
 
 Run `gh auth status` to see whether you are logged in. If not, run `gh auth login` again and choose **GitHub.com**, **HTTPS**, **Yes** (authenticate Git), and **Login with a web browser**. If `gh repo create` says the name already exists, pick a different repository name.
+
+### Sandbox fails with `agy --sandbox`
+
+Do not use `--sandbox`. The JupyterHub container environment does not support nested container namespaces.
+
+### Non-interactive `agy -p` exits early
+
+`agy -p "..."` stops immediately at the first command that requires confirmation. For clinic exercises, use interactive mode (`agy-agent-coders`) instead.
 
 ## Budget problems
 
@@ -82,4 +111,5 @@ Review what the agent is doing before approving. Most tools ask permission befor
 
 ### Agent is working in the wrong folder
 
-Claude Code works in the folder you start it from. Quit (`/exit`), `cd` into your repository, and start `claude-agent-coders` again.
+Agents work in the folder you start them from. For Antigravity, this folder also defines the boundary that the safety guard protects. Quit (`/exit`), `cd` into your repository, and launch the agent again.
+
