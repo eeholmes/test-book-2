@@ -5,6 +5,7 @@
 - Setup has a **Guardrails** section (Claude Code / Antigravity tabs); Activity, Troubleshooting and Tool Comparison link to it. It describes the guard added to `agy-agent-coders` in nmfs-opensci/agent-coders-clinics#15 (blocks pushes to `main` and repo deletion; asks before merge, branch delete, issue close, PRs into others' repos). `claude-agent-coders` has no guard: Claude Code's auto mode (Sonnet/Opus only) or manual mode is the protection.
 - Skills 100's prompt now works in Claude Code and Antigravity (it tells the agent which global file to use), asks before merging and deleting branches, and never commits on `main`. "Where does it live?" was cut to a table on purpose: Eli does not want learners taught the paths.
 - Facts found by running, and why: `claude/notes/setup-decisions.md`, section "Guardrails and Skills 100 in both tools".
+- **Open thread (Eli, 2026-10-03):** make `claude-agent-coders` default to Sonnet with auto mode on. The launcher is not in this repo: it is rendered in `~/agent-coders-gateway` (nmfs-opensci/agent-coders-gateway, `assets/hub-signup.sh` via `scripts/render.py`) from the `litellm-bedrock-gateway` skill in nmfs-opensci/agent-skills. If it changes, this guide's Guardrails tab and Models & Budget page (which say Haiku is the default) need updating.
 
 ## Earlier (2026-10-03): GitHub access choice in Activity 1 (Issue #10, PR #16, merged)
 
