@@ -1,6 +1,10 @@
-# Handoff — 2026-09-29
+# Handoff — 2026-10-03
 
-## Latest (2026-09-29): Setup rewritten for the hub (PR #9, merged)
+## Latest (2026-10-03): Antigravity instructions added (Issue #12)
+
+Added instructions for participants using Google Antigravity (`agy`) on JupyterHub via the team launcher `~/shared/agent-coders/agy-agent-coders`. Setup page now features tabsets for Claude Code vs Antigravity at steps 5 and 8. Tool Comparison and Troubleshooting updated with Antigravity details, commands, and safeguards. See `claude/notes/setup-decisions.md`.
+
+## Previous (2026-09-29): Setup rewritten for the hub (PR #9, merged)
 
 The old Setup page described manual gateway env vars; participants actually use the shared hub script. Setup, Troubleshooting and Models & Budget now follow the hub flow. Why and what's deliberate: `claude/notes/setup-decisions.md`.
 
@@ -41,8 +45,9 @@ First draft of the Agent Coders Clinic participant guide — a Quarto book with 
 - **Test the full activity flow** — walk through the 3-phase exercise end-to-end before the clinic
 - **`claude/notes/plan.md`** is now outdated — reflects the original plan, not the current state
 - **Walk the Setup steps on a fresh hub account** — not done yet; `/model` with an open model through Claude Code also untested
-- **Tool Comparison** still describes manual OpenCode/Copilot setup; fine as reference, but the hub path is Claude Code only
-- **Antigravity instructions (issue #12)** — not started. The team starts agy with the hub launcher `~/shared/agent-coders/agy-agent-coders` (source: agent-coders-clinics `hub/agy-agent-coders`); the issue's comment has what it does and what to tell people
+- **Tool Comparison** updated to cover both hub launchers (`claude-agent-coders` and `agy-agent-coders`)
+- **Antigravity instructions (issue #12)** — drafted and integrated into `setup.qmd`, `tool-comparison.qmd`, and `troubleshooting.qmd` on branch `issue-12-antigravity-instructions`.
+
 
 ## Source material
 

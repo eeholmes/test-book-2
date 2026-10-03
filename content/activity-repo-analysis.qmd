@@ -25,10 +25,13 @@ cd NOAA-quarto-book
 Launch your coding tool inside the cloned repo:
 
 ```bash
-claude
+claude-agent-coders
+# or for Antigravity:
+agy-agent-coders
 ```
 
-(Or `opencode`, `copilot`, etc. — whichever you set up.)
+(Or `claude`, `agy`, etc. depending on your tool.)
+
 
 ---
 

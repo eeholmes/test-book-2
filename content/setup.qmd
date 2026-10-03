@@ -2,25 +2,27 @@
 title: Setup
 ---
 
-Everything in this clinic runs on the NMFS Openscapes JupyterHub. You do not need an AI account, an API key, or anything installed on your own computer. You need a GitHub account.
+Everything in this clinic runs on the NMFS Openscapes JupyterHub. You do not need anything installed on your own computer. You need a GitHub account.
 
-## 1. Log in to GitHub
+## Get on the JupyterHub
 
-In your browser, log in to [github.com](https://github.com). The hub uses your GitHub account to let you in.
+1. Log in to GitHub. The hub uses your GitHub account to let you in.
 
-## 2. Go to the hub
+2. Open <https://nmfs-openscapes.2i2c.cloud/> . You should see the start a server page.
 
-Open <https://nmfs-openscapes.2i2c.cloud/> and sign in with GitHub.
+3. You can accept the default image. Choose the **4 GB** size and click **Start**. It can take a minute or two to start.
 
-## 3. Start a server with 4 GB
+## Once on the hub, run the setup script.
 
-On the server options page, choose the **4 GB** size and click **Start**. It can take a minute or two to start.
+1. In JupyterLab: **File → New → Terminal**.
 
-## 4. Open a terminal
+2. Run the workshop setup script in the terminal.
 
-In JupyterLab: **File → New → Terminal**.
+Choose the tool you are using for the clinic:
 
-## 5. Run the workshop script
+::: {.panel-tabset}
+
+### Claude Code
 
 In the terminal, run:
 
@@ -32,7 +34,31 @@ When it asks, type the **workshop code** your organizer gives you (or paste the 
 
 The first start asks a few setup questions. Pick a theme. When it asks whether to **trust this folder**, say **no**. It is asking about your home directory, and you do not want the agent working across everything in it. This step is only to get Claude Code installed and your key saved. If Claude Code starts anyway, type `/exit` to close it.
 
-## 6. Log in to GitHub from the terminal
+### Antigravity
+
+In the terminal, run the team launcher:
+
+```bash
+~/shared/agent-coders/agy-agent-coders
+```
+
+The launcher checks for the Antigravity CLI (`agy`), installs it automatically if missing, sets up your terminal `PATH`, adds auto-approved everyday commands to your settings, and configures safety guards.
+
+On your first run, it will walk you through sign-in:
+
+1. When prompted with **"Select login method"**, choose/accept **"Continue with Google Cloud"**.
+2. Look for the link in the terminal: click **"click to authenticate"** (or copy and paste the URL into your browser).
+3. Sign in with your Google account, click through the authorization prompts, and copy the authorization code.
+4. Return to the terminal and paste the code.
+5. When prompted for your **Google Cloud project code**, paste the project code provided to you (from Jira or your organizer).
+6. When prompted with **"Accept License"**, accept the **'Agent Platform'**.
+
+
+Once authentication completes and you see the agent prompt, type `/exit` to close it so you can complete the repository setup steps below.
+
+:::
+
+## Authenticate to GitHub in the JupyterHub
 
 ```bash
 gh auth login
@@ -47,42 +73,21 @@ Answer the prompts:
 
 It prints a one-time code. Copy it, open the link it shows, paste the code, and approve. When the terminal says you are logged in, you are done.
 
-## 7. Make your own copy of the practice repository
-
-Create a repository in your own GitHub account from the [NOAA Quarto book template](https://github.com/nmfs-opensci/NOAA-quarto-book), and clone it to the hub:
-
-```bash
-cd ~
-gh repo create my-quarto-book --template nmfs-opensci/NOAA-quarto-book --public --clone
-```
-
-You can use any name in place of `my-quarto-book`. You now have `~/my-quarto-book` on the hub and a matching repository on your GitHub.
-
-## 8. Start Claude Code in your repository
-
-Open a **new** terminal (the short command does not work in the terminal you used for step 5), then:
-
-```bash
-cd ~/my-quarto-book
-claude-agent-coders
-```
-
-This time, say **yes** to trusting the folder: this is the repository you want the agent to work in.
-
-Try a first prompt:
-
-> What is this repository? List the main files and what they do.
-
-If the agent reads your files and answers, you are set up.
-
 ## Good to know
 
-- **Check your spending:** `claude-agent-coders --budget` shows what you have spent, your budget, and when your key expires. Spending shows up about a minute after you use Claude.
-- **Switch models** inside Claude Code with `/model`, for example `/model claude-sonnet-4-6`. The default, Claude Haiku 4.5, is the cheapest.
-- **Your own Claude account is untouched.** `claude-agent-coders` keeps its settings in `~/.config/claude-agent-coders/claude`, separate from `~/.claude`.
-- **The full path always works:** if `claude-agent-coders` is not found, use `~/shared/workshop/claude-agent-coders`.
+- **Claude Code budget:** `claude-agent-coders --budget` shows what you have spent, your budget, and when your key expires. Spending shows up about a minute after you use Claude.
+- **Switch models in Claude Code:** Use `/model`, for example `/model claude-sonnet-4-6`. The default, Claude Haiku 4.5, is the cheapest.
+- **Check Antigravity settings:** Run `agy-agent-coders --check` in a terminal to see the auto-approved commands and edit mode configured for your account.
+- **Always use the team launcher:** Start Antigravity with `agy-agent-coders`, not plain `agy`. Plain `agy` asks for permission before every single shell command out of the box; `agy-agent-coders` adds everyday commands to your settings and guards against destructive actions.
+- **Do not use `agy --sandbox` on the hub:** The hub's container security does not support container sandboxing.
+- **Interactive vs non-interactive (`agy -p`):** Non-interactive mode (`agy -p "..."`) stops the whole task at the first command requiring approval, so stick to the interactive terminal session during clinic exercises.
+- **Chained commands:** Permission rules match whole words from the start of a command; each segment of a chained command (like `cmd1 && cmd2` or `cmd1 | cmd2`) must match on its own. Chained commands that include unapproved segments will ask for approval.
+- **Your personal configurations are preserved:** Both `claude-agent-coders` and `agy-agent-coders` preserve your personal settings and existing configurations.
+- **The full paths always work:** If `claude-agent-coders` is not found, use `~/shared/workshop/claude-agent-coders`. If `agy-agent-coders` is not found, use `~/shared/agent-coders/agy-agent-coders`.
 
 ## If something goes wrong
+
+### Claude Code issues
 
 - **"That workshop code is not right"**: check the code and try again.
 - **"That key was not accepted"**: paste the whole key, starting with `sk-`. If it still fails, ask your organizer.
@@ -90,3 +95,11 @@ If the agent reads your files and answers, you are set up.
 - **"All workshop keys are handed out"**, **"sign-up is closed"** or **"has ended"**: ask your organizer.
 - **"not set up yet"** or **"Could not reach the workshop gateway"**: the gateway is not running. Ask your organizer.
 - **A key from an earlier workshop**: run `claude-agent-coders --reset`, then `claude-agent-coders` and enter the new code.
+
+### Antigravity issues
+
+- **`agy-agent-coders: command not found`**: Open a new terminal (new terminals load the updated `PATH` with `~/.local/bin`), or run the full path `~/shared/agent-coders/agy-agent-coders`.
+- **"agent-coders guard: ..."**: The safety guard prevented a destructive command (such as `git reset --hard` or `rm -r` outside the project folder). This is expected protection; tell the agent to use non-destructive alternatives like `git stash` or a soft reset.
+- **Commands asking for confirmation**: Prompts to approve actions like `pip`, `cp`, `mv`, or `rm` are expected behavior for commands not on the everyday whitelist. Review the proposed command and approve it if appropriate.
+- **Google Cloud project prompt**: Make sure you paste the exact Google Cloud project code provided in your clinic materials or Jira ticket.
+
