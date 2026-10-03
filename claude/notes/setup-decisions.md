@@ -95,3 +95,26 @@ credential for private work-organization repos.
 - **Not yet checked with a real token:** login via pasted fine-grained token
   (whether gh's scope check complains), clone/push, PR/issue creation, and that
   a private org repo is refused.
+
+## Guardrails and Skills 100 in both tools (PR #18, 2026-10-03)
+
+- **`claude-agent-coders` sets `CLAUDE_CONFIG_DIR`** (`~/.config/claude-agent-coders/claude`), so
+  Claude Code reads its global `CLAUDE.md` from there and **ignores `~/.claude/CLAUDE.md`**
+  (checked by running Claude Code with a scratch config dir and a canary). The Skills 100
+  prompt therefore gives the agent a rule, not a path: Claude Code uses
+  `$CLAUDE_CONFIG_DIR/CLAUDE.md` if set, else `~/.claude/CLAUDE.md`; Antigravity uses
+  `~/.gemini/config/AGENTS.md`. Asked which path they would write, both tools picked
+  the right one. One prompt for both tools was Eli's ask; participants are not taught
+  the paths.
+- **Auto mode needs Sonnet or Opus.** `claude --permission-mode auto` started in
+  `default` with Haiku 4.5 (the launcher's default model) and in `auto` with Sonnet 4.6.
+  Tested on a personal Anthropic account, not through the gateway. Per the Claude Code
+  docs, auto mode allows pushing to `main`, so the page says to start tasks on a branch.
+- **The agy guard's "ask" is a stop-and-ask the agent honours.** agy hooks can only deny;
+  the agent reruns with `USER_CONFIRMED=1` after the person says yes. The participant
+  page leaves that prefix out on purpose. For `gh pr merge` and `gh issue close`, which
+  are not on the team allow list, agy's own approval prompt follows as well.
+- **Skills 100 "Task is done"** asks before merging and before deleting the branch, to
+  match the guard and the clinic's branch → PR → review → merge workflow.
+- **Not done:** walking the Skills 100 prompt end to end as a participant, and auto mode
+  through the gateway.
