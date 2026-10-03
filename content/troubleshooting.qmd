@@ -62,9 +62,26 @@ claude-agent-coders --reset
 claude-agent-coders
 ```
 
-### `gh auth login` or `gh repo create` fails
+### GitHub refuses a push or `gh` command
+
+::: {.panel-tabset}
+
+### Token for one repository
+
+Do not run `gh auth login` and do not widen the token to fix this, unless you have decided you are fine with the agent having full access. Check, in order:
+
+1. **Is the token in this terminal?** Run `gh auth status`. If it does not say `GH_TOKEN`, this is a new terminal: repeat **Give the token to your terminal** in [Activity 1](activity-repo-analysis.qmd#connect-the-hub-to-github-and-copy-the-practice-repository), then restart your agent from this terminal.
+2. **Is the remote HTTPS?** Run `git remote -v`. If it starts with `git@github.com:`, switch it: `git remote set-url origin https://github.com/YOUR-USERNAME/my-quarto-book.git`.
+3. **Is this repository on the token?** At <https://github.com/settings/personal-access-tokens>, open the token and check that the repository is in its selected repositories, and that Contents (and Pull requests or Issues, if that is what failed) are **Read and write**.
+4. **Has the token expired?** Make a new one with the same settings.
+
+If `gh auth status` also lists an account stored on the hub, someone ran `gh auth login`, and the agent can use that login too. Remove it with `env -u GH_TOKEN gh auth logout --hostname github.com` (`gh` will not log out while `GH_TOKEN` is set).
+
+### `gh auth login`
 
 Run `gh auth status` to see whether you are logged in. If not, run `gh auth login` again and choose **GitHub.com**, **HTTPS**, **Yes** (authenticate Git), and **Login with a web browser**. If `gh repo create` says the name already exists, pick a different repository name.
+
+:::
 
 ### Sandbox fails with `agy --sandbox`
 

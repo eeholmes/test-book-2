@@ -56,3 +56,39 @@ Why and what's deliberate:
 - **Activity 1 startup:** In `content/activity-repo-analysis.qmd`, participants create their repository from the template using `gh repo create my-quarto-book --template nmfs-opensci/NOAA-quarto-book --public --clone` and launch their chosen agent with tabbed instructions for `claude-agent-coders` vs `agy-agent-coders`.
 
 
+
+## GitHub access via fine-grained token (Issue #10)
+
+Eli chose (2026-10-03) to offer two options in a tabset in Activity 1, token
+first (default tab): a fine-grained token scoped to the practice repo, or
+`gh auth login` for people fine with the agent doing anything they can on GitHub.
+Goal of the token: the agent works on the practice repo without the hub holding a
+credential for private work-organization repos.
+
+- **Considered and rejected: `gh-scoped-creds`.** It is installed on the hub and
+  configured (`GH_SCOPED_CREDS_CLIENT_ID`, app
+  `nmfs-openscapes-github-push-access`), but that GitHub App is owned by
+  2i2c-org and has only `contents: write` + `metadata: read`, so `gh pr` /
+  `gh issue` (Skills 100 workflow) would fail, and it only wires up git, not
+  `gh`. A self-owned app with PR/Issues permissions would fix that; Eli chose the
+  PAT instead.
+- **The whole GitHub flow lives in Activity 1**, not Setup. In the token tab the
+  repo is created on the website ("Use this template") *before* the token;
+  `gh repo create` cannot be used there — a selected-repositories token cannot
+  create repos. The `gh auth login` tab keeps `gh repo create --template --clone`.
+- **Logging out matters**, not just skipping login: a stored OAuth token in
+  `~/.config/gh/hosts.yml` stays readable to the agent even when `GH_TOKEN` is set.
+  `gh auth logout` refuses while `GH_TOKEN` is set (checked), hence
+  `env -u GH_TOKEN gh auth logout ...` in Troubleshooting.
+- **Permissions:** Contents, Pull requests and Issues all read/write, because
+  Skills 100's CLAUDE.md prompt has the agent create issues, open and merge PRs,
+  and delete branches. Issue #10 said grant PR/Issues only if exercises use them;
+  they do.
+- **Launchers, not plain `claude`:** issue #10's snippet ends with `claude`; the
+  guide uses `claude-agent-coders` / `agy-agent-coders`. Both `exec` the CLI, so
+  `GH_TOKEN` is inherited. The agent must start in the same terminal.
+- **Checked in a clean HOME:** `gh auth setup-git` works with only `GH_TOKEN`
+  (no stored login) and the git credential helper hands git that token; it also
+  writes an empty `helper =` that overrides other helpers for github.com.
+  **Not yet checked with a real token:** clone/push, PR/issue creation, and that
+  a private org repo is refused.
