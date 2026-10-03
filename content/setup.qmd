@@ -93,9 +93,15 @@ Once you connect GitHub in Activity 1, the agent can do on GitHub whatever your 
 
 ### Claude Code
 
-`claude-agent-coders` adds **no guard of its own**. It sends Claude Code through the workshop gateway with your budget-limited key, and keeps it in its own settings folder (`~/.config/claude-agent-coders/claude`), apart from any personal Claude Code setup.
+`claude-agent-coders` adds no guard of its own. Claude Code's **permission mode** protects you. The current mode is shown below the prompt box, and **Shift+Tab** switches between modes.
 
-Your protection is Claude Code's permission prompt. It asks before it edits a file or runs a command. Read the command before you approve it, especially `git push`, `gh pr merge`, or anything that deletes. Answering "don't ask again" for a command means it will not ask about that command again.
+- **Auto mode:** before each action runs, a second model checks it. Routine work runs without asking. Risky actions are blocked, such as force pushes, `git reset --hard`, deleting files that were already there, downloading and running scripts, and merging a pull request you have not approved. Auto mode does allow pushing to `main`, so start each task on a branch.
+- **Manual mode** (the default when auto mode is not available): Claude Code asks before every command and every file edit. Read each one before you approve it. Answering "don't ask again" for a command means it will not ask about that command again.
+
+Auto mode needs a **Sonnet or Opus** model. It does not work with the default model, Claude Haiku 4.5. To use it:
+
+1. Switch model: `/model claude-sonnet-4-6`. Sonnet costs more than Haiku; see [Models & Budget](models-and-budget.qmd).
+2. Press **Shift+Tab** until the mode shows **auto**.
 
 ### Antigravity
 
