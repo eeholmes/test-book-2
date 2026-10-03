@@ -2,25 +2,21 @@
 title: Setup
 ---
 
-Everything in this clinic runs on the NMFS Openscapes JupyterHub. You do not need an AI account, an API key, or anything installed on your own computer. You need a GitHub account.
+Everything in this clinic runs on the NMFS Openscapes JupyterHub. You do not need anything installed on your own computer. You need a GitHub account.
 
-## 1. Log in to GitHub
+## Get on the JupyterHub
 
-In your browser, log in to [github.com](https://github.com). The hub uses your GitHub account to let you in.
+1. Log in to GitHub. The hub uses your GitHub account to let you in.
 
-## 2. Go to the hub
+2. Open <https://nmfs-openscapes.2i2c.cloud/> . You should see the start a server page.
 
-Open <https://nmfs-openscapes.2i2c.cloud/> and sign in with GitHub.
+3. You can accept the default image. Choose the **4 GB** size and click **Start**. It can take a minute or two to start.
 
-## 3. Start a server with 4 GB
+## Once on the hub, run the setup script.
 
-On the server options page, choose the **4 GB** size and click **Start**. It can take a minute or two to start.
+1. In JupyterLab: **File → New → Terminal**.
 
-## 4. Open a terminal
-
-In JupyterLab: **File → New → Terminal**.
-
-## 5. Run the workshop setup script
+2. Run the workshop setup script in the terminal.
 
 Choose the tool you are using for the clinic:
 
@@ -50,17 +46,19 @@ The launcher checks for the Antigravity CLI (`agy`), installs it automatically i
 
 On your first run, it will walk you through sign-in:
 
-1. Look for the link in the terminal: click **"click to authenticate"** (or copy and paste the URL into your browser).
-2. Sign in with your Google account, click through the authorization prompts, and copy the authorization code.
-3. Return to the terminal and paste the code.
-4. When prompted for your **Google Cloud project code**, paste the project code provided to you (from Jira or your organizer).
-5. When prompted, accept the **'Agent Platform'**.
+1. When prompted with **"Select login method"**, choose/accept **"Continue with Google Cloud"**.
+2. Look for the link in the terminal: click **"click to authenticate"** (or copy and paste the URL into your browser).
+3. Sign in with your Google account, click through the authorization prompts, and copy the authorization code.
+4. Return to the terminal and paste the code.
+5. When prompted for your **Google Cloud project code**, paste the project code provided to you (from Jira or your organizer).
+6. When prompted with **"Accept License"**, accept the **'Agent Platform'**.
+
 
 Once authentication completes and you see the agent prompt, type `/exit` to close it so you can complete the repository setup steps below.
 
 :::
 
-## 6. Log in to GitHub from the terminal
+## Authenticate to GitHub in the JupyterHub
 
 ```bash
 gh auth login
@@ -74,63 +72,6 @@ Answer the prompts:
 - **How would you like to authenticate?** Login with a web browser
 
 It prints a one-time code. Copy it, open the link it shows, paste the code, and approve. When the terminal says you are logged in, you are done.
-
-## 7. Make your own copy of the practice repository
-
-Create a repository in your own GitHub account from the [NOAA Quarto book template](https://github.com/nmfs-opensci/NOAA-quarto-book), and clone it to the hub:
-
-```bash
-cd ~
-gh repo create my-quarto-book --template nmfs-opensci/NOAA-quarto-book --public --clone
-```
-
-You can use any name in place of `my-quarto-book`. You now have `~/my-quarto-book` on the hub and a matching repository on your GitHub.
-
-## 8. Start your agent in your repository
-
-Open a **new** terminal (the short command names do not work in the terminal you used for setup step 5), navigate to your repository, and start your agent:
-
-::: {.panel-tabset}
-
-### Claude Code
-
-```bash
-cd ~/my-quarto-book
-claude-agent-coders
-```
-
-This time, say **yes** to trusting the folder: this is the repository you want the agent to work in.
-
-Try a first prompt:
-
-> What is this repository? List the main files and what they do.
-
-If the agent reads your files and answers, you are set up.
-
-### Antigravity
-
-```bash
-cd ~/my-quarto-book
-agy-agent-coders
-```
-
-::: {.callout-important}
-Always start `agy-agent-coders` from inside your project folder (`cd ~/my-quarto-book` first). The folder you start it in is what Antigravity treats as the project boundary, and what the safety guard protects around.
-:::
-
-Try a first prompt:
-
-> What is this repository? List the main files and what they do.
-
-If the agent reads your files and answers, you are set up.
-
-**What to expect while working:**
-
-- **Everyday commands run automatically:** `agy-agent-coders` pre-approves everyday tasks—inspecting files (`ls`, `cat`, `grep`, etc.), creating directories (`mkdir`, `touch`), R, Quarto, Python, and read-only git/GitHub actions—so they run without asking. It also automatically accepts edits to files inside your project repository.
-- **Unlisted commands ask for approval:** Anything not on the team's auto-approved list (copying, moving, or deleting files, `pip`, or running other software) will prompt for your confirmation before running. This is normal and expected.
-- **Safety guards:** The launcher blocks destructive actions like `git reset --hard`, force pushes (`git push --force`), `git clean -f`, and recursive deletions (`rm -r`) outside your project directory. If the agent tries to run one of these, it will be blocked with a message starting with `agent-coders guard:`.
-
-:::
 
 ## Good to know
 
