@@ -62,9 +62,26 @@ claude-agent-coders --reset
 claude-agent-coders
 ```
 
-### `gh auth login` or `gh repo create` fails
+### GitHub refuses a push or `gh` command
+
+::: {.panel-tabset}
+
+### Token for one repository
+
+Check these before widening the token:
+
+1. **Are you logged in with the token?** Run `gh auth status`. If you are not logged in, or it shows a browser login, run `gh auth login` again and choose **Paste an authentication token**.
+2. **Is the remote HTTPS?** Run `git remote -v`. If it starts with `git@github.com:`, switch it: `git remote set-url origin https://github.com/YOUR-USERNAME/my-quarto-book.git`.
+3. **Is this repository on the token?** At <https://github.com/settings/personal-access-tokens>, open the token and check that the repository is in its selected repositories, and that Contents (and Pull requests or Issues, if that is what failed) are **Read and write**.
+4. **Has the token expired?** Make a new one with the same settings and log in with it again.
+
+`gh repo create` does not work with this token, because it cannot create repositories. Create new repositories on GitHub's website.
+
+### Full access
 
 Run `gh auth status` to see whether you are logged in. If not, run `gh auth login` again and choose **GitHub.com**, **HTTPS**, **Yes** (authenticate Git), and **Login with a web browser**. If `gh repo create` says the name already exists, pick a different repository name.
+
+:::
 
 ### Sandbox fails with `agy --sandbox`
 

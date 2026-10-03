@@ -53,6 +53,45 @@ Why and what's deliberate:
 
 - **Setup page streamlined:** Repository creation and first agent launch were moved out of `setup.qmd` into Activity 1 (`content/activity-repo-analysis.qmd`) where participants actually work on their practice repository.
 - **Tabset consistency:** In `setup.qmd`, the tool-specific setup step, "Good to know", and "If something goes wrong" all use panel tabsets separating Claude Code from Antigravity.
-- **Activity 1 startup:** In `content/activity-repo-analysis.qmd`, participants create their repository from the template using `gh repo create my-quarto-book --template nmfs-opensci/NOAA-quarto-book --public --clone` and launch their chosen agent with tabbed instructions for `claude-agent-coders` vs `agy-agent-coders`.
+- **Activity 1 startup:** In `content/activity-repo-analysis.qmd`, participants create their repository from the template using `gh repo create my-quarto-book --template nmfs-opensci/NOAA-quarto-book --public --clone` and launch their chosen agent with tabbed instructions for `claude-agent-coders` vs `agy-agent-coders`. (Issue #10 moved `gh repo create` into the `gh auth login` tab; see below.)
 
 
+
+## GitHub access via fine-grained token (Issue #10)
+
+Eli chose (2026-10-03) to offer two options in a tabset in Activity 1, token
+first (default tab): a fine-grained token scoped to the practice repo, or
+`gh auth login` for people fine with the agent doing anything they can on GitHub.
+Goal of the token: the agent works on the practice repo without the hub holding a
+credential for private work-organization repos.
+
+- **Considered and rejected: `gh-scoped-creds`.** It is installed on the hub and
+  configured (`GH_SCOPED_CREDS_CLIENT_ID`, app
+  `nmfs-openscapes-github-push-access`), but that GitHub App is owned by
+  2i2c-org and has only `contents: write` + `metadata: read`, so `gh pr` /
+  `gh issue` (Skills 100 workflow) would fail, and it only wires up git, not
+  `gh`. A self-owned app with PR/Issues permissions would fix that; Eli chose the
+  PAT instead.
+- **The whole GitHub flow lives in Activity 1**, not Setup. In the token tab the
+  repo is created on the website ("Use this template") *before* the token;
+  `gh repo create` cannot be used there — a selected-repositories token cannot
+  create repos. The `gh auth login` tab keeps `gh repo create --template --clone`.
+- **Token is stored by `gh`, not passed via `GH_TOKEN` (deliberately departs from
+  issue #10).** The issue's flow (`read -rsp` → `export GH_TOKEN`, re-done in every
+  terminal, never saved) was dropped: Eli said it was excessive for a learning
+  activity and that the hassle would push everyone to browser `gh auth login`.
+  Instead the token tab runs interactive `gh auth login` → "Paste an
+  authentication token" (masked input). `gh` saves it in `~/.config/gh/hosts.yml`
+  (plain text on the hub, like a browser login), so every terminal and agent
+  works, and it replaces any earlier browser login for that account, so no
+  logout step is needed. `gh auth login --help` warns fine-grained tokens via
+  login "may cause confusing behaviour" with other resources and favours
+  `GH_TOKEN`; that confusion (e.g. `gh repo create` failing) is the intended
+  restriction, and Troubleshooting says so.
+- **Permissions:** Contents, Pull requests and Issues all read/write, because
+  Skills 100's CLAUDE.md prompt has the agent create issues, open and merge PRs,
+  and delete branches. Issue #10 said grant PR/Issues only if exercises use them;
+  they do.
+- **Not yet checked with a real token:** login via pasted fine-grained token
+  (whether gh's scope check complains), clone/push, PR/issue creation, and that
+  a private org repo is refused.

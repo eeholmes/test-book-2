@@ -6,7 +6,108 @@ In this activity you'll practice the full clear–handoff–notes workflow from 
 
 ## Before you start
 
-### 1. Make your own copy of the practice repository
+### 1. Connect the hub to GitHub and copy the practice repository
+
+Use your existing GitHub account. You do not need a separate account or approval from your organization. Choose how much of your GitHub the agent can reach:
+
+- **Token for one repository:** the agent can only push to your practice repository. Use this if your GitHub account can see private work repositories, or you are not sure.
+- **Full access:** you log in with your browser, and the agent can do anything on GitHub that you can, in every repository your account can reach, including private repositories in your work organizations.
+
+::: {.panel-tabset}
+
+### Token for one repository
+
+#### Make your own copy of the practice repository
+
+Do this on GitHub's website, before you make the token.
+
+1. Open the [NOAA Quarto book template](https://github.com/nmfs-opensci/NOAA-quarto-book).
+2. Click **Use this template → Create a new repository**.
+3. **Owner:** your personal GitHub username, not an organization.
+4. **Repository name:** `my-quarto-book`, or any name you like. The steps below use `my-quarto-book`.
+5. Choose **Public** and click **Create repository**.
+
+#### Make a token for that one repository
+
+Go to <https://github.com/settings/personal-access-tokens/new> and fill in:
+
+- **Token name:** JupyterHub Claude Code training
+- **Expiration:** a few days after the clinic
+- **Resource owner:** your personal GitHub username
+- **Repository access:** **Only select repositories**, then pick `my-quarto-book`
+- **Permissions → Repository permissions:**
+  - **Contents:** Read and write
+  - **Pull requests:** Read and write
+  - **Issues:** Read and write
+
+Leave every other permission at **No access**. (**Metadata: Read-only** is added automatically; that is expected.) Pull requests and Issues are there for the GitHub workflow in [Skills 100](skills-100.qmd).
+
+Click **Generate token** and copy it. GitHub shows it only once.
+
+#### Log in to GitHub with the token
+
+Open a terminal (**File → New → Terminal**) and run:
+
+```bash
+gh auth login
+```
+
+Answer the prompts:
+
+- **Where do you use GitHub?** GitHub.com
+- **Preferred protocol for Git operations?** HTTPS
+- **Authenticate Git with your GitHub credentials?** Yes
+- **How would you like to authenticate?** **Paste an authentication token**
+
+Paste the token and press Enter. It may mention required scopes; you can ignore that for a fine-grained token. `gh` saves the token on the hub, so every terminal, and your agent, uses it until it expires. If you logged in with your browser on this hub before, this replaces that login.
+
+#### Clone your repository
+
+Clone with the HTTPS address (replace `YOUR-USERNAME`):
+
+```bash
+cd ~
+git clone https://github.com/YOUR-USERNAME/my-quarto-book.git
+```
+
+You now have `~/my-quarto-book` on the hub.
+
+::: {.callout-tip}
+## Working with the token
+
+- **A new repository is not covered automatically.** To use the agent on another repository, create it on GitHub's website, then add it to the token's selected repositories at <https://github.com/settings/personal-access-tokens>.
+- **Use HTTPS remotes** (`https://github.com/...`), not SSH (`git@github.com:...`).
+- **If GitHub refuses something**, check the token's repositories and permissions before widening it. See [Troubleshooting](troubleshooting.qmd#github-refuses-a-push-or-gh-command).
+- **Logging in with the browser** (the **Full access** tab) replaces the token with full access.
+
+Public repositories are still readable to the agent. The token keeps it away from private repositories and limits where it can write.
+:::
+
+### Full access
+
+
+::: {.callout-warning}
+With this option the agent can read, change and delete anything you can on GitHub, including private repositories in your work organizations. Use it only if you are comfortable with that.
+:::
+
+#### Log in
+
+In a terminal, run:
+
+```bash
+gh auth login
+```
+
+Answer the prompts:
+
+- **Where do you use GitHub?** GitHub.com
+- **Preferred protocol for Git operations?** HTTPS
+- **Authenticate Git with your GitHub credentials?** Yes
+- **How would you like to authenticate?** Login with a web browser
+
+It prints a one-time code. Copy it, open the link it shows, paste the code, and approve. When the terminal says you are logged in, you are done.
+
+#### Copy and clone the practice repository
 
 Create a repository in your own GitHub account from the [NOAA Quarto book template](https://github.com/nmfs-opensci/NOAA-quarto-book), and clone it to the hub:
 
@@ -17,9 +118,11 @@ gh repo create my-quarto-book --template nmfs-opensci/NOAA-quarto-book --public 
 
 You can use any name in place of `my-quarto-book`. You now have `~/my-quarto-book` on the hub and a matching repository on your GitHub.
 
+:::
+
 ### 2. Start your agent in your repository
 
-Open a **new** terminal, navigate to your repository, and start your agent:
+Open a **new** terminal, go to your repository, and start your agent:
 
 ::: {.panel-tabset}
 
